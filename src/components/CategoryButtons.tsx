@@ -47,28 +47,28 @@ export default function CategoryButtons() {
 
       {/* Mobile Layout */}
       <div className="lg:hidden w-full flex flex-col shadow-lg">
-        {/* Categories wrap */}
-        <div className="flex flex-wrap w-full">
+        {/* Categories horizontally scrollable */}
+        <div className="flex flex-nowrap w-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
            {categories.map((cat) => (
-             <div key={cat.id} className={`w-[33.33%] h-32 flex flex-col items-center justify-center text-white cursor-pointer transition-colors ${cat.bg}`}>
-                <cat.icon className="text-4xl mb-3 font-light" />
+             <div key={cat.id} className={`flex-shrink-0 w-[33.33%] h-32 flex flex-col items-center justify-center text-white snap-start cursor-pointer transition-colors ${cat.bg}`}>
+                <cat.icon className="text-[40px] mb-3 font-light" />
                 <span className="font-bold text-xs text-center tracking-wider">{cat.title}</span>
              </div>
            ))}
         </div>
         
         {/* Mobile Appointment Box */}
-        <div className="w-full py-8 bg-white flex items-center justify-center cursor-pointer">
-           <div className="flex items-center justify-center text-gray-800 px-10 py-4 border border-[#C6A87E] w-11/12 max-w-sm rounded-[2px]">
-             <div className="relative mr-6 text-[#9a7d57]">
-                <FaRegCalendarAlt className="text-5xl" />
-                <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 border-2 border-[#9a7d57]">
-                    <div className="w-3 h-3 bg-[#9a7d57] rounded-full flex items-center justify-center">
-                        <span className="text-white text-[8px] font-bold">✓</span>
+        <div className="w-full py-5 bg-white flex items-center justify-center cursor-pointer">
+           <div className="flex items-center justify-center text-[#4B5357] px-6 py-4 border-[1.5px] border-[#C6A87E] w-[92%] rounded-sm">
+             <div className="relative mr-5 text-[#5D6366]">
+                <FaRegCalendarAlt className="text-5xl opacity-80" />
+                <div className="absolute -bottom-1 -right-2 bg-white rounded-full p-0.5 border-2 border-[#5D6366]">
+                    <div className="w-4 h-4 rounded-full flex items-center justify-center bg-white">
+                        <span className="text-[#5D6366] text-[10px] font-black">✓</span>
                     </div>
                 </div>
              </div>
-             <div className="flex flex-col font-black text-2xl tracking-tight leading-6 text-gray-800">
+             <div className="flex flex-col font-bold text-[22px] tracking-tight leading-[1.1] ml-2 text-[#4c5255]">
                <span>Ücretsiz</span>
                <span>Randevu Al</span>
              </div>
