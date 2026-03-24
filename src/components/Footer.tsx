@@ -34,7 +34,7 @@ export default function Footer({ dict, footerDict }: { dict?: any, footerDict?: 
   return (
     <footer className="w-full bg-white mt-20 relative z-10">
       {/* Top Gradient Divider - same as header */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#0d2244] via-[#1e3a5f] via-40% via-[#427bdf] to-[#7fb3ff]"></div>
+      <div className="w-full h-[4px]" style={{ background: 'linear-gradient(to right, #0d2244 0%, #1e3a5f 20%, #427bdf 50%, #a8ccf0 75%, #ffffff 100%)' }}></div>
 
       {/* Main Footer Content */}
       <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 py-14 xl:py-16">

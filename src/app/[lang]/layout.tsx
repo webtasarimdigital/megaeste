@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
     description: dict.seo?.description || "Türkiye'nin Lider Estetik Kliniği | Megaeste",
     alternates: {
       languages: {
-        'tr': '/tr',
+        'tr': '/',
         'en': '/en',
       },
     },

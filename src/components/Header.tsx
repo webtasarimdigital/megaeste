@@ -16,8 +16,27 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   const switchLanguage = (newLang: string) => {
     if (!pathname) return;
     const segments = pathname.split('/');
-    segments[1] = newLang; // since path starts with /, index 1 is lang
-    router.push(segments.join('/') || '/');
+    // Check if current path has a locale prefix
+    const currentHasLocale = ['tr', 'en'].includes(segments[1]);
+    
+    if (newLang === 'tr') {
+      // TR is default — no prefix. Strip locale if present.
+      if (currentHasLocale) {
+        const cleanPath = '/' + segments.slice(2).join('/');
+        router.push(cleanPath || '/');
+      } else {
+        // Already on a clean TR path
+        router.push(pathname);
+      }
+    } else {
+      // Non-default lang (en) — add /en/ prefix
+      if (currentHasLocale) {
+        segments[1] = newLang;
+        router.push(segments.join('/') || '/');
+      } else {
+        router.push(`/${newLang}${pathname}`);
+      }
+    }
   };
 
   const navData = dict?.nav ? [
@@ -32,11 +51,11 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   return (
     <header className="w-full bg-white relative z-50">
       {/* Top Gradient Bar */}
-      <div className="w-full h-[5px] bg-gradient-to-r from-[#0d2244] via-[#1e3a5f] via-40% via-[#427bdf] to-[#7fb3ff]"></div>
+      <div className="w-full h-[5px]" style={{ background: 'linear-gradient(to right, #0d2244 0%, #1e3a5f 20%, #427bdf 50%, #a8ccf0 75%, #ffffff 100%)' }}></div>
       {/* Desktop Header */}
       <div className="hidden lg:flex w-full max-w-[1920px] mx-auto px-10 xl:px-24 py-6 justify-between items-center shadow-sm">
         {/* Logo Section */}
-        <Link href={`/${lang}`} className="flex-shrink-0 mr-8 mt-1 block">
+        <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 mr-8 mt-1 block">
           <Image 
             src="/images/logo.png" 
             alt="Megaeste Logo" 

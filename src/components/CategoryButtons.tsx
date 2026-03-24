@@ -10,10 +10,10 @@ import { MdOutlineFaceRetouchingNatural } from 'react-icons/md';
 export default function CategoryButtons({ dict }: { dict?: any }) {
 
   const categories = [
-    { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, color: '#427bdf' }, // Logo Blue
-    { id: 2, title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', icon: BsPersonHeart, color: '#e9799d' }, // Logo Pink
-    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, color: '#427bdf' }, // Logo Yellow/Gold
-    { id: 4, title: dict?.epilation?.title || 'Epilasyon', icon: FaLeaf, color: '#5C7B99' } // Elegant Grey-Blue Add-on
+    { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, color: '#427bdf', bg: '#e8f0fb' },
+    { id: 2, title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', icon: BsPersonHeart, color: '#e9799d', bg: '#fce8ee' },
+    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, color: '#427bdf', bg: '#edf2fa' },
+    { id: 4, title: dict?.epilation?.title || 'Epilasyon', icon: FaLeaf, color: '#5C7B99', bg: '#ecf1f5' }
   ];
 
   return (
@@ -24,7 +24,8 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
         {categories.map((cat) => (
           <div 
             key={cat.id}
-            className="group relative bg-white/95 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+            className="group relative backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl border border-white/60 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+            style={{ backgroundColor: cat.bg }}
           >
             {/* Top Accent Line (Animates width on hover) */}
             <div 
@@ -35,7 +36,7 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
             {/* Icon Container */}
             <div 
               className="flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 rounded-full mb-4 xl:mb-5 transition-transform duration-500 group-hover:scale-110"
-              style={{ backgroundColor: `${cat.color}15` }}
+              style={{ backgroundColor: `${cat.color}20` }}
             >
               <cat.icon 
                 className="text-3xl xl:text-4xl transition-colors duration-300" 
@@ -56,8 +57,8 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
           </div>
         ))}
 
-        {/* Appointment Action Button */}
-        <div className="group relative bg-gradient-to-br from-[#427bdf] to-[#2b5ebf] rounded-2xl shadow-xl hover:shadow-[#427bdf]/30 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 border-2 border-white/20 overflow-hidden col-span-2 md:col-span-1 lg:col-span-1">
+        {/* Appointment Action Button - Rectangular to differentiate */}
+        <div className="group relative bg-gradient-to-br from-[#427bdf] to-[#2b5ebf] rounded-xl shadow-xl hover:shadow-[#427bdf]/30 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 border-2 border-white/20 overflow-hidden col-span-2 md:col-span-1 lg:col-span-1">
           {/* Glassmorphism Sheen */}
           <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine z-10" />
 
@@ -73,7 +74,7 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
           </div>
 
           {/* Highlight ring on hover */}
-          <div className="absolute inset-0 rounded-2xl border-2 border-white/0 group-hover:border-white/50 transition-colors duration-500"></div>
+          <div className="absolute inset-0 rounded-xl border-2 border-white/0 group-hover:border-white/50 transition-colors duration-500"></div>
         </div>
 
       </div>
