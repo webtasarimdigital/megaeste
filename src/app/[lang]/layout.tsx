@@ -14,10 +14,21 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Megaeste Estetik ve Plastik Cerrahi",
-  description: "Türkiye'nin Lider Estetik Kliniği | Megaeste",
-};
+import { getDictionary } from "../../get-dictionary";
+
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }): Promise<Metadata> {
+  const dict = await getDictionary(lang as 'tr' | 'en');
+  return {
+    title: dict.seo?.title || "Megaeste Estetik ve Plastik Cerrahi",
+    description: dict.seo?.description || "Türkiye'nin Lider Estetik Kliniği | Megaeste",
+    alternates: {
+      languages: {
+        'tr': '/tr',
+        'en': '/en',
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return [{ lang: "tr" }, { lang: "en" }];

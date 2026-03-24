@@ -13,7 +13,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
       <Header dict={dict.header} lang={lang} />
-      <HeroSlider />
+      <HeroSlider dict={dict.hero} />
       
       {/* Top action area wrapper */}
       <div className="relative z-20 flex flex-col">
@@ -27,7 +27,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       </div>
 
       <Footer dict={dict.header.nav} />
-      <MobileBottomNav />
+      <MobileBottomNav dict={dict.mobileNav} />
     </main>
   );
 }

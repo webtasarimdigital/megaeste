@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { GiHairStrands } from 'react-icons/gi';
 import { BsPersonHeart } from 'react-icons/bs';
 import { FaRegCalendarAlt, FaLeaf } from 'react-icons/fa';
@@ -8,7 +8,6 @@ import { MdOutlineFaceRetouchingNatural } from 'react-icons/md';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function CategoryButtons({ dict }: { dict?: any }) {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const categories = [
     { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, color: '#427bdf' }, // Logo Blue
@@ -25,8 +24,6 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
         {categories.map((cat) => (
           <div 
             key={cat.id}
-            onMouseEnter={() => setHoveredId(cat.id)}
-            onMouseLeave={() => setHoveredId(null)}
             className="group relative bg-white/95 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden"
           >
             {/* Top Accent Line (Animates width on hover) */}

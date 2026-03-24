@@ -35,6 +35,10 @@
           "Lazer Epilasyon",
           "İğneli Lazer Epilasyonu"
         ]
+      },
+      "blog": {
+        "title": "Blog",
+        "items": []
       }
     }
   },
@@ -47,5 +51,41 @@
   "services": {
     "title": "HİZMETLERİMİZ",
     "subtitle": "Size Özel Gelişmiş Tedavi Yöntemleri"
-  }
+  },
+  "seo": {
+    "title": "Megaeste | Saç Ekimi, Plastik Cerrahi ve Medikal Estetik Merkezi",
+    "description": "Megaeste olarak uzman kadromuz ve en son teknoloji cihazlarımızla sağlık, saç ekimi ve medikal estetik alanlarında profesyonel hizmet sunuyoruz."
+  },
+  "mobileNav": {
+    "contact": "İletişim",
+    "whatsapp": "Whatsapp"
+  },
+  "hero": [
+    {
+      "id": 1,
+      "desktopImg": "/images/slider_desktop_1.png",
+      "mobileImg": "/images/slider_mobile_1.png",
+      "desktopSub": "DOĞAL ÖN SAÇ TASARIMI",
+      "desktopTitle": "İtalyan Çizgisi Estetiği",
+      "desktopHighlight1": "Saç Ekiminde",
+      "desktopHighlight2": "Yeni Nesil Teknoloji",
+      "desktopDesc": "Daha sık, doğal görünüm ve kalıcı sonuçlarla estetiğinizi yeniden keşfedin.",
+      "mobileSub": "1 GÜNDE",
+      "mobileTitle": "Saç & Kaş Estetiği",
+      "mobileDesc": "doğal, sık ve kalıcı sonuçlar"
+    },
+    {
+      "id": 2,
+      "desktopImg": "/images/slider_desktop_2.png",
+      "mobileImg": "/images/slider_mobile_2.png",
+      "desktopSub": "ÖZEL SAÇ EKİM PROTOKOLÜ",
+      "desktopTitle": "megaeste Farkını Yaşayın",
+      "desktopHighlight1": "Uzman Kadro İle",
+      "desktopHighlight2": "Kusursuz Sonuçlar",
+      "desktopDesc": "Kişiye özel planlanan modern saç ekimi uygulamalarıyla kendinizi özel hissedin.",
+      "mobileSub": "MEGAESTE KALİTESİ",
+      "mobileTitle": "Kusursuz Saç Ekimi",
+      "mobileDesc": "kişiye özel ve doğal görünüm"
+    }
+  ]
 }

@@ -35,6 +35,10 @@
           "Laser Hair Removal",
           "Needle Epilation"
         ]
+      },
+      "blog": {
+        "title": "Blog",
+        "items": []
       }
     }
   },
@@ -47,5 +51,41 @@
   "services": {
     "title": "OUR SERVICES",
     "subtitle": "Advanced Treatment Methods Custom to You"
-  }
+  },
+  "seo": {
+    "title": "Megaeste | Hair Transplant, Plastic Surgery & Medical Aesthetics Center",
+    "description": "At Megaeste, we offer professional services in health, hair transplantation, and medical aesthetics with our expert staff and state-of-the-art equipment."
+  },
+  "mobileNav": {
+    "contact": "Contact",
+    "whatsapp": "Whatsapp"
+  },
+  "hero": [
+    {
+      "id": 1,
+      "desktopImg": "/images/slider_desktop_1.png",
+      "mobileImg": "/images/slider_mobile_1.png",
+      "desktopSub": "NATURAL FRONTAL HAIRLINE DESIGN",
+      "desktopTitle": "Italian Line Aesthetics",
+      "desktopHighlight1": "Next Generation Technology",
+      "desktopHighlight2": "in Hair Transplantation",
+      "desktopDesc": "Rediscover your aesthetics with thicker, natural-looking, and permanent results.",
+      "mobileSub": "IN 1 DAY",
+      "mobileTitle": "Hair & Eyebrow Aesthetics",
+      "mobileDesc": "natural, thick and permanent results"
+    },
+    {
+      "id": 2,
+      "desktopImg": "/images/slider_desktop_2.png",
+      "mobileImg": "/images/slider_mobile_2.png",
+      "desktopSub": "SPECIAL HAIR TRANSPLANT PROTOCOL",
+      "desktopTitle": "Experience the megaeste Difference",
+      "desktopHighlight1": "Flawless Results",
+      "desktopHighlight2": "with Expert Staff",
+      "desktopDesc": "Feel special with modern hair transplantation applications planned specifically for you.",
+      "mobileSub": "MEGAESTE QUALITY",
+      "mobileTitle": "Flawless Hair Transplant",
+      "mobileDesc": "personalized and natural appearance"
+    }
+  ]
 }

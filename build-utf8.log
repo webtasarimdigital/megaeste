@@ -1,0 +1,125 @@
+﻿
+> temp-app@0.1.0 build
+> next build
+
+  Ôû▓ Next.js 14.2.14
+
+   Creating an optimized production build ...
+ Ô£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files\n
+odejs/node.exe" "C:\Pro
+gram Files\nodejs/node_
+mo ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (:String) [],    
+ RemoteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+Failed to compile.
+
+./src/components/AboutS
+ection.tsx
+22:13  Warning: Using `
+<img>` could result in 
+slower LCP and higher b
+andwidth. Consider usin
+g `<Image />` from `nex
+t/image` to automatical
+ly optimize images. Thi
+s may incur additional 
+usage or cost from your
+ provider. See: https:/
+/nextjs.org/docs/messag
+es/no-img-element  @nex
+t/next/no-img-element
+33:13  Warning: Using `
+<img>` could result in 
+slower LCP and higher b
+andwidth. Consider usin
+g `<Image />` from `nex
+t/image` to automatical
+ly optimize images. Thi
+s may incur additional 
+usage or cost from your
+ provider. See: https:/
+/nextjs.org/docs/messag
+es/no-img-element  @nex
+t/next/no-img-element
+
+./src/components/Catego
+ryButtons.tsx
+11:10  Error: 'hoveredI
+d' is assigned a value 
+but never used.  @types
+cript-eslint/no-unused-
+vars
+
+./src/components/HeroSl
+ider.tsx
+45:35  Error: Unexpecte
+d any. Specify a differ
+ent type.  @typescript-
+eslint/no-explicit-any
+48:13  Warning: Using `
+<img>` could result in 
+slower LCP and higher b
+andwidth. Consider usin
+g `<Image />` from `nex
+t/image` to automatical
+ly optimize images. Thi
+s may incur additional 
+usage or cost from your
+ provider. See: https:/
+/nextjs.org/docs/messag
+es/no-img-element  @nex
+t/next/no-img-element
+54:13  Warning: Using `
+<img>` could result in 
+slower LCP and higher b
+andwidth. Consider usin
+g `<Image />` from `nex
+t/image` to automatical
+ly optimize images. Thi
+s may incur additional 
+usage or cost from your
+ provider. See: https:/
+/nextjs.org/docs/messag
+es/no-img-element  @nex
+t/next/no-img-element
+91:31  Error: Unexpecte
+d any. Specify a differ
+ent type.  @typescript-
+eslint/no-explicit-any
+
+./src/components/Servic
+esSection.tsx
+75:16  Warning: Using `
+<img>` could result in 
+slower LCP and higher b
+andwidth. Consider usin
+g `<Image />` from `nex
+t/image` to automatical
+ly optimize images. Thi
+s may incur additional 
+usage or cost from your
+ provider. See: https:/
+/nextjs.org/docs/messag
+es/no-img-element  @nex
+t/next/no-img-element
+
+info  - Need to disable
+ some ESLint rules? Lea
+rn more here: https://n
+extjs.org/docs/basic-fe
+atures/eslint#disabling
+-rules

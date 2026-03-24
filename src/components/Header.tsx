@@ -25,7 +25,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
     { title: dict.nav.hairTransplant?.title || '', items: dict.nav.hairTransplant?.items || [] },
     { title: dict.nav.plasticSurgery?.title || '', items: dict.nav.plasticSurgery?.items || [] },
     { title: dict.nav.medicalAesthetics?.title || '', items: dict.nav.medicalAesthetics?.items || [] },
-    { title: dict.nav.epilation?.title || '', items: dict.nav.epilation?.items || [] }
+    { title: dict.nav.epilation?.title || '', items: dict.nav.epilation?.items || [] },
+    { title: dict.nav.blog?.title || '', items: dict.nav.blog?.items || [] }
   ] : [];
 
   return (

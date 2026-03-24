@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -33,13 +34,16 @@ const slides = [
   }
 ];
 
-export default function HeroSlider() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function HeroSlider({ dict }: { dict?: any }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 6000 })]);
+
+  const activeSlides = dict || slides;
 
   return (
     <div className="relative w-full overflow-hidden bg-gray-100" ref={emblaRef}>
       <div className="flex">
-        {slides.map((slide) => (
+        {activeSlides.map((slide: any) => (
           <div key={slide.id} className="relative flex-[0_0_100%] min-w-0">
             {/* Desktop Image */}
             <img 
@@ -85,7 +89,7 @@ export default function HeroSlider() {
       
       {/* Navigation Dots */}
       <div className="absolute bottom-12 lg:bottom-16 left-0 right-0 flex justify-center space-x-3 z-30">
-        {slides.map((_, index) => (
+        {activeSlides.map((_: any, index: number) => (
           <button 
             key={index} 
             onClick={() => emblaApi && emblaApi.scrollTo(index)}
