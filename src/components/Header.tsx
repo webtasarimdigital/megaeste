@@ -39,21 +39,37 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
     }
   };
 
+  const prefix = lang === 'tr' ? '' : `/${lang}`;
+
   const navData = dict?.nav ? [
-    { title: dict.nav.corporate, items: [] },
-    { title: dict.nav.hairTransplant?.title || '', items: dict.nav.hairTransplant?.items || [] },
-    { title: dict.nav.plasticSurgery?.title || '', items: dict.nav.plasticSurgery?.items || [] },
-    { title: dict.nav.medicalAesthetics?.title || '', items: dict.nav.medicalAesthetics?.items || [] },
-    { title: dict.nav.epilation?.title || '', items: dict.nav.epilation?.items || [] },
-    { title: dict.nav.blog?.title || '', items: dict.nav.blog?.items || [] }
+    { title: dict.nav.corporate, href: `${prefix}/hekimlerimiz`, items: [
+      { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: '#' },
+      { label: lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors', href: `${prefix}/hekimlerimiz` },
+      { label: 'Blog', href: `${prefix}/blog` },
+    ]},
+    { title: dict.nav.hairTransplant?.title || '', href: '#', items: (dict.nav.hairTransplant?.items || []).map((item: string, i: number) => ({
+      label: item,
+      href: `${prefix}/hizmetler/${lang === 'tr' ? ['dhi-sac-ekimi', 'safir-sac-ekimi', 'sac-mezoterapisi'][i] : ['dhi-hair-transplant', 'sapphire-hair-transplant', 'hair-mesotherapy'][i]}`,
+    }))},
+    { title: dict.nav.plasticSurgery?.title || '', href: '#', items: (dict.nav.plasticSurgery?.items || []).map((item: string, i: number) => ({
+      label: item,
+      href: `${prefix}/hizmetler/${lang === 'tr' ? ['burun-estetigi', 'goz-kapagi-estetigi', 'meme-estetigi'][i] : ['rhinoplasty', 'blepharoplasty', 'breast-aesthetics'][i]}`,
+    }))},
+    { title: dict.nav.medicalAesthetics?.title || '', href: '#', items: (dict.nav.medicalAesthetics?.items || []).map((item: string, i: number) => ({
+      label: item,
+      href: `${prefix}/hizmetler/${lang === 'tr' ? ['medikal-cilt-bakimi', 'yuz-mezoterapi'][i] : ['medical-skin-care', 'facial-mesotherapy'][i]}`,
+    }))},
+    { title: dict.nav.epilation?.title || '', href: '#', items: (dict.nav.epilation?.items || []).map((item: string, i: number) => ({
+      label: item,
+      href: `${prefix}/hizmetler/${lang === 'tr' ? ['lazer-epilasyon', 'igneli-lazer-epilasyonu'][i] : ['laser-hair-removal', 'needle-laser-epilation'][i]}`,
+    }))},
+    { title: dict.nav.blog?.title || '', href: `${prefix}/blog`, items: [] },
   ] : [];
 
   return (
     <header className="w-full bg-white relative z-50">
-      {/* Top Gradient Bar */}
-      <div className="w-full h-[5px]" style={{ background: 'linear-gradient(to right, #0d2244 0%, #1e3a5f 20%, #427bdf 50%, #a8ccf0 75%, #ffffff 100%)' }}></div>
       {/* Desktop Header */}
-      <div className="hidden lg:flex w-full max-w-[1920px] mx-auto px-10 xl:px-24 py-6 justify-between items-center shadow-sm">
+      <div className="hidden lg:flex w-full xl:max-w-[1920px] mx-auto px-10 xl:px-24 py-5 justify-between items-center shadow-sm">
         {/* Logo Section */}
         <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 mr-8 mt-1 block">
           <Image 
@@ -67,9 +83,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         </Link>
 
         {/* Right Section */}
-        <div className="flex flex-col flex-grow ml-10 xl:ml-16 space-y-5 mt-1">
-          {/* Top Bar */}
-          <div className="flex justify-end items-center text-[14px] font-medium text-gray-500 divide-x divide-gray-300">
+        <div className="flex flex-col flex-grow ml-10 xl:ml-16 space-y-4 mt-1">
+          {/* Top Bar with Soft Gradient */}
+          <div className="flex justify-end items-center text-[13px] font-medium text-gray-500 divide-x divide-gray-200 bg-gradient-to-r from-transparent via-[#427bdf]/5 to-[#427bdf]/10 rounded-l-full py-1.5 pr-2">
             <div className="bg-[#427bdf] text-white px-10 py-2.5 mr-6 font-bold text-[15px] hover:bg-[#2b5ebf] cursor-pointer transition-colors">
               {dict?.getAppointment || "Randevu Al"}
             </div>
@@ -100,7 +116,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             <div className="flex items-center flex-grow justify-start lg:justify-center space-x-4 xl:space-x-8">
               {navData.map((category, index) => (
                 <div key={index} className="relative group py-2">
-                  <a href="#" className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">
+                  <a href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">
                     {category.title}
                     {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </a>
@@ -109,10 +125,10 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                   {category.items.length > 0 && (
                     <div className="absolute top-[100%] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#427bdf] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <ul className="py-2 flex flex-col">
-                        {category.items.map((subItem: string, subIdx: number) => (
+                        {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                           <li key={subIdx}>
-                            <a href="#" className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
-                              {subItem}
+                            <a href={subItem.href} className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
+                              {subItem.label}
                             </a>
                           </li>
                         ))}

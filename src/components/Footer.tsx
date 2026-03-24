@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { FaInstagram, FaYoutube, FaFacebookF, FaTiktok, FaLinkedinIn } from 'react-icons/fa';
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function Footer({ dict, footerDict }: { dict?: any, footerDict?: any }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, footerDict?: any, lang?: string }) {
   const nav = dict || {};
   const f = footerDict || {};
 
