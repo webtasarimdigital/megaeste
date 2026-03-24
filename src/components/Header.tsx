@@ -84,8 +84,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
         {/* Right Section */}
         <div className="flex flex-col flex-grow ml-10 xl:ml-16 space-y-4 mt-1">
-          {/* Top Bar with Soft Gradient */}
-          <div className="flex justify-end items-center text-[13px] font-medium text-gray-500 divide-x divide-gray-200 bg-gradient-to-r from-transparent via-[#427bdf]/5 to-[#427bdf]/10 rounded-l-full py-1.5 pr-2">
+          {/* Top Bar with Premium Soft Gradient Wash */}
+          <div className="w-full flex justify-end items-center text-[13px] font-medium text-gray-500 bg-gradient-to-l from-[#427bdf]/15 via-[#427bdf]/5 to-transparent rounded-l-2xl py-2 px-6 shadow-[rgba(0,0,0,0.02)_0px_2px_4px_0px] border-b border-gray-100/10 divide-x divide-gray-200">
             <div className="bg-[#427bdf] text-white px-10 py-2.5 mr-6 font-bold text-[15px] hover:bg-[#2b5ebf] cursor-pointer transition-colors">
               {dict?.getAppointment || "Randevu Al"}
             </div>
