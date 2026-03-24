@@ -1,0 +1,41 @@
+{
+  "header": {
+    "getAppointment": "Randevu Al",
+    "feedbackAndSuggestions": "Görüş ve Önerileriniz",
+    "ourDoctors": "Doktorlarımız",
+    "contactUs": "Bize Ulaşın",
+    "nav": {
+      "corporate": "Kurumsal",
+      "hairTransplant": {
+        "title": "Saç Ekimi Tedavileri",
+        "items": [
+          "DHI Saç Ekimi",
+          "Safir Saç Ekimi",
+          "Saç Mezoterapisi"
+        ]
+      },
+      "plasticSurgery": {
+        "title": "Plastik Cerrahi",
+        "items": [
+          "Burun Estetiği",
+          "Göz Kapağı Estetiği",
+          "Meme Estetiği"
+        ]
+      },
+      "medicalAesthetics": {
+        "title": "Medikal Estetik",
+        "items": [
+          "Medikal Cilt Bakımı",
+          "Yüz Mezoterapi"
+        ]
+      },
+      "epilation": {
+        "title": "Epilasyon",
+        "items": [
+          "Lazer Epilasyon",
+          "İğneli Lazer Epilasyonu"
+        ]
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaInstagram, FaYoutube, FaFacebookF, FaTwitter, FaLinkedinIn, FaTiktok } from 'react-icons/fa';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Footer() {
+export default function Footer({ dict }: { dict?: any }) {
   return (
     <footer className="w-full text-gray-700 font-sans mt-20">
       {/* Top Contact Bar */}
@@ -41,10 +43,15 @@ export default function Footer() {
           
           {/* Left Column (Brand & Socials) */}
           <div className="w-full lg:w-[25%] pr-8 border-b lg:border-b-0 lg:border-r border-gray-200 mb-12 lg:mb-0 pb-12 lg:pb-0 relative">
-            <div className="flex flex-col mb-10">
-              <div className="text-[2.5rem] font-black tracking-tighter text-gray-900 leading-none">megaeste</div>
-              <div className="text-[9px] font-bold tracking-[0.2em] text-[#4B5357] mt-1.5 uppercase">Estetik ve Plastik Cerrahi</div>
-            </div>
+            <Link href="/" className="flex flex-col mb-10 block">
+              <Image 
+                src="/images/logo.png" 
+                alt="Megaeste Logo" 
+                width={260} 
+                height={85} 
+                className="w-[200px] xl:w-[240px] h-auto object-contain"
+              />
+            </Link>
 
             <div className="space-y-5 mb-10">
               <div className="flex items-center text-gray-600 hover:text-[#C6A87E] cursor-pointer transition-colors">
@@ -81,66 +88,27 @@ export default function Footer() {
           </div>
 
           {/* Right Area (Links Grid) */}
-          <div className="w-full lg:w-[75%] lg:pl-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-10 xl:gap-y-12">
+          <div className="w-full lg:w-[75%] lg:pl-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 border-t lg:border-t-0 border-gray-200 pt-10 lg:pt-0">
             
-            {/* Column 1 */}
-            <div className="flex flex-col space-y-7 xl:space-y-10">
-              <FooterList 
-                title="SAÇ EKİMİ" 
-                items={["DHI Saç Ekimi", "Safir Saç Ekimi", "Unique Angle Saç Ekimi", "Kök Hücreli Saç Ekimi", "Tıraşsız Saç Ekimi", "Kaş Ekimi", "Sakal/Bıyık Ekimi"]} 
-              />
-              <FooterList 
-                title="SAÇ TEDAVİLERİ" 
-                items={["Saç Lazeri", "ACell+ PRP", "Eksozom", "Kök Hücre"]} 
-              />
-              <FooterList 
-                title="MEME ESTETİĞİ" 
-                items={["Meme Büyütme", "Meme Küçültme", "Meme Asimetrisi Düzeltme", "Meme Onarımı", "Jinekomasti"]} 
-              />
-              <FooterList title="BURUN ESTETİĞİ" items={[]} />
-              <FooterList title="YÜZ ESTETİĞİ" items={[]} />
-            </div>
-
-            {/* Column 2 */}
-            <div className="flex flex-col space-y-7 xl:space-y-10">
-              <FooterList 
-                title="DOLGU VE BOTOKS" 
-                items={["Botoks", "Dudak Dolgusu", "Göz Altı Işık Dolgusu", "Yüz Işık Dolgusu"]} 
-              />
-              <FooterList 
-                title="AMELİYATSIZ YÜZ GERME" 
-                items={["Ultherapy", "Altın İğne", "Yüz Mezoterapi", "6D Star Askısı"]} 
-              />
-              <FooterList 
-                title="LAZER TEDAVİLERİ" 
-                items={["Fraksiyonel Lazer", "Lazer Epilasyon", "Lazer ile Dudak Dolgusu"]} 
-              />
-              <FooterList 
-                title="CİLT GENÇLEŞTİRME" 
-                items={["Somon DNA", "Karbon Peeling", "Kimyasal Peeling", "PRP", "Medikal Cilt Bakımı", "4D Cilt Gençleştirme", "Scarlet"]} 
-              />
-            </div>
-
-            {/* Column 3 */}
-            <div className="flex flex-col space-y-7 xl:space-y-10">
-              <FooterList 
-                title="GÜLÜŞ ESTETİĞİ" 
-                items={["Hollywood Smile", "Pembe Estetik (Diş Estetiği)", "Diş Beyazlatma"]} 
-              />
-              <FooterList title="DİŞ İMPLANTI" items={[]} />
-              <FooterList 
-                title="DİŞ KAPLAMA" 
-                items={["Zirkonyum", "Tam seramik", "Lamina Porselen", "Diş İmplantı"]} 
-              />
-              <FooterList title="RESTORATİF TEDAVİLER" items={[]} />
-              <FooterList title="ORTODONTİK TEDAVİLER" items={[]} />
-              <FooterList title="KANAL TEDAVİSİ" items={[]} />
-              <FooterList title="CERRAHİ TEDAVİLER" items={[]} />
-              <FooterList 
-                title="SAĞLIKLI BESLENME VE ZAYIFLAMA UYGULAMALARI" 
-                items={["Sağlıklı Beslenme ve Diyet", "Onda Soğuk Dalga Terapisi", "Schwarzy", "LPG (Bölgesel Zayıflama)", "Andülasyon Terapisi"]} 
-              />
-            </div>
+            <FooterList 
+              title={dict?.hairTransplant?.title?.toUpperCase() || "SAÇ EKİMİ TEDAVİLERİ"} 
+              items={dict?.hairTransplant?.items || []} 
+            />
+            
+            <FooterList 
+              title={dict?.plasticSurgery?.title?.toUpperCase() || "PLASTİK CERRAHİ"} 
+              items={dict?.plasticSurgery?.items || []} 
+            />
+            
+            <FooterList 
+              title={dict?.medicalAesthetics?.title?.toUpperCase() || "MEDİKAL ESTETİK"} 
+              items={dict?.medicalAesthetics?.items || []} 
+            />
+            
+            <FooterList 
+              title={dict?.epilation?.title?.toUpperCase() || "EPİLASYON"} 
+              items={dict?.epilation?.items || []} 
+            />
 
           </div>
 

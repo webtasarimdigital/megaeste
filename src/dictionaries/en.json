@@ -1,0 +1,41 @@
+{
+  "header": {
+    "getAppointment": "Get Appointment",
+    "feedbackAndSuggestions": "Feedback & Suggestions",
+    "ourDoctors": "Our Doctors",
+    "contactUs": "Contact Us",
+    "nav": {
+      "corporate": "Corporate",
+      "hairTransplant": {
+        "title": "Hair Transplant Treatments",
+        "items": [
+          "DHI Hair Transplant",
+          "Sapphire Hair Transplant",
+          "Hair Mesotherapy"
+        ]
+      },
+      "plasticSurgery": {
+        "title": "Plastic Surgery",
+        "items": [
+          "Rhinoplasty",
+          "Eyelid Surgery",
+          "Breast Aesthetics"
+        ]
+      },
+      "medicalAesthetics": {
+        "title": "Medical Aesthetics",
+        "items": [
+          "Medical Skincare",
+          "Facial Mesotherapy"
+        ]
+      },
+      "epilation": {
+        "title": "Epilation",
+        "items": [
+          "Laser Hair Removal",
+          "Needle Epilation"
+        ]
+      }
+    }
+  }
+}
