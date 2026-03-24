@@ -1,13 +1,17 @@
 import Header from '@/components/Header';
 import HeroSlider from '@/components/HeroSlider';
+import QuickContact from '@/components/QuickContact';
 import CategoryButtons from '@/components/CategoryButtons';
 import MobileBottomNav from '@/components/MobileBottomNav';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white font-sans flex flex-col relative pb-32 lg:pb-0 overflow-x-hidden">
+    <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
       <Header />
       <HeroSlider />
+      <div className="mt-12 xl:mt-20"></div>
+      <QuickContact />
       <CategoryButtons />
       
       {/* Spacer for scrolling presentation */}
@@ -16,6 +20,7 @@ export default function Home() {
         <p className="text-gray-400">Scroll test alanı / Page content placeholder</p>
       </div>
 
+      <Footer />
       <MobileBottomNav />
     </main>
   );
