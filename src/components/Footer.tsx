@@ -12,7 +12,7 @@ export default function Footer({ dict }: { dict?: any }) {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x border-x-0 md:border-x border-gray-200">
           
           <div className="flex items-center justify-center py-10 px-4 group cursor-pointer hover:bg-gray-50 transition-colors">
-            <FaPhoneAlt className="text-3xl text-gray-300 mr-6 group-hover:text-[#C6A87E] transition-colors" />
+            <FaPhoneAlt className="text-3xl text-gray-300 mr-6 group-hover:text-[#efc34c] transition-colors" />
             <div className="flex flex-col">
               <h4 className="text-xl font-light text-gray-600 mb-0.5">Bizimle İletişime Geçin</h4>
               <p className="text-[17px] font-bold text-gray-800 tracking-wider">0850 222 3 789</p>
@@ -55,11 +55,11 @@ export default function Footer({ dict }: { dict?: any }) {
             </Link>
 
             <div className="space-y-5 mb-10">
-              <div className="flex items-center text-gray-600 hover:text-[#C6A87E] cursor-pointer transition-colors">
+              <div className="flex items-center text-gray-600 hover:text-[#efc34c] cursor-pointer transition-colors">
                 <FaPhoneAlt className="text-lg mr-4 text-gray-400" />
                 <span className="text-[15px] font-semibold tracking-wider">0850 222 3 789</span>
               </div>
-              <div className="flex items-center text-gray-600 hover:text-[#C6A87E] cursor-pointer transition-colors">
+              <div className="flex items-center text-gray-600 hover:text-[#efc34c] cursor-pointer transition-colors">
                 <FaEnvelope className="text-lg mr-4 text-gray-400" />
                 <span className="text-[15px] font-medium tracking-wide">info@megaeste.com.tr</span>
               </div>
@@ -76,8 +76,8 @@ export default function Footer({ dict }: { dict?: any }) {
                 { icon: <FaLinkedinIn />, name: '/megaeste' },
                 { icon: <FaTiktok />, name: '/megaeste' }
               ].map((social, i) => (
-                <div key={i} className="flex items-center text-gray-600 hover:text-[#C6A87E] cursor-pointer transition-colors group">
-                  <div className="text-[1.2rem] w-8 flex justify-start mr-1 text-gray-600 group-hover:text-[#C6A87E] transition-colors">{social.icon}</div>
+                <div key={i} className="flex items-center text-gray-600 hover:text-[#efc34c] cursor-pointer transition-colors group">
+                  <div className="text-[1.2rem] w-8 flex justify-start mr-1 text-gray-600 group-hover:text-[#efc34c] transition-colors">{social.icon}</div>
                   <span className="text-[14px] font-medium">{social.name}</span>
                 </div>
               ))}
@@ -127,7 +127,7 @@ function FooterList({ title, items }: { title: string, items: string[] }) {
         <ul className="flex flex-col space-y-2.5">
           {items.map((item, idx) => (
             <li key={idx} className="leading-tight">
-              <a href="#" className="text-gray-500 font-light text-[13px] hover:text-[#C6A87E] hover:underline transition-all block w-full py-0.5">
+              <a href="#" className="text-gray-500 font-light text-[13px] hover:text-[#efc34c] hover:underline transition-all block w-full py-0.5">
                 {item}
               </a>
             </li>

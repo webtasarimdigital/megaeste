@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { GiHairStrands } from 'react-icons/gi';
 import { BsPersonHeart } from 'react-icons/bs';
-import { FaRegCalendarAlt, FaArrowRight, FaLeaf } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaLeaf } from 'react-icons/fa';
 import { MdOutlineFaceRetouchingNatural } from 'react-icons/md';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,98 +11,74 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const categories = [
-    { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, bg: 'from-[#5C7B99] to-[#4a637a]' },
-    { id: 2, title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', icon: BsPersonHeart, bg: 'from-[#7BA896] to-[#638778]' },
-    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, bg: 'from-[#BA7B8E] to-[#966372]' },
-    { id: 4, title: dict?.epilation?.title || 'Epilasyon', icon: FaLeaf, bg: 'from-[#A18EAC] to-[#81728a]' },
+    { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, color: '#427bdf' }, // Logo Blue
+    { id: 2, title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', icon: BsPersonHeart, color: '#e9799d' }, // Logo Pink
+    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, color: '#efc34c' }, // Logo Yellow/Gold
+    { id: 4, title: dict?.epilation?.title || 'Epilasyon', icon: FaLeaf, color: '#5C7B99' } // Elegant Grey-Blue Add-on
   ];
 
   return (
-    <div className="w-full relative z-20 xl:-mt-36 lg:-mt-28 px-4 lg:px-10 xl:px-24">
-      {/* Desktop Layout */}
-      <div className="hidden lg:flex w-full mx-auto shadow-2xl h-44 xl:h-48 rounded-2xl overflow-hidden bg-white border-4 border-white">
-        <div className="flex w-[75%] h-full">
-          {categories.map((cat) => (
-             <div 
-                key={cat.id} 
-                onMouseEnter={() => setHoveredId(cat.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                className={`relative group flex flex-col items-center justify-center text-white cursor-pointer transition-all duration-500 ease-out bg-gradient-to-br ${cat.bg} overflow-hidden ${
-                  hoveredId === cat.id ? 'flex-[1.5]' : hoveredId !== null ? 'flex-[0.8] opacity-90' : 'flex-1 opacity-100'
-                }`}
-             >
-                <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${hoveredId === cat.id ? 'opacity-0' : 'opacity-[0.03]'}`}></div>
-                
-                <cat.icon className={`text-5xl xl:text-[3.8rem] mb-4 font-light transition-transform duration-500 z-10 drop-shadow-md ${
-                  hoveredId === cat.id ? 'scale-110 -translate-y-2' : ''
-                }`} />
-                <span className={`font-bold text-sm xl:text-[17px] tracking-wide text-center z-10 transition-transform duration-500 drop-shadow-sm ${
-                  hoveredId === cat.id ? 'scale-105' : ''
-                }`}>{cat.title}</span>
+    <div className="w-full max-w-[1440px] mx-auto px-4 xl:px-10 -mt-10 md:-mt-16 xl:-mt-20 z-40 relative pb-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 xl:gap-6 justify-center">
 
-                <div className={`absolute bottom-4 opacity-0 transform translate-y-4 transition-all duration-500 z-10 ${
-                  hoveredId === cat.id ? 'opacity-100 translate-y-0' : ''
-                }`}>
-                  <FaArrowRight className="text-white/90 text-lg" />
-                </div>
-             </div>
-          ))}
-        </div>
-        
-        {/* Desktop Appointment Box */}
-        <div className="w-[25%] bg-gradient-to-br from-[#C6A87E] to-[#b09367] flex items-center justify-center cursor-pointer group transition-all duration-500 relative overflow-hidden">
-           <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 z-0"></div>
-           
-           <div className="flex items-center text-white z-10">
-             <div className="relative mr-5">
-                <FaRegCalendarAlt className="text-5xl lg:text-6xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 drop-shadow-md" />
-                <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow-sm">
-                    <div className="w-2.5 h-2.5 bg-[#C6A87E] rounded-full group-hover:animate-ping"></div>
-                </div>
-             </div>
-             <div className="flex flex-col font-black text-[24px] xl:text-[28px] tracking-tight leading-[1.1] drop-shadow-sm">
-               <span>Ücretsiz</span>
-               <span>Randevu Al</span>
-             </div>
-           </div>
-        </div>
-      </div>
+        {/* Category Floating Cards */}
+        {categories.map((cat) => (
+          <div 
+            key={cat.id}
+            onMouseEnter={() => setHoveredId(cat.id)}
+            onMouseLeave={() => setHoveredId(null)}
+            className="group relative bg-white/95 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+          >
+            {/* Top Accent Line (Animates width on hover) */}
+            <div 
+              className="absolute top-0 left-0 h-1.5 w-0 group-hover:w-full transition-all duration-700 ease-out"
+              style={{ backgroundColor: cat.color }}
+            ></div>
 
-      {/* Mobile Layout */}
-      <div className="lg:hidden w-full flex flex-col relative z-20 -mt-12">
-        {/* Categories horizontally scrollable with card style */}
-        <div className="flex flex-nowrap w-full overflow-x-auto snap-x snap-mandatory gap-3 pb-4 pt-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-           <div className="w-1 flex-shrink-0"></div>
-           {categories.map((cat) => (
-             <div 
-               key={cat.id} 
-               className={`flex-shrink-0 w-[42%] h-36 rounded-2xl shadow-lg flex flex-col items-center justify-center text-white snap-center cursor-pointer bg-gradient-to-br ${cat.bg} relative overflow-hidden transform transition-transform active:scale-95`}
-             >
-                <div className="absolute inset-0 bg-black opacity-0 active:opacity-10 transition-opacity"></div>
-                <cat.icon className="text-[42px] mb-3 font-light drop-shadow-md" />
-                <span className="font-bold text-[13px] text-center tracking-wider px-2 drop-shadow-sm leading-tight">{cat.title}</span>
-             </div>
-           ))}
-           <div className="w-1 flex-shrink-0"></div>
-        </div>
-        
-        {/* Mobile Appointment Box */}
-        <div className="w-full px-4 mt-2 mb-4">
-          <div className="w-full bg-gradient-to-br from-[#C6A87E] to-[#b09367] rounded-2xl shadow-xl flex items-center justify-center cursor-pointer py-6 relative overflow-hidden border-[3px] border-white active:scale-95 transition-transform">
-             <div className="flex items-center text-white relative z-10">
-               <div className="relative mr-5">
-                  <FaRegCalendarAlt className="text-[44px] drop-shadow-md" />
-                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow-sm">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#C6A87E] animate-pulse"></div>
-                  </div>
-               </div>
-               <div className="flex flex-col font-black text-[26px] tracking-tight leading-[1.1] drop-shadow-sm text-shadow-sm">
-                 <span>Ücretsiz</span>
-                 <span>Randevu Al</span>
-               </div>
-             </div>
+            {/* Icon Container */}
+            <div 
+              className="flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 rounded-full mb-4 xl:mb-5 transition-transform duration-500 group-hover:scale-110"
+              style={{ backgroundColor: `${cat.color}15` }}
+            >
+              <cat.icon 
+                className="text-3xl xl:text-4xl transition-colors duration-300" 
+                style={{ color: cat.color }}
+              />
+            </div>
+
+            {/* Title */}
+            <span className="text-[13px] xl:text-[15px] font-bold text-gray-700 text-center tracking-wide group-hover:text-gray-900 transition-colors">
+              {cat.title}
+            </span>
+
+            {/* Subtle Gradient Glow from Bottom */}
+            <div 
+              className="absolute -bottom-10 left-0 w-full h-1/2 opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-xl pointer-events-none"
+              style={{ background: `linear-gradient(to top, ${cat.color}, transparent)` }}
+            ></div>
           </div>
+        ))}
+
+        {/* Appointment Action Button */}
+        <div className="group relative bg-gradient-to-br from-[#efc34c] to-[#d4a834] rounded-2xl shadow-xl hover:shadow-[#efc34c]/30 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 border-2 border-white/20 overflow-hidden col-span-2 md:col-span-1 lg:col-span-1">
+          {/* Glassmorphism Sheen */}
+          <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine z-10" />
+
+          <FaRegCalendarAlt className="text-3xl xl:text-4xl text-white mb-3 xl:mb-4 transition-transform duration-500 group-hover:scale-110" />
+          
+          <div className="flex flex-col items-center text-white relative z-20">
+            <span className="text-[11px] xl:text-[12px] font-semibold tracking-widest uppercase opacity-90 mb-1">
+              Ücretsiz
+            </span>
+            <span className="text-[15px] xl:text-[17px] font-black tracking-wide text-center">
+              Randevu Al
+            </span>
+          </div>
+
+          {/* Highlight ring on hover */}
+          <div className="absolute inset-0 rounded-2xl border-2 border-white/0 group-hover:border-white/50 transition-colors duration-500"></div>
         </div>
+
       </div>
     </div>
   );

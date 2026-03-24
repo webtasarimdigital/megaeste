@@ -162,7 +162,7 @@ export default function Chatbot() {
                 <div className={`max-w-[80%] px-4 py-3 text-[14px] leading-relaxed relative shadow-sm ${
                   msg.sender === 'bot' 
                     ? 'bg-white text-gray-800 rounded-2xl rounded-tl-sm border border-gray-100' 
-                    : 'bg-[#C6A87E] text-white rounded-2xl rounded-tr-sm font-medium'
+                    : 'bg-[#efc34c] text-white rounded-2xl rounded-tr-sm font-medium'
                 }`}>
                   <p className="whitespace-pre-line">{msg.text}</p>
                   <span className={`text-[9px] mt-1.5 block text-right font-bold tracking-wider ${msg.sender === 'bot' ? 'text-gray-400' : 'text-white/80'}`}>
@@ -190,14 +190,14 @@ export default function Chatbot() {
 
           {/* Quick Reply Chips */}
           <div className="px-5 py-3 bg-[#f7f8f9] flex space-x-2.5 overflow-x-auto hide-scrollbar border-b border-gray-200/50">
-             <button onClick={() => setInputText("Randevu almak istiyorum")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#C6A87E] text-[#C6A87E] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#C6A87E] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Randevu Al</button>
-             <button onClick={() => setInputText("Fiyat bilgisi nedir?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#C6A87E] text-[#C6A87E] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#C6A87E] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Fiyat Sor</button>
-             <button onClick={() => setInputText("Adresiniz nerede?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#C6A87E] text-[#C6A87E] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#C6A87E] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Konum İste</button>
+             <button onClick={() => setInputText("Randevu almak istiyorum")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#efc34c] text-[#efc34c] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#efc34c] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Randevu Al</button>
+             <button onClick={() => setInputText("Fiyat bilgisi nedir?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#efc34c] text-[#efc34c] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#efc34c] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Fiyat Sor</button>
+             <button onClick={() => setInputText("Adresiniz nerede?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#efc34c] text-[#efc34c] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#efc34c] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Konum İste</button>
           </div>
 
           {/* Input Area */}
           <div className="p-4 bg-white flex items-end shadow-[0_-5px_20px_rgba(0,0,0,0.02)]">
-            <form onSubmit={handleSend} className="w-full relative flex items-center bg-[#f4f6f8] rounded-[24px] border border-gray-200 focus-within:border-[#C6A87E] focus-within:ring-2 focus-within:ring-[#C6A87E]/20 transition-all overflow-hidden pl-5 pr-2 py-2">
+            <form onSubmit={handleSend} className="w-full relative flex items-center bg-[#f4f6f8] rounded-[24px] border border-gray-200 focus-within:border-[#efc34c] focus-within:ring-2 focus-within:ring-[#efc34c]/20 transition-all overflow-hidden pl-5 pr-2 py-2">
               <input 
                 type="text" 
                 value={inputText}
@@ -209,7 +209,7 @@ export default function Chatbot() {
               <button 
                 type="submit"
                 disabled={!inputText.trim() || isTyping}
-                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 flex-shrink-0 shadow-sm ${inputText.trim() && !isTyping ? 'bg-[#C6A87E] text-white hover:bg-[#b09367] hover:scale-105' : 'bg-gray-200 text-gray-400 opacity-50 cursor-not-allowed'}`}
+                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 flex-shrink-0 shadow-sm ${inputText.trim() && !isTyping ? 'bg-[#efc34c] text-white hover:bg-[#dcaf31] hover:scale-105' : 'bg-gray-200 text-gray-400 opacity-50 cursor-not-allowed'}`}
               >
                 <FaPaperPlane className="text-sm ml-0.5" />
               </button>

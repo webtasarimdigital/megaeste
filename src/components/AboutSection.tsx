@@ -38,7 +38,7 @@ export default function AboutSection({ dict }: { dict?: any }) {
           </div>
 
           {/* Decorative Pattern / Blur */}
-          <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#C6A87E]/20 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#efc34c]/20 rounded-full blur-3xl -z-10"></div>
           
           {/* Play Button Overlay - optional aesthetic */}
           <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 bg-white/30 backdrop-blur-md w-20 h-20 rounded-full flex items-center justify-center text-white border border-white/50 hover:scale-110 transition-transform shadow-[0_0_30px_rgba(0,0,0,0.2)]">
@@ -49,8 +49,8 @@ export default function AboutSection({ dict }: { dict?: any }) {
         {/* Right Side: Text Content */}
         <div className="w-full lg:w-1/2 flex flex-col items-start pt-8 lg:pt-0">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-0.5 bg-[#C6A87E]"></div>
-            <h3 className="text-[#C6A87E] font-black tracking-widest text-sm uppercase">{content.title}</h3>
+            <div className="w-12 h-0.5 bg-[#efc34c]"></div>
+            <h3 className="text-[#efc34c] font-black tracking-widest text-sm uppercase">{content.title}</h3>
           </div>
           
           <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-[#363f46] leading-tight mb-8">
@@ -68,7 +68,7 @@ export default function AboutSection({ dict }: { dict?: any }) {
             
             <div className="flex items-center space-x-4">
               <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100">
-                <span className="text-[#C6A87E] font-black text-xl">15+</span>
+                <span className="text-[#efc34c] font-black text-xl">15+</span>
               </div>
               <span className="font-bold text-gray-700 text-sm leading-tight">Yıllık<br/>Tecrübe</span>
             </div>

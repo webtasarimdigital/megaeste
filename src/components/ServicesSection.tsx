@@ -54,9 +54,9 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       {/* Header Area */}
       <div className="w-full mx-auto flex flex-col items-center text-center mb-16">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-8 h-0.5 bg-[#C6A87E]"></div>
-          <h3 className="text-[#C6A87E] font-black tracking-widest text-sm uppercase">{content.title}</h3>
-          <div className="w-8 h-0.5 bg-[#C6A87E]"></div>
+          <div className="w-8 h-0.5 bg-[#efc34c]"></div>
+          <h3 className="text-[#efc34c] font-black tracking-widest text-sm uppercase">{content.title}</h3>
+          <div className="w-8 h-0.5 bg-[#efc34c]"></div>
         </div>
         <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-[#363f46] leading-tight">
           {content.subtitle}
@@ -80,7 +80,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
                {/* Darker Gradient Overlay for default state */}
                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-700 group-hover:opacity-70"></div>
                {/* Accent Gradient Overlay that fades in on hover */}
-               <div className="absolute inset-0 bg-gradient-to-t from-[#C6A87E]/90 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-[#efc34c]/90 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"></div>
             </div>
 
             {/* Content Container */}
@@ -91,7 +91,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
                  <h4 className="text-white font-extrabold text-2xl xl:text-3xl mb-2 drop-shadow-md">
                    {service.title}
                  </h4>
-                 <div className="w-12 h-1 bg-[#C6A87E] group-hover:w-full transition-all duration-700"></div>
+                 <div className="w-12 h-1 bg-[#efc34c] group-hover:w-full transition-all duration-700"></div>
                </div>
                
                {/* Hidden List that slides up */}

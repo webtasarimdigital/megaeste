@@ -1,7 +1,8 @@
 import Header from '@/components/Header';
 import HeroSlider from '@/components/HeroSlider';
-import QuickContact from '@/components/QuickContact';
 import CategoryButtons from '@/components/CategoryButtons';
+import AboutSection from '@/components/AboutSection';
+import ServicesSection from '@/components/ServicesSection';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import Footer from '@/components/Footer';
 import { getDictionary } from '../../get-dictionary';
@@ -17,13 +18,12 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       {/* Top action area wrapper */}
       <div className="relative z-20 flex flex-col">
         <CategoryButtons dict={dict.header.nav} />
-        <QuickContact />
       </div>
 
-      {/* Spacer for scrolling presentation */}
-      <div className="h-screen bg-gray-50 flex flex-col items-center pt-24 space-y-4">
-        <h2 className="text-2xl text-gray-500 font-medium">Sayfa İçeriği</h2>
-        <p className="text-gray-400">Scroll test alanı / Page content placeholder</p>
+      {/* Body content */}
+      <div className="w-full flex flex-col -mt-4 xl:-mt-10 relative z-30">
+        <AboutSection dict={dict} />
+        <ServicesSection dict={dict} />
       </div>
 
       <Footer dict={dict.header.nav} />
