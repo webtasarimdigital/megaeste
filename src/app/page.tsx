@@ -10,9 +10,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
       <Header />
       <HeroSlider />
-      <div className="mt-12 xl:mt-20"></div>
-      <QuickContact />
       <CategoryButtons />
+      <div className="mt-16 xl:mt-24"></div>
+      <QuickContact />
       
       {/* Spacer for scrolling presentation */}
       <div className="h-screen bg-gray-50 flex flex-col items-center pt-24 space-y-4">
