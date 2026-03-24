@@ -12,7 +12,7 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
   const categories = [
     { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, color: '#427bdf' }, // Logo Blue
     { id: 2, title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', icon: BsPersonHeart, color: '#e9799d' }, // Logo Pink
-    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, color: '#efc34c' }, // Logo Yellow/Gold
+    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, color: '#427bdf' }, // Logo Yellow/Gold
     { id: 4, title: dict?.epilation?.title || 'Epilasyon', icon: FaLeaf, color: '#5C7B99' } // Elegant Grey-Blue Add-on
   ];
 
@@ -57,7 +57,7 @@ export default function CategoryButtons({ dict }: { dict?: any }) {
         ))}
 
         {/* Appointment Action Button */}
-        <div className="group relative bg-gradient-to-br from-[#efc34c] to-[#d4a834] rounded-2xl shadow-xl hover:shadow-[#efc34c]/30 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 border-2 border-white/20 overflow-hidden col-span-2 md:col-span-1 lg:col-span-1">
+        <div className="group relative bg-gradient-to-br from-[#427bdf] to-[#2b5ebf] rounded-2xl shadow-xl hover:shadow-[#427bdf]/30 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 border-2 border-white/20 overflow-hidden col-span-2 md:col-span-1 lg:col-span-1">
           {/* Glassmorphism Sheen */}
           <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine z-10" />
 

@@ -31,6 +31,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
   return (
     <header className="w-full bg-white relative z-50">
+      {/* Top Gradient Bar */}
+      <div className="w-full h-[5px] bg-gradient-to-r from-[#0d2244] via-[#1e3a5f] via-40% via-[#427bdf] to-[#7fb3ff]"></div>
       {/* Desktop Header */}
       <div className="hidden lg:flex w-full max-w-[1920px] mx-auto px-10 xl:px-24 py-6 justify-between items-center shadow-sm">
         {/* Logo Section */}
@@ -49,7 +51,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         <div className="flex flex-col flex-grow ml-10 xl:ml-16 space-y-5 mt-1">
           {/* Top Bar */}
           <div className="flex justify-end items-center text-[14px] font-medium text-gray-500 divide-x divide-gray-300">
-            <div className="bg-[#efc34c] text-white px-10 py-2.5 mr-6 font-bold text-[15px] hover:bg-[#dcaf31] cursor-pointer transition-colors">
+            <div className="bg-[#427bdf] text-white px-10 py-2.5 mr-6 font-bold text-[15px] hover:bg-[#2b5ebf] cursor-pointer transition-colors">
               {dict?.getAppointment || "Randevu Al"}
             </div>
             <a href="#" className="px-5 hover:text-gray-900 transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</a>
@@ -75,22 +77,22 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           </div>
 
           {/* Main Navigation */}
-          <nav className="flex items-center justify-between text-[13px] xl:text-[14px] font-bold text-[#4B5357] uppercase tracking-wide border-t border-gray-50 pt-5">
+          <nav className="flex items-center justify-between text-[13px] xl:text-[14px] font-bold text-[#2c4c7c] uppercase tracking-wide border-t border-gray-50 pt-5">
             <div className="flex items-center flex-grow justify-start lg:justify-center space-x-4 xl:space-x-8">
               {navData.map((category, index) => (
                 <div key={index} className="relative group py-2">
-                  <a href="#" className="flex items-center hover:text-[#efc34c] transition-colors cursor-pointer">
+                  <a href="#" className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">
                     {category.title}
                     {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </a>
 
                   {/* Dropdown Menu */}
                   {category.items.length > 0 && (
-                    <div className="absolute top-[100%] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#efc34c] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute top-[100%] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#427bdf] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <ul className="py-2 flex flex-col">
                         {category.items.map((subItem: string, subIdx: number) => (
                           <li key={subIdx}>
-                            <a href="#" className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#efc34c] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
+                            <a href="#" className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
                               {subItem}
                             </a>
                           </li>
@@ -103,9 +105,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             </div>
             
             <div className="flex items-center pl-8 border-l border-gray-300 space-x-4 text-xl text-gray-500 ml-4">
-              <FaInstagram className="hover:text-[#efc34c] cursor-pointer transition-colors" />
-              <FaYoutube className="hover:text-[#efc34c] cursor-pointer transition-colors" />
-              <FaTiktok className="hover:text-[#efc34c] cursor-pointer transition-colors" />
+              <FaInstagram className="hover:text-[#427bdf] cursor-pointer transition-colors" />
+              <FaYoutube className="hover:text-[#427bdf] cursor-pointer transition-colors" />
+              <FaTiktok className="hover:text-[#427bdf] cursor-pointer transition-colors" />
             </div>
           </nav>
         </div>
@@ -134,7 +136,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         </div>
         
         {/* Mobile Randevu Al Bar */}
-        <div className="w-full bg-[#efc34c] text-white text-center py-3.5 text-[15px] font-bold uppercase tracking-wider relative">
+        <div className="w-full bg-[#427bdf] text-white text-center py-3.5 text-[15px] font-bold uppercase tracking-wider relative">
           {dict?.getAppointment || "Randevu Al"}
           
           <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center space-x-2 text-sm font-bold">

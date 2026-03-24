@@ -3,6 +3,8 @@ import HeroSlider from '@/components/HeroSlider';
 import CategoryButtons from '@/components/CategoryButtons';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
+import BlogSection from '@/components/BlogSection';
+import FAQSection from '@/components/FAQSection';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import Footer from '@/components/Footer';
 import { getDictionary } from '../../get-dictionary';
@@ -26,7 +28,10 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
         <ServicesSection dict={dict} />
       </div>
 
-      <Footer dict={dict.header.nav} />
+      <BlogSection dict={dict} />
+      <FAQSection dict={dict} />
+
+      <Footer dict={dict.header.nav} footerDict={dict.footer} />
       <MobileBottomNav dict={dict.mobileNav} />
     </main>
   );

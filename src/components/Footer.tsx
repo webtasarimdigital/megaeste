@@ -1,139 +1,167 @@
+'use client';
+
 import React from 'react';
-import { FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaInstagram, FaYoutube, FaFacebookF, FaTwitter, FaLinkedinIn, FaTiktok } from 'react-icons/fa';
 import Image from 'next/image';
-import Link from 'next/link';
+import { FaInstagram, FaYoutube, FaFacebookF, FaTiktok, FaLinkedinIn } from 'react-icons/fa';
+import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function Footer({ dict }: { dict?: any }) {
+export default function Footer({ dict, footerDict }: { dict?: any, footerDict?: any }) {
+  const nav = dict || {};
+  const f = footerDict || {};
+
+  // Gather ALL service sub-items for 2-column layout
+  const allServices: string[] = [
+    ...(nav.hairTransplant?.items || []),
+    ...(nav.plasticSurgery?.items || []),
+    ...(nav.medicalAesthetics?.items || []),
+    ...(nav.epilation?.items || []),
+  ];
+  const half = Math.ceil(allServices.length / 2);
+  const servicesCol1 = allServices.slice(0, half);
+  const servicesCol2 = allServices.slice(half);
+
+  const socialLinks = [
+    { icon: FaInstagram, label: '/megaeste', href: '#' },
+    { icon: FaYoutube, label: '/megaeste', href: '#' },
+    { icon: FaFacebookF, label: '/megaeste', href: '#' },
+    { icon: FaLinkedinIn, label: '/megaeste', href: '#' },
+    { icon: FaTiktok, label: '/megaeste', href: '#' },
+  ];
+
+  const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Blog'];
+
   return (
-    <footer className="w-full text-gray-700 font-sans mt-20">
-      {/* Top Contact Bar */}
-      <div className="w-full border-t border-gray-200">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x border-x-0 md:border-x border-gray-200">
-          
-          <div className="flex items-center justify-center py-10 px-4 group cursor-pointer hover:bg-gray-50 transition-colors">
-            <FaPhoneAlt className="text-3xl text-gray-300 mr-6 group-hover:text-[#efc34c] transition-colors" />
-            <div className="flex flex-col">
-              <h4 className="text-xl font-light text-gray-600 mb-0.5">Bizimle İletişime Geçin</h4>
-              <p className="text-[17px] font-bold text-gray-800 tracking-wider">0850 222 3 789</p>
-            </div>
-          </div>
+    <footer className="w-full bg-white mt-20 relative z-10">
+      {/* Top Gradient Divider - same as header */}
+      <div className="w-full h-[4px] bg-gradient-to-r from-[#0d2244] via-[#1e3a5f] via-40% via-[#427bdf] to-[#7fb3ff]"></div>
 
-          <div className="flex items-center justify-center py-10 px-4 group cursor-pointer hover:bg-gray-50 transition-colors">
-            <FaWhatsapp className="text-4xl text-gray-300 mr-6 group-hover:text-[#25D366] transition-colors" />
-            <div className="flex flex-col">
-              <h4 className="text-xl font-light text-gray-600 mb-0.5">WhatsApp</h4>
-              <p className="text-[13px] font-medium text-gray-400">Mesajlaşmak için tıklayın</p>
-            </div>
-          </div>
+      {/* Main Footer Content */}
+      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 py-14 xl:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-8">
 
-          <div className="flex items-center justify-center py-10 px-4 group cursor-pointer hover:bg-gray-50 transition-colors">
-            <FaMapMarkerAlt className="text-4xl text-gray-300 mr-6 group-hover:text-red-500 transition-colors" />
-            <div className="flex flex-col">
-              <h4 className="text-xl font-light text-gray-600 mb-0.5">Bize Ulaşın</h4>
-              <p className="text-[13px] font-medium text-gray-400">Konumumuz için tıklayın.</p>
-            </div>
-          </div>
+          {/* Column 1: Logo + Info + Social */}
+          <div className="lg:col-span-3 flex flex-col">
+            <Image
+              src="/images/logo.png"
+              alt="Megaeste Logo"
+              width={220}
+              height={70}
+              className="w-[180px] h-auto object-contain mb-6"
+            />
+            <p className="text-gray-500 text-[13px] leading-relaxed mb-6 font-medium">
+              {f.description || 'Megaeste olarak, uzman kadromuz ve en son teknoloji cihazlarımızla sağlık ve medikal estetik alanlarında profesyonel hizmet sunuyoruz.'}
+            </p>
 
-        </div>
-      </div>
-
-      {/* Main Footer Area */}
-      <div className="w-full bg-[#f9f8f4] border-t border-gray-200 pt-16 pb-32 lg:pb-16 shadow-inner">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 xl:px-0 flex flex-col lg:flex-row">
-          
-          {/* Left Column (Brand & Socials) */}
-          <div className="w-full lg:w-[25%] pr-8 border-b lg:border-b-0 lg:border-r border-gray-200 mb-12 lg:mb-0 pb-12 lg:pb-0 relative">
-            <Link href="/" className="flex flex-col mb-10 block">
-              <Image 
-                src="/images/logo.png" 
-                alt="Megaeste Logo" 
-                width={260} 
-                height={85} 
-                className="w-[200px] xl:w-[240px] h-auto object-contain"
-              />
-            </Link>
-
-            <div className="space-y-5 mb-10">
-              <div className="flex items-center text-gray-600 hover:text-[#efc34c] cursor-pointer transition-colors">
-                <FaPhoneAlt className="text-lg mr-4 text-gray-400" />
-                <span className="text-[15px] font-semibold tracking-wider">0850 222 3 789</span>
-              </div>
-              <div className="flex items-center text-gray-600 hover:text-[#efc34c] cursor-pointer transition-colors">
-                <FaEnvelope className="text-lg mr-4 text-gray-400" />
-                <span className="text-[15px] font-medium tracking-wide">info@megaeste.com.tr</span>
-              </div>
+            {/* Contact Info */}
+            <div className="flex flex-col space-y-3 mb-6">
+              <a href={`tel:${f.phone || '08502223789'}`} className="flex items-center text-[13px] text-gray-600 hover:text-[#427bdf] transition-colors group">
+                <FiPhone className="mr-3 text-[#427bdf] text-lg flex-shrink-0" />
+                <span className="font-semibold">{f.phone || '0850 222 3 789'}</span>
+              </a>
+              <a href={`mailto:${f.email || 'info@megaeste.com.tr'}`} className="flex items-center text-[13px] text-gray-600 hover:text-[#427bdf] transition-colors group">
+                <FiMail className="mr-3 text-[#427bdf] text-lg flex-shrink-0" />
+                <span>{f.email || 'info@megaeste.com.tr'}</span>
+              </a>
             </div>
 
-            <div className="w-full border-b border-gray-200 mb-10"></div>
-
-            <div className="space-y-4 mb-10">
-              {[
-                { icon: <FaInstagram />, name: '/megaeste' },
-                { icon: <FaYoutube />, name: '/megaeste' },
-                { icon: <FaFacebookF />, name: '/megaeste' },
-                { icon: <FaTwitter />, name: '/megaeste' },
-                { icon: <FaLinkedinIn />, name: '/megaeste' },
-                { icon: <FaTiktok />, name: '/megaeste' }
-              ].map((social, i) => (
-                <div key={i} className="flex items-center text-gray-600 hover:text-[#efc34c] cursor-pointer transition-colors group">
-                  <div className="text-[1.2rem] w-8 flex justify-start mr-1 text-gray-600 group-hover:text-[#efc34c] transition-colors">{social.icon}</div>
-                  <span className="text-[14px] font-medium">{social.name}</span>
-                </div>
+            {/* Social Media */}
+            <div className="flex space-x-3">
+              {socialLinks.map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-[#427bdf] hover:text-white transition-all duration-300"
+                >
+                  <social.icon className="text-sm" />
+                </a>
               ))}
             </div>
-
-            <p className="text-[12px] text-gray-500 leading-relaxed font-light pr-4">
-              Türkiye&apos;nin plastik ve estetik cerrahi odaklı öncü sağlık kuruluşu Megaeste olarak, &quot;Sağlıklı Güzellik&quot; mottosuyla, yüksek tıbbi standartlarda estetik ve sağlık hizmetleri sunuyoruz.
-            </p>
           </div>
 
-          {/* Right Area (Links Grid) */}
-          <div className="w-full lg:w-[75%] lg:pl-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 border-t lg:border-t-0 border-gray-200 pt-10 lg:pt-0">
-            
-            <FooterList 
-              title={dict?.hairTransplant?.title?.toUpperCase() || "SAÇ EKİMİ TEDAVİLERİ"} 
-              items={dict?.hairTransplant?.items || []} 
-            />
-            
-            <FooterList 
-              title={dict?.plasticSurgery?.title?.toUpperCase() || "PLASTİK CERRAHİ"} 
-              items={dict?.plasticSurgery?.items || []} 
-            />
-            
-            <FooterList 
-              title={dict?.medicalAesthetics?.title?.toUpperCase() || "MEDİKAL ESTETİK"} 
-              items={dict?.medicalAesthetics?.items || []} 
-            />
-            
-            <FooterList 
-              title={dict?.epilation?.title?.toUpperCase() || "EPİLASYON"} 
-              items={dict?.epilation?.items || []} 
-            />
+          {/* Column 2: Kurumsal */}
+          <div className="lg:col-span-2 flex flex-col">
+            <h4 className="text-[#1e3a5f] font-extrabold text-[15px] uppercase tracking-wider mb-5 relative pb-3">
+              {f.corporate || 'Kurumsal'}
+              <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#427bdf] rounded-full"></span>
+            </h4>
+            <ul className="flex flex-col space-y-3">
+              {corporateLinks.map((link: string, idx: number) => (
+                <li key={idx}>
+                  <a href="#" className="text-gray-500 text-[13.5px] font-medium hover:text-[#427bdf] hover:pl-1 transition-all duration-200">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Column 3: Hizmetlerimiz (2-column layout) */}
+          <div className="lg:col-span-4 flex flex-col">
+            <h4 className="text-[#1e3a5f] font-extrabold text-[15px] uppercase tracking-wider mb-5 relative pb-3">
+              {f.services || 'Hizmetlerimiz'}
+              <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#427bdf] rounded-full"></span>
+            </h4>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+              <ul className="flex flex-col space-y-3">
+                {servicesCol1.map((item: string, idx: number) => (
+                  <li key={idx}>
+                    <a href="#" className="text-gray-500 text-[13.5px] font-medium hover:text-[#427bdf] hover:pl-1 transition-all duration-200">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <ul className="flex flex-col space-y-3">
+                {servicesCol2.map((item: string, idx: number) => (
+                  <li key={idx}>
+                    <a href="#" className="text-gray-500 text-[13.5px] font-medium hover:text-[#427bdf] hover:pl-1 transition-all duration-200">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 4: İletişim */}
+          <div className="lg:col-span-3 flex flex-col">
+            <h4 className="text-[#1e3a5f] font-extrabold text-[15px] uppercase tracking-wider mb-5 relative pb-3">
+              {f.contact || 'İletişim'}
+              <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#427bdf] rounded-full"></span>
+            </h4>
+            <ul className="flex flex-col space-y-4">
+              <li className="flex items-start text-[13.5px] text-gray-500 font-medium">
+                <FiMapPin className="mr-3 text-[#427bdf] text-lg mt-0.5 flex-shrink-0" />
+                <span>{f.address || 'İstanbul, Türkiye'}</span>
+              </li>
+              <li className="flex items-start text-[13.5px] text-gray-500 font-medium">
+                <FiPhone className="mr-3 text-[#427bdf] text-lg mt-0.5 flex-shrink-0" />
+                <span>{f.phone || '0850 222 3 789'}</span>
+              </li>
+              <li className="flex items-start text-[13.5px] text-gray-500 font-medium">
+                <FiMail className="mr-3 text-[#427bdf] text-lg mt-0.5 flex-shrink-0" />
+                <span>{f.email || 'info@megaeste.com.tr'}</span>
+              </li>
+              <li className="flex items-start text-[13.5px] text-gray-500 font-medium">
+                <FiClock className="mr-3 text-[#427bdf] text-lg mt-0.5 flex-shrink-0" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-[#1e3a5f] mb-1">{f.workingHoursTitle || 'Çalışma Saatleri'}</span>
+                  <span>{f.workingHours || 'Pazartesi - Cumartesi: 09:00 - 19:00'}</span>
+                </div>
+              </li>
+            </ul>
           </div>
 
         </div>
       </div>
-    </footer>
-  );
-}
 
-function FooterList({ title, items }: { title: string, items: string[] }) {
-  return (
-    <div className="flex flex-col">
-      <h3 className="text-gray-700 font-bold tracking-[0.05em] text-[13px] mb-4 2xl:mb-5">{title}</h3>
-      {items.length > 0 && (
-        <ul className="flex flex-col space-y-2.5">
-          {items.map((item, idx) => (
-            <li key={idx} className="leading-tight">
-              <a href="#" className="text-gray-500 font-light text-[13px] hover:text-[#efc34c] hover:underline transition-all block w-full py-0.5">
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+      {/* Bottom Copyright Bar */}
+      <div className="w-full bg-[#0d2244] py-5">
+        <p className="text-center text-white/70 text-[13px] font-medium tracking-wide">
+          {f.copyright || '© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır.'}
+        </p>
+      </div>
+    </footer>
   );
 }

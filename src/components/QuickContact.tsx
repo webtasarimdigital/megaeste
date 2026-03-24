@@ -10,7 +10,7 @@ export default function QuickContact() {
         {/* White Card overlapping the columns below */}
         <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-12 relative z-10 mb-[-60px] border-[4px] border-white">
           <h2 className="text-[20px] font-black text-gray-800 border-b-2 border-gray-100 pb-4 mb-8 uppercase tracking-wider flex items-center">
-            HIZLI RANDEVU <span className="text-[#efc34c] ml-2">FORMU</span>
+            HIZLI RANDEVU <span className="text-[#427bdf] ml-2">FORMU</span>
           </h2>
           
           <form className="flex flex-col space-y-6">
@@ -18,9 +18,9 @@ export default function QuickContact() {
               <input 
                 type="text" 
                 placeholder="Adınız Soyadınız" 
-                className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 outline-none focus:border-[#efc34c] transition-all text-[15px] text-gray-700 bg-gray-50/50 focus:bg-white shadow-sm"
+                className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 outline-none focus:border-[#427bdf] transition-all text-[15px] text-gray-700 bg-gray-50/50 focus:bg-white shadow-sm"
               />
-              <div className="w-full flex items-center border-2 border-gray-100 rounded-xl px-4 py-4 bg-gray-50/50 focus-within:bg-white focus-within:border-[#efc34c] transition-all relative shadow-sm">
+              <div className="w-full flex items-center border-2 border-gray-100 rounded-xl px-4 py-4 bg-gray-50/50 focus-within:bg-white focus-within:border-[#427bdf] transition-all relative shadow-sm">
                 <div className="flex items-center space-x-2 mr-3 border-r-2 border-gray-200 pr-3">
                    {/* Fake Turkish Flag Icon */}
                    <div className="w-6 h-4 bg-[#E30A17] relative flex justify-center items-center rounded-[2px] overflow-hidden shadow-sm">
@@ -39,17 +39,17 @@ export default function QuickContact() {
             
             <div className="flex items-center space-x-3 pt-2">
               <div className="relative flex items-center">
-                <input type="checkbox" id="kvkk" className="peer w-5 h-5 text-[#efc34c] border-2 border-gray-300 rounded-[4px] focus:ring-[#efc34c] cursor-pointer transition-colors checked:border-[#efc34c]" />
+                <input type="checkbox" id="kvkk" className="peer w-5 h-5 text-[#427bdf] border-2 border-gray-300 rounded-[4px] focus:ring-[#427bdf] cursor-pointer transition-colors checked:border-[#427bdf]" />
               </div>
               <label htmlFor="kvkk" className="text-[14px] text-gray-500 cursor-pointer select-none">
-                <span className="text-[#efc34c] font-bold hover:underline transition-colors">KVKK metnini</span> okudum, kabul ediyorum.
+                <span className="text-[#427bdf] font-bold hover:underline transition-colors">KVKK metnini</span> okudum, kabul ediyorum.
               </label>
             </div>
             
             <div className="pt-2 flex justify-start">
               <button 
                 type="button" 
-                className="bg-gradient-to-r from-[#efc34c] to-[#dcaf31] text-white font-bold py-4 px-14 rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all text-[16px] tracking-wide shadow-md"
+                className="bg-gradient-to-r from-[#427bdf] to-[#2b5ebf] text-white font-bold py-4 px-14 rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all text-[16px] tracking-wide shadow-md"
               >
                 Gönder
               </button>
@@ -61,7 +61,7 @@ export default function QuickContact() {
         <div className="w-full flex flex-col lg:flex-row shadow-2xl pt-[80px] rounded-b-3xl overflow-hidden border-2 border-white bg-white">
           
           {/* Column 1: Konum */}
-          <div className="flex-1 bg-gradient-to-br from-[#4B5357] to-[#363f46] text-white p-10 lg:p-12 flex flex-col relative overflow-hidden group">
+          <div className="flex-1 bg-gradient-to-br from-[#2c4c7c] to-[#1e3a5f] text-white p-10 lg:p-12 flex flex-col relative overflow-hidden group">
             <FaMapMarkerAlt className="absolute -right-8 -bottom-12 text-[180px] text-white opacity-[0.03] -rotate-12 group-hover:scale-110 group-hover:opacity-[0.05] transition-all duration-700" />
             <div className="relative z-10 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">
@@ -71,7 +71,7 @@ export default function QuickContact() {
               <p className="text-[14px] text-gray-300 mb-10 leading-relaxed font-light drop-shadow-sm pr-4">
                 İstiklal, Gamsız Sk. No:3 Ümraniye/İstanbul
               </p>
-              <button className="flex items-center justify-center space-x-3 bg-white/10 border border-white/20 hover:bg-white hover:text-[#363f46] transition-all duration-300 py-3 px-8 rounded-lg w-auto mt-auto backdrop-blur-sm group-hover:shadow-lg self-start">
+              <button className="flex items-center justify-center space-x-3 bg-white/10 border border-white/20 hover:bg-white hover:text-[#1e3a5f] transition-all duration-300 py-3 px-8 rounded-lg w-auto mt-auto backdrop-blur-sm group-hover:shadow-lg self-start">
                 <FaMapMarkerAlt className="text-sm" />
                 <span className="font-bold text-[14px] tracking-wider">Yol Tarifi</span>
               </button>

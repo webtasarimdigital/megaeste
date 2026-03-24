@@ -87,5 +87,18 @@
       "mobileTitle": "Kusursuz Saç Ekimi",
       "mobileDesc": "kişiye özel ve doğal görünüm"
     }
-  ]
+  ],
+  "footer": {
+    "description": "Megaeste olarak, uzman kadromuz ve en son teknoloji cihazlarımızla sağlık ve medikal estetik alanlarında profesyonel hizmet sunuyoruz.",
+    "corporate": "Kurumsal",
+    "corporateLinks": ["Ana Sayfa", "Hakkımızda", "Hekimlerimiz", "Blog"],
+    "services": "Hizmetlerimiz",
+    "contact": "İletişim",
+    "address": "İstanbul, Türkiye",
+    "phone": "0850 222 3 789",
+    "email": "info@megaeste.com.tr",
+    "workingHoursTitle": "Çalışma Saatleri",
+    "workingHours": "Pazartesi - Cumartesi: 09:00 - 19:00",
+    "copyright": "© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır."
+  }
 }

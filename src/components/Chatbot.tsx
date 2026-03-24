@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
+import { FaHeadset, FaTimes, FaPaperPlane } from 'react-icons/fa';
 
 interface Message {
   id: string;
@@ -65,6 +65,13 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages, isTyping, isOpen]);
 
+  // Listen for custom event from MobileBottomNav
+  useEffect(() => {
+    const handler = () => setIsOpen(true);
+    window.addEventListener('openChatbot', handler);
+    return () => window.removeEventListener('openChatbot', handler);
+  }, []);
+
   const handleSend = (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!inputText.trim()) return;
@@ -107,13 +114,13 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button - Desktop only (mobile uses MobileBottomNav) */}
       <button 
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-28 lg:bottom-10 right-4 lg:right-6 z-[60] bg-[#1a202c] text-[#F2B328] p-4 lg:p-5 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 border-2 border-white/20 ${isOpen ? 'hidden' : 'flex items-center justify-center'}`}
+        className={`fixed bottom-10 right-6 z-[60] bg-[#1e3a5f] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 border-2 border-white/20 ${isOpen ? 'hidden' : 'hidden lg:flex items-center justify-center'}`}
       >
-        <FaRobot className="text-3xl lg:text-4xl" />
-        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[11px] font-black px-2 py-0.5 rounded-full animate-bounce border-2 border-[#1a202c]">
+        <FaHeadset className="text-3xl" />
+        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[11px] font-black px-2 py-0.5 rounded-full animate-bounce border-2 border-[#1e3a5f]">
           1
         </span>
       </button>
@@ -126,7 +133,7 @@ export default function Chatbot() {
           <div className="bg-gradient-to-r from-[#171e29] to-[#2a3441] text-white px-5 py-4 flex justify-between items-center shadow-lg z-10 relative">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex justify-center items-center relative border border-white/20">
-                <FaRobot className="text-2xl text-[#F2B328]" />
+                    <FaHeadset className="text-2xl text-white" />
                 <div className="w-3 h-3 bg-green-500 rounded-full absolute bottom-0 right-0 ring-2 ring-[#2a3441]"></div>
               </div>
               <div className="flex flex-col">
@@ -155,14 +162,14 @@ export default function Chatbot() {
               <div key={msg.id} className={`flex w-full ${msg.sender === 'bot' ? 'justify-start' : 'justify-end'}`}>
                 {msg.sender === 'bot' && (
                   <div className="w-8 h-8 rounded-full bg-[#373f47] text-[#F2B328] flex items-center justify-center mr-3 mt-1 flex-shrink-0 shadow-sm">
-                    <FaRobot className="text-[13px]" />
+                    <FaHeadset className="text-[13px]" />
                   </div>
                 )}
                 
                 <div className={`max-w-[80%] px-4 py-3 text-[14px] leading-relaxed relative shadow-sm ${
                   msg.sender === 'bot' 
                     ? 'bg-white text-gray-800 rounded-2xl rounded-tl-sm border border-gray-100' 
-                    : 'bg-[#efc34c] text-white rounded-2xl rounded-tr-sm font-medium'
+                    : 'bg-[#427bdf] text-white rounded-2xl rounded-tr-sm font-medium'
                 }`}>
                   <p className="whitespace-pre-line">{msg.text}</p>
                   <span className={`text-[9px] mt-1.5 block text-right font-bold tracking-wider ${msg.sender === 'bot' ? 'text-gray-400' : 'text-white/80'}`}>
@@ -176,7 +183,7 @@ export default function Chatbot() {
             {isTyping && (
               <div className="flex w-full justify-start items-center">
                 <div className="w-8 h-8 rounded-full bg-[#373f47] text-[#F2B328] flex items-center justify-center mr-3 flex-shrink-0 shadow-sm">
-                  <FaRobot className="text-[13px]" />
+                  <FaHeadset className="text-[13px]" />
                 </div>
                 <div className="bg-white px-4 py-3.5 rounded-2xl rounded-tl-sm border border-gray-100 flex space-x-1.5 shadow-sm">
                   <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
@@ -190,14 +197,14 @@ export default function Chatbot() {
 
           {/* Quick Reply Chips */}
           <div className="px-5 py-3 bg-[#f7f8f9] flex space-x-2.5 overflow-x-auto hide-scrollbar border-b border-gray-200/50">
-             <button onClick={() => setInputText("Randevu almak istiyorum")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#efc34c] text-[#efc34c] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#efc34c] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Randevu Al</button>
-             <button onClick={() => setInputText("Fiyat bilgisi nedir?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#efc34c] text-[#efc34c] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#efc34c] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Fiyat Sor</button>
-             <button onClick={() => setInputText("Adresiniz nerede?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#efc34c] text-[#efc34c] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#efc34c] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Konum İste</button>
+             <button onClick={() => setInputText("Randevu almak istiyorum")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#427bdf] text-[#427bdf] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#427bdf] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Randevu Al</button>
+             <button onClick={() => setInputText("Fiyat bilgisi nedir?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#427bdf] text-[#427bdf] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#427bdf] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Fiyat Sor</button>
+             <button onClick={() => setInputText("Adresiniz nerede?")} className="flex-shrink-0 px-4 py-1.5 bg-white border border-[#427bdf] text-[#427bdf] text-[12px] font-bold rounded-full shadow-sm hover:bg-[#427bdf] hover:text-white hover:-translate-y-0.5 transition-all duration-200">Konum İste</button>
           </div>
 
           {/* Input Area */}
           <div className="p-4 bg-white flex items-end shadow-[0_-5px_20px_rgba(0,0,0,0.02)]">
-            <form onSubmit={handleSend} className="w-full relative flex items-center bg-[#f4f6f8] rounded-[24px] border border-gray-200 focus-within:border-[#efc34c] focus-within:ring-2 focus-within:ring-[#efc34c]/20 transition-all overflow-hidden pl-5 pr-2 py-2">
+            <form onSubmit={handleSend} className="w-full relative flex items-center bg-[#f4f6f8] rounded-[24px] border border-gray-200 focus-within:border-[#427bdf] focus-within:ring-2 focus-within:ring-[#427bdf]/20 transition-all overflow-hidden pl-5 pr-2 py-2">
               <input 
                 type="text" 
                 value={inputText}
@@ -209,7 +216,7 @@ export default function Chatbot() {
               <button 
                 type="submit"
                 disabled={!inputText.trim() || isTyping}
-                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 flex-shrink-0 shadow-sm ${inputText.trim() && !isTyping ? 'bg-[#efc34c] text-white hover:bg-[#dcaf31] hover:scale-105' : 'bg-gray-200 text-gray-400 opacity-50 cursor-not-allowed'}`}
+                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 flex-shrink-0 shadow-sm ${inputText.trim() && !isTyping ? 'bg-[#427bdf] text-white hover:bg-[#2b5ebf] hover:scale-105' : 'bg-gray-200 text-gray-400 opacity-50 cursor-not-allowed'}`}
               >
                 <FaPaperPlane className="text-sm ml-0.5" />
               </button>
