@@ -6,12 +6,14 @@ import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import DoctorDetailContent from '@/components/DoctorDetailContent';
 
+import NotFoundContent from '@/components/NotFoundContent';
+
 type Props = { params: { lang: string; slug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = params.lang as 'tr' | 'en';
   const doctor = getDoctorBySlug(params.slug, lang);
-  if (!doctor) return { title: 'Not Found' };
+  if (!doctor) return { title: 'Sayfa Bulunamadı | Megaeste' };
   return {
     title: doctor[lang].seoTitle,
     description: doctor[lang].seoDescription,
@@ -32,7 +34,18 @@ export default async function DoctorDetailPage({ params }: Props) {
   const dict = await getDictionary(lang);
   const doctor = getDoctorBySlug(params.slug, lang);
 
-  if (!doctor) return <div>Not Found</div>;
+  if (!doctor) {
+    return (
+      <main className="min-h-screen bg-white flex flex-col">
+        <Header dict={dict?.header} lang={lang} />
+        <div className="flex-grow">
+          <NotFoundContent dict={dict} lang={lang} />
+        </div>
+        <Footer dict={dict} lang={lang} />
+        <MobileBottomNav dict={dict?.mobileNav} />
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-white">

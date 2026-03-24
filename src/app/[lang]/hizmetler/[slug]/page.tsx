@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import ServiceDetailContent from '@/components/ServiceDetailContent';
 
+import NotFoundContent from '@/components/NotFoundContent';
+
 type Props = {
   params: { lang: string; slug: string };
 };
@@ -13,7 +15,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = params.lang as 'tr' | 'en';
   const service = getServiceBySlug(params.slug, lang);
-  if (!service) return { title: 'Not Found' };
+  if (!service) return { title: 'Sayfa Bulunamadı | Megaeste' };
   const content = service[lang];
   return {
     title: content.seoTitle,
@@ -42,7 +44,16 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getServiceBySlug(params.slug, lang);
 
   if (!service) {
-    return <div>Not Found</div>;
+    return (
+      <main className="min-h-screen bg-white flex flex-col">
+        <Header dict={dict?.header} lang={lang} />
+        <div className="flex-grow">
+          <NotFoundContent dict={dict} lang={lang} />
+        </div>
+        <Footer dict={dict} lang={lang} />
+        <MobileBottomNav dict={dict?.mobileNav} />
+      </main>
+    );
   }
 
   const content = service[lang];

@@ -6,12 +6,14 @@ import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import BlogDetailContent from '@/components/BlogDetailContent';
 
+import NotFoundContent from '@/components/NotFoundContent';
+
 type Props = { params: { lang: string; slug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = params.lang as 'tr' | 'en';
   const post = getBlogBySlug(params.slug, lang);
-  if (!post) return { title: 'Not Found' };
+  if (!post) return { title: 'Sayfa Bulunamadı | Megaeste' };
   return {
     title: post[lang].seoTitle,
     description: post[lang].seoDescription,
@@ -32,7 +34,18 @@ export default async function BlogDetailPage({ params }: Props) {
   const dict = await getDictionary(lang);
   const post = getBlogBySlug(params.slug, lang);
 
-  if (!post) return <div>Not Found</div>;
+  if (!post) {
+    return (
+      <main className="min-h-screen bg-white flex flex-col">
+        <Header dict={dict?.header} lang={lang} />
+        <div className="flex-grow">
+          <NotFoundContent dict={dict} lang={lang} />
+        </div>
+        <Footer dict={dict} lang={lang} />
+        <MobileBottomNav dict={dict?.mobileNav} />
+      </main>
+    );
+  }
 
   const content = post[lang];
   const relatedPosts = getRelatedPosts(content.relatedSlugs, lang);

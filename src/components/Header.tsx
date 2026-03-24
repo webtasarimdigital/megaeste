@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,31 +11,15 @@ import Link from 'next/link';
 export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
-  const pathname = usePathname();
 
   const switchLanguage = (newLang: string) => {
-    if (!pathname) return;
-    const segments = pathname.split('/');
-    // Check if current path has a locale prefix
-    const currentHasLocale = ['tr', 'en'].includes(segments[1]);
-    
+    // To avoid 404 errors when switching languages on pages with translated slugs
+    // (e.g., /hizmetler/medikal-cilt-bakimi -> /en/hizmetler/medical-skin-care),
+    // we safely redirect the user to the homepage of the selected language.
     if (newLang === 'tr') {
-      // TR is default — no prefix. Strip locale if present.
-      if (currentHasLocale) {
-        const cleanPath = '/' + segments.slice(2).join('/');
-        router.push(cleanPath || '/');
-      } else {
-        // Already on a clean TR path
-        router.push(pathname);
-      }
+      router.push('/');
     } else {
-      // Non-default lang (en) — add /en/ prefix
-      if (currentHasLocale) {
-        segments[1] = newLang;
-        router.push(segments.join('/') || '/');
-      } else {
-        router.push(`/${newLang}${pathname}`);
-      }
+      router.push(`/${newLang}`);
     }
   };
 
@@ -67,11 +51,15 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full bg-white relative z-50">
-      {/* Desktop Header */}
-      <div className="hidden lg:flex w-full xl:max-w-[1920px] mx-auto px-10 xl:px-24 py-5 justify-between items-center shadow-sm">
-        {/* Logo Section */}
-        <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 mr-8 mt-1 block">
+    <header className="w-full bg-white relative z-50 shadow-sm border-b-[3px] border-[#427bdf]/10">
+      {/* Absolute Full-Width Gradient Background for Top Bar */}
+      <div className="hidden lg:block absolute top-0 right-0 w-[60%] h-[46px] bg-gradient-to-l from-[#427bdf]/15 via-[#427bdf]/5 to-transparent z-0 pointer-events-none"></div>
+
+      {/* Desktop Header Content Container */}
+      <div className="hidden lg:flex w-full xl:max-w-[1920px] mx-auto items-stretch relative z-10">
+        
+        {/* Logo Section - Left Aligned with original padding */}
+        <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pl-10 xl:pl-24 pr-8 py-4">
           <Image 
             src="/images/logo.png" 
             alt="Megaeste Logo" 
@@ -83,18 +71,22 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         </Link>
 
         {/* Right Section */}
-        <div className="flex flex-col flex-grow ml-10 xl:ml-16 space-y-4 mt-1">
-          {/* Top Bar with Premium Soft Gradient Wash */}
-          <div className="w-full flex justify-end items-center text-[13px] font-medium text-gray-500 bg-gradient-to-l from-[#427bdf]/15 via-[#427bdf]/5 to-transparent rounded-l-2xl py-2 px-6 shadow-[rgba(0,0,0,0.02)_0px_2px_4px_0px] border-b border-gray-100/10 divide-x divide-gray-200">
-            <div className="bg-[#427bdf] text-white px-10 py-2.5 mr-6 font-bold text-[15px] hover:bg-[#2b5ebf] cursor-pointer transition-colors">
+        <div className="flex flex-col flex-grow pr-10 xl:pr-24 pl-8">
+          
+          {/* Top Bar - No gap, touches top edge exactly covering the absolute background */}
+          <div className="w-full flex justify-end items-stretch text-[13px] font-medium text-gray-500 divide-x divide-gray-200 h-[46px] border-b border-gray-100/50">
+            <Link 
+              href={`${prefix}/iletisim`}
+              className="bg-[#427bdf] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#2b5ebf] transition-colors"
+            >
               {dict?.getAppointment || "Randevu Al"}
-            </div>
-            <a href="#" className="px-5 hover:text-gray-900 transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</a>
-            <a href="#" className="px-5 hover:text-gray-900 transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</a>
-            <a href="#" className="px-5 hover:text-gray-900 transition-colors">{dict?.contactUs || "Bize Ulaşın"}</a>
+            </Link>
+            <Link href={`${prefix}/blog`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</Link>
+            <Link href={`${prefix}/hekimlerimiz`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
+            <Link href={`${prefix}/iletisim`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
             
             {/* Language Switcher */}
-            <div className="px-5 flex items-center space-x-2 font-bold">
+            <div className="pl-5 flex items-center justify-center space-x-2 font-bold">
               <button 
                 onClick={() => switchLanguage('tr')} 
                 className={`hover:text-gray-900 transition-colors ${lang === 'tr' ? 'text-gray-900' : 'text-gray-400'}`}
@@ -111,15 +103,15 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             </div>
           </div>
 
-          {/* Main Navigation */}
-          <nav className="flex items-center justify-between text-[13px] xl:text-[14px] font-bold text-[#2c4c7c] uppercase tracking-wide border-t border-gray-50 pt-5">
+          {/* Main Navigation - Fills remaining space vertically via flex-grow */}
+          <nav className="flex flex-grow items-center justify-between text-[13px] xl:text-[14px] font-bold text-[#2c4c7c] uppercase tracking-wide">
             <div className="flex items-center flex-grow justify-start lg:justify-center space-x-4 xl:space-x-8">
               {navData.map((category, index) => (
                 <div key={index} className="relative group py-2">
-                  <a href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">
+                  <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">
                     {category.title}
                     {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
-                  </a>
+                  </Link>
 
                   {/* Dropdown Menu */}
                   {category.items.length > 0 && (
@@ -127,9 +119,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                       <ul className="py-2 flex flex-col">
                         {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                           <li key={subIdx}>
-                            <a href={subItem.href} className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
+                            <Link href={subItem.href} className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
                               {subItem.label}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>

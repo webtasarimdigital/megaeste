@@ -100,5 +100,11 @@
     "workingHoursTitle": "Working Hours",
     "workingHours": "Monday - Saturday: 09:00 - 19:00",
     "copyright": "© 2026 MegaEste Aesthetic and Plastic Surgery. All Rights Reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page Not Found",
+    "message": "The page you are looking for does not exist, might have been renamed or is temporarily unavailable.",
+    "button": "Return to Home"
   }
 }

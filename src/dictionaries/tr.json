@@ -100,5 +100,11 @@
     "workingHoursTitle": "Çalışma Saatleri",
     "workingHours": "Pazartesi - Cumartesi: 09:00 - 19:00",
     "copyright": "© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır."
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Sayfa Bulunamadı",
+    "message": "Aradığınız sayfa mevcut değil, adı değişmiş veya geçici olarak hizmet dışı olabilir.",
+    "button": "Ana Sayfaya Dön"
   }
 }
