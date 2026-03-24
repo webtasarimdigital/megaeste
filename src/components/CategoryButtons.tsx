@@ -6,6 +6,7 @@ import { BsPersonHeart } from 'react-icons/bs';
 import { FaRegCalendarAlt, FaArrowRight, FaLeaf } from 'react-icons/fa';
 import { MdOutlineFaceRetouchingNatural } from 'react-icons/md';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function CategoryButtons({ dict }: { dict?: any }) {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 

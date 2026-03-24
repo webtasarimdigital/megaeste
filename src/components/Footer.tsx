@@ -3,6 +3,7 @@ import { FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaInstagram, FaYout
 import Image from 'next/image';
 import Link from 'next/link';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Footer({ dict }: { dict?: any }) {
   return (
     <footer className="w-full text-gray-700 font-sans mt-20">

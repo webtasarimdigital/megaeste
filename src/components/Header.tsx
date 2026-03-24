@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();

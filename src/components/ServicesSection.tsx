@@ -3,6 +3,7 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ServicesSection({ dict }: { dict?: any }) {
   const content = dict?.services || {
     title: 'HİZMETLERİMİZ',

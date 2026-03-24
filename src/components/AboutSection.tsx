@@ -3,6 +3,7 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function AboutSection({ dict }: { dict?: any }) {
   const content = dict?.about || {
     title: 'HAKKIMIZDA',
