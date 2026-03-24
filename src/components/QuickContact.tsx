@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaEnvelopeOpenText, FaRegClock, FaRoute } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelopeOpenText, FaRegClock } from 'react-icons/fa';
 
 export default function QuickContact() {
   return (
