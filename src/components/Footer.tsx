@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
 
             <p className="text-[12px] text-gray-500 leading-relaxed font-light pr-4">
-              Türkiye'nin plastik ve estetik cerrahi odaklı öncü sağlık kuruluşu Megaeste olarak, "Sağlıklı Güzellik" mottosuyla, yüksek tıbbi standartlarda estetik ve sağlık hizmetleri sunuyoruz.
+              Türkiye&apos;nin plastik ve estetik cerrahi odaklı öncü sağlık kuruluşu Megaeste olarak, &quot;Sağlıklı Güzellik&quot; mottosuyla, yüksek tıbbi standartlarda estetik ve sağlık hizmetleri sunuyoruz.
             </p>
           </div>
 
