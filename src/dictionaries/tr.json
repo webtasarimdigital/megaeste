@@ -37,5 +37,15 @@
         ]
       }
     }
+  },
+  "about": {
+    "title": "HAKKIMIZDA",
+    "subtitle": "Sağlığınız ve Güzelliğiniz İçin Uzman Dokunuşu",
+    "description": "Megaeste olarak, uzman kadromuz ve en son teknoloji cihazlarımızla sağlık ve medikal estetik alanlarında profesyonel hizmet sunuyoruz. Yenilikçi yaklaşımlarımız ve hasta memnuniyeti odaklı vizyonumuzla güzelliğinize değer katmak için her zaman yanınızdayız.",
+    "button": "Daha Fazla Bilgi"
+  },
+  "services": {
+    "title": "HİZMETLERİMİZ",
+    "subtitle": "Size Özel Gelişmiş Tedavi Yöntemleri"
   }
 }

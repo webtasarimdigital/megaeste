@@ -37,5 +37,15 @@
         ]
       }
     }
+  },
+  "about": {
+    "title": "ABOUT US",
+    "subtitle": "An Expert Touch for Your Health and Beauty",
+    "description": "At Megaeste, we offer professional services in health and medical aesthetics with our expert staff and state-of-the-art equipment. We are always by your side to add value to your beauty with our innovative approaches and patient satisfaction-oriented vision.",
+    "button": "More Information"
+  },
+  "services": {
+    "title": "OUR SERVICES",
+    "subtitle": "Advanced Treatment Methods Custom to You"
   }
 }
