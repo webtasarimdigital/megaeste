@@ -1,81 +1,105 @@
 'use client';
 
 import React from 'react';
-import { GiHairStrands } from 'react-icons/gi';
-import { BsPersonHeart } from 'react-icons/bs';
-import { FaRegCalendarAlt, FaLeaf } from 'react-icons/fa';
-import { MdOutlineFaceRetouchingNatural } from 'react-icons/md';
+import { PiCalendarCheckLight, PiHourglassLight } from 'react-icons/pi';
+import { TbDental } from 'react-icons/tb';
+import { SlUserFemale, SlUser } from 'react-icons/sl';
+import { CiFaceSmile } from "react-icons/ci";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function CategoryButtons({ dict }: { dict?: any }) {
+export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
 
   const categories = [
-    { id: 1, title: dict?.hairTransplant?.title || 'Saç Ekimi', icon: GiHairStrands, color: '#427bdf', bg: '#e8f0fb' },
-    { id: 2, title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', icon: BsPersonHeart, color: '#e9799d', bg: '#fce8ee' },
-    { id: 3, title: dict?.medicalAesthetics?.title || 'Medikal Estetik', icon: MdOutlineFaceRetouchingNatural, color: '#427bdf', bg: '#edf2fa' },
-    { id: 4, title: dict?.epilation?.title || 'Epilasyon', icon: FaLeaf, color: '#5C7B99', bg: '#ecf1f5' }
+    { 
+      id: 1, 
+      title: dict?.hairTransplant?.title || 'Saç Ekimi', 
+      icon: SlUser, 
+      color: '#4f6f8f', // Muted Blue
+      href: lang === 'en' ? '/en/hizmetler/hair-transplant' : '/hizmetler/sac-ekimi'
+    },
+    { 
+      id: 2, 
+      title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
+      icon: SlUserFemale, 
+      color: '#729788', // Muted Green
+      href: lang === 'en' ? '/en/hizmetler/plastic-surgery' : '/hizmetler/plastik-cerrahi'
+    },
+    { 
+      id: 3, 
+      title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
+      icon: CiFaceSmile, 
+      color: '#ad6778', // Muted Rose
+      href: lang === 'en' ? '/en/hizmetler/medical-aesthetics' : '/hizmetler/medikal-estetik'
+    },
+    { 
+      id: 4, 
+      title: dict?.dentistry?.title || 'Diş Estetiği', 
+      icon: TbDental, 
+      color: '#9f8eab', // Muted Purple
+      href: lang === 'en' ? '/en/hizmetler/dentistry' : '/hizmetler/dis-estetigi'
+    },
+    { 
+      id: 5, 
+      title: dict?.longevity?.title || 'Longevity', 
+      icon: PiHourglassLight, 
+      color: '#bc7365', // Muted Rust
+      href: lang === 'en' ? '/en/hizmetler/longevity' : '/hizmetler/longevity'
+    }
   ];
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto px-4 xl:px-10 -mt-10 md:-mt-16 xl:-mt-20 z-40 relative pb-10">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 xl:gap-6 justify-center">
-
-        {/* Category Floating Cards */}
-        {categories.map((cat) => (
-          <div 
-            key={cat.id}
-            className="group relative backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl border border-white/60 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden"
-            style={{ backgroundColor: cat.bg }}
-          >
-            {/* Top Accent Line (Animates width on hover) */}
-            <div 
-              className="absolute top-0 left-0 h-1.5 w-0 group-hover:w-full transition-all duration-700 ease-out"
+    <div className="w-full relative z-40">
+      {/* Container spanning full width with a max-width limit if desired, but image shows full width blocks */}
+      <div className="w-full flex flex-wrap lg:flex-nowrap">
+        
+        {/* Service Categories Container - takes up most space */}
+        <div className="w-full lg:w-5/6 flex flex-wrap md:flex-nowrap shadow-xl">
+          {categories.map((cat) => (
+            <a
+              key={cat.id}
+              href={cat.href}
+              className="group relative flex flex-col items-center justify-center py-6 md:py-8 flex-1 min-w-[33%] md:min-w-0 cursor-pointer transition-all duration-300 overflow-hidden hover:brightness-110"
               style={{ backgroundColor: cat.color }}
-            ></div>
-
-            {/* Icon Container */}
-            <div 
-              className="flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 rounded-full mb-4 xl:mb-5 transition-transform duration-500 group-hover:scale-110"
-              style={{ backgroundColor: `${cat.color}20` }}
             >
-              <cat.icon 
-                className="text-3xl xl:text-4xl transition-colors duration-300" 
-                style={{ color: cat.color }}
-              />
-            </div>
+              {/* Subtle glass effect overlay */}
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Icon Container with elegant sizing */}
+              <div className="mb-4 transform transition-transform duration-500 group-hover:-translate-y-1">
+                <cat.icon 
+                  className="text-white text-5xl md:text-6xl font-light" 
+                  strokeWidth={0.5}
+                />
+              </div>
 
-            {/* Title */}
-            <span className="text-[13px] xl:text-[15px] font-bold text-gray-700 text-center tracking-wide group-hover:text-gray-900 transition-colors">
-              {cat.title}
-            </span>
-
-            {/* Subtle Gradient Glow from Bottom */}
-            <div 
-              className="absolute -bottom-10 left-0 w-full h-1/2 opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-xl pointer-events-none"
-              style={{ background: `linear-gradient(to top, ${cat.color}, transparent)` }}
-            ></div>
-          </div>
-        ))}
-
-        {/* Appointment Action Button - Rectangular to differentiate */}
-        <div className="group relative bg-gradient-to-br from-[#427bdf] to-[#2b5ebf] rounded-xl shadow-xl hover:shadow-[#427bdf]/30 flex flex-col items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 border-2 border-white/20 overflow-hidden col-span-2 md:col-span-1 lg:col-span-1">
-          {/* Glassmorphism Sheen */}
-          <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine z-10" />
-
-          <FaRegCalendarAlt className="text-3xl xl:text-4xl text-white mb-3 xl:mb-4 transition-transform duration-500 group-hover:scale-110" />
-          
-          <div className="flex flex-col items-center text-white relative z-20">
-            <span className="text-[11px] xl:text-[12px] font-semibold tracking-widest uppercase opacity-90 mb-1">
-              Ücretsiz
-            </span>
-            <span className="text-[15px] xl:text-[17px] font-black tracking-wide text-center">
-              Randevu Al
-            </span>
-          </div>
-
-          {/* Highlight ring on hover */}
-          <div className="absolute inset-0 rounded-xl border-2 border-white/0 group-hover:border-white/50 transition-colors duration-500"></div>
+              {/* Title */}
+              <span className="text-white font-bold text-[13px] md:text-[14px] xl:text-[15px] tracking-wide text-center px-2 z-10">
+                {cat.title}
+              </span>
+            </a>
+          ))}
         </div>
+
+        {/* Appointment Action Button - The remaining 1/6th space */}
+        <a 
+          href={lang === 'en' ? '/en/contact' : '/iletisim'}
+          className="w-full lg:w-1/6 min-w-[200px] flex flex-row lg:flex-col items-center justify-center p-4 py-6 md:py-8 cursor-pointer transition-all duration-500 hover:brightness-105 group border-t lg:border-t-0 border-white/20"
+          style={{ backgroundColor: '#dddad1' }} // Beige translucent looking color
+        >
+          {/* Inner Gold Border Container connecting to parent edges slightly */}
+          <div className="absolute inset-2 md:inset-3 border border-[#cca66b] pointer-events-none transition-all duration-500 group-hover:inset-1"></div>
+          
+          <PiCalendarCheckLight className="text-[#3a4f66] text-5xl md:text-6xl mb-0 lg:mb-3 mr-4 lg:mr-0 transform transition-transform duration-500 group-hover:scale-110 z-10" />
+          
+          <div className="flex flex-col items-start lg:items-center text-[#3a4f66] z-10">
+            <span className="text-[15px] md:text-[16px] font-extrabold tracking-wide uppercase leading-tight">
+              {dict?.freeAppointment || 'Ücretsiz'}
+            </span>
+            <span className="text-[15px] md:text-[16px] font-extrabold tracking-wide uppercase leading-tight">
+              {dict?.bookAppointment || 'Randevu Al'}
+            </span>
+          </div>
+        </a>
 
       </div>
     </div>

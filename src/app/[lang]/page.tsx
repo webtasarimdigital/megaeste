@@ -19,7 +19,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       
       {/* Top action area wrapper */}
       <div className="relative z-20 flex flex-col">
-        <CategoryButtons dict={dict.header.nav} />
+        <CategoryButtons dict={dict.header.nav} lang={lang} />
       </div>
 
       {/* Body content */}
