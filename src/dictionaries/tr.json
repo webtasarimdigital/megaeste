@@ -63,8 +63,8 @@
   "hero": [
     {
       "id": 1,
-      "desktopImg": "/images/slider_desktop_1.png",
-      "mobileImg": "/images/slider_mobile_1.png",
+      "desktopImg": "/images/megaeste-hero.jfif",
+      "mobileImg": "/images/megaeste-hero.jfif",
       "desktopSub": "DOĞAL ÖN SAÇ TASARIMI",
       "desktopTitle": "İtalyan Çizgisi Estetiği",
       "desktopHighlight1": "Saç Ekiminde",
@@ -76,8 +76,8 @@
     },
     {
       "id": 2,
-      "desktopImg": "/images/slider_desktop_2.png",
-      "mobileImg": "/images/slider_mobile_2.png",
+      "desktopImg": "/images/megaeste-hero2.jfif",
+      "mobileImg": "/images/megaeste-hero2.jfif",
       "desktopSub": "ÖZEL SAÇ EKİM PROTOKOLÜ",
       "desktopTitle": "megaeste Farkını Yaşayın",
       "desktopHighlight1": "Uzman Kadro İle",
