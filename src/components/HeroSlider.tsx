@@ -59,16 +59,16 @@ export default function HeroSlider({ dict }: { dict?: any }) {
             />
             
             {/* Desktop Overlay Text */}
-            <div className="hidden lg:flex absolute inset-0 flex-col justify-center items-start px-20 xl:px-32 text-white pb-10 bg-gradient-to-r from-black/60 via-black/30 to-transparent">
-              <h2 className="text-2xl font-light tracking-[0.2em] text-[#427bdf] mb-3 drop-shadow-md">{slide.desktopSub}</h2>
-              <h1 className="text-7xl font-serif tracking-wide mb-8 drop-shadow-lg leading-tight">
+            <div className="hidden lg:flex absolute inset-0 flex-col justify-center items-start px-20 xl:px-32 text-white pb-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent">
+              <h2 className="text-xl xl:text-2xl font-semibold tracking-widest text-[#427bdf] mb-4 drop-shadow-md uppercase">{slide.desktopSub}</h2>
+              <h1 className="text-5xl xl:text-7xl font-bold tracking-tight mb-6 drop-shadow-xl leading-tight max-w-3xl">
                 {slide.desktopTitle}
               </h1>
               
               <div className="flex items-center">
                 <div>
-                  <h3 className="text-[2.75rem] font-medium mb-4 leading-tight drop-shadow-lg">{slide.desktopHighlight1}<br/><span className="font-bold">{slide.desktopHighlight2}</span></h3>
-                  <p className="text-lg font-light tracking-wider max-w-lg leading-relaxed text-gray-100 drop-shadow-md border-l-2 border-[#427bdf] pl-4">
+                  <h3 className="text-3xl xl:text-[2.75rem] font-light mb-5 leading-tight drop-shadow-lg max-w-2xl">{slide.desktopHighlight1} <span className="font-bold text-[#427bdf]">{slide.desktopHighlight2}</span></h3>
+                  <p className="text-base xl:text-lg font-normal max-w-xl leading-relaxed text-white/90 drop-shadow-md border-l-4 border-[#427bdf] pl-5">
                     {slide.desktopDesc}
                   </p>
                 </div>
@@ -76,10 +76,10 @@ export default function HeroSlider({ dict }: { dict?: any }) {
             </div>
 
             {/* Mobile Overlay Text */}
-            <div className="flex lg:hidden absolute inset-0 flex-col justify-end items-center pb-20 text-white text-center px-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-               <h2 className="text-2xl font-light tracking-[0.2em] text-[#427bdf] mb-2 drop-shadow-lg">{slide.mobileSub}</h2>
-               <h1 className="text-[2.5rem] font-serif mb-4 drop-shadow-lg leading-tight tracking-wide">{slide.mobileTitle}</h1>
-               <p className="text-xl font-light tracking-wide opacity-90 drop-shadow-md pb-6 border-b border-[#427bdf]/50">
+            <div className="flex lg:hidden absolute inset-0 flex-col justify-end items-center pb-20 text-white text-center px-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+               <h2 className="text-sm md:text-base font-bold tracking-widest text-[#427bdf] mb-3 drop-shadow-lg uppercase">{slide.mobileSub}</h2>
+               <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-xl leading-tight tracking-tight">{slide.mobileTitle}</h1>
+               <p className="text-base md:text-lg font-normal opacity-95 drop-shadow-md pb-5 border-b-2 border-[#427bdf]/60 max-w-[85%]">
                  {slide.mobileDesc}
                </p>
             </div>

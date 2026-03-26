@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import HeroSlider from '@/components/HeroSlider';
 import CategoryButtons from '@/components/CategoryButtons';
 import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
+import ServicesShowcase from '@/components/ServicesShowcase';
 import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
 import MobileBottomNav from '@/components/MobileBottomNav';
@@ -25,7 +25,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       {/* Body content */}
       <div className="w-full flex flex-col -mt-4 xl:-mt-10 relative z-30">
         <AboutSection dict={dict} />
-        <ServicesSection dict={dict} />
+        <ServicesShowcase dict={dict} lang={lang} />
       </div>
 
       <BlogSection dict={dict} />

@@ -65,27 +65,27 @@
       "id": 1,
       "desktopImg": "/images/megaeste-hero.jfif",
       "mobileImg": "/images/megaeste-hero.jfif",
-      "desktopSub": "DOĞAL ÖN SAÇ TASARIMI",
-      "desktopTitle": "İtalyan Çizgisi Estetiği",
-      "desktopHighlight1": "Saç Ekiminde",
-      "desktopHighlight2": "Yeni Nesil Teknoloji",
-      "desktopDesc": "Daha sık, doğal görünüm ve kalıcı sonuçlarla estetiğinizi yeniden keşfedin.",
-      "mobileSub": "1 GÜNDE",
-      "mobileTitle": "Saç & Kaş Estetiği",
-      "mobileDesc": "doğal, sık ve kalıcı sonuçlar"
+      "desktopSub": "PLASTİK CERRAHİ UYGULAMALARI",
+      "desktopTitle": "Estetik Cerrahi Çözümleri",
+      "desktopHighlight1": "Uzman Kadro İle",
+      "desktopHighlight2": "Kişiye Özel Yaklaşımlar",
+      "desktopDesc": "Megaeste kliniğinde uygulanan estetik cerrahi prosedürleri hakkında ayrıntılı bilgi edinin.",
+      "mobileSub": "PLASTİK CERRAHİ",
+      "mobileTitle": "Estetik Çözümleri",
+      "mobileDesc": "kişiye özel estetik yaklaşımları"
     },
     {
       "id": 2,
       "desktopImg": "/images/megaeste-hero2.jfif",
       "mobileImg": "/images/megaeste-hero2.jfif",
-      "desktopSub": "ÖZEL SAÇ EKİM PROTOKOLÜ",
-      "desktopTitle": "megaeste Farkını Yaşayın",
-      "desktopHighlight1": "Uzman Kadro İle",
-      "desktopHighlight2": "Kusursuz Sonuçlar",
-      "desktopDesc": "Kişiye özel planlanan modern saç ekimi uygulamalarıyla kendinizi özel hissedin.",
-      "mobileSub": "MEGAESTE KALİTESİ",
-      "mobileTitle": "Kusursuz Saç Ekimi",
-      "mobileDesc": "kişiye özel ve doğal görünüm"
+      "desktopSub": "SAÇ EKİMİ & MEDİKAL ESTETİK",
+      "desktopTitle": "Modern Klinik Süreçleri",
+      "desktopHighlight1": "Güncel Teknolojiler,",
+      "desktopHighlight2": "Klinik Ortamı",
+      "desktopDesc": "Uzman hekimlerimiz eşliğinde saç ekimi ve medikal estetik tedavi süreçlerinizi uzmanlıkla planlayın.",
+      "mobileSub": "MEDİKAL ESTETİK",
+      "mobileTitle": "Modern Klinik",
+      "mobileDesc": "saç ekimi ve medikal estetik süreçleri"
     }
   ],
   "footer": {

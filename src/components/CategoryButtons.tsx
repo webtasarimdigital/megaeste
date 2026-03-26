@@ -1,10 +1,7 @@
 'use client';
 
 import React from 'react';
-import { PiCalendarCheckLight } from 'react-icons/pi';
-import { TbDental } from 'react-icons/tb';
-import { SlUserFemale, SlUser } from 'react-icons/sl';
-import { CiFaceSmile } from "react-icons/ci";
+import { PiCalendarCheckThin, PiFeatherThin, PiScissorsThin, PiDropThin, PiSparkleThin } from 'react-icons/pi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
@@ -13,30 +10,30 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
     { 
       id: 1, 
       title: dict?.hairTransplant?.title || 'Saç Ekimi', 
-      icon: SlUser, 
+      icon: PiSparkleThin, // Elegant sparkle for renewal/hair
       color: '#4f6f8f', // Muted Blue
       href: lang === 'en' ? '/en/hizmetler/hair-transplant' : '/hizmetler/sac-ekimi'
     },
     { 
       id: 2, 
       title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
-      icon: SlUserFemale, 
+      icon: PiScissorsThin, // Aesthetic surgical concept
       color: '#729788', // Muted Green
       href: lang === 'en' ? '/en/hizmetler/plastic-surgery' : '/hizmetler/plastik-cerrahi'
     },
     { 
       id: 3, 
       title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
-      icon: CiFaceSmile, 
+      icon: PiDropThin, // Serum/filler drop concept
       color: '#ad6778', // Muted Rose
       href: lang === 'en' ? '/en/hizmetler/medical-aesthetics' : '/hizmetler/medikal-estetik'
     },
     { 
       id: 4, 
-      title: dict?.dentistry?.title || 'Diş Estetiği', 
-      icon: TbDental, 
+      title: dict?.epilation?.title || 'Epilasyon', 
+      icon: PiFeatherThin, // Smoothness/feather concept
       color: '#9f8eab', // Muted Purple
-      href: lang === 'en' ? '/en/hizmetler/dentistry' : '/hizmetler/dis-estetigi'
+      href: lang === 'en' ? '/en/hizmetler/epilation' : '/hizmetler/epilasyon'
     }
   ];
 
@@ -45,11 +42,11 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
       
       {/* 
         Grid Layout: 
-        Mobile: 3 cols for squares, Randevu is full width
+        Mobile: 2 cols for squares, Randevu is full width
         Tablet (md): 4 cols for squares, Randevu is full width (or 3+1 structure)
         Desktop (lg): 6 cols. 4 squares (4 cols) + 1 Randevu (2 cols) = 6 cols total.
       */}
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 xl:gap-6 justify-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 xl:gap-6 justify-center">
 
         {/* Category Floating Square Cards */}
         {categories.map((cat) => (
@@ -71,7 +68,7 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
             </div>
 
             {/* Title */}
-            <span className="text-white font-bold text-[13px] md:text-[14px] xl:text-[15px] tracking-wide text-center px-1 z-10 leading-tight">
+            <span className="text-white font-medium text-[13px] md:text-[14px] xl:text-[15px] tracking-wide text-center px-1 z-10 leading-tight">
               {cat.title}
             </span>
           </a>
@@ -87,13 +84,13 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
           <div className="absolute inset-2 border-2 border-[#cca66b] pointer-events-none transition-all duration-500 group-hover:inset-1.5 rounded-lg"></div>
           
           <div className="flex items-center justify-center space-x-4 md:space-x-6 z-10">
-            <PiCalendarCheckLight className="text-[#3a4f66] text-5xl md:text-[70px] transform transition-transform duration-500 group-hover:scale-110" strokeWidth={1} />
+            <PiCalendarCheckThin className="text-[#3a4f66] text-5xl md:text-[70px] transform transition-transform duration-500 group-hover:scale-110" strokeWidth={1} />
             
             <div className="flex flex-col items-start text-[#3a4f66]">
-              <span className="text-[17px] md:text-[20px] font-black tracking-wide leading-tight">
+              <span className="text-[17px] md:text-[20px] font-black tracking-widest leading-tight uppercase relative inline-block after:content-[''] after:block after:w-full after:h-[1px] after:bg-[#cca66b] after:mt-1 after:mb-1">
                 {dict?.freeAppointment || 'ÜCRETSİZ'}
               </span>
-              <span className="text-[17px] md:text-[20px] font-black tracking-wide leading-tight">
+              <span className="text-[17px] md:text-[20px] font-bold tracking-widest leading-tight uppercase text-[#cca66b]">
                 {dict?.bookAppointment || 'RANDEVU AL'}
               </span>
             </div>
