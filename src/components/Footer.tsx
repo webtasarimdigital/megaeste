@@ -47,7 +47,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
               alt="Megaeste Logo"
               width={220}
               height={70}
-              className="w-[180px] h-auto object-contain mb-6 brightness-0 invert opacity-90"
+              className="w-[180px] h-auto object-contain mb-6 bg-white/5 rounded-xl p-2"
             />
             <p className="text-white/60 text-[13px] leading-relaxed mb-6 font-medium">
               {f.description || 'Megaeste olarak, uzman kadromuz ve en son teknoloji cihazlarımızla sağlık ve medikal estetik alanlarında profesyonel hizmet sunuyoruz.'}

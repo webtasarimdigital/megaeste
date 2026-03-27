@@ -71,7 +71,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         </Link>
 
         {/* Right Section */}
-        <div className="flex flex-col flex-grow pl-2 xl:pl-4">
+        <div className="flex flex-col flex-grow pl-2 xl:pl-4 relative z-20">
           
           {/* Top Bar - No gap, touches top edge exactly covering the absolute background */}
           <div className="w-full flex justify-end items-stretch text-[13px] font-medium text-gray-500 divide-x divide-gray-200 h-[46px] border-b border-gray-100/50">
@@ -104,18 +104,18 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           </div>
 
           {/* Main Navigation - Fills remaining space vertically via flex-grow */}
-          <nav className="flex flex-grow items-center justify-between text-[12px] xl:text-[13.5px] font-bold text-[#2c4c7c] uppercase tracking-wide">
+          <nav className="flex flex-grow items-center justify-between text-[12px] xl:text-[13.5px] font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30">
             <div className="flex items-center flex-grow justify-center space-x-3 xl:space-x-6">
               {navData.map((category, index) => (
                 <div key={index} className="relative group py-2">
-                  <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">
+                  <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer relative z-40">
                     {category.title}
                     {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </Link>
 
                   {/* Dropdown Menu */}
                   {category.items.length > 0 && (
-                    <div className="absolute top-[100%] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#427bdf] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute top-[100%] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#427bdf] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
                       <ul className="py-2 flex flex-col">
                         {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                           <li key={subIdx}>
@@ -131,10 +131,16 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               ))}
             </div>
             
-            <div className="flex items-center pl-8 border-l border-gray-300 space-x-4 text-xl text-gray-500 ml-4">
-              <FaInstagram className="hover:text-[#427bdf] cursor-pointer transition-colors" />
-              <FaYoutube className="hover:text-[#427bdf] cursor-pointer transition-colors" />
-              <FaTiktok className="hover:text-[#427bdf] cursor-pointer transition-colors" />
+            <div className="flex items-center pl-8 border-l border-gray-300 space-x-4 text-xl text-gray-500 ml-4 relative z-40">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
+                <FaInstagram />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
+                <FaYoutube />
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
+                <FaTiktok />
+              </a>
             </div>
           </nav>
         </div>
