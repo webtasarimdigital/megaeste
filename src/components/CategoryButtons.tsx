@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { PiCalendarCheckThin, PiFeatherThin, PiScissorsThin, PiDropThin, PiSparkleThin } from 'react-icons/pi';
+import { PiCalendarCheckThin } from 'react-icons/pi';
+import { HairIcon, FaceIcon, BodyIcon, EpilationIcon } from './CategoryIcons';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
@@ -10,29 +11,29 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
     { 
       id: 1, 
       title: dict?.hairTransplant?.title || 'Saç Ekimi', 
-      icon: PiSparkleThin, // Elegant sparkle for renewal/hair
-      color: '#4f6f8f', // Muted Blue
+      icon: HairIcon,
+      color: 'rgba(79, 111, 143, 0.85)', // Muted Blue (Translucent)
       href: lang === 'en' ? '/en/hizmetler/hair-transplant' : '/hizmetler/sac-ekimi'
     },
     { 
       id: 2, 
       title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
-      icon: PiScissorsThin, // Aesthetic surgical concept
-      color: '#729788', // Muted Green
+      icon: BodyIcon,
+      color: 'rgba(114, 151, 136, 0.85)', // Muted Green (Translucent)
       href: lang === 'en' ? '/en/hizmetler/plastic-surgery' : '/hizmetler/plastik-cerrahi'
     },
     { 
       id: 3, 
       title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
-      icon: PiDropThin, // Serum/filler drop concept
-      color: '#ad6778', // Muted Rose
+      icon: FaceIcon,
+      color: 'rgba(173, 103, 120, 0.85)', // Muted Rose (Translucent)
       href: lang === 'en' ? '/en/hizmetler/medical-aesthetics' : '/hizmetler/medikal-estetik'
     },
     { 
       id: 4, 
       title: dict?.epilation?.title || 'Epilasyon', 
-      icon: PiFeatherThin, // Smoothness/feather concept
-      color: '#9f8eab', // Muted Purple
+      icon: EpilationIcon,
+      color: 'rgba(159, 142, 171, 0.85)', // Muted Purple (Translucent)
       href: lang === 'en' ? '/en/hizmetler/epilation' : '/hizmetler/epilasyon'
     }
   ];
@@ -53,17 +54,16 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
           <a 
             key={cat.id}
             href={cat.href}
-            className="group relative shadow-lg hover:shadow-2xl flex flex-col items-center justify-center p-4 xl:p-6 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden aspect-square rounded-xl md:rounded-2xl"
+            className="group relative shadow-lg hover:shadow-2xl flex flex-col items-center justify-center p-4 xl:p-6 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden aspect-square rounded-xl md:rounded-2xl backdrop-blur-md"
             style={{ backgroundColor: cat.color }}
           >
             {/* Subtle glass effect overlay */}
-            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
             {/* Icon */}
             <div className="mb-3 md:mb-4 transform transition-transform duration-500 group-hover:-translate-y-1">
               <cat.icon 
-                className="text-white text-5xl md:text-6xl font-light" 
-                strokeWidth={0.5}
+                className="text-white w-14 h-14 md:w-16 md:h-16 font-light" 
               />
             </div>
 
@@ -78,10 +78,10 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
         <a 
           href={lang === 'en' ? '/en/contact' : '/iletisim'}
           className="col-span-full lg:col-span-2 group relative shadow-xl hover:shadow-2xl flex flex-row items-center justify-center p-6 xl:p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden rounded-xl md:rounded-2xl aspect-auto min-h-[120px]"
-          style={{ backgroundColor: '#fcfcfc' }} // Clean white/off-white background for appointment
+          style={{ backgroundColor: '#faf5eb' }} // Very light creamy gold as requested
         >
           {/* Inner Gold Border Container connecting to parent edges slightly */}
-          <div className="absolute inset-2 border-2 border-[#cca66b] pointer-events-none transition-all duration-500 group-hover:inset-1.5 rounded-lg"></div>
+          <div className="absolute inset-2 border-[1.5px] border-[#cca66b] pointer-events-none transition-all duration-500 group-hover:inset-1.5 rounded-lg opacity-80"></div>
           
           <div className="flex items-center justify-center space-x-4 md:space-x-6 z-10">
             <PiCalendarCheckThin className="text-[#3a4f66] text-5xl md:text-[70px] transform transition-transform duration-500 group-hover:scale-110" strokeWidth={1} />

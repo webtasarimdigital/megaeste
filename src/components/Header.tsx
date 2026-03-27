@@ -56,28 +56,28 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       <div className="hidden lg:block absolute top-0 right-0 w-[60%] h-[46px] bg-gradient-to-l from-[#427bdf]/15 via-[#427bdf]/5 to-transparent z-0 pointer-events-none"></div>
 
       {/* Desktop Header Content Container */}
-      <div className="hidden lg:flex w-full xl:max-w-[1920px] mx-auto items-stretch relative z-10">
+      <div className="hidden lg:flex w-full max-w-[1280px] mx-auto items-stretch relative z-10 px-4 lg:px-8">
         
-        {/* Logo Section - Left Aligned with original padding */}
-        <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pl-10 xl:pl-24 pr-8 py-4">
+        {/* Logo Section - Compact and centered */}
+        <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 py-4">
           <Image 
             src="/images/logo.png" 
             alt="Megaeste Logo" 
             width={320} 
             height={100} 
             priority 
-            className="w-[220px] xl:w-[280px] h-auto object-contain"
+            className="w-[200px] xl:w-[240px] h-auto object-contain"
           />
         </Link>
 
         {/* Right Section */}
-        <div className="flex flex-col flex-grow pr-10 xl:pr-24 pl-8">
+        <div className="flex flex-col flex-grow pl-2 xl:pl-4">
           
           {/* Top Bar - No gap, touches top edge exactly covering the absolute background */}
           <div className="w-full flex justify-end items-stretch text-[13px] font-medium text-gray-500 divide-x divide-gray-200 h-[46px] border-b border-gray-100/50">
             <Link 
               href={`${prefix}/iletisim`}
-              className="bg-[#427bdf] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#2b5ebf] transition-colors"
+              className="bg-[#cca66b] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#b58f53] transition-colors"
             >
               {dict?.getAppointment || "Randevu Al"}
             </Link>
@@ -104,8 +104,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           </div>
 
           {/* Main Navigation - Fills remaining space vertically via flex-grow */}
-          <nav className="flex flex-grow items-center justify-between text-[13px] xl:text-[14px] font-bold text-[#2c4c7c] uppercase tracking-wide">
-            <div className="flex items-center flex-grow justify-start lg:justify-center space-x-4 xl:space-x-8">
+          <nav className="flex flex-grow items-center justify-between text-[12px] xl:text-[13.5px] font-bold text-[#2c4c7c] uppercase tracking-wide">
+            <div className="flex items-center flex-grow justify-center space-x-3 xl:space-x-6">
               {navData.map((category, index) => (
                 <div key={index} className="relative group py-2">
                   <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer">

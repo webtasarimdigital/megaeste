@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
-import Chatbot from "@/components/Chatbot";
+import FloatingActionButtons from "@/components/FloatingActionButtons";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -47,7 +47,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Chatbot />
+        <FloatingActionButtons lang={params.lang} />
       </body>
     </html>
   );
