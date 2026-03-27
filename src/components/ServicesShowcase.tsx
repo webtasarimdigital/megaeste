@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import { PiFeatherThin, PiScissorsThin, PiDropThin, PiSparkleThin, PiArrowRightThin } from 'react-icons/pi';
 import { services } from '@/data/services';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lang?: string }) {
   const [activeTab, setActiveTab] = useState('sac-ekimi');
 
@@ -18,7 +18,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Natural Hair Restoration' : 'Doğal Saç Restorasyonu',
       icon: PiSparkleThin,
       color: '#4f6f8f', 
-      bgImage: '/images/gorselsac.jfif'
+      bgImage: '/images/services/dhi-sac-ekimi.png'
     },
     { 
       id: 'plastik-cerrahi',
@@ -27,7 +27,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Aesthetic Transformation' : 'Estetik Dönüşüm',
       icon: PiScissorsThin,
       color: '#729788', 
-      bgImage: '/images/megaeste-burun-gorsel.jpg'
+      bgImage: '/images/services/burun-estetigi.png'
     },
     { 
       id: 'medikal-estetik',
@@ -36,7 +36,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Non-Surgical Touch' : 'Ameliyatsız Dokunuş',
       icon: PiDropThin,
       color: '#ad6778', 
-      bgImage: '/images/megaeste-botoks2.jpg'
+      bgImage: '/images/services/medikal-cilt-bakimi.png'
     },
     { 
       id: 'epilasyon',
@@ -45,63 +45,77 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Smooth Permanence' : 'Kalıcı Pürüzsüzlük',
       icon: PiFeatherThin,
       color: '#9f8eab', 
-      bgImage: '/images/megaeste-estetik.jpg'
+      bgImage: '/images/services/lazer-epilasyon.png'
     }
   ];
 
   const activeCategory = categories.find((c) => c.id === activeTab) || categories[0];
   const activeCategorySlug = lang === 'en' ? activeCategory.enId : activeCategory.id;
-  
-  // Explicit any used here to match `services.ts` dynamic structure
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const activeServices = services.filter((s: any) => s[lang].categorySlug === activeCategorySlug);
 
   return (
-    <section className="w-full bg-white text-[#3a4f66] py-16 md:py-24 relative overflow-hidden" id="services">
+    <section className="w-full bg-white text-[#3a4f66] py-20 md:py-32 relative overflow-hidden" id="services">
       {/* Decorative background accent */}
-      <div 
-        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-10 pointer-events-none transition-colors duration-1000"
-        style={{ backgroundColor: activeCategory.color }}
+      <motion.div 
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[100px] opacity-10 pointer-events-none"
+        animate={{ backgroundColor: activeCategory.color }}
+        transition={{ duration: 1.5, ease: 'circOut' }}
       />
 
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-[11px] md:text-sm font-semibold tracking-[0.2em] text-[#cca66b] mb-3 uppercase">
+        <motion.div 
+          className="text-center mb-12 md:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h2 className="text-[11px] md:text-sm font-semibold tracking-[0.2em] text-[#cca66b] mb-4 uppercase">
             {dict?.services?.subtitle || 'SİZE ÖZEL GELİŞMİŞ TEDAVİ YÖNTEMLERİ'}
           </h2>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-[#3a4f66]">
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide text-[#3a4f66]">
             {dict?.services?.title || 'HİZMETLERİMİZ'}
           </h3>
-        </div>
+        </motion.div>
 
         {/* Dynamic Tab Navigation - Elegant Pill Menu */}
-        <div className="flex justify-center w-full px-2 mb-10 md:mb-16">
-          <div className="inline-flex flex-nowrap overflow-x-auto no-scrollbar bg-gray-50/80 backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-200 shadow-sm max-w-full">
+        <motion.div 
+          className="flex justify-center w-full px-2 mb-12 md:mb-20"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <div className="inline-flex flex-nowrap overflow-x-auto no-scrollbar bg-gray-50/80 backdrop-blur-xl p-2.5 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-full">
             {categories.map((cat) => {
               const isActive = activeTab === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`relative flex items-center justify-center px-5 py-3 md:px-8 md:py-4 rounded-xl md:rounded-full transition-all duration-500 flex-shrink-0 group overflow-hidden ${
-                    isActive ? 'text-white shadow-md transform scale-[1.02]' : 'text-[#3a4f66] hover:bg-white'
+                  className={`relative flex items-center justify-center px-6 py-4 md:px-10 md:py-5 rounded-xl md:rounded-full transition-colors duration-300 flex-shrink-0 group overflow-hidden ${
+                    isActive ? 'text-white' : 'text-[#3a4f66] hover:bg-white hover:shadow-sm'
                   }`}
                 >
-                  {/* Active Background Fill */}
-                  <div 
-                    className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`} 
-                    style={{ backgroundColor: isActive ? cat.color : 'transparent' }} 
-                  />
+                  {/* Active Background Fill with Framer Motion LayoutId */}
+                  {isActive && (
+                    <motion.div 
+                      layoutId="activeTabPill"
+                      className="absolute inset-0 rounded-xl md:rounded-full shadow-lg"
+                      style={{ backgroundColor: cat.color }} 
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
                   
                   {/* Content */}
-                  <div className="relative z-10 flex items-center space-x-2 md:space-x-3">
+                  <div className="relative z-10 flex items-center space-x-3 md:space-x-4">
                     <cat.icon 
-                      className={`text-2xl md:text-[28px] transition-transform duration-500 ${isActive ? 'scale-110 drop-shadow-sm' : 'group-hover:scale-110'}`} 
-                      strokeWidth={isActive ? 1 : 0.7} 
+                      className={`text-[2rem] md:text-[2.2rem] transition-transform duration-500 ${isActive ? 'scale-110 drop-shadow-sm' : 'group-hover:scale-110 group-hover:text-[#cca66b]'}`} 
+                      strokeWidth={isActive ? 1.5 : 0.7} 
                     />
-                    <span className={`text-[13.5px] md:text-[15px] tracking-wide whitespace-nowrap transition-all ${isActive ? 'font-semibold' : 'font-medium'}`}>
+                    <span className={`text-sm md:text-base tracking-wide whitespace-nowrap transition-all ${isActive ? 'font-bold' : 'font-medium'}`}>
                       {cat.title}
                     </span>
                   </div>
@@ -109,101 +123,147 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
         {/* Dynamic Active Content Area */}
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start mt-6 transition-all duration-500 min-h-[500px]">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch mt-8 min-h-[650px]">
           
-          {/* Left Side: Category Hero Visual (Fades in on tab switch) */}
-          <div className="w-full lg:w-5/12 animate-fade-in-up">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl group">
-              {/* Using native img for animated dynamic src without next/image caching hurdles during state change */}
-              <img 
-                src={activeCategory.bgImage} 
-                alt={activeCategory.title} 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10">
-                <span className="text-white/80 tracking-[0.2em] text-xs font-bold uppercase mb-2">
-                  Megaeste
-                </span>
-                <h4 className="text-3xl md:text-4xl font-light text-white leading-tight mb-4 drop-shadow-md">
-                  {activeCategory.seoTitle}
-                </h4>
-                <div 
-                  className="w-12 h-1 mb-2 transition-all duration-700 delay-300"
-                  style={{ backgroundColor: activeCategory.color }}
+          {/* Left Side: Category Hero Visual */}
+          <div className="w-full lg:w-5/12 relative flex flex-col justify-end min-h-[500px] lg:min-h-0">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activeCategory.id}
+                initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)', transition: { duration: 0.4 } }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] group"
+              >
+                <img 
+                  src={activeCategory.bgImage} 
+                  alt={activeCategory.title} 
+                  className="w-full h-full object-cover transition-transform duration-[20s] ease-out group-hover:scale-110"
                 />
-              </div>
-            </div>
-            {/* Quick Action underneath the main image */}
-            <div className="mt-6 flex justify-center lg:justify-start">
-               {/* Fixed the variable access from link -> href to match standard linking */}
-               <Link 
-                  href={lang === 'en' ? '/en/contact' : '/iletisim'}
-                  className="inline-flex items-center space-x-3 px-8 py-4 rounded-full border border-gray-300 hover:border-[#cca66b] hover:bg-[#cca66b] text-[#3a4f66] hover:text-white transition-all duration-300 font-medium tracking-wide group"
-               >
-                 <span>{lang === 'en' ? 'Book Consultation' : 'Ücretsiz Danışmanlık Alın'}</span>
-                 <PiArrowRightThin className="text-2xl transform group-hover:translate-x-1 transition-transform" />
-               </Link>
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244]/90 via-[#0d2244]/20 to-transparent flex flex-col justify-end p-10 md:p-14">
+                  <motion.span 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="text-white/80 tracking-[0.3em] text-xs font-black uppercase mb-3"
+                  >
+                    Megaeste
+                  </motion.span>
+                  <motion.h4 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="text-4xl md:text-5xl font-light text-white leading-tight mb-5 drop-shadow-lg"
+                  >
+                    {activeCategory.seoTitle}
+                  </motion.h4>
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: 64 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    className="h-1.5 rounded-full"
+                    style={{ backgroundColor: activeCategory.color }}
+                  />
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Right Side: Sub-services List */}
-          <div className="w-full lg:w-7/12 flex flex-col justify-center animate-fade-in-up" style={{ animationDelay: '150ms' }}>
-            <div className="flex flex-col space-y-4 md:space-y-6">
-              
-              {activeServices.length > 0 ? (
-                activeServices.map((service: any) => (
-                  <Link 
-                    key={service.id} 
-                    href={`/${lang === 'en' ? 'en/' : ''}hizmetler/${service[lang].slug}`}
-                    className="group flex flex-col sm:flex-row items-center sm:items-stretch bg-gray-50/50 hover:bg-white border hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden cursor-pointer"
-                    style={{ borderColor: 'transparent', borderLeftColor: 'transparent' }}
-                  >
-                    {/* Hover colored bar using pseudo element or direct div */}
-                    <div 
-                      className="w-2 hidden sm:block transition-all duration-500 opacity-0 group-hover:opacity-100" 
-                      style={{ backgroundColor: activeCategory.color }}
-                    />
-
-                    {/* Thumbnail Image */}
-                    <div className="w-full sm:w-40 h-48 sm:h-auto shrink-0 overflow-hidden relative">
-                      <img 
-                        src={service.image} 
-                        alt={service[lang].title} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-col justify-center p-6 flex-grow pr-10 relative">
-                      <h5 className="text-xl md:text-2xl font-semibold mb-2 text-[#3a4f66] group-hover:text-[#cca66b] transition-colors line-clamp-1">
-                        {service[lang].title}
-                      </h5>
-                      <p className="text-gray-500 font-light text-[15px] leading-relaxed line-clamp-2 md:line-clamp-3">
-                        {service[lang].heroDescription}
-                      </p>
-                      
-                      {/* Interactive Arrow */}
-                      <div 
-                        className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 hidden sm:block"
-                        style={{ color: activeCategory.color }}
+          <div className="w-full lg:w-7/12 flex flex-col justify-center py-6">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activeTab}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.15 }
+                  },
+                  exit: { opacity: 0, transition: { duration: 0.3 } }
+                }}
+                className="flex flex-col space-y-4 md:space-y-6"
+              >
+                {activeServices.length > 0 ? (
+                  activeServices.map((service: any) => (
+                    <motion.div 
+                      key={service.id}
+                      variants={{
+                        hidden: { opacity: 0, x: 40 },
+                        show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+                      }}
+                    >
+                      <Link 
+                        href={`/${lang === 'en' ? 'en/' : ''}hizmetler/${service[lang].slug}`}
+                        className="group flex flex-col sm:flex-row items-center sm:items-stretch bg-white border border-gray-100 hover:border-gray-200 hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 rounded-3xl overflow-hidden cursor-pointer"
                       >
-                        <PiArrowRightThin className="text-4xl" />
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              ) : (
-                <div className="p-10 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-300">
-                  <p className="text-gray-500 font-light text-lg">
-                    {lang === 'en' ? 'Treatments for this category are being updated.' : 'Bu kategoriye ait tedaviler güncellenmektedir.'}
-                  </p>
-                </div>
-              )}
+                        {/* Thumbnail Image */}
+                        <div className="w-full sm:w-48 h-56 sm:h-auto shrink-0 overflow-hidden relative">
+                          <img 
+                            src={service.image} 
+                            alt={service[lang].title} 
+                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-[#0d2244]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
 
-            </div>
+                        {/* Content */}
+                        <div className="flex-col justify-center p-8 flex-grow pr-12 relative bg-gradient-to-l from-transparent to-white via-white group-hover:to-gray-50/50 transition-colors duration-500">
+                          <h5 className="text-2xl font-semibold mb-3 text-[#1e3a5f] group-hover:text-[#cca66b] transition-colors">
+                            {service[lang].title}
+                          </h5>
+                          <p className="text-gray-500 font-medium text-[15px] leading-relaxed line-clamp-3">
+                            {service[lang].heroDescription}
+                          </p>
+                          
+                          {/* Interactive Arrow Button */}
+                          <div 
+                            className="absolute right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 hidden sm:flex"
+                            style={{ color: activeCategory.color, borderColor: activeCategory.color }}
+                          >
+                            <PiArrowRightThin className="text-2xl" />
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))
+                ) : (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="p-16 text-center bg-gray-50 rounded-[2.5rem] border border-dashed border-gray-300"
+                  >
+                    <p className="text-gray-500 font-medium text-lg">
+                      {lang === 'en' ? 'Treatments for this category are being updated.' : 'Bu kategoriye ait tedaviler güncellenmektedir.'}
+                    </p>
+                  </motion.div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Quick Consultation Button Under Services */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="mt-8 flex justify-start pl-2"
+            >
+              <Link 
+                  href={lang === 'en' ? '/en/contact' : '/iletisim'}
+                  className="inline-flex items-center space-x-3 px-8 py-4 rounded-full border border-gray-300 hover:border-[#cca66b] hover:bg-[#cca66b] text-[#3a4f66] hover:text-white transition-all duration-300 font-bold tracking-wide group shadow-sm hover:shadow-lg"
+              >
+                <span>{lang === 'en' ? 'Book a Direct Consultation' : 'Doğrudan Konsültasyon Alın'}</span>
+                <PiArrowRightThin className="text-2xl transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           </div>
           
         </div>

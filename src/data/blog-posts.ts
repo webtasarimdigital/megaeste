@@ -31,7 +31,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 'sac-ekimi-sonrasi-bakim',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/dhi-sac-ekimi.png',
     date: '2026-03-15',
     tr: {
       title: 'Saç Ekimi Sonrası Bakım Rehberi',
@@ -112,7 +112,7 @@ A diet rich in protein, iron, zinc and biotin supports hair growth. Drinking ple
   },
   {
     id: 'dhi-ve-fue-farklari',
-    image: 'https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/safir-sac-ekimi.png',
     date: '2026-03-10',
     tr: {
       title: 'DHI ve FUE Saç Ekimi Arasındaki Farklar',
@@ -177,7 +177,7 @@ FUE is ideal for large bald areas. DHI is preferred for front hairline design an
   },
   {
     id: 'sac-dokulmesi-nedenleri',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/sac-mezoterapisi.png',
     date: '2026-03-05',
     tr: {
       title: 'Saç Dökülmesinin Nedenleri ve Çözüm Yolları',
@@ -238,7 +238,7 @@ Modern medicine offers various treatment options for hair loss. Hair mesotherapy
   },
   {
     id: 'medikal-cilt-bakimi-rehberi',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/medikal-cilt-bakimi.png',
     date: '2026-02-28',
     tr: {
       title: 'Medikal Cilt Bakımı: Profesyonel Yaklaşım',

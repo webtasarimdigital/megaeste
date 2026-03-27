@@ -33,7 +33,7 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 'dhi-sac-ekimi',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/dhi-sac-ekimi.png',
     tr: {
       title: 'DHI Saç Ekimi',
       slug: 'dhi-sac-ekimi',
@@ -95,7 +95,7 @@ At Megaeste clinic, DHI hair transplant is performed by our experienced speciali
   },
   {
     id: 'safir-sac-ekimi',
-    image: 'https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/safir-sac-ekimi.png',
     tr: {
       title: 'Safir Saç Ekimi',
       slug: 'safir-sac-ekimi',
@@ -155,7 +155,7 @@ At Megaeste clinic, sapphire hair transplant is performed with FDA-approved equi
   },
   {
     id: 'sac-mezoterapisi',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/sac-mezoterapisi.png',
     tr: {
       title: 'Saç Mezoterapisi',
       slug: 'sac-mezoterapisi',
@@ -211,7 +211,7 @@ The hair mesotherapy protocol applied at Megaeste clinic is carried out with coc
   },
   {
     id: 'burun-estetigi',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/burun-estetigi.png',
     tr: {
       title: 'Burun Estetiği',
       slug: 'burun-estetigi',
@@ -267,7 +267,7 @@ At Megaeste clinic, rhinoplasty operations are performed by our experienced plas
   },
   {
     id: 'goz-kapagi-estetigi',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/goz-kapagi-estetigi.png',
     tr: {
       title: 'Göz Kapağı Estetiği',
       slug: 'goz-kapagi-estetigi',
@@ -321,7 +321,7 @@ The procedure can be performed under local or general anesthesia with a short re
   },
   {
     id: 'meme-estetigi',
-    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/meme-estetigi.png',
     tr: {
       title: 'Meme Estetiği',
       slug: 'meme-estetigi',
@@ -375,7 +375,7 @@ At Megaeste clinic, all breast aesthetics operations are performed by our experi
   },
   {
     id: 'medikal-cilt-bakimi',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/medikal-cilt-bakimi.png',
     tr: {
       title: 'Medikal Cilt Bakımı',
       slug: 'medikal-cilt-bakimi',
@@ -429,7 +429,7 @@ At Megaeste clinic, medical skin care is applied under the supervision of expert
   },
   {
     id: 'yuz-mezoterapi',
-    image: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/yuz-mezoterapi.png',
     tr: {
       title: 'Yüz Mezoterapi',
       slug: 'yuz-mezoterapi',
@@ -483,7 +483,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'lazer-epilasyon',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/lazer-epilasyon.png',
     tr: {
       title: 'Lazer Epilasyon',
       slug: 'lazer-epilasyon',
@@ -539,7 +539,7 @@ At Megaeste clinic, laser hair removal is applied with FDA-approved latest gener
   },
   {
     id: 'igneli-lazer-epilasyonu',
-    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800',
+    image: '/images/services/igneli-lazer-epilasyonu.png',
     tr: {
       title: 'İğneli Lazer Epilasyonu',
       slug: 'igneli-lazer-epilasyonu',

@@ -201,10 +201,10 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                  </a>
                  {category.items.length > 0 && (
                    <div className="flex flex-col bg-gray-50/50">
-                     {category.items.map((subItem: string, subIdx: number) => (
-                       <a key={subIdx} href="#" className="px-8 py-3 text-[13px] text-gray-600 border-b border-gray-50/20 last:border-none capitalize font-medium">
-                         {subItem}
-                       </a>
+                     {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
+                       <Link key={subIdx} href={subItem.href} className="px-8 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-[#427bdf]/5 border-b border-gray-50/20 last:border-none capitalize font-medium transition-colors">
+                         {subItem.label}
+                       </Link>
                      ))}
                    </div>
                  )}

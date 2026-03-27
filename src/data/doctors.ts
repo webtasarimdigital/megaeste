@@ -29,13 +29,13 @@ export interface Doctor {
 
 export const doctors: Doctor[] = [
   {
-    id: 'dr-mehmet-yildiz',
-    image: '/images/megaeste-burun-gorsel.jpg',
+    id: 'dr-omer-faruk-dursun',
+    image: '/images/doctors/dr-omer-faruk.jpg',
     tr: {
-      name: 'Dr. Mehmet Yıldız',
-      slug: 'dr-mehmet-yildiz',
-      title: 'Op. Dr.',
-      specialty: 'Plastik ve Rekonstrüktif Cerrahi Uzmanı',
+      name: 'Dr. Ömer Faruk Dursun',
+      slug: 'dr-omer-faruk-dursun',
+      title: '',
+      specialty: 'Diş Hekimi',
       bio: `Op. Dr. Mehmet Yıldız, plastik ve rekonstrüktif cerrahi alanında uzmanlaşmış deneyimli bir hekimdir. Yüz estetiği, burun estetiği ve saç ekimi konularında geniş deneyime sahiptir.
 
 Hasta memnuniyetini ön planda tutan yaklaşımıyla, her hastasına kişiye özel tedavi planları oluşturur. Modern cerrahi teknikleri ve yenilikçi yaklaşımları ile doğal ve estetik sonuçlar hedefler.

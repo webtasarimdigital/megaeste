@@ -17,29 +17,26 @@ export default function DoctorListContent({ doctors, lang }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative w-full bg-gradient-to-br from-[#0d2244] via-[#1e3a5f] to-[#2c5a8f] py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 w-80 h-80 bg-[#427bdf] rounded-full filter blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#1e3a5f] rounded-full filter blur-3xl" />
-        </div>
-        <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24">
-          <nav className="flex items-center text-sm text-white/60 mb-6 font-medium">
+      <section className="relative w-full bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat py-12 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[#0d2244]/80 backdrop-blur-[2px]"></div>
+        <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center text-center">
+          <nav className="flex items-center text-xs md:text-sm text-white/50 mb-6 font-medium tracking-wide">
             <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
               {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
             </Link>
-            <FaChevronRight className="mx-2 text-[10px]" />
-            <span className="text-white font-bold">{lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}</span>
+            <FaChevronRight className="mx-3 text-[10px]" />
+            <span className="text-white font-semibold">{lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}</span>
           </nav>
-          <div className="flex items-center gap-4 mb-5">
-            <div className="w-12 h-12 rounded-full bg-[#427bdf]/20 flex items-center justify-center">
-              <FaStethoscope className="text-xl text-[#427bdf]" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-black text-white">{lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}</h1>
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-5 rounded-full bg-white/10 border border-white/20 text-[#cca66b] text-xs font-bold tracking-widest uppercase">
+            {lang === 'tr' ? 'Profesyonel Ekibimiz' : 'Our Professional Team'}
           </div>
-          <p className="text-white/70 text-lg max-w-xl">
+          <h1 className="text-3xl md:text-5xl font-semibold text-white mb-5 tracking-tight">
+            {lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}
+          </h1>
+          <p className="text-white/60 text-base md:text-lg max-w-xl font-light">
             {lang === 'tr'
-              ? 'Alanında uzman, deneyimli hekim kadromuzla tanışın. Sağlığınız ve güzelliğiniz profesyonel ellerde.'
-              : 'Meet our experienced medical team of experts. Your health and beauty in professional hands.'}
+              ? 'Alanında uzman ve deneyimli kadromuzla yanınızdayız.'
+              : 'We stand by your side with our expert and experienced team.'}
           </p>
         </div>
       </section>

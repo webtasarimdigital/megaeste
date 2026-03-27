@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import BlogDetailContent from '@/components/BlogDetailContent';
-
 import NotFoundContent from '@/components/NotFoundContent';
 
 type Props = { params: { lang: string; slug: string } };
@@ -47,13 +46,12 @@ export default async function BlogDetailPage({ params }: Props) {
     );
   }
 
-  const content = post[lang];
-  const relatedPosts = getRelatedPosts(content.relatedSlugs, lang);
+  const related = getRelatedPosts(post[lang].relatedSlugs, lang);
 
   return (
     <main className="min-h-screen bg-white">
       <Header dict={dict?.header} lang={lang} />
-      <BlogDetailContent post={post} content={content} relatedPosts={relatedPosts} lang={lang} />
+      <BlogDetailContent post={post} relatedPosts={related} lang={lang} />
       <Footer dict={dict} lang={lang} />
       <MobileBottomNav dict={dict?.mobileNav} />
     </main>

@@ -7,8 +7,8 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
   const videos = [
     {
       id: 1,
-      src: "/videos/megaeste-klinik-tanitim.mp4",
-      title: lang === 'tr' ? "Modern Klinik Turu" : "Modern Clinic Tour",
+      src: "/videos/megaeste-epilasyon.mp4",
+      title: lang === 'tr' ? "Lazer Epilasyon" : "Laser Epilation",
       subtitle: lang === 'tr' ? "MEGAESTE KLİNİK" : "MEGAESTE CLINIC"
     },
     {
