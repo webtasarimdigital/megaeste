@@ -2,7 +2,9 @@ import Header from '@/components/Header';
 import HeroSlider from '@/components/HeroSlider';
 import CategoryButtons from '@/components/CategoryButtons';
 import AboutSection from '@/components/AboutSection';
+import AboutVideoSection from '@/components/AboutVideoSection';
 import ServicesShowcase from '@/components/ServicesShowcase';
+import QuickAppointment from '@/components/QuickAppointment';
 import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
 import MobileBottomNav from '@/components/MobileBottomNav';
@@ -26,8 +28,11 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       <div className="w-full flex flex-col -mt-4 xl:-mt-10 relative z-30">
         <AboutSection dict={dict} />
         <ServicesShowcase dict={dict} lang={lang} />
+        <QuickAppointment lang={lang} />
       </div>
 
+      <AboutVideoSection lang={lang} />
+      
       <BlogSection dict={dict} />
       <FAQSection dict={dict} />
 

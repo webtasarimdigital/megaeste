@@ -18,42 +18,83 @@ export default function ServiceDetailContent({ service, content, relatedServices
 
   const serviceLink = (slug: string) => lang === 'tr' ? `/hizmetler/${slug}` : `/${lang}/hizmetler/${slug}`;
 
+  // Map Category Slug to Theme Color Hexes and Classes
+  const getCategoryTheme = (slug: string) => {
+    switch (slug) {
+      case 'hair-transplant':
+      case 'sac-ekimi':
+        return { colorHex: '#4f6f8f', bg: 'bg-[#4f6f8f]', text: 'text-[#4f6f8f]', border: 'border-[#4f6f8f]' };
+      case 'plastic-surgery':
+      case 'plastik-cerrahi':
+        return { colorHex: '#729788', bg: 'bg-[#729788]', text: 'text-[#729788]', border: 'border-[#729788]' };
+      case 'medical-aesthetics':
+      case 'medikal-estetik':
+        return { colorHex: '#ad6778', bg: 'bg-[#ad6778]', text: 'text-[#ad6778]', border: 'border-[#ad6778]' };
+      case 'epilation':
+      case 'epilasyon':
+        return { colorHex: '#9f8eab', bg: 'bg-[#9f8eab]', text: 'text-[#9f8eab]', border: 'border-[#9f8eab]' };
+      default:
+        return { colorHex: '#427bdf', bg: 'bg-[#427bdf]', text: 'text-[#427bdf]', border: 'border-[#427bdf]' };
+    }
+  };
+
+  const theme = getCategoryTheme(content.categorySlug);
+
   return (
     <>
-      {/* Hero Banner */}
-      <section className="relative w-full h-[340px] md:h-[420px] overflow-hidden">
-        <Image
-          src={service.image}
-          alt={content.title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d2244]/90 via-[#1e3a5f]/70 to-transparent" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24">
-            {/* Breadcrumb */}
-            <nav className="flex items-center text-sm text-white/70 mb-6 font-medium">
-              <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
-                {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
-              </Link>
-              <FaChevronRight className="mx-2 text-[10px]" />
-              <span className="text-white/90">{content.category}</span>
-              <FaChevronRight className="mx-2 text-[10px]" />
-              <span className="text-white font-bold">{content.title}</span>
-            </nav>
-            {/* Title */}
-            <div className="max-w-2xl">
-              <span className="inline-block px-4 py-1.5 bg-[#427bdf]/30 backdrop-blur-md text-white text-xs font-bold uppercase tracking-[3px] rounded-full mb-4 border border-white/20">
-                {content.category}
-              </span>
-              <h1 className="text-3xl md:text-5xl font-black text-white leading-tight mb-4 drop-shadow-lg">
-                {content.title}
-              </h1>
-              <p className="text-white/85 text-base md:text-lg leading-relaxed max-w-xl">
-                {content.heroDescription}
-              </p>
-            </div>
+      {/* Split Hero Banner Reference Aesthetic */}
+      <section className="relative w-full min-h-[500px] lg:min-h-[550px] flex flex-col lg:flex-row overflow-hidden bg-gray-50">
+        
+        {/* Left Solid Color Area */}
+        <div className={`w-full lg:w-[45%] ${theme.bg} pt-24 pb-48 lg:py-32 px-6 lg:px-12 xl:px-24 flex flex-col justify-start relative z-10 transition-colors duration-500`}>
+          {/* Breadcrumb offset to the top left */}
+          <nav className="flex items-center text-xs md:text-sm text-white/80 mb-2 font-medium tracking-wide">
+            <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
+              {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
+            </Link>
+            <FaChevronRight className="mx-2 text-[10px]" />
+            <span className="text-white/90">{content.category}</span>
+            <FaChevronRight className="mx-2 text-[10px]" />
+            <span className="text-white font-bold">{content.title}</span>
+          </nav>
+          
+          {/* Subtle Decorative Backdrop Pattern */}
+          <div className="absolute top-1/4 right-0 lg:-right-32 opacity-15 pointer-events-none opacity-20 overflow-hidden mix-blend-overlay">
+            <svg width="400" height="400" viewBox="0 0 100 100" fill="none" className="transform rotate-45 scale-150">
+              <path d="M 50 10 C 20 10 10 40 10 50 C 10 60 20 90 50 90 C 80 90 90 60 90 50 C 90 40 80 10 50 10 Z" stroke="white" strokeWidth="0.5"/>
+              <path d="M 50 20 C 30 20 20 40 20 50 C 20 60 30 80 50 80 C 70 80 80 60 80 50 C 80 40 70 20 50 20 Z" stroke="white" strokeWidth="0.5"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Right Feature Image */}
+        <div className="w-full lg:w-[55%] h-[400px] lg:h-auto relative">
+          <Image
+            src={service.image}
+            alt={content.title}
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* Subtle Gradient for Overlapping Text Box Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent mix-blend-multiply" />
+        </div>
+
+        {/* Floating Text Overlay Box - Bridging Left and Right */}
+        <div className="absolute top-1/2 left-0 w-full transform -translate-y-[20%] lg:-translate-y-1/2 mt-10 md:mt-20 z-20 px-6 lg:px-12 xl:px-24 pointer-events-none">
+          <div 
+            className="bg-[#f2f6f5] p-8 md:p-12 w-full max-w-[600px] rounded-bl-3xl rounded-tr-3xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] pointer-events-auto border-l-[6px] transition-colors duration-500" 
+            style={{ borderColor: theme.colorHex }}
+          >
+            <span className={`text-[11px] font-bold tracking-[0.3em] uppercase mb-4 block opacity-80 transition-colors ${theme.text}`}>
+              {content.category}
+            </span>
+            <h1 className="text-3xl md:text-5xl font-black mb-5 uppercase tracking-wide text-[#1e3a5f] leading-tight">
+              {content.title}
+            </h1>
+            <p className="text-gray-700 text-[15px] md:text-[16px] leading-relaxed font-medium line-clamp-4">
+              {content.heroDescription}
+            </p>
           </div>
         </div>
       </section>
@@ -155,7 +196,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
                     >
                       <span className="font-bold text-[15px] text-[#1e3a5f] pr-4">{item.q}</span>
                       {openFaq === i ? (
-                        <FaChevronUp className="text-[#427bdf] text-sm flex-shrink-0" />
+                        <FaChevronUp className="text-sm flex-shrink-0 transition-colors" style={{ color: theme.colorHex }} />
                       ) : (
                         <FaChevronDown className="text-gray-400 text-sm flex-shrink-0" />
                       )}
@@ -171,30 +212,17 @@ export default function ServiceDetailContent({ service, content, relatedServices
             </div>
           </div>
 
-          {/* Right Sidebar */}
+          {/* Right Sidebar - Reordered: Related Services First, CTA Sticky Underneath */}
           <aside className="w-full lg:w-[340px] xl:w-[380px] flex-shrink-0">
             <div className="sticky top-8 space-y-6">
               
-              {/* CTA Card */}
-              <div className="bg-gradient-to-br from-[#1e3a5f] to-[#0d2244] rounded-2xl p-7 text-white shadow-xl">
-                <h3 className="text-xl font-black mb-3">
-                  {lang === 'tr' ? 'Ücretsiz Konsültasyon' : 'Free Consultation'}
-                </h3>
-                <p className="text-white/80 text-sm leading-relaxed mb-6">
-                  {lang === 'tr' 
-                    ? 'Uzman ekibimizle görüşmek ve randevu almak için hemen iletişime geçin.' 
-                    : 'Contact us now to meet with our expert team and schedule an appointment.'}
-                </p>
-                <a href="tel:#" className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#427bdf] hover:bg-[#3568c0] rounded-xl font-bold text-[15px] transition-colors shadow-lg">
-                  {lang === 'tr' ? 'Randevu Al' : 'Book Appointment'}
-                  <FaArrowRight className="text-sm" />
-                </a>
-              </div>
-
               {/* Related Services */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="px-6 py-5 bg-gradient-to-r from-[#f0f5fb] to-[#e8f0fb] border-b border-gray-100">
-                  <h3 className="text-lg font-black text-[#1e3a5f]">
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_5px_20px_rgba(0,0,0,0.03)] overflow-hidden">
+                <div 
+                  className="px-6 py-5 border-b border-gray-100/50"
+                  style={{ backgroundColor: `${theme.colorHex}15` }} // Light tint of category color
+                >
+                  <h3 className="text-lg font-black" style={{ color: theme.colorHex }}>
                     {lang === 'tr' ? 'Benzer Hizmetler' : 'Related Services'}
                   </h3>
                 </div>
@@ -205,9 +233,9 @@ export default function ServiceDetailContent({ service, content, relatedServices
                       <Link
                         key={rel.id}
                         href={serviceLink(relContent.slug)}
-                        className="group flex items-center gap-4 px-6 py-4 hover:bg-[#f7faff] transition-colors"
+                        className="group flex items-center gap-4 px-6 py-4 hover:bg-gray-50/80 transition-colors"
                       >
-                        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-sm">
+                        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-sm border border-gray-100">
                           <Image
                             src={rel.image}
                             alt={relContent.title}
@@ -217,16 +245,36 @@ export default function ServiceDetailContent({ service, content, relatedServices
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-bold text-[14px] text-gray-800 group-hover:text-[#427bdf] transition-colors truncate">
+                          <h4 className="font-bold text-[14px] text-gray-800 transition-colors truncate" style={{ '--tw-text-opacity': '1' } as React.CSSProperties}>
                             {relContent.title}
                           </h4>
-                          <span className="text-xs text-gray-400">{relContent.category}</span>
+                          <span className="text-[11.5px] font-semibold opacity-70" style={{ color: theme.colorHex }}>{relContent.category}</span>
                         </div>
-                        <FaArrowRight className="text-xs text-gray-300 group-hover:text-[#427bdf] group-hover:translate-x-1 transition-all flex-shrink-0" />
+                        <FaArrowRight className="text-xs text-gray-300 group-hover:-rotate-45 transition-transform flex-shrink-0" style={{ color: theme.colorHex }} />
                       </Link>
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Conversion CTA Card - Prominently Triggering Appointments */}
+              <div className="bg-[#1e2a38] rounded-2xl p-7 md:p-8 text-white shadow-xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#cca66b] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+                <h3 className="text-xl font-black mb-3">
+                  {lang === 'tr' ? 'Sizi Bekliyor Olacağız' : 'Free Consultation'}
+                </h3>
+                <p className="text-white/70 text-[14.5px] leading-relaxed mb-6 font-light">
+                  {lang === 'tr' 
+                    ? 'Uzman ekibimizle görüşmek, detaylı analiz ve ücretsiz randevu için hemen bize ulaşın.' 
+                    : 'Contact us now to meet with our expert team and schedule a comprehensive appointment.'}
+                </p>
+                <Link 
+                  href={lang === 'en' ? '/en/contact' : '/iletisim'}
+                  className="flex items-center justify-between w-full px-6 py-4 bg-[#cca66b] hover:bg-[#b8955d] rounded-xl font-bold text-[15px] transition-colors shadow-lg group-hover:shadow-[0_4px_20px_rgba(204,166,107,0.4)]"
+                >
+                  <span className="uppercase tracking-widest">{lang === 'tr' ? 'Randevu Al' : 'Book Appointment'}</span>
+                  <FaArrowRight className="text-sm transform group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
 
               {/* All Services Card */}

@@ -53,10 +53,10 @@ export default function DoctorListContent({ doctors, lang }: Props) {
               <Link
                 key={doc.id}
                 href={docLink(c.slug)}
-                className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
+                className="group bg-white rounded-[2rem] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col"
               >
-                {/* Photo */}
-                <div className="relative w-full h-[320px] overflow-hidden bg-gradient-to-b from-[#f0f5fb] to-[#e8f0fb]">
+                {/* Photo Area */}
+                <div className="relative w-full h-[360px] overflow-hidden bg-gradient-to-b from-[#f5f8fc] to-[#e4eef8]">
                   <Image
                     src={doc.image}
                     alt={c.name}
@@ -66,11 +66,12 @@ export default function DoctorListContent({ doctors, lang }: Props) {
                   <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
                 </div>
 
-                {/* Info */}
-                <div className="p-6 -mt-4 relative">
-                  <span className="text-xs font-bold text-[#427bdf] uppercase tracking-[2px] mb-2 block">{c.title}</span>
-                  <h2 className="text-xl font-black text-[#1e3a5f] mb-2 group-hover:text-[#427bdf] transition-colors">{c.name}</h2>
-                  <p className="text-gray-500 text-sm mb-4">{c.specialty}</p>
+                <div className="p-8 pt-6 relative flex flex-col flex-grow bg-white z-10 rounded-t-3xl -mt-6">
+                  <div className="flex items-center justify-between mb-2">
+                     <span className="text-[11px] font-bold text-[#cca66b] uppercase tracking-[2px]">{c.title}</span>
+                  </div>
+                  <h2 className="text-2xl font-black text-[#1e3a5f] mb-1 group-hover:text-[#427bdf] transition-colors">{c.name}</h2>
+                  <p className="text-gray-500 text-[14.5px] font-medium mb-5">{c.specialty}</p>
 
                   {/* Services */}
                   <div className="flex flex-wrap gap-1.5 mb-5">

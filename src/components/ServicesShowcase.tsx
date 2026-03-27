@@ -67,46 +67,48 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-sm md:text-base font-medium tracking-[0.2em] text-[#cca66b] mb-4 uppercase">
-            {dict?.services?.subtitle || 'ÖZEL TEDAVİ YÖNTEMLERİ'}
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-[11px] md:text-sm font-semibold tracking-[0.2em] text-[#cca66b] mb-3 uppercase">
+            {dict?.services?.subtitle || 'SİZE ÖZEL GELİŞMİŞ TEDAVİ YÖNTEMLERİ'}
           </h2>
-          <h3 className="text-3xl md:text-5xl font-light tracking-wide text-[#3a4f66]">
-            {dict?.services?.title || 'Uzmanlık Alanlarımız'}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-[#3a4f66]">
+            {dict?.services?.title || 'HİZMETLERİMİZ'}
           </h3>
         </div>
 
-        {/* Dynamic Tab Navigation (Scrollable on Mobile) */}
-        <div className="flex space-x-4 md:space-x-8 lg:space-x-16 border-b border-gray-200/60 w-full overflow-x-auto no-scrollbar justify-start lg:justify-center pb-4 mb-12">
-          {categories.map((cat) => {
-            const isActive = activeTab === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
-                className={`group flex flex-col items-center min-w-max pb-4 relative transition-all duration-300 ${
-                  isActive ? 'text-[#3a4f66]' : 'text-gray-400 hover:text-gray-600'
-                }`}
-              >
-                <div className={`p-4 rounded-xl transition-all duration-500 mb-3 ${isActive ? 'bg-gray-50 shadow-sm' : 'bg-transparent group-hover:bg-gray-50/50'}`}>
-                  <cat.icon 
-                    className={`text-4xl md:text-5xl transition-colors duration-500`} 
-                    style={{ color: isActive ? cat.color : undefined }}
-                    strokeWidth={isActive ? 0.7 : 0.4} 
+        {/* Dynamic Tab Navigation - Elegant Pill Menu */}
+        <div className="flex justify-center w-full px-2 mb-10 md:mb-16">
+          <div className="inline-flex flex-nowrap overflow-x-auto no-scrollbar bg-gray-50/80 backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-200 shadow-sm max-w-full">
+            {categories.map((cat) => {
+              const isActive = activeTab === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  className={`relative flex items-center justify-center px-5 py-3 md:px-8 md:py-4 rounded-xl md:rounded-full transition-all duration-500 flex-shrink-0 group overflow-hidden ${
+                    isActive ? 'text-white shadow-md transform scale-[1.02]' : 'text-[#3a4f66] hover:bg-white'
+                  }`}
+                >
+                  {/* Active Background Fill */}
+                  <div 
+                    className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`} 
+                    style={{ backgroundColor: isActive ? cat.color : 'transparent' }} 
                   />
-                </div>
-                <span className={`text-[15px] md:text-[17px] font-medium tracking-wide transition-all ${isActive ? 'font-bold' : ''}`}>
-                  {cat.title}
-                </span>
-
-                {/* Animated Bottom Indicator */}
-                <div 
-                  className={`absolute bottom-0 left-0 h-[3px] transition-all duration-500 ease-out-expo ${isActive ? 'w-full opacity-100' : 'w-0 opacity-0'}`} 
-                  style={{ backgroundColor: cat.color }} 
-                />
-              </button>
-            );
-          })}
+                  
+                  {/* Content */}
+                  <div className="relative z-10 flex items-center space-x-2 md:space-x-3">
+                    <cat.icon 
+                      className={`text-2xl md:text-[28px] transition-transform duration-500 ${isActive ? 'scale-110 drop-shadow-sm' : 'group-hover:scale-110'}`} 
+                      strokeWidth={isActive ? 1 : 0.7} 
+                    />
+                    <span className={`text-[13.5px] md:text-[15px] tracking-wide whitespace-nowrap transition-all ${isActive ? 'font-semibold' : 'font-medium'}`}>
+                      {cat.title}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Dynamic Active Content Area */}

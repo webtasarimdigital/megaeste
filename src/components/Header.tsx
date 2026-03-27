@@ -141,46 +141,47 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       </div>
 
       {/* Mobile Header */}
-      <div className="lg:hidden w-full flex flex-col shadow-sm">
-        <div className="flex justify-between items-center px-5 py-4 bg-white">
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-            className="text-3xl text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <FiMenu />
-          </button>
+      <div className="lg:hidden w-full flex flex-col shadow-sm bg-white relative z-50">
+        <div className="flex justify-between items-center px-4 py-3 border-b border-gray-100">
           
-          <Link href={`/${lang}`} className="block">
+          {/* Logo on Left */}
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="block flex-shrink-0">
             <Image 
               src="/images/logo.png" 
               alt="Megaeste Logo" 
-              width={180} 
-              height={58} 
+              width={160} 
+              height={50} 
               priority 
-              className="w-[150px] sm:w-[170px] h-auto object-contain"
+              className="w-[140px] sm:w-[150px] h-auto object-contain"
             />
           </Link>
-        </div>
-        
-        {/* Mobile Randevu Al Bar */}
-        <div className="w-full bg-[#427bdf] text-white text-center py-3.5 text-[15px] font-bold uppercase tracking-wider relative">
-          {dict?.getAppointment || "Randevu Al"}
           
-          <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center space-x-2 text-sm font-bold">
+          <div className="flex items-center gap-4">
+            {/* Language Switcher moved next to menu */}
+            <div className="flex items-center space-x-1.5 text-[12.5px] font-black tracking-wide">
               <button 
                 onClick={() => switchLanguage('tr')} 
-                className={`hover:text-white transition-colors ${lang === 'tr' ? 'text-white' : 'text-[#e6cba3]'}`}
+                className={`transition-colors ${lang === 'tr' ? 'text-[#1e3a5f]' : 'text-gray-300'}`}
               >
                 TR
               </button>
-              <span className="text-[#d4ba96]">/</span>
+              <span className="text-gray-200">/</span>
               <button 
                 onClick={() => switchLanguage('en')} 
-                className={`hover:text-white transition-colors ${lang === 'en' ? 'text-white' : 'text-[#e6cba3]'}`}
+                className={`transition-colors ${lang === 'en' ? 'text-[#1e3a5f]' : 'text-gray-300'}`}
               >
                 EN
               </button>
             </div>
+            
+            {/* Menu Icon on Right */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+              className="text-3xl text-[#1e3a5f] hover:text-[#cca66b] transition-colors"
+            >
+              <FiMenu />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Dropdown */}

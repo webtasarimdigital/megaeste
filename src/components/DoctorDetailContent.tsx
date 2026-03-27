@@ -16,61 +16,60 @@ export default function DoctorDetailContent({ doctor, lang }: Props) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative w-full bg-gradient-to-br from-[#0d2244] via-[#1e3a5f] to-[#2c5a8f] overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-72 h-72 bg-[#427bdf] rounded-full filter blur-3xl" />
+      {/* Split Hero Nivdis Style */}
+      <section className="relative w-full min-h-[500px] lg:min-h-[600px] flex flex-col lg:flex-row overflow-hidden bg-[#f4f7fa]">
+        
+        {/* Left Image Area */}
+        <div className="w-full lg:w-1/2 h-[450px] lg:h-auto relative">
+          <Image
+            src={doctor.image}
+            alt={c.name}
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0d2244]/80 via-transparent to-transparent opacity-60"></div>
         </div>
-        <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 py-14 md:py-20">
+
+        {/* Right Content Area (Blue Corporate) */}
+        <div className="w-full lg:w-1/2 bg-gradient-to-br from-[#1e3a5f] to-[#0d2244] px-6 lg:px-16 xl:px-24 pt-16 pb-20 flex flex-col justify-center relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center text-sm text-white/60 mb-8 font-medium">
+          <nav className="flex items-center text-xs md:text-sm text-white/50 mb-10 font-medium tracking-wider uppercase">
             <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
               {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
             </Link>
-            <FaChevronRight className="mx-2 text-[10px]" />
+            <FaChevronRight className="mx-3 text-[10px]" />
             <Link href={lang === 'tr' ? '/hekimlerimiz' : `/${lang}/hekimlerimiz`} className="hover:text-white transition-colors">
               {lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}
             </Link>
-            <FaChevronRight className="mx-2 text-[10px]" />
-            <span className="text-white font-bold">{c.name}</span>
+            <FaChevronRight className="mx-3 text-[10px]" />
+            <span className="text-[#cca66b] font-bold">{c.name}</span>
           </nav>
 
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
-            {/* Photo */}
-            <div className="w-[200px] h-[200px] md:w-[260px] md:h-[260px] rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl flex-shrink-0">
-              <Image
-                src={doctor.image}
-                alt={c.name}
-                width={260}
-                height={260}
-                className="w-full h-full object-cover object-top"
-                priority
-              />
+          <div className="relative z-20">
+            <span className="inline-block px-4 py-1.5 bg-[#cca66b]/20 text-[#cca66b] text-xs font-black uppercase tracking-[3px] rounded-full mb-4 border border-[#cca66b]/30 backdrop-blur-md">
+              {c.title}
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white mb-4 drop-shadow-md">{c.name}</h1>
+            <p className="text-[#a8ccf0] text-lg md:text-xl font-medium mb-10 max-w-lg">{c.specialty}</p>
+            
+            {/* Service Tags */}
+            <div className="flex flex-wrap gap-2 mb-10">
+              {c.services.map((s, i) => (
+                <span key={i} className="px-4 py-2 bg-white/5 hover:bg-white/10 text-white text-[13px] font-bold rounded-lg border border-white/10 transition-colors cursor-default backdrop-blur-sm shadow-sm">
+                  {s}
+                </span>
+              ))}
             </div>
 
-            {/* Info */}
-            <div className="text-center md:text-left">
-              <span className="inline-block px-3 py-1 bg-[#427bdf]/30 backdrop-blur-md text-white text-xs font-bold uppercase tracking-[2px] rounded-full mb-3 border border-white/20">
-                {c.title}
-              </span>
-              <h1 className="text-3xl md:text-4xl font-black text-white mb-3">{c.name}</h1>
-              <p className="text-[#a8ccf0] text-lg font-medium mb-6">{c.specialty}</p>
-              
-              {/* Service Tags */}
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
-                {c.services.map((s, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white text-xs font-bold rounded-full border border-white/10">
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              <a href="tel:#" className="inline-flex items-center gap-2 px-6 py-3 bg-[#427bdf] hover:bg-[#3568c0] text-white rounded-xl font-bold text-[15px] transition-colors shadow-lg">
-                <FaPhoneAlt className="text-sm" />
-                {lang === 'tr' ? 'Randevu Al' : 'Book Appointment'}
-              </a>
-            </div>
+            <a href="tel:#" className="inline-flex items-center gap-3 px-8 py-4 bg-[#cca66b] hover:bg-[#b58f53] text-white rounded-xl font-black tracking-widest uppercase text-[14px] transition-transform hover:-translate-y-1 shadow-[0_10px_30px_rgba(204,166,107,0.3)]">
+              <FaPhoneAlt className="text-sm" />
+              {lang === 'tr' ? 'Randevu Al' : 'Book Appointment'}
+            </a>
           </div>
+          
+          {/* Decorative Pattern */}
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#427bdf] rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
         </div>
       </section>
 

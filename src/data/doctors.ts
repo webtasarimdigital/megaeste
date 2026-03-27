@@ -30,7 +30,7 @@ export interface Doctor {
 export const doctors: Doctor[] = [
   {
     id: 'dr-mehmet-yildiz',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600',
+    image: '/images/megaeste-burun-gorsel.jpg',
     tr: {
       name: 'Dr. Mehmet Yıldız',
       slug: 'dr-mehmet-yildiz',
@@ -82,7 +82,7 @@ Dr. Yildiz, who presents at national and international congresses, closely follo
   },
   {
     id: 'dr-ayse-kara',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600',
+    image: '/images/megaeste-botoks2.jpg',
     tr: {
       name: 'Dr. Ayşe Kara',
       slug: 'dr-ayse-kara',
@@ -134,7 +134,7 @@ She keeps her knowledge and skills current by regularly participating in nationa
   },
   {
     id: 'dr-ali-demir',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600',
+    image: '/images/gorselsac.jfif',
     tr: {
       name: 'Dr. Ali Demir',
       slug: 'dr-ali-demir',
