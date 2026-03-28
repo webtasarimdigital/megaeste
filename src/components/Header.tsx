@@ -96,7 +96,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   return (
     <header className="w-full sticky top-0 z-50 flex flex-col bg-white shadow-sm">
       {/* Desktop Top Bar - Always visible */}
-      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#427bdf]/10 to-white border-b border-gray-100 h-[90px]">
+      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 h-[90px]">
         <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
           {/* Logo on the left */}
