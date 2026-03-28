@@ -24,6 +24,7 @@ export default function DoctorDetailContent({ doctor, lang }: Props) {
             src={doctor.image}
             alt={c.name}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center"
             priority
           />

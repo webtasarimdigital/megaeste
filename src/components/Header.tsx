@@ -132,7 +132,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               </button>
               
               {/* Desktop Lang Dropdown Menu */}
-              <div className="absolute top-[60px] right-0 mt-0 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-b-lg border-t-2 border-[#cca66b] overflow-hidden flex flex-col w-[140px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
+              <div className="absolute top-full right-0 mt-0 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-b-lg border-t-2 border-[#cca66b] overflow-hidden flex flex-col w-[140px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
                  <button onClick={() => switchLanguage('tr')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
                     <img src="/images/flags/tr.svg" alt="TR" className="w-[22px] h-auto rounded-[3px] shadow-sm" />
                     <span className={lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}>TÜRKÇE</span>
@@ -301,8 +301,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 
                 {navData.map((category, index) => {
                   const hasItems = category.items.length > 0;
+                  const isLastItem = index === navData.length - 1;
                   return (
-                    <div key={index} className="flex flex-col border-b border-white/10">
+                    <div key={index} className={`flex flex-col ${!isLastItem ? 'border-b border-white/10' : ''}`}>
                       <button 
                         onClick={() => {
                           if (hasItems) {

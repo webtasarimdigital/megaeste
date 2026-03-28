@@ -152,7 +152,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
             <div className="mb-14">
 
               <div 
-                className="prose prose-lg max-w-none text-gray-600 leading-loose [&>h2]:text-2xl [&>p]:mb-4"
+                className="prose prose-lg max-w-none text-gray-600 leading-loose [&>h2]:text-2xl [&>p]:mb-4 [&>div.relative.group]:!mb-16 [&>div.relative.group]:!mt-12"
                 dangerouslySetInnerHTML={{ __html: content.longDescription }}
               />
             </div>
