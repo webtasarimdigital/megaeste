@@ -4,14 +4,9 @@ import React from 'react';
 import Link from 'next/link';
 import { FaHome } from 'react-icons/fa';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function NotFoundContent({ dict, lang }: { dict?: any, lang: string }) {
-  const content = dict?.notFound || {
-    title: "404",
-    subtitle: "Sayfa Bulunamadı",
-    message: "Aradığınız sayfa silinmiş, adı değiştirilmiş veya geçici olarak ulaşılamıyor olabilir.",
-    button: "Ana Sayfaya Dön"
-  };
+
 
   const isTr = lang === 'tr';
   const prefix = isTr ? '' : `/${lang}`;

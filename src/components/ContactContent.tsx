@@ -1,9 +1,10 @@
 'use client';
+/* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
 import QuickContact from './QuickContact';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function ContactContent({ dict, lang }: { dict?: any, lang: string }) {
   const isTr = lang === 'tr';
   const title = isTr ? 'İletişim' : 'Contact Us';
