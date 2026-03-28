@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FaPhoneAlt, FaWhatsapp, FaArrowUp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
