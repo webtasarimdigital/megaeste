@@ -56,18 +56,18 @@ export default function NotFoundContent({ dict, lang }: { dict?: any, lang: stri
         </p>
 
         {/* Action Buttons */}
-        <div className="mt-10 md:mt-14 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full px-4">
+        <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full px-4">
           <Link 
             href={prefix || '/'} 
-            className="w-full md:w-auto flex items-center justify-center px-8 md:px-10 py-4.5 bg-[#f4b329] text-[#1a2b49] rounded-xl font-bold text-[14px] md:text-[15px] tracking-wide hover:bg-[#dfa120] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(244,179,41,0.5)] uppercase"
+            className="w-full sm:w-auto flex items-center justify-center px-8 md:px-10 py-4 bg-[#cca66b] text-white rounded-xl font-bold text-[14px] md:text-[15px] tracking-wide hover:bg-[#b58f53] shadow-[0_10px_20px_rgba(204,166,107,0.3)] transition-all duration-300 hover:-translate-y-1 active:scale-95 uppercase"
           >
-            <FaHome className="mr-3 text-lg mb-0.5" />
+            <FaHome className="mr-3 text-lg" />
             {btnHome}
           </Link>
           
           <Link
             href={`${prefix}/iletisim`}
-            className="w-full md:w-auto flex items-center justify-center px-8 md:px-10 py-4.5 bg-white border-2 border-gray-200 text-[#3d4450] rounded-xl font-bold text-[14px] md:text-[15px] tracking-wide hover:border-[#1a2b49] hover:text-[#1a2b49] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 uppercase"
+            className="w-full sm:w-auto flex items-center justify-center px-8 md:px-10 py-4 bg-[#1e3a5f] text-white rounded-xl font-bold text-[14px] md:text-[15px] tracking-wide hover:bg-[#142946] shadow-[0_10px_20px_rgba(30,58,95,0.2)] transition-all duration-300 hover:-translate-y-1 active:scale-95 uppercase"
           >
             {btnContact}
           </Link>

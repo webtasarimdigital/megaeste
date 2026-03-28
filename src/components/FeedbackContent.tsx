@@ -25,7 +25,7 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
       {/* Hero (Taller for Overlap) */}
       <section className="relative w-full h-[300px] lg:h-[35vh] min-h-[300px] bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
         <div className="absolute inset-0 bg-[#0d2244]/80 backdrop-blur-[2px]"></div>
-        <div className="relative z-30 w-full h-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center justify-center text-center -mt-16 md:-mt-20">
+        <div className="relative z-30 w-full h-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center justify-center text-center pt-20 lg:pt-28">
           <nav className="flex items-center text-xs md:text-sm text-white/50 mb-6 font-medium tracking-wide">
             <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
               {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
@@ -119,24 +119,35 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
                 type="button" 
                 className="bg-[#cca66b] text-[#0d2244] font-black py-4 px-14 rounded-[12px] hover:bg-[#b58f53] hover:text-white transition-all duration-300 text-[16px] tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                {isTr ? 'MESAJE GÖNDER' : 'SEND MESSAGE'}
+                {isTr ? 'GÖNDER' : 'SEND'}
               </button>
             </div>
           </form>
           </div>
 
-          {/* Right Column: Embedded Map */}
-          <div className="w-full lg:w-1/2 h-full min-h-[350px] lg:min-h-full rounded-[14px] overflow-hidden shadow-sm border-2 border-[#eef2f6] relative">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1505.5786884610996!2d29.110287114660724!3d41.020524949502906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac9aa1b35b6df%3A0x6b4457223b37807c!2sMegaeste%20Estetik%20%26%20Plastik%20Cerrahi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
-              allowFullScreen 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale hover:grayscale-0 transition-all duration-700"
-            />
+          {/* Right Column: Visual Cards */}
+          <div className="w-full lg:w-1/2 relative flex items-center justify-center py-6">
+            {/* Background Blob */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[110%] bg-gradient-to-tr from-[#eef4fc] to-[#f7faff] rounded-[40px] -rotate-3 z-0"></div>
+            
+            <div className="relative z-10 grid grid-cols-2 gap-4 w-full px-2 md:px-6">
+              <div className="space-y-4 pt-12 flex flex-col justify-end">
+                <div className="relative h-48 md:h-60 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
+                  <img src="/images/services/burun-estetigi.png" alt="Plastik Cerrahi" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div className="relative h-32 md:h-44 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
+                  <img src="/images/services/lazer-epilasyon.png" alt="Lazer Epilasyon" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                </div>
+              </div>
+              <div className="space-y-4 flex flex-col justify-start">
+                <div className="relative h-32 md:h-44 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
+                  <img src="/images/services/medikal-cilt-bakimi.png" alt="Medikal Estetik" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div className="relative h-48 md:h-60 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
+                  <img src="/images/services/dhi-sac-ekimi.png" alt="Saç Ekimi" className="absolute inset-0 w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700" />
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

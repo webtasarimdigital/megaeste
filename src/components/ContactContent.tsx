@@ -110,7 +110,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
                 type="button" 
                 className="w-full md:w-auto self-start mt-2 bg-[#cca66b] text-white font-bold py-3.5 px-8 md:px-12 rounded-xl text-[14px] hover:bg-[#b58f53] hover:shadow-lg transition-all active:scale-[0.98]"
               >
-                {isTr ? 'MESAJI GÖNDER' : 'SEND MESSAGE'}
+                {isTr ? 'GÖNDER' : 'SEND'}
               </button>
             </form>
           </div>
