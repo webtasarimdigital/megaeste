@@ -165,9 +165,4 @@ export default function HeroSlider({ dict }: { dict?: any }) {
       </div>
     </div>
   );
-}       />
-        ))}
-      </div>
-    </div>
-  );
 }
