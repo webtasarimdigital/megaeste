@@ -16,7 +16,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
         
         {/* Main Section Title */}
         <div className="text-center md:mb-[-2rem] lg:mb-[-3rem]">
-          <h2 className="text-4xl lg:text-5xl font-black text-[#1e3a5f] tracking-tight">
+          <h2 className="text-3xl lg:text-4xl xl:text-[2.6rem] font-black text-[#1e3a5f] tracking-tight">
             {isTr ? 'Popüler Hizmetler' : 'Popular Services'}
           </h2>
           <div className="w-24 h-1.5 bg-[#cca66b] mx-auto mt-4 rounded-full"></div>
@@ -78,13 +78,13 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
                 href={isTr ? '/hizmetler/lazer-epilasyon' : '/en/hizmetler/laser-epilation'}
                 className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'Lazer Epilasyonu İncele' : 'View Laser Epilation'} <FaArrowRight className="text-xs" />
+                {isTr ? 'Lazer Epilasyon Hizmetini İncele' : 'View Laser Epilation'} <FaArrowRight className="text-xs" />
               </Link>
               <Link 
                 href={isTr ? '/hizmetler/igneli-lazer-epilasyonu' : '/en/hizmetler/needle-laser-epilation'}
                 className="w-full sm:w-auto px-6 py-3.5 bg-white text-pink-500 border border-pink-100 font-bold rounded-xl shadow-sm hover:bg-pink-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'İğneli Lazer İncele' : 'View Needle Epilation'} <FaArrowRight className="text-xs" />
+                {isTr ? 'İğneli Lazer Hizmetini İncele' : 'View Needle Epilation'} <FaArrowRight className="text-xs" />
               </Link>
             </div>
           </motion.div>
@@ -221,19 +221,19 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
                 href={isTr ? '/hizmetler/dhi-sac-ekimi' : '/en/hizmetler/dhi-hair-transplant'}
                 className="w-full sm:w-auto px-6 py-3.5 bg-[#1e3a5f] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(30,58,95,0.3)] hover:bg-[#142845] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'DHI Saç Ekimi İncele' : 'View DHI Transplant'} <FaArrowRight className="text-xs" />
+                {isTr ? 'DHI Saç Ekimi Hizmetini İncele' : 'View DHI Transplant'} <FaArrowRight className="text-xs" />
               </Link>
               <Link 
                 href={isTr ? '/hizmetler/safir-sac-ekimi' : '/en/hizmetler/sapphire-hair-transplant'}
                 className="w-full sm:w-auto px-6 py-3.5 bg-[#cca66b] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(204,166,107,0.3)] hover:brightness-110 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'Safir FUE İncele' : 'View Sapphire FUE'} <FaArrowRight className="text-xs" />
+                {isTr ? 'Safir FUE Hizmetini İncele' : 'View Sapphire FUE'} <FaArrowRight className="text-xs" />
               </Link>
               <Link 
                 href={isTr ? '/hizmetler/sac-mezoterapisi' : '/en/hizmetler/hair-mesotherapy'}
                 className="w-full sm:w-auto px-6 py-3.5 bg-white text-[#1e3a5f] border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'Saç Mezoterapisi İncele' : 'View Mesotherapy'} <FaArrowRight className="text-xs" />
+                {isTr ? 'Saç Mezoterapisi Hizmetini İncele' : 'View Mesotherapy'} <FaArrowRight className="text-xs" />
               </Link>
             </div>
           </motion.div>

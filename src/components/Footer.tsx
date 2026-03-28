@@ -75,11 +75,11 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
 
       {/* Main Footer Content */}
       <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 py-14 xl:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 xl:gap-8">
 
           {/* Column 1: Logo + Info + Social */}
-          <div className="lg:col-span-3 flex flex-col items-start">
-            <a href={lang === 'tr' ? '/' : '/en'} className="bg-white/95 p-3 px-5 rounded-2xl shadow-lg mb-6 hover:shadow-xl transition-shadow border border-white/20">
+          <div className="col-span-2 lg:col-span-3 flex flex-col items-start order-1 lg:order-1">
+            <a href={lang === 'tr' ? '/' : '/en'} className="mb-6 inline-block hover:opacity-80 transition-opacity">
               <Image
                 src="/images/megaeste-logo-png.png"
                 alt="Megaeste Logo"
@@ -120,7 +120,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
           </div>
 
           {/* Column 2: Kurumsal */}
-          <div className="lg:col-span-2 flex flex-col">
+          <div className="col-span-1 lg:col-span-2 flex flex-col order-2 lg:order-2">
             <h4 className="text-white font-extrabold text-[15px] uppercase tracking-wider mb-5 relative pb-3">
               {f.corporate || 'Kurumsal'}
               <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#cca66b] rounded-full"></span>
@@ -137,7 +137,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
           </div>
 
           {/* Column 3: Hizmetlerimiz (2-column layout) */}
-          <div className="lg:col-span-4 flex flex-col">
+          <div className="col-span-2 lg:col-span-4 flex flex-col order-4 lg:order-3">
             <h4 className="text-white font-extrabold text-[15px] uppercase tracking-wider mb-5 relative pb-3">
               {f.services || 'Hizmetlerimiz'}
               <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#cca66b] rounded-full"></span>
@@ -165,7 +165,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
           </div>
 
           {/* Column 4: İletişim */}
-          <div className="lg:col-span-3 flex flex-col">
+          <div className="col-span-1 lg:col-span-3 flex flex-col order-3 lg:order-4">
             <h4 className="text-white font-extrabold text-[15px] uppercase tracking-wider mb-5 relative pb-3">
               {f.contact || 'İletişim'}
               <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#cca66b] rounded-full"></span>

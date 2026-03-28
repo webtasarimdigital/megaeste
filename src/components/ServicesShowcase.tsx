@@ -285,7 +285,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="mt-8 flex justify-start pl-2"
+              className="mt-8 hidden md:flex justify-start pl-2"
             >
               <Link 
                   href={lang === 'en' ? '/en/contact' : '/iletisim'}

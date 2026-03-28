@@ -34,18 +34,21 @@ export default function BlogSection({ dict, lang = 'tr' }: { dict?: any, lang?: 
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#427bdf]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
       {/* Header */}
-      <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between mb-14 border-b border-gray-100 pb-6">
+      <div className="w-full max-w-[1440px] mx-auto flex flex-row items-end justify-between mb-8 md:mb-14 border-b border-gray-100 pb-4 md:pb-6">
         <div>
-          <div className="flex items-center space-x-3 mb-3">
-            <div className="w-10 h-[3px] bg-[#cca66b] rounded-full"></div>
-            <span className="text-[#cca66b] font-black tracking-widest text-xs uppercase">{content.title}</span>
+          <div className="flex items-center space-x-2 md:space-x-3 mb-2 md:mb-3">
+            <div className="w-6 md:w-10 h-[2px] md:h-[3px] bg-[#cca66b] rounded-full"></div>
+            <span className="text-[#cca66b] font-black tracking-widest text-[10px] md:text-xs uppercase">{content.title}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl xl:text-[2.8rem] font-light text-[#1e3a5f] leading-tight">
+          <h2 className="text-[22px] md:text-4xl xl:text-[2.8rem] font-light text-[#1e3a5f] leading-tight">
             {content.subtitle}
           </h2>
         </div>
-        <Link href={blogBaseUrl} className="mt-8 md:mt-0 flex items-center justify-center px-8 py-3.5 rounded-full border border-gray-200 text-[#1e3a5f] hover:bg-[#cca66b] hover:text-white hover:border-[#cca66b] font-medium text-sm transition-all group shadow-sm">
-          {content.viewAll} <FaArrowRight className="text-xs ml-3 group-hover:translate-x-1 transition-transform" />
+        <Link 
+          href={blogBaseUrl} 
+          className="flex items-center justify-center px-4 md:px-8 py-2 md:py-3.5 rounded-full border border-gray-200 text-[#1e3a5f] hover:bg-[#cca66b] hover:text-white hover:border-[#cca66b] font-medium text-[11px] md:text-sm transition-all group shadow-sm whitespace-nowrap ml-4"
+        >
+          {content.viewAll} <FaArrowRight className="text-[10px] md:text-xs ml-2 md:ml-3 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 

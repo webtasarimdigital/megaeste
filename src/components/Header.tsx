@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React, { useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiPhone } from 'react-icons/fi';
 import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaArrowRight, FaChevronDown } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -14,16 +14,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const switchLanguage = (newLang: string) => {
     if (typeof window === 'undefined') return;
@@ -103,15 +94,15 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full sticky top-0 z-50 flex flex-col bg-white transition-all duration-300">
-      {/* Desktop Top Bar - Hides on scroll */}
-      <div className={`hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0' : 'h-[90px] opacity-100'}`}>
+    <header className="w-full sticky top-0 z-50 flex flex-col bg-white shadow-sm">
+      {/* Desktop Top Bar - Always visible */}
+      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 h-[90px]">
         <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
           {/* Logo on the left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 hover:opacity-90 transition-opacity">
             <Image 
-              src="/images/megaeste-logo-png.png" 
+              src="/images/megaestelogo.png" 
               alt="Megaeste Logo" 
               width={260} 
               height={80} 
@@ -187,21 +178,20 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                   )}
                 </div>
               ))}
+              {/* Moved Social Icons to be next to navigation items */}
+              <div className="flex items-center gap-2 ml-4 relative z-40 border-l border-gray-200 pl-4 h-6">
+                <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="w-[30px] h-[30px] border border-gray-200 rounded flex items-center justify-center text-gray-400 hover:text-[#E1306C] hover:border-[#E1306C] transition-colors">
+                  <FaInstagram className="text-[14px]" />
+                </a>
+                <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="w-[30px] h-[30px] border border-gray-200 rounded flex items-center justify-center text-gray-400 hover:text-[#25D366] hover:border-[#25D366] transition-colors">
+                  <FaWhatsapp className="text-[14px]" />
+                </a>
+                <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="w-[30px] h-[30px] border border-gray-200 rounded flex items-center justify-center text-gray-400 hover:text-[#EA4335] hover:border-[#EA4335] transition-colors">
+                  <FaMapMarkerAlt className="text-[14px]" />
+                </a>
+              </div>
             </div>
           </nav>
-          
-          {/* Social Icons (Aligned Right) */}
-          <div className="absolute right-4 lg:right-8 flex items-center gap-2 z-40">
-            <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#E1306C] hover:border-[#E1306C] transition-colors">
-              <FaInstagram className="text-[16px]" />
-            </a>
-            <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:border-[#25D366] transition-colors">
-              <FaWhatsapp className="text-[16px]" />
-            </a>
-            <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#EA4335] hover:border-[#EA4335] transition-colors">
-              <FaMapMarkerAlt className="text-[16px]" />
-            </a>
-          </div>
         </div>
       </div>
 
@@ -212,7 +202,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           {/* Logo on Left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0">
             <Image 
-              src="/images/megaeste-logo-png.png" 
+              src="/images/megaestelogo.png" 
               alt="Megaeste Logo" 
               width={160} 
               height={50} 
@@ -301,7 +291,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               </div>
 
               {/* Scrollable menu */}
-              <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-2 pb-6 flex flex-col no-scrollbar">
+              <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-2 pb-28 flex flex-col no-scrollbar">
                 
                 {navData.map((category, index) => {
                   const hasItems = category.items.length > 0;
@@ -353,30 +343,31 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                   );
                 })}
                 
-                <div className="mt-auto pt-6 flex w-full">
-                  {/* Footer of Menu: Socials + CTA */}
-                  <div className="flex items-center justify-between w-full">
-                    {/* Social media links inside mobile menu */}
-                    <div className="flex items-center gap-4 sm:gap-5 px-1">
-                      <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FaInstagram className="text-[22px]" />
-                      </a>
-                      <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
+                <div className="mt-10 pt-6 flex w-full">
+                  {/* CTA + Socials */}
+                  <div className="flex flex-row items-center justify-between w-full">
+                    
+                    {/* Bottom CTA on the Left */}
+                    <Link 
+                      href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-5 py-3.5 transition-all shadow-lg"
+                    >
+                      {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"}
+                    </Link>
+
+                    {/* Icons on the Right: WP, Konum, Telefon */}
+                    <div className="flex items-center gap-4 px-1 ml-auto">
+                      <a href={`https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}`} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
                         <FaWhatsapp className="text-[22px]" />
                       </a>
                       <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
                         <FaMapMarkerAlt className="text-[20px]" />
                       </a>
+                      <a href="tel:+905334814098" className="text-gray-300 hover:text-[#cca66b] transition-colors">
+                        <FiPhone className="text-[20px]" />
+                      </a>
                     </div>
-
-                    {/* Bottom CTA Inside Scrollable Area */}
-                    <Link 
-                      href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-4 sm:px-6 py-3.5 transition-all shadow-lg"
-                    >
-                      {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"} <FaArrowRight className="ml-2 text-sm" />
-                    </Link>
                   </div>
                 </div>
               </div>
