@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaArrowRight, FaChevronDown } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -94,9 +94,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full sticky top-0 lg:top-[-90px] z-50 flex flex-col bg-white">
+    <header className="w-full sticky top-0 lg:-top-[90px] z-50 flex flex-col bg-white">
       {/* Desktop Top Bar - Full width, scrolls away (Height 90px) */}
-      <div className="hidden lg:flex w-full bg-[#fbfbfb] border-b border-gray-100 h-[90px]">
+      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#e5f0fa] to-white border-b border-gray-100 h-[90px]">
         <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
           {/* Logo on the left */}
@@ -149,11 +149,11 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       </div>
 
       {/* Desktop Main Bar - Sticky Navigation Category Bar (Height 56px) */}
-      <div className="hidden lg:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-b border-gray-100 w-full h-[56px] transition-shadow duration-300">
-        <div className="w-full max-w-[1280px] mx-auto flex items-center justify-between h-full px-4 lg:px-8">
+      <div className="hidden lg:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-b border-gray-100 w-full h-[56px] transition-shadow duration-300 relative">
+        <div className="w-full flex items-center h-full px-4 lg:px-8 relative">
           
-          {/* Main Navigation (Aligned Left) */}
-          <nav className={`flex items-center justify-start font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30 ${lang === 'en' ? 'text-[10px] xl:text-[11px]' : 'text-[11.5px] xl:text-[12.5px]'}`}>
+          {/* Main Navigation (Centered) */}
+          <nav className={`absolute left-1/2 -translate-x-1/2 flex items-center justify-center font-bold text-[#2c4c7c] uppercase tracking-wide z-30 ${lang === 'en' ? 'text-[10px] xl:text-[11px]' : 'text-[11.5px] xl:text-[12.5px]'}`}>
             <div className={`flex items-center ${lang === 'en' ? 'space-x-4 xl:space-x-5' : 'space-x-5 xl:space-x-7'}`}>
               {navData.map((category, index) => (
                 <div key={index} className="relative group flex items-center h-full">
@@ -182,14 +182,14 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           </nav>
           
           {/* Social Icons (Aligned Right, Esteworld style border blocks) */}
-          <div className="flex items-center gap-2 relative z-40">
+          <div className="absolute right-4 lg:right-8 flex items-center gap-2 z-40">
             <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#E1306C] hover:border-[#E1306C] transition-colors">
               <FaInstagram className="text-[16px]" />
             </a>
             <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:border-[#25D366] transition-colors">
               <FaWhatsapp className="text-[16px]" />
             </a>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#EA4335] hover:border-[#EA4335] transition-colors">
+            <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#EA4335] hover:border-[#EA4335] transition-colors">
               <FaMapMarkerAlt className="text-[16px]" />
             </a>
           </div>
@@ -270,32 +270,34 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed inset-0 bg-[#3a4352] z-[100] flex flex-col pt-2"
+              className="fixed inset-0 bg-[#0d2244] z-[100] flex flex-col pt-2"
             >
               {/* Header inside drawer */}
-              <div className="flex justify-between items-center px-6 py-5 border-b border-gray-600/50">
-                <Image 
-                  src="/images/logo.png" 
-                  alt="Megaeste Logo" 
-                  width={140} 
-                  height={45} 
-                  className="w-[130px] object-contain brightness-0 invert" 
-                />
+              <div className="flex justify-between items-center px-6 py-5 border-b border-white/10">
+                <div className="bg-white/95 px-4 py-2 rounded-xl shadow-sm">
+                  <Image 
+                    src="/images/logo.png" 
+                    alt="Megaeste Logo" 
+                    width={140} 
+                    height={45} 
+                    className="w-[120px] object-contain" 
+                  />
+                </div>
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-500 text-gray-300 text-2xl hover:bg-white/10 hover:text-white transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/20 text-white text-2xl hover:bg-white/10 transition-colors"
                 >
                   <FiX />
                 </button>
               </div>
 
               {/* Scrollable menu */}
-              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col no-scrollbar">
+              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col pb-36 no-scrollbar">
                 
                 {navData.map((category, index) => {
                   const hasItems = category.items.length > 0;
                   return (
-                    <div key={index} className="flex flex-col border-b border-gray-600/50">
+                    <div key={index} className="flex flex-col border-b border-white/10">
                       <button 
                         onClick={() => {
                           if (hasItems) {
@@ -307,9 +309,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                             }
                           }
                         }}
-                        className={`flex items-center justify-between py-5 text-[14px] font-black tracking-widest uppercase transition-colors ${openAccordion === index ? 'text-[#f8b931]' : 'text-gray-200 hover:text-white'}`}
+                        className={`flex items-center justify-between py-5 text-[14px] font-black tracking-widest uppercase transition-colors ${openAccordion === index ? 'text-[#cca66b]' : 'text-gray-100 hover:text-white'}`}
                       >
                         {category.title}
+                        {hasItems && (
+                          <FaChevronDown className={`text-sm transition-transform duration-300 ${openAccordion === index ? 'rotate-180 text-[#cca66b]' : 'text-gray-400'}`} />
+                        )}
                       </button>
                       
                       <AnimatePresence>
@@ -320,13 +325,13 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                             exit={{ height: 0, opacity: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex flex-col border-l-2 border-gray-600 ml-2 mb-4">
+                            <div className="flex flex-col border-l-2 border-white/10 ml-2 mb-4">
                               {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                                 <Link 
                                   key={subIdx} 
                                   href={subItem.href}
                                   onClick={() => setIsMobileMenuOpen(false)}
-                                  className="py-3.5 px-5 text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors uppercase"
+                                  className="py-3.5 px-5 text-[13px] font-medium tracking-wide text-gray-300 hover:text-white transition-colors uppercase"
                                 >
                                   {subItem.label}
                                 </Link>
@@ -340,28 +345,28 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 })}
                 
                 {/* Social media links inside mobile menu */}
-                <div className="flex items-center gap-6 mt-8 mb-4">
-                  <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#cca66b] transition-colors">
+                <div className="flex items-center gap-6 mt-8 mb-6">
+                  <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
                     <FaInstagram className="text-2xl" />
                   </a>
-                  <a href="https://wa.me/905000000000" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#cca66b] transition-colors">
+                  <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
                     <FaWhatsapp className="text-2xl" />
                   </a>
-                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#cca66b] transition-colors">
+                  <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
                     <FaMapMarkerAlt className="text-2xl" />
                   </a>
                 </div>
-              </div>
 
-              {/* Bottom CTA */}
-              <div className="p-6 bg-[#2a313d] mt-auto">
-                <Link 
-                  href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full h-14 bg-[#f8b931] hover:bg-[#e0a62c] text-[#333] font-black tracking-widest text-[14px] flex items-center justify-center rounded-xl gap-3 transition-all shadow-lg"
-                >
-                  {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"} <FaArrowRight />
-                </Link>
+                {/* Bottom CTA Inside Scrollable Area */}
+                <div className="mt-8">
+                  <Link 
+                    href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full h-14 bg-[#cca66b] hover:bg-[#b8955a] text-white font-black tracking-widest text-[14px] flex items-center justify-center rounded-xl gap-3 transition-all shadow-lg"
+                  >
+                    {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"} <FaArrowRight />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}

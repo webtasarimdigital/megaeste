@@ -17,7 +17,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
     <div className="w-full bg-[#f8fafc] pb-10">
       
       {/* Adjusted Compact Hero Section */}
-      <section className="relative w-full h-[280px] lg:h-[35vh] min-h-[260px] bg-[#0d2244] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[240px] lg:h-[28vh] min-h-[240px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
         
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
@@ -33,13 +33,13 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
         </div>
 
         {/* Content */}
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 mt-8">
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-4">
           <div className="flex items-center space-x-3 mb-3 md:mb-5">
-            <div className="w-5 h-[2px] bg-[#ffb6cf]"></div>
-            <span className="text-[#ffb6cf] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+            <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
               {subtitle}
             </span>
-            <div className="w-5 h-[2px] bg-[#ffb6cf]"></div>
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-none mb-4 drop-shadow-xl">
             {title}
@@ -51,8 +51,8 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
 
       </section>
 
-      {/* 2-Column Contact Layout (Moved Up to overlap Hero) */}
-      <div className="relative z-40 -mt-20 sm:-mt-24 w-full max-w-[1280px] mx-auto px-4 lg:px-8">
+      {/* 2-Column Contact Layout (Overlap reduced) */}
+      <div className="relative z-40 -mt-6 sm:-mt-10 w-full max-w-[1280px] mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           
           {/* Left Column: Contact Form (bize yazın) */}

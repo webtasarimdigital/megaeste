@@ -75,10 +75,10 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
         </div>
       </div>
 
-      <div className="w-full max-w-[1440px] mx-auto px-4 xl:px-10 z-20 relative pt-8 pb-10 md:pt-0 mb-10 md:-mt-16 xl:-mt-20">
+      <div className="hidden md:block w-full max-w-[1440px] mx-auto px-4 xl:px-10 z-20 relative pt-8 pb-10 md:pt-0 mb-10 md:-mt-16 xl:-mt-20">
         
         {/* Desktop Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-6 gap-3 xl:gap-6 justify-center">
+        <div className="grid md:grid-cols-4 lg:grid-cols-6 gap-3 xl:gap-6 justify-center">
 
           {/* Category Floating Square Cards */}
           {categories.map((cat) => (

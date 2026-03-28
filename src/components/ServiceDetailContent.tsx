@@ -59,39 +59,36 @@ export default function ServiceDetailContent({ service, content, relatedServices
 
         {/* Smooth Gradient Overlay (Left to Right) */}
         <div 
-          className="absolute inset-0 z-10 opacity-95"
-          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 30%, transparent 65%)` }}
+          className="absolute inset-0 z-10 opacity-100"
+          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 40%, transparent 70%)` }}
         ></div>
         {/* Mobile Gradient (Bottom to Top) */}
         <div 
-          className="absolute inset-0 z-10 opacity-95 lg:hidden"
-          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 45%, transparent 80%)` }}
+          className="absolute inset-0 z-10 opacity-100 lg:hidden"
+          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 60%, transparent 100%)` }}
         ></div>
 
         {/* Absolute Top Left Breadcrumb */}
-        <nav className="absolute top-20 md:top-28 left-4 lg:left-12 xl:left-24 z-30 flex flex-wrap items-center text-[11px] md:text-sm text-white/90 drop-shadow-md font-medium tracking-wide max-w-[90%] md:max-w-auto">
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap mb-1">
+        <nav className="absolute top-24 md:top-32 left-4 lg:left-12 xl:left-24 z-30 flex flex-wrap items-center text-[11px] md:text-xs text-white/95 drop-shadow-md font-bold tracking-wide max-w-[90%] md:max-w-auto px-4 py-2 md:py-2.5 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap mb-0">
             {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
           </Link>
-          <FaChevronRight className="mx-1.5 md:mx-2 text-[8px] md:text-[10px] flex-shrink-0 mb-1" />
-          <span className="text-white/90 whitespace-nowrap mb-1">{content.category}</span>
-          <FaChevronRight className="mx-1.5 md:mx-2 text-[8px] md:text-[10px] flex-shrink-0 mb-1" />
-          <span className="text-white font-bold whitespace-nowrap mb-1">{content.title}</span>
+          <FaChevronRight className="mx-2 md:mx-3 text-[9px] md:text-[10px] flex-shrink-0 mb-0 opacity-80" />
+          <span className="text-white/90 whitespace-nowrap mb-0 uppercase">{content.category}</span>
+          <FaChevronRight className="mx-2 md:mx-3 text-[9px] md:text-[10px] flex-shrink-0 mb-0 opacity-80" />
+          <span className="text-white font-black whitespace-nowrap mb-0 uppercase">{content.title}</span>
         </nav>
 
-        {/* Content Container (Floating Box) */}
-        <div className="relative z-20 w-full lg:w-1/2 px-4 md:px-6 lg:px-12 xl:px-24 mt-32 lg:mt-8 pointer-events-none">
-          <div 
-            className="bg-[#f9fbff]/95 backdrop-blur-sm p-6 md:p-8 lg:p-12 w-full max-w-[600px] rounded-bl-3xl rounded-tr-3xl shadow-2xl pointer-events-auto border-l-[6px] transition-colors duration-500" 
-            style={{ borderColor: theme.colorHex }}
-          >
-            <span className={`text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase mb-2 block opacity-80 ${theme.text}`}>
+        {/* Content Container (No Box, Just Text on Colored Background) */}
+        <div className="relative z-20 w-full lg:w-1/2 px-8 md:px-12 lg:px-24 mt-40 lg:mt-32 pointer-events-none flex flex-col justify-center h-full">
+          <div className="w-full max-w-[600px] pointer-events-auto">
+            <span className="text-[10px] md:text-[12px] font-black tracking-[0.3em] uppercase mb-3 block text-white/80 drop-shadow-sm">
               {content.category}
             </span>
-            <h1 className="text-3xl md:text-5xl lg:text-[46px] font-black mb-4 uppercase tracking-wide text-[#1e3a5f] leading-tight drop-shadow-sm">
+            <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black mb-6 uppercase tracking-wide text-white leading-[1.1] drop-shadow-lg">
               {content.title}
             </h1>
-            <p className="text-gray-600 text-sm md:text-[15px] lg:text-lg leading-relaxed font-medium">
+            <p className="text-white/90 text-sm md:text-base lg:text-lg leading-relaxed font-medium drop-shadow-md">
               {content.heroDescription}
             </p>
           </div>

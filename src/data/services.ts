@@ -141,7 +141,7 @@ At Megaeste clinic, DHI hair transplant is performed by our experienced speciali
   },
   {
     id: 'safir-sac-ekimi',
-    image: '/images/gorselsac.jfif',
+    image: '/images/services/safir-yeni.png',
     tr: {
       title: 'Safir Saç Ekimi',
       slug: 'safir-sac-ekimi',
@@ -436,7 +436,7 @@ At Megaeste clinic, rhinoplasty operations are performed by our experienced plas
   },
   {
     id: 'goz-kapagi-estetigi',
-    image: '/images/megaeste-estetik.jpg',
+    image: '/images/services/goz-kapagi-estetigi.png',
     tr: {
       title: 'Göz Kapağı Estetiği',
       slug: 'goz-kapagi-estetigi',
@@ -536,7 +536,7 @@ The procedure can be performed under local or general anesthesia with a short re
   },
   {
     id: 'meme-estetigi',
-    image: '/images/megaeste-hero2.jfif',
+    image: '/images/services/meme-yeni.png',
     tr: {
       title: 'Meme Estetiği',
       slug: 'meme-estetigi',
@@ -842,7 +842,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'lazer-epilasyon',
-    image: '/images/megaeste-hero.jfif',
+    image: '/images/services/lazer-yeni.png',
     tr: {
       title: 'Lazer Epilasyon',
       slug: 'lazer-epilasyon',
@@ -951,7 +951,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'igneli-lazer-epilasyonu',
-    image: '/images/megaeste-burun-gorsel.jpg',
+    image: '/images/services/igneli-yeni.png',
     tr: {
       title: 'İğneli Lazer Epilasyonu',
       slug: 'igneli-lazer-epilasyonu',

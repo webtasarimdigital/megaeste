@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { FaCalendarAlt, FaInstagram, FaWhatsapp, FaTimes, FaUser, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaCalendarAlt, FaInstagram, FaWhatsapp, FaTimes, FaUser, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -131,6 +131,17 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
           className="w-[52px] h-[52px] bg-[#25D366] text-white hover:scale-110 transition-transform shadow-xl flex items-center justify-center rounded-full border-2 border-white/10"
         >
           <FaWhatsapp size={28} />
+        </a>
+
+        {/* Location Button */}
+        <a 
+          href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9"
+          target="_blank" 
+          rel="noopener noreferrer"
+          title={isTr ? 'Konum' : 'Location'}
+          className="w-[52px] h-[52px] bg-[#4285F4] text-white hover:scale-110 transition-transform shadow-xl flex items-center justify-center rounded-full border-2 border-white/10"
+        >
+          <FaMapMarkerAlt size={24} />
         </a>
 
       </div>

@@ -156,12 +156,15 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                 
                 {/* Animated Colorful Overlay (Bottom to Top on Hover) */}
                 <div 
-                  className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-75 z-10"
+                  className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-40 mix-blend-multiply z-10"
                   style={{ backgroundColor: activeCategory.color }}
                 />
 
-                {/* Dark Gradient (Fades slightly on hover so the color pops, but keeps text readable) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244]/90 via-[#0d2244]/20 to-transparent flex flex-col justify-end p-10 md:p-14 z-20 transition-opacity duration-700 group-hover:opacity-40">
+                {/* Dark Gradient - Separated from text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244]/90 via-[#0d2244]/20 to-transparent z-10 transition-opacity duration-700 group-hover:opacity-60" />
+
+                {/* Text Container */}
+                <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-14 z-20">
                   <motion.span 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -236,13 +239,24 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                           <h5 className="text-2xl font-semibold mb-3 text-[#1e3a5f] group-hover:text-[#cca66b] transition-colors">
                             {service[lang].title}
                           </h5>
-                          <p className="text-gray-500 font-medium text-[15px] leading-relaxed line-clamp-3">
+                          <p className="text-gray-500 font-medium text-[15px] leading-relaxed line-clamp-3 mb-4 md:mb-5">
                             {service[lang].heroDescription}
                           </p>
-                          
-                          {/* Interactive Arrow Button */}
+
+                          {/* Detaylı Bilgi Button */}
                           <div 
-                            className="absolute right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 hidden sm:flex"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white transition-all duration-300 font-bold text-[13px] tracking-wide shadow-sm group-hover:shadow-md"
+                            style={{ 
+                              color: activeCategory.color, 
+                              border: `1.5px solid ${activeCategory.color}`
+                            }}
+                          >
+                            {lang === 'en' ? 'Detailed Info' : 'Detaylı Bilgi'} <PiArrowRightThin className="text-lg" />
+                          </div>
+                          
+                          {/* Hover Arrow (Desktop only) */}
+                          <div 
+                            className="absolute right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 hidden sm:flex bg-white shadow-sm"
                             style={{ color: activeCategory.color, borderColor: activeCategory.color }}
                           >
                             <PiArrowRightThin className="text-2xl" />

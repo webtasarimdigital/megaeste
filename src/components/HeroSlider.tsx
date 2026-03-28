@@ -60,23 +60,32 @@ export default function HeroSlider({ dict }: { dict?: any }) {
                 <span className="mr-2 opacity-60">#</span> {slide.badge}
               </div>
 
-              <h1 className="text-[4rem] xl:text-[5.5rem] font-black tracking-tighter mb-6 leading-[1.05] drop-shadow-2xl">
-                <span className="text-[#cca66b] block">{slide.titleLine1}</span>
+              <h1 className="text-[3.5rem] xl:text-[5rem] font-black tracking-tighter mb-6 leading-[1.05] drop-shadow-2xl uppercase">
+                <span className="text-white block">{slide.titleLine1}</span>
                 <span className="text-white block">{slide.titleLine2}</span>
-                <span className="text-[#cca66b] block">{slide.titleLine3}</span>
+                <div className="flex flex-wrap gap-x-4">
+                  <span className="text-[#cca66b]">{slide.titleHighlight1}</span>
+                  <span className="text-white">{slide.titleLine3}</span>
+                </div>
+                {(slide.titleHighlight2 || slide.titleLine4) && (
+                  <div className="flex flex-wrap gap-x-4">
+                    <span className="text-[#cca66b]">{slide.titleHighlight2}</span>
+                    <span className="text-white">{slide.titleLine4}</span>
+                  </div>
+                )}
               </h1>
               
-              <p className="text-lg xl:text-xl font-medium max-w-xl leading-relaxed text-white drop-shadow-md mb-10 border-l-4 border-[#cca66b] pl-6">
+              <p className="text-lg xl:text-xl font-medium max-w-xl leading-relaxed text-white drop-shadow-md mb-10 relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-16 after:h-1 after:bg-[#cca66b] after:rounded-full">
                 {slide.desc}
               </p>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-5 mt-4">
                 <a href="/iletisim" className="bg-[#cca66b] text-[#1e3a5f] px-9 py-4 rounded-full font-black text-sm tracking-widest flex items-center transition-transform hover:scale-105 shadow-xl hover:shadow-2xl">
-                  İLETİŞİM <span className="ml-3 text-lg leading-none">→</span>
+                  {slide.contactBtn || 'İLETİŞİM'} <span className="ml-3 text-lg leading-none">→</span>
                 </a>
-                <a href="/kurumsal/hakkimizda" className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-9 py-4 rounded-full font-black text-sm tracking-widest flex items-center transition-all hover:scale-105 hover:bg-white/20 shadow-xl">
-                  HAKKIMIZDA <span className="ml-3 text-lg leading-none">→</span>
+                <a href="/kurumsal/hakkimizda" className="bg-[#cca66b] text-[#1e3a5f] px-9 py-4 rounded-full font-black text-sm tracking-widest flex items-center transition-transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                  {slide.aboutBtn || 'HAKKIMIZDA'} <span className="ml-3 text-lg leading-none">→</span>
                 </a>
               </div>
             </div>
@@ -84,27 +93,36 @@ export default function HeroSlider({ dict }: { dict?: any }) {
             {/* Mobile Overlay Text - Premium Nivdis Style */}
             <div className="flex lg:hidden absolute inset-0 flex-col justify-end items-start pb-[4.5rem] text-white px-6 xl:px-10 bg-gradient-to-t from-[#0d2244]/95 via-[#0d2244]/50 to-transparent">
               
-              <div className="bg-[#cca66b] text-[#1e3a5f] px-4 py-2 rounded-full text-[11px] font-black tracking-[0.2em] mb-5 inline-flex items-center shadow-lg">
+              <div className="bg-[#cca66b] text-[#1e3a5f] px-4 py-2 rounded-full text-[11px] font-black tracking-[0.2em] mb-4 inline-flex items-center shadow-lg">
                 <span className="mr-1.5 opacity-60">#</span> {slide.badge}
               </div>
 
-              <h1 className="text-[2.6rem] sm:text-5xl font-black tracking-tighter mb-5 leading-[1.05] drop-shadow-2xl">
-                <span className="text-[#cca66b] block">{slide.titleLine1}</span>
+              <h1 className="text-[2.6rem] sm:text-5xl font-black tracking-tighter mb-4 leading-[1.05] drop-shadow-2xl uppercase">
+                <span className="text-white block">{slide.titleLine1}</span>
                 <span className="text-white block">{slide.titleLine2}</span>
-                <span className="text-[#cca66b] block">{slide.titleLine3}</span>
+                <div className="flex flex-wrap gap-x-3">
+                  <span className="text-[#cca66b]">{slide.titleHighlight1}</span>
+                  <span className="text-white">{slide.titleLine3}</span>
+                </div>
+                {(slide.titleHighlight2 || slide.titleLine4) && (
+                  <div className="flex flex-wrap gap-x-3">
+                    <span className="text-[#cca66b]">{slide.titleHighlight2}</span>
+                    <span className="text-white">{slide.titleLine4}</span>
+                  </div>
+                )}
               </h1>
               
-              <p className="text-[15px] sm:text-base font-medium max-w-[95%] leading-relaxed text-white/95 drop-shadow-md pb-6 mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#cca66b] after:rounded-full">
+              <p className="text-[14px] sm:text-base font-medium max-w-[95%] leading-relaxed text-white/95 drop-shadow-md pb-6 mb-4 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#cca66b] after:rounded-full">
                 {slide.desc}
               </p>
 
               {/* Action Buttons (Mobile) */}
               <div className="flex items-center gap-3 w-full">
-                <a href="/iletisim" className="flex-1 justify-center bg-[#cca66b] text-[#1e3a5f] px-4 py-4 rounded-full font-black text-[12px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
-                  İLETİŞİM <span className="ml-2 text-base leading-none">→</span>
+                <a href="/iletisim" className="flex-1 justify-center bg-[#cca66b] text-[#1e3a5f] px-4 py-3.5 rounded-full font-black text-[11px] sm:text-[12px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
+                  {slide.contactBtn || 'İLETİŞİM'} <span className="ml-2 text-base leading-none">→</span>
                 </a>
-                <a href="/kurumsal/hakkimizda" className="flex-1 justify-center bg-white/10 backdrop-blur-md border border-white/30 text-white px-4 py-4 rounded-full font-black text-[12px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
-                  HAKKIMIZDA <span className="ml-2 text-base leading-none">→</span>
+                <a href="/kurumsal/hakkimizda" className="flex-1 justify-center bg-[#cca66b] text-[#1e3a5f] px-4 py-3.5 rounded-full font-black text-[11px] sm:text-[12px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
+                  {slide.aboutBtn || 'HAKKIMIZDA'} <span className="ml-2 text-base leading-none">→</span>
                 </a>
               </div>
             </div>

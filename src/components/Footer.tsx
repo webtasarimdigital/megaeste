@@ -24,10 +24,9 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
 
   const socialLinks = [
     { icon: FaInstagram, label: '@mega.estetik', href: 'https://www.instagram.com/mega.estetik' },
-    { icon: FaYoutube, label: '/megaeste', href: '#' },
-    { icon: FaFacebookF, label: '/megaeste', href: '#' },
-    { icon: FaLinkedinIn, label: '/megaeste', href: '#' },
-    { icon: FaTiktok, label: '/megaeste', href: '#' },
+    { icon: FiPhone, label: '0533 481 40 98', href: 'tel:+905334814098' },
+    { icon: FiMapPin, label: 'Konum', href: 'https://maps.app.goo.gl/j5kTpopsUyhxsjqd9' },
+    { icon: FaWhatsapp, label: 'WhatsApp', href: `https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}` },
   ];
 
   const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Görüş ve Önerileriniz', 'Blog'];
@@ -106,11 +105,12 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
             </div>
 
             {/* Social Media */}
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 mt-6">
               {socialLinks.map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
+                  {...(social.href.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-[#cca66b] hover:text-[#0d2244] hover:border-[#cca66b] transition-all duration-300"
                 >
                   <social.icon className="text-sm" />

@@ -12,17 +12,17 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
   return (
     <div className="w-full bg-white relative">
       {/* Hero Header */}
-      <section className="relative w-full h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[30vh] min-h-[280px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/slider/slide-1.jpg" // Using an existing slide or a generic image
+            src="/images/megaeste-hero2.jfif"
             alt={content?.title || "Hakkımızda"}
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-[#0d2244]/60 mix-blend-multiply" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-gray-50 to-transparent" />
+          <div className="absolute inset-0 bg-[#0d2244]/80 mix-blend-multiply" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-gray-50 to-transparent opacity-90" />
         </div>
         
         <div className="relative z-10 text-center px-4">
@@ -124,7 +124,7 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
       {/* Full Width Map */}
       <section className="w-full h-[400px] md:h-[500px] relative">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.650495816916!2d28.981156315664124!3d41.042293479297825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zTmnFn2FudGHFn8Sx!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1505.5786884610996!2d29.110287114660724!3d41.020524949502906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac9aa1b35b6df%3A0x6b4457223b37807c!2sMegaeste%20Estetik%20%26%20Plastik%20Cerrahi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 

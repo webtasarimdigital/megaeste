@@ -3,6 +3,7 @@ import HeroSlider from '@/components/HeroSlider';
 import CategoryButtons from '@/components/CategoryButtons';
 import AboutSection from '@/components/AboutSection';
 import AboutVideoSection from '@/components/AboutVideoSection';
+import PopularServicesArea from '@/components/PopularServicesArea';
 import ServicesShowcase from '@/components/ServicesShowcase';
 import QuickAppointment from '@/components/QuickAppointment';
 import BlogSection from '@/components/BlogSection';
@@ -33,6 +34,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
 
       <AboutVideoSection lang={lang} />
       
+      <PopularServicesArea lang={lang} />
       <BlogSection dict={dict} />
       <FAQSection dict={dict} />
 
