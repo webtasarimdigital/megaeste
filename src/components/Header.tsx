@@ -96,13 +96,13 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   return (
     <header className="w-full sticky top-0 z-50 flex flex-col bg-white shadow-sm">
       {/* Desktop Top Bar - Always visible */}
-      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 h-[90px]">
+      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#427bdf]/10 to-white border-b border-gray-100 h-[90px]">
         <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
           {/* Logo on the left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 hover:opacity-90 transition-opacity">
             <Image 
-              src="/images/megaestelogo.png" 
+              src="/images/megaestelogo-web-header.png" 
               alt="Megaeste Logo" 
               width={260} 
               height={80} 
@@ -125,8 +125,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             
             {/* Desktop Language Switcher (Dropdown) */}
             <div className="pl-3 xl:pl-4 relative group flex items-center h-full">
-              <button className="flex items-center gap-1.5 font-bold text-[#1e3a5f] hover:text-[#cca66b] transition-colors text-[11px] xl:text-[12px] uppercase">
-                <img src={`/images/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px]" />
+              <button className="flex items-center gap-1.5 font-black text-[#1e3a5f] hover:text-[#cca66b] transition-colors text-[11px] xl:text-[12px] uppercase">
+                <img src={`/images/flags/${lang === 'tr' ? 'tr.svg' : 'gb.svg'}`} alt="Lang" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
                 <span>{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
                 <span className="text-[8px] xl:text-[9px]">▼</span>
               </button>
@@ -134,12 +134,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               {/* Desktop Lang Dropdown Menu */}
               <div className="absolute top-[60px] right-0 mt-0 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-b-lg border-t-2 border-[#cca66b] overflow-hidden flex flex-col w-[140px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
                  <button onClick={() => switchLanguage('tr')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
-                    <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
+                    <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
                     <span className={lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}>TÜRKÇE</span>
                  </button>
                  <div className="h-[1px] bg-gray-100 w-full" />
                  <button onClick={() => switchLanguage('en')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
-                    <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
+                    <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
                     <span className={lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}>ENGLISH</span>
                  </button>
               </div>
@@ -197,30 +197,34 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
       {/* Mobile Header - Sticky */}
       <div className="lg:hidden w-full sticky top-0 z-[100] flex flex-col bg-white shadow-md border-b-[3px] border-[#427bdf]/10">
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px]">
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px] relative overflow-hidden">
           
           {/* Logo on Left */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10">
             <Image 
-              src="/images/megaestelogo.png" 
+              src="/images/megaeste-mobile-header.png" 
               alt="Megaeste Logo" 
               width={160} 
               height={50} 
               priority 
-              className="w-[125px] sm:w-[140px] h-auto object-contain"
+              className="w-[125px] sm:w-[135px] h-auto object-contain"
             />
           </Link>
           
-          <div className="flex items-center gap-3">
-            {/* Language Switcher Dropdown (Esteworld style) */}
+          {/* Language Switcher Dropdown (Centered) */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center z-10">
             <div className="relative">
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center space-x-1.5 text-[#1e3a5f] font-bold text-[11px] lg:text-xs leading-none h-full"
+                className="flex items-center space-x-1.5 text-[#1e3a5f] font-bold text-[10px] sm:text-[11px] leading-none h-full group py-3"
               >
-                <img src={`/images/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px] object-contain" />
-                <span className="uppercase">{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
-                <span className="text-[10px] transform group-hover:rotate-180 transition-transform">▼</span>
+                <img 
+                  src={`/images/flags/${lang === 'tr' ? 'tr.svg' : 'gb.svg'}`} 
+                  alt="Lang" 
+                  className="w-[18px] sm:w-[20px] h-auto shadow-sm rounded-[2px]" 
+                />
+                <span className="uppercase tracking-wide">{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
+                <span className="text-[10px] transform group-hover:translate-y-0.5 transition-transform opacity-60">▼</span>
               </button>
               
               <AnimatePresence>
@@ -229,13 +233,13 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                     initial={{ opacity: 0, y: -5 }} 
                     animate={{ opacity: 1, y: 0 }} 
                     exit={{ opacity: 0, y: -5 }} 
-                    className="absolute top-full right-0 mt-3 bg-white shadow-xl rounded-md border border-gray-100 overflow-hidden flex flex-col w-[130px] z-50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white shadow-xl rounded-md border border-gray-100 overflow-hidden flex flex-col w-[130px] z-50"
                   >
                     <button 
                       onClick={() => { switchLanguage('tr'); setIsLangOpen(false); }} 
                       className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}`}
                     >
-                      <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
+                      <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
                       <span>TÜRKÇE</span>
                     </button>
                     <div className="h-[1px] bg-gray-100 w-full" />
@@ -243,15 +247,17 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                       onClick={() => { switchLanguage('en'); setIsLangOpen(false); }} 
                       className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}`}
                     >
-                      <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
+                      <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
                       <span>ENGLISH</span>
                     </button>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            
-            {/* Menu Icon on Right */}
+          </div>
+          
+          {/* Menu Icon on Right */}
+          <div className="flex items-center z-10">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
               className="flex items-center justify-center text-3xl text-[#1e3a5f] hover:text-[#cca66b] transition-colors h-full"

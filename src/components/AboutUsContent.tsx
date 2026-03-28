@@ -4,7 +4,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { PiCheckCircleThin, PiHeartbeatThin, PiShieldCheckThin, PiStethoscopeThin } from 'react-icons/pi';
-import QuickContact from './QuickContact';
 
 
 export default function AboutUsContent({ dict, lang }: { dict: any, lang: string }) {
@@ -13,8 +12,8 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
   return (
     <div className="w-full bg-white relative">
       {/* Hero */}
-      {/* Adjusted Compact Hero Section */}
-      <section className="relative w-full h-[240px] lg:h-[28vh] min-h-[240px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
+      {/* Adjusted Taller Hero Section for Better Overlap */}
+      <section className="relative w-full h-[380px] lg:h-[45vh] min-h-[380px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
         
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
@@ -32,7 +31,7 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
         </div>
 
         {/* Content */}
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-4">
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-12 md:-mt-16">
           <div className="flex items-center space-x-3 mb-3 md:mb-5">
             <div className="w-5 h-[2px] bg-[#cca66b]"></div>
             <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
@@ -51,8 +50,8 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="relative z-40 -mt-6 sm:-mt-10 w-full max-w-[1440px] mx-auto px-4 md:px-8 xl:px-12 pb-16 md:pb-24">
+      {/* Main Content (Deep Overlap) */}
+      <section className="relative z-40 -mt-24 md:-mt-32 lg:-mt-40 w-full max-w-[1440px] mx-auto px-4 md:px-8 xl:px-12 pb-16 md:pb-24">
         <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-6 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Text */}
@@ -126,56 +125,76 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
         </div>
       </section>
 
-      {/* Vision / Mission / Values - Clean Section */}
-      <section className="w-full bg-[#f8fafc] py-16 md:py-24">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Vision / Mission / Values - Premium Dark Section */}
+      <section className="w-full bg-[#1e3a5f] py-20 md:py-28 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#cca66b]/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px] -ml-64 -mb-64"></div>
+
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                icon: '👁️',
+                icon: <PiStethoscopeThin className="text-4xl text-[#cca66b]" />,
                 title: lang === 'en' ? 'Our Vision' : 'Vizyonumuz',
                 desc: lang === 'en'
                   ? 'To be a leading center in health tourism by combining the latest aesthetic and medical technologies.'
                   : 'En son estetik ve medikal teknolojileri hasta odaklı bakım anlayışıyla birleştirerek öncü olmak.',
               },
               {
-                icon: '🚀',
+                icon: <PiHeartbeatThin className="text-4xl text-[#cca66b]" />,
                 title: lang === 'en' ? 'Our Mission' : 'Misyonumuz',
                 desc: lang === 'en'
                   ? 'To provide reliable, transparent and science-based treatment methods in medical aesthetics.'
                   : 'Sağlık ve medikal estetik alanında güvenilir, şeffaf ve bilimsel tedavi yöntemleri sunmak.',
               },
               {
-                icon: '⭐',
+                icon: <PiShieldCheckThin className="text-4xl text-[#cca66b]" />,
                 title: lang === 'en' ? 'Our Values' : 'Değerlerimiz',
                 desc: lang === 'en'
                   ? 'Transparency, honesty, sterilization and continuous education are our core values.'
                   : 'Şeffaflık, dürüstlük, sterilizasyon ve sürekli eğitim temel değerlerimizdir.',
               },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-[#1e3a5f] font-bold text-xl mb-3">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+              <div key={i} className="group bg-slate-800/40 backdrop-blur-sm rounded-[2rem] p-8 lg:p-10 border border-white/5 hover:border-[#cca66b]/30 transition-all duration-500">
+                <div className="w-16 h-16 bg-[#cca66b]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-black text-2xl mb-4 tracking-tight">{item.title}</h3>
+                <p className="text-gray-400 text-[15px] leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Appointment CTA Section using QuickContact - Restored */}
-      <section className="w-full bg-white pt-10 pb-16">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12 text-center mb-4">
-          <h2 className="text-3xl md:text-4xl font-black text-[#1e3a5f] mb-4">
+      {/* Meet the Family / Final CTA - Redesigned without form */}
+      <section className="w-full bg-white pt-20 pb-24 md:pb-32">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-[#1e3a5f] mb-6 tracking-tight">
             {lang === 'en' ? 'Meet the Megaeste Family' : 'Megaeste Ailesiyle Tanışın'}
           </h2>
-          <p className="text-gray-600 font-medium max-w-2xl mx-auto mb-8">
+          <p className="text-gray-500 font-medium max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
             {lang === 'en' 
-              ? 'For everything you need for a healthy future, Megaeste is waiting for you.' 
-              : 'Sağlıklı bir gelecek için ihtiyacınız olan her şey Megaeste\'de sizi bekliyor.'}
+              ? 'For everything you need for a healthy future, Megaeste is waiting for you. Schedule your appointment today.' 
+              : 'Sağlıklı bir gelecek için ihtiyacınız olan her şey Megaeste\'de sizi bekliyor. Hemen randevunuzu oluşturun.'}
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+            <a 
+              href={lang === 'tr' ? '/iletisim' : '/en/contact'}
+              className="w-full sm:w-auto px-10 py-5 bg-[#cca66b] text-white font-black text-lg rounded-2xl hover:bg-[#b58f53] shadow-[0_10px_20px_rgba(204,166,107,0.3)] transition-all hover:-translate-y-1 active:scale-95"
+            >
+              {lang === 'en' ? 'Contact Us' : 'İletişime Geçin'}
+            </a>
+            <a 
+              href={lang === 'tr' ? '/hekimlerimiz' : '/en/doctors'}
+              className="w-full sm:w-auto px-10 py-5 bg-[#1e3a5f] text-white font-black text-lg rounded-2xl hover:bg-[#142946] shadow-[0_10px_20px_rgba(30,58,95,0.2)] transition-all hover:-translate-y-1 active:scale-95"
+            >
+              {lang === 'en' ? 'Our Doctors' : 'Hekimlerimizi Gör'}
+            </a>
+          </div>
         </div>
-        <QuickContact />
       </section>
 
       {/* Full Width Map */}
