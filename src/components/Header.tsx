@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
-import { FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -30,7 +30,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       'medikal-cilt-bakimi': 'medical-skin-care',
       'yuz-mezoterapi': 'facial-mesotherapy',
       'lazer-epilasyon': 'laser-hair-removal',
-      'igneli-lazer-epilasyonu': 'needle-laser-epilation'
+      'igneli-lazer-epilasyonu': 'needle-laser-epilation',
+      // Blog Slugs added to fix 404 language switching
+      'sac-ekimi-sonrasi-bakim-rehberi': 'post-hair-transplant-care-guide',
+      'dhi-ve-fue-farklari': 'dhi-vs-fue-differences',
+      'sac-dokulmesi-nedenleri': 'hair-loss-causes',
+      'medikal-cilt-bakimi-rehberi': 'medical-skin-care-guide'
     };
     
     const enToTrSlugs: Record<string, string> = Object.fromEntries(
@@ -60,6 +65,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   const prefix = lang === 'tr' ? '' : `/${lang}`;
 
   const navData = dict?.nav ? [
+    { title: lang === 'tr' ? 'ANA SAYFA' : 'HOME', href: lang === 'tr' ? '/' : `/${lang}`, items: [] },
     { title: dict.nav.corporate, href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`, items: [
       { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: '#' },
       { label: lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors', href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}` },
@@ -85,72 +91,69 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full bg-white relative z-50 shadow-sm border-b-[3px] border-[#427bdf]/10">
-      {/* Absolute Full-Width Gradient Background for Top Bar */}
-      <div className="hidden lg:block absolute top-0 right-0 w-[60%] h-[46px] bg-gradient-to-l from-[#427bdf]/15 via-[#427bdf]/5 to-transparent z-0 pointer-events-none"></div>
-
-      {/* Desktop Header Content Container */}
-      <div className="hidden lg:flex w-full max-w-[1280px] mx-auto items-stretch relative z-10 px-4 lg:px-8">
-        
-        {/* Logo Section - Compact and centered */}
-        <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 py-4">
-          <Image 
-            src="/images/logo.png" 
-            alt="Megaeste Logo" 
-            width={320} 
-            height={100} 
-            priority 
-            className="w-[200px] xl:w-[240px] h-auto object-contain"
-          />
-        </Link>
-
-        {/* Right Section */}
-        <div className="flex flex-col flex-grow pl-2 xl:pl-4 relative z-20">
+    <header className="w-full relative z-50 flex flex-col">
+      {/* Desktop Top Bar - Full width, scrolls away */}
+      <div className="hidden lg:flex w-full bg-gradient-to-r from-[#427bdf]/10 via-[#427bdf]/5 to-transparent border-b border-gray-100/50">
+        <div className="w-full max-w-[1280px] mx-auto flex justify-end items-center h-[52px] px-4 lg:px-8 text-[13px] font-medium text-gray-500 divide-x divide-gray-200">
+          <Link 
+            href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
+            className="bg-[#cca66b] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#b58f53] transition-colors h-full"
+          >
+            {dict?.getAppointment || "Randevu Al"}
+          </Link>
+          <Link href={`${prefix}/blog`} className="px-5 flex items-center h-full hover:text-[#427bdf] transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</Link>
+          <Link href={`${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`} className="px-5 flex items-center h-full hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
+          <Link href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`} className="px-5 flex items-center h-full hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
           
-          {/* Top Bar - No gap, touches top edge exactly covering the absolute background */}
-          <div className="w-full flex justify-end items-stretch text-[13px] font-medium text-gray-500 divide-x divide-gray-200 h-[46px] border-b border-gray-100/50">
-            <Link 
-              href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
-              className="bg-[#cca66b] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#b58f53] transition-colors"
+          {/* Language Switcher */}
+          <div className="pl-5 flex items-center h-full justify-center space-x-3 font-bold">
+            <button 
+              onClick={() => switchLanguage('tr')} 
+              className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
+              title="Türkçe"
             >
-              {dict?.getAppointment || "Randevu Al"}
-            </Link>
-            <Link href={`${prefix}/blog`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</Link>
-            <Link href={`${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
-            <Link href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
-            
-            {/* Language Switcher */}
-            <div className="pl-5 flex items-center justify-center space-x-3 font-bold">
-              <button 
-                onClick={() => switchLanguage('tr')} 
-                className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
-                title="Türkçe"
-              >
-                <img src="https://flagcdn.com/tr.svg" alt="TR" className="w-full h-full object-cover" />
-              </button>
-              <button 
-                onClick={() => switchLanguage('en')} 
-                className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
-                title="English"
-              >
-                <img src="https://flagcdn.com/gb.svg" alt="EN" className="w-full h-full object-cover" />
-              </button>
-            </div>
+              <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-full h-full object-cover" />
+            </button>
+            <button 
+              onClick={() => switchLanguage('en')} 
+              className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
+              title="English"
+            >
+              <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-full h-full object-cover" />
+            </button>
           </div>
+        </div>
+      </div>
 
-          {/* Main Navigation - Fills remaining space vertically via flex-grow */}
-          <nav className={`flex flex-grow items-center justify-between font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30 ${lang === 'en' ? 'text-[10.5px] xl:text-[11.5px]' : 'text-[12px] xl:text-[13.5px]'}`}>
-            <div className={`flex items-center flex-grow justify-center ${lang === 'en' ? 'space-x-3 xl:space-x-4' : 'space-x-3 xl:space-x-6'}`}>
+      {/* Desktop Main Bar - Sticky */}
+      <div className="hidden lg:flex sticky top-0 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b-[3px] border-[#427bdf]/10 z-50 w-full transition-shadow duration-300">
+        <div className="w-full max-w-[1280px] mx-auto flex items-stretch justify-between h-[90px] px-4 lg:px-8">
+          
+          {/* Logo Section */}
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8">
+            <Image 
+              src="/images/logo.png" 
+              alt="Megaeste Logo" 
+              width={320} 
+              height={100} 
+              priority 
+              className="w-[200px] xl:w-[240px] h-auto object-contain"
+            />
+          </Link>
+
+          {/* Main Navigation */}
+          <nav className={`flex flex-grow items-center justify-end font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30 ${lang === 'en' ? 'text-[10.5px] xl:text-[11.5px]' : 'text-[12px] xl:text-[13.5px]'}`}>
+            <div className={`flex items-center justify-end ${lang === 'en' ? 'space-x-3 xl:space-x-4' : 'space-x-3 xl:space-x-6'}`}>
               {navData.map((category, index) => (
-                <div key={index} className="relative group py-2">
-                  <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
+                <div key={index} className="relative group flex items-center h-full">
+                  <Link href={category.href || '#'} className="flex items-center h-[90px] hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
                     {category.title}
                     {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </Link>
 
                   {/* Dropdown Menu */}
                   {category.items.length > 0 && (
-                    <div className="absolute top-[100%] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#427bdf] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
+                    <div className="absolute top-[80px] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#cca66b] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
                       <ul className="py-2 flex flex-col">
                         {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                           <li key={subIdx}>
@@ -166,23 +169,23 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               ))}
             </div>
             
-            <div className="flex items-center pl-8 border-l border-gray-300 space-x-4 text-xl text-gray-500 ml-4 relative z-40">
-              <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
+            <div className="flex items-center pl-6 xl:pl-8 border-l border-gray-200 space-x-4 text-[18px] text-[#427bdf]/80 ml-6 xl:ml-8 relative z-40 h-[40px]">
+              <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca66b] transition-transform hover:scale-110 inline-block p-1">
                 <FaInstagram />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
-                <FaYoutube />
+              <a href="https://wa.me/905000000000" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca66b] transition-transform hover:scale-110 inline-block p-1">
+                <FaWhatsapp />
               </a>
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
-                <FaTiktok />
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca66b] transition-transform hover:scale-110 inline-block p-1">
+                <FaMapMarkerAlt />
               </a>
             </div>
           </nav>
         </div>
       </div>
 
-      {/* Mobile Header */}
-      <div className="lg:hidden w-full flex flex-col shadow-sm bg-white relative z-50">
+      {/* Mobile Header (Sticky to ensure it doesn't break mobile flow) */}
+      <div className="lg:hidden w-full flex flex-col bg-white shadow-sm border-b-[3px] border-[#427bdf]/10 sticky top-0 z-50">
         <div className="flex justify-between items-center px-4 py-3 border-b border-gray-100">
           
           {/* Logo on Left */}
@@ -204,13 +207,13 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 onClick={() => switchLanguage('tr')} 
                 className={`relative flex items-center justify-center w-5 h-5 rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#1e3a5f] opacity-100' : 'opacity-40'}`}
               >
-                <img src="https://flagcdn.com/tr.svg" alt="TR" className="w-full h-full object-cover" />
+                <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-full h-full object-cover" />
               </button>
               <button 
                 onClick={() => switchLanguage('en')} 
                 className={`relative flex items-center justify-center w-5 h-5 rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#1e3a5f] opacity-100' : 'opacity-40'}`}
               >
-                <img src="https://flagcdn.com/gb.svg" alt="EN" className="w-full h-full object-cover" />
+                <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-full h-full object-cover" />
               </button>
             </div>
             

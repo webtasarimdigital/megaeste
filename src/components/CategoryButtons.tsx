@@ -12,28 +12,28 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
       id: 1, 
       title: dict?.hairTransplant?.title || 'Saç Ekimi', 
       icon: HairIcon,
-      color: 'rgba(79, 111, 143, 0.85)', // Muted Blue (Translucent)
+      color: 'rgba(79, 111, 143, 0.65)', // Muted Blue (Translucent)
       href: lang === 'en' ? '/en/hizmetler/hair-transplant' : '/hizmetler/sac-ekimi'
     },
     { 
       id: 2, 
       title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
       icon: BodyIcon,
-      color: 'rgba(114, 151, 136, 0.85)', // Muted Green (Translucent)
+      color: 'rgba(114, 151, 136, 0.65)', // Muted Green (Translucent)
       href: lang === 'en' ? '/en/hizmetler/plastic-surgery' : '/hizmetler/plastik-cerrahi'
     },
     { 
       id: 3, 
       title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
       icon: FaceIcon,
-      color: 'rgba(173, 103, 120, 0.85)', // Muted Rose (Translucent)
+      color: 'rgba(173, 103, 120, 0.65)', // Muted Rose (Translucent)
       href: lang === 'en' ? '/en/hizmetler/medical-aesthetics' : '/hizmetler/medikal-estetik'
     },
     { 
       id: 4, 
       title: dict?.epilation?.title || 'Epilasyon', 
       icon: EpilationIcon,
-      color: 'rgba(159, 142, 171, 0.85)', // Muted Purple (Translucent)
+      color: 'rgba(159, 142, 171, 0.65)', // Muted Purple (Translucent)
       href: lang === 'en' ? '/en/hizmetler/epilation' : '/hizmetler/epilasyon'
     }
   ];
@@ -63,7 +63,7 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
             {/* Icon */}
             <div className="mb-3 md:mb-4 transform transition-transform duration-500 group-hover:-translate-y-1">
               <cat.icon 
-                className="text-white w-14 h-14 md:w-16 md:h-16 font-light" 
+                className="text-white w-16 h-16 md:w-[76px] md:h-[76px] font-light" 
               />
             </div>
 
@@ -88,10 +88,10 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
             
             <div className="flex flex-col items-start text-[#3a4f66]">
               <span className="text-[17px] md:text-[20px] font-black tracking-widest leading-tight uppercase relative inline-block after:content-[''] after:block after:w-full after:h-[1px] after:bg-[#cca66b] after:mt-1 after:mb-1">
-                {dict?.freeAppointment || 'ÜCRETSİZ'}
+                {lang === 'en' ? 'FREE' : 'HEMEN ÜCRETSİZ'}
               </span>
               <span className="text-[17px] md:text-[20px] font-bold tracking-widest leading-tight uppercase text-[#cca66b]">
-                {dict?.bookAppointment || 'RANDEVU AL'}
+                {lang === 'en' ? 'APPOINTMENT' : 'RANDEVU AL'}
               </span>
             </div>
           </div>

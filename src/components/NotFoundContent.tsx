@@ -31,15 +31,15 @@ export default function NotFoundContent({ dict, lang }: { dict?: any, lang: stri
         
         {/* 404 Typography */}
         <div className="relative flex justify-center items-center mb-10">
-          <div className="text-[140px] md:text-[220px] font-black leading-none tracking-tighter flex items-center select-none">
-            <span className="text-[#3d4450]">4</span>
-            <span className="text-[#f4b329]">0</span>
-            <span className="text-[#3d4450]">4</span>
+          <div className="text-[140px] md:text-[220px] font-black leading-none tracking-tighter flex items-center select-none drop-shadow-xl">
+            <span className="text-[#1a2b49]">4</span>
+            <span className="text-[#427bdf]">0</span>
+            <span className="text-[#1a2b49]">4</span>
           </div>
           
           {/* Overlapping Badge */}
-          <div className="absolute -bottom-6 md:-bottom-8 px-6 md:px-10 py-2.5 md:py-3.5 bg-[#3d4450] rounded-full shadow-xl border-4 border-[#f9fbff] transform transition-transform hover:scale-105">
-            <span className="text-[#f4b329] font-black text-sm md:text-base tracking-[0.2em]">
+          <div className="absolute -bottom-6 md:-bottom-8 px-6 md:px-10 py-2.5 md:py-3.5 bg-[#1a2b49] rounded-full shadow-xl border-4 border-[#f9fbff] transform transition-transform hover:scale-105">
+            <span className="text-white font-black text-sm md:text-base tracking-[0.2em]">
               {badgeText}
             </span>
           </div>

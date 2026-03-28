@@ -39,12 +39,58 @@ export const services: Service[] = [
       slug: 'dhi-sac-ekimi',
       category: 'Saç Ekimi Tedavileri',
       categorySlug: 'sac-ekimi',
-      heroDescription: 'Choi Pen teknolojisi ile kanal açmadan, doğrudan implantasyon yöntemiyle gerçekleştirilen ileri düzey saç ekimi uygulaması.',
-      longDescription: `DHI (Direct Hair Implantation) saç ekimi, özel olarak tasarlanmış Choi Pen (implanter kalem) kullanılarak gerçekleştirilen yeni nesil bir saç ekimi tekniğidir. Bu yöntemde greftler donör bölgeden tek tek alınarak, kanal açma işlemine gerek kalmadan doğrudan ekim yapılır.
+      heroDescription: 'Kanal açmadan, doğrudan implantasyon (Choi Pen) yöntemiyle gerçekleştirilen, en sık ve en doğal görünümü sunan premium saç ekimi tekniği.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#4f6f8f] rounded-full"></span> DHI Saç Ekimi Nedir?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">DHI (Direct Hair Implantation - Doğrudan Saç Ekimi), günümüzde uygulanabilen en gelişmiş ve en konforlu saç ekimi yöntemidir. Geleneksel yöntemlerde kafa derisinde önce bistüri ile kesiler (kanallar) açılırken, DHI tekniğinde özel medikal kalemler <strong class="text-[#4f6f8f]">"Choi Pen"</strong> kullanılır. Kökler kalemin içine yerleştirilir ve tek bir hamlede hem kanal açılır hem de saç kökü deriye yerleştirilir.</p>
 
-Bu teknik sayesinde greftlerin vücut dışında bekleme süresi minimuma iner ve kök hücrelerin canlılığı korunur. Daha sık ekim imkânı sunan DHI yöntemi, özellikle ön saç çizgisi tasarımında doğal ve estetik sonuçlar elde edilmesini sağlar.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/dhi-sac-ekimi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="DHI Saç Ekimi Choi Pen" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Tıraşsız Saç Ektirme Konforu</span>
+  </div>
+</div>
 
-Megaeste kliniğinde DHI saç ekimi, deneyimli uzman kadromuz tarafından steril ortamda, ileri teknoloji cihazlarla uygulanmaktadır. Her hasta için kişiye özel ekim planı hazırlanır ve doğal saç açısına uygun implantasyon gerçekleştirilir.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#4f6f8f] rounded-full"></span> Neden DHI Yöntemini Tercih Etmelisiniz?
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8">
+  <div class="group bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">🌱</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2">Maksimum Sıklık</h3>
+    <p class="text-xs text-gray-600">Santimetrekareye çok daha fazla kök ekilebilir. Gür bir görünüm elde edilir.</p>
+  </div>
+  <div class="group bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">✂️</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2">Tıraşsız İmkan</h3>
+    <p class="text-xs text-gray-600">Özellikle kadınlarda ve uzun saçlı erkeklerde, saçları tamamen kazıtmaya gerek kalmaz.</p>
+  </div>
+  <div class="group bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">⚡</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2">Hızlı İyileşme</h3>
+    <p class="text-xs text-gray-600">Kesi olmadığı için kanama yok denecek kadar azdır. Kabuklanma hızla dökülür.</p>
+  </div>
+  <div class="group bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">📏</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2">Kusursuz Açı</h3>
+    <p class="text-xs text-gray-600">Kalem sayesinde her bir saç teline, kendi doğal çıkış yönü (açısı) %100 oranında verilebilir.</p>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#4f6f8f] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">💉</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Painless (İğnesiz) Anestezi Konforu</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Megaeste'de klasik şırınga iğneli lokal anesteziyi kullanmıyoruz. DHI işleminizde lokal anestezi, "Basınçlı Püskürtme" teknolojisiyle cilt altına iğnesiz şekilde verilir. Böylece iğne fobisi olan hastalarımız bile sıfır acı ve maksimum konforla işlemini tamamlar.</p>
+</div>`,
       process: [
         { step: 1, title: 'Konsültasyon ve Analiz', description: 'Uzman hekimimiz tarafından saç ve saçlı deri analizi yapılır. Donör alan kapasitesi değerlendirilir.' },
         { step: 2, title: 'Ön Saç Çizgisi Tasarımı', description: 'Yüz yapınıza ve beklentilerinize uygun doğal ön saç çizgisi belirlenir.' },
@@ -101,12 +147,57 @@ At Megaeste clinic, DHI hair transplant is performed by our experienced speciali
       slug: 'safir-sac-ekimi',
       category: 'Saç Ekimi Tedavileri',
       categorySlug: 'sac-ekimi',
-      heroDescription: 'Safir uçlu bıçaklarla açılan mikro kanallar sayesinde daha hızlı iyileşme ve doğal sonuçlar sunan saç ekimi tekniği.',
-      longDescription: `Safir FUE saç ekimi, geleneksel çelik bıçaklar yerine safir taşından üretilmiş özel mikro bıçaklar kullanılarak gerçekleştirilen bir yöntemdir. Safir bıçakların keskin ve pürüzsüz yüzeyi sayesinde daha ince kanallar açılır, bu da iyileşme sürecini hızlandırır.
+      heroDescription: 'Klasik metal uçlar yerine gerçek safir taşından üretilmiş uçlarla kanama olmadan gerçekleşen hızlı iyileşmeli saç ekim tekniği.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#4f6f8f] rounded-full"></span> Safir FUE Nedir?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Safir FUE saç ekimi, dünyaca kabul görmüş FUE tekniğinin inovasyonla buluşmuş en teknolojik halidir. Klasik FUE yönteminde saç köklerinin yerleştirileceği delikler (kanallar) çelik 'slayt' bistürilerle açılırken; Safir FUE'de bu işlem değerli bir maden olan <strong class="text-[#4f6f8f]">Safir Taşından</strong> elde edilen, pürüzsüz ve antibakteriyel uçlarla yapılır.</p>
 
-Safir uçlu bıçaklar, dokuya minimum hasar vererek daha yoğun ekim yapılmasına olanak tanır. Bu sayede daha sık ve doğal görünümlü sonuçlar elde edilir. Kabuklanma süreci daha kısa sürer ve ekim bölgesinde iz kalma riski azalır.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/safir-sac-ekimi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Safir Uçlu Saç Ekimi" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Dokulara Saygılı Teknoloji</span>
+  </div>
+</div>
 
-Megaeste kliniğinde safir saç ekimi, FDA onaylı ekipmanlarla ve uzman ekibimiz tarafından uygulanmaktadır.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#4f6f8f] rounded-full"></span> Neden Çelik Yerine Safir?
+</h2>
+<div class="space-y-4 mb-10">
+  <div class="flex items-start gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-10 h-10 shrink-0 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 mt-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Daha Az Doku Tahribatı (Sıfır İltihap)</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Safir uçlar V şeklindedir ve yüzeyleri mikroskobik düzeyde bile pürüzsüzdür. Kesi yaparken dokuyu yırtmaz, hücreleri zedelemez. Antibakteriyel yapısı enfeksiyon riskini tamamen ortadan kaldırır.</p>
+    </div>
+  </div>
+  <div class="flex items-start gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-10 h-10 shrink-0 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 mt-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Daha Yüksek Greft Kapasitesi</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">İnce uçlar sayesinde birbirine çok daha yakın, mikro kanallar açılabilir. Bu sayede geniş açıklığı olan kellik vakalarında (Megalift), tek seansta 5000+ grefte kadar devasa ekimler yapılabilir.</p>
+    </div>
+  </div>
+  <div class="flex items-start gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-10 h-10 shrink-0 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 mt-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Mükemmel Tutunma ve Şişlik</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Açılan kanallar, kök boyutuna birebir eşit olduğu için ekilen saç teli o kanala tam tabiriyle 'cuk' oturur, açısı bozulmaz. Ödem ve yüzde oluşacak inatçı şişlikler klasik yönteme göre %80 daha azdır.</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#4f6f8f] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">🏆</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Doğal Ön Çizgi Tasarımı</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Megaeste hekimleri, altın oran (Golden Ratio) kumpas cetvelleri ve lazer hizalama ekipmanlarıyla sadece dökülen alanları değil, yaşınıza, yüz hatlarınıza ve mimiklerinize birebir uyumlu <strong class="text-[#4f6f8f]">Sanatsal Ön Saç Çizgisi</strong> tasarlar.</p>
+</div>`,
       process: [
         { step: 1, title: 'Konsültasyon', description: 'Detaylı saç analizi ve kişiye özel tedavi planı oluşturulur.' },
         { step: 2, title: 'Saç Çizgisi Belirleme', description: 'Doğal görünüm için optimum ön saç çizgisi tasarlanır.' },
@@ -161,12 +252,58 @@ At Megaeste clinic, sapphire hair transplant is performed with FDA-approved equi
       slug: 'sac-mezoterapisi',
       category: 'Saç Ekimi Tedavileri',
       categorySlug: 'sac-ekimi',
-      heroDescription: 'Saç dökülmesini durduran ve mevcut saçları güçlendiren vitamin, mineral ve peptit içerikli mezoterapi uygulaması.',
-      longDescription: `Saç mezoterapisi, saç derisine mikroenjeksiyonlar aracılığıyla vitamin, mineral, amino asit ve büyüme faktörleri içeren özel kokteyllerin uygulanmasıdır. Bu tedavi yöntemi, saç köklerini besleyerek saçların güçlenmesini ve yenilenmesini destekler.
+      heroDescription: 'Saç dökülmesini anında durduran ve uyuyan saç köklerini canlandıran saç aşısı (mezoterapi) ve PRP uygulaması.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#4f6f8f] rounded-full"></span> Saç Mezoterapisi Ne İşe Yarar?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Saç dökülmesinin en büyük sebebi kafa derisinin altındaki kan dolaşımının yavaşlaması ve köklerin vitaminsiz kalıp "uyku evresine" geçmesidir. Saç mezoterapisi, tamamen FDA onaylı; Biotin, Çinko, B vitamini kompleksi, Kalsiyum, Magnezyum, Büyüme Faktörleri (Growth Factor) ve amino asitlerden oluşan sihirli bir kokteylin mikro iğnelerle doğrudan saç folikülünün kalbine enjekte edilmesidir.</p>
 
-Saç mezoterapisi, saç dökülmesinin erken evrelerinde önleyici bir tedavi olarak uygulanabilir. Ayrıca saç ekimi sonrası iyileşme sürecini hızlandırmak ve ekilen saçların tutma oranını artırmak amacıyla da tercih edilmektedir.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/sac-mezoterapisi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Saç Mezoterapisi Uygulaması" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Cansız Saçlarınız Yeniden Dirilecek</span>
+  </div>
+</div>
 
-Megaeste kliniğinde uygulanan saç mezoterapisi protokolü, hastanın ihtiyacına göre özel olarak hazırlanan kokteyllerle gerçekleştirilir.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#4f6f8f] rounded-full"></span> Mezoterapi ve PRP Hangi Durumlarda Yapılır?
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">🛑</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Dökülmeyi Durdurmak İçin</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Erkek tipi (Androgenetik) veya kadınlardaki stres/hormonal kaynaklı dökülmelerin %90'ını ilk 3 seansta bıçak gibi keser.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">🧱</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Kalınlık ve Hacim Artışı İçin</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">İncelen, tüy formuna dönen ve cansız görünen saç tellerinin çapını genişleterek eskisinden daha parlak olmasını sağlar.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">🌱</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Yeni Saç (Bebek Saçı) Çıkışı</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Ölmeyen ancak uykuya dalan inaktif kökleri uyandırarak, şakaklardan veya zayıf bölgelerden yeni "bebek saçları" fışkırtır.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#4f6f8f]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#4f6f8f] text-2xl">🛡️</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Saç Ekimi Sonrası Besleme</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Ekimden çıkan hastaların en büyük destekçisidir. Ekim sonucunu 2 kat hızlandırır ve ekilen şok köklerin sağlıklı beslenmesini sağlar.</p>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#4f6f8f] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">💉</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Minimal Acı, Maksimum Gençlik</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Megaeste kliniğinde mezoterapi seansları ağrısız enjeksiyon kalemleri veya minimal iğnelerle yapılır. Ortalama 10 dakika sürer. Hastalarımız öğle molasında gelip tedavisini yaptırıp hemen işine devam edebilmektedir. Etkisi 2. seanstan sonra saçtaki parlamayla direkt olarak fark edilir.</p>
+</div>`,
       process: [
         { step: 1, title: 'Saç Analizi', description: 'Trikoskopik analiz ile saç ve saçlı deri durumu değerlendirilir.' },
         { step: 2, title: 'Kokteyl Hazırlama', description: 'Kişiye özel vitamin ve mineral kokteyli hazırlanır.' },
@@ -217,12 +354,44 @@ The hair mesotherapy protocol applied at Megaeste clinic is carried out with coc
       slug: 'burun-estetigi',
       category: 'Plastik Cerrahi',
       categorySlug: 'plastik-cerrahi',
-      heroDescription: 'Yüz uyumunu sağlayan, nefes alma fonksiyonunu iyileştiren ve estetik görünüm kazandıran rinoplasti uygulaması.',
-      longDescription: `Burun estetiği (rinoplasti), burnun şeklini ve boyutunu düzeltmek amacıyla uygulanan cerrahi bir işlemdir. Burun ucu şekillendirme, burun kemeri düzeltme, burun kanatları daraltma ve septum düzeltme gibi çeşitli düzeltmeler yapılabilir.
+      heroDescription: 'Sadece dış görünüşünüzü değil, nefes kalitenizi de mükemmelleştiren kişiye özel 3D tasarımlı rinoplasti uygulaması.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Burun Estetiği (Rinoplasti) Çözümleri
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Burun, yüzün tam merkezinde yer aldığı için tüm simetriyi ve ifadeyi doğrudan etkiler. Megaeste kliniklerinde gerçekleştirilen rinoplasti operasyonları; burun kemeri (dorsal hump), geniş veya düşük burun ucu, asimetri ve burun kanatları gibi sadece estetik kaygıları değil, aynı zamanda kıkırdak eğriliği (septum deviasyonu) ve et büyümesi (konka hipertrofisi) gibi nefes alma problemlerini aynı seansta çözmeyi hedefler.</p>
 
-Modern rinoplasti teknikleri, doğal görünümle uyumlu sonuçlar elde etmeyi hedefler. Yüz oranlarına uyumlu, nefes alma fonksiyonunu bozmayan ve estetik açıdan tatmin edici sonuçlar sağlanır.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/burun-estetigi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Burun Estetiği" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Yüzünüze En Uygun Doğal Tasarım</span>
+  </div>
+</div>
 
-Megaeste kliniğinde burun estetiği operasyonları, deneyimli plastik cerrahlarımız tarafından ileri teknoloji ameliyathane koşullarında gerçekleştirilmektedir.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Hangi Teknikleri Kullanıyoruz?
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#729788]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#729788] text-2xl">⚡</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Piezo (Ultrasonik) Rinoplasti</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Geleneksel 'kırma-törpüleme' yöntemlerinin aksine burun kemiklerini ses dalgalarıyla hassasça şekillendirir. Bu sayede çevre dokular zarar görmez, morluk ve şişlikler minimuma iner.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#729788]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#729788] text-2xl">👃</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Kapalı Rinoplasti</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Operasyon tamamen burun deliklerinin içinden yapıldığı için dışarıdan görünen hiçbir dikiş izi (skar) kalmaz. Uygun vakalarda iyileşme süresini inanılmaz hızlandırır.</p>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#729788] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">🎭</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Ameliyat Öncesi 3D Simülasyon</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Bizi diğer tüm kliniklerden ayıran en önemli detay; operasyon öncesi muayenede yüzünüzün yüksek çözünürlüklü dijital kopyasını (3D modellemesini) çıkarmamızdır. Böylece hayalinizdeki burnu, "acaba yüzüme yakışacak mı?" korkusu olmadan ameliyata girmeden ekranda görürsünüz.</p>
+</div>`,
       process: [
         { step: 1, title: 'Detaylı Muayene', description: 'Burun yapısı, cilt kalınlığı ve yüz oranları değerlendirilir.' },
         { step: 2, title: '3D Simülasyon', description: 'Bilgisayar ortamında olası sonuçlar görselleştirilir.' },
@@ -273,12 +442,58 @@ At Megaeste clinic, rhinoplasty operations are performed by our experienced plas
       slug: 'goz-kapagi-estetigi',
       category: 'Plastik Cerrahi',
       categorySlug: 'plastik-cerrahi',
-      heroDescription: 'Göz çevresindeki sarkmaları gidererek genç ve dinlenmiş bir görünüm sağlayan blefaroplasti uygulaması.',
-      longDescription: `Göz kapağı estetiği (blefaroplasti), üst ve/veya alt göz kapaklarındaki fazla deri, kas ve yağ dokusunun çıkarılarak göz çevresinin gençleştirilmesi işlemidir.
+      heroDescription: 'Sarkan göz kapakları ve göz altı torbalarını gidererek yüzünüze anında 10 yaş genç, aydınlık ve enerjik bir ifade katan prosedür.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Göz Kapağı Estetiği Neden Önemlidir?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Gözler, insan yüzünde odaklanılan ilk bölgedir. Genetik faktörler, yaş almak veya yer çekiminin etkisiyle üst göz kapaklarında deri bollaşması, alt göz kapağında ise fıtıklaşmaya bağlı torbalanmalar oluşur. Bu durum kişiyi olduğundan çok daha yorgun, uykusuz, sinirli ve yaşlı gösterir. Ayrıca şiddetli göz kapağı sarkmaları görme açısını daraltarak ciddi baş ağrılarına sebep olabilir. Blefaroplasti (Göz Kapağı Estetiği), çok kısa sürede kesin çözüm sunar.</p>
 
-Yaşlanma ile birlikte göz kapaklarında sarkma, torbalanma ve kırışıklıklar oluşabilir. Bu durum yorgun ve yaşlı bir ifadeye neden olur. Blefaroplasti ile göz bölgesine genç, dinlenmiş ve canlı bir görünüm kazandırılır.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/goz-kapagi-estetigi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Göz Kapağı Estetiği (Blefaroplasti)" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Daha Canlı, Daha Genç Bakışlar</span>
+  </div>
+</div>
 
-İşlem, lokal veya genel anestezi altında uygulanabilir ve günlük hayata dönüş süresi kısadır.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> 4 Adımda Göz Kapağı Gençleştirme
+</h2>
+<div class="space-y-4 mb-10">
+  <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-12 h-12 shrink-0 bg-[#729788] rounded-full flex items-center justify-center text-white font-bold">01</div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Ameliyatsız Etki İsteyenlere Lazer/Plazma (Plexr)</h3>
+      <p class="text-sm text-gray-600">Başlangıç seviyesi minimal sarkmalarda neştersiz, iz bırakmayan plazma kalemi ile anında toparlanma sağlanır.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-12 h-12 shrink-0 bg-[#729788] rounded-full flex items-center justify-center text-white font-bold">02</div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Üst Göz Kapağı (Blefaroplasti)</h3>
+      <p class="text-sm text-gray-600">Sarkan fazla deri ve kas tabakası, gözün doğal kıvrımına saklanan milimetrik kesiden çıkarılır.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-12 h-12 shrink-0 bg-[#729788] rounded-full flex items-center justify-center text-white font-bold">03</div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Alt Göz Kapağı ve Torba Alma</h3>
+      <p class="text-sm text-gray-600">Kirpik diplerinin hemen altından veya göz kapağı içinden (transkonjonktival) girilerek fazla yağ torbaları tahliye edilir.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-12 h-12 shrink-0 bg-[#729788] rounded-full flex items-center justify-center text-white font-bold">04</div>
+    <div>
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Kombine Badem Göz (Bella Eyes)</h3>
+      <p class="text-sm text-gray-600">Pek çok vakada sadece torba almak yetmez. Göz köşesi (kantus) yukarı taşınarak çekik, dinç ve çarpıcı Badem Göz yaratılır.</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#729788] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">👁️</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Mola Vermeyin, Hemen Dönün</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Göz kapağı estetiğine "Öğle Arası Estetiği" denmesinin sebebi genellikle sadece lokal anestezi (bölgesel uyuşturma) ile ortalama 45 dakikada bitmesidir. Hastanede yatmaya gerek yoktur, işlemin hemen ardından taburcu olup yürüyerek eve dönebilirsiniz.</p>
+</div>`,
       process: [
         { step: 1, title: 'Göz Muayenesi', description: 'Göz kapağı yapısı ve çevre dokuları detaylı incelenir.' },
         { step: 2, title: 'Planlama', description: 'Alınacak doku miktarı ve kesi hatları belirlenir.' },
@@ -327,12 +542,51 @@ The procedure can be performed under local or general anesthesia with a short re
       slug: 'meme-estetigi',
       category: 'Plastik Cerrahi',
       categorySlug: 'plastik-cerrahi',
-      heroDescription: 'Meme büyütme, küçültme ve dikleştirme operasyonları ile vücut uyumunuza uygun estetik çözümler.',
-      longDescription: `Meme estetiği, meme büyütme (augmentasyon), meme küçültme (redüksiyon) ve meme dikleştirme (mastopeksi) gibi farklı cerrahi prosedürleri kapsar.
+      heroDescription: 'Büyütme, küçültme ve dikleştirme konseptleri ile yer çekimine meydan okuyun, altın oranı vücudunuzla buluşturun.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Meme Estetiğinde Kapsamlı Yaklaşım
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Meme, kadın beden silüetini ve kıyafetlerin duruşunu belirleyen en önemli estetik unsurdur. Gelişim geriliği, hamilelik sonrası göğüs boşalması, ani kilo kayıpları veya asimetri gibi faktörler kişinin özgüvenini derinden etkiler. Megaeste plastik cerrahi departmanı, FDA onaylı son jenerasyon Mentor/Motiva implantlar (silikonlar) kullanarak üstün kalitede cerrahi çözümler sunar.</p>
 
-Her hasta için vücut yapısına, cilt elastikiyetine ve beklentilerine uygun bir tedavi planı oluşturulur. Modern implant teknolojileri ve cerrahi teknikler ile doğal görünümlü ve güvenli sonuçlar hedeflenir.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/meme-estetigi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Meme Estetiği Modelleri" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Vücudunuzla Kusursuz Akort</span>
+  </div>
+</div>
 
-Megaeste kliniğinde tüm meme estetiği operasyonları, akredite ameliyathane koşullarında deneyimli plastik cerrahlarımız tarafından gerçekleştirilmektedir.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Farklı Memeler, Farklı Hedefler
+</h2>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8">
+  <div class="group flex flex-col p-6 rounded-2xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-xl transition-all duration-300">
+    <div class="w-16 h-16 bg-[#729788]/10 rounded-full flex items-center justify-center mb-4 group-hover:-translate-y-2 transition-transform duration-500">
+      <span class="text-[#729788] text-3xl">⬆️</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] text-lg mb-2">Meme Büyütme</h3>
+    <p class="text-sm text-gray-600 leading-relaxed">Kas zarı altı (Dual Plane) veya kas üstü planlama ile su damlası (anatomik) ya da yuvarlak silikon yerleştirilme işlemidir. Asla süt kanallarına zarar vermez, emzirmeyi engellemez.</p>
+  </div>
+  <div class="group flex flex-col p-6 rounded-2xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-xl transition-all duration-300">
+    <div class="w-16 h-16 bg-[#729788]/10 rounded-full flex items-center justify-center mb-4 group-hover:-translate-y-2 transition-transform duration-500">
+      <span class="text-[#729788] text-3xl">⬇️</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] text-lg mb-2">Meme Küçültme</h3>
+    <p class="text-sm text-gray-600 leading-relaxed">Aşırı büyük göğüslerin boyun fıtığına, bel ağrısına ve omuz çökmesine neden olduğu medikal bir durumdur. Fazla meme dokusu ve deri çıkarılarak hastalar ciddi yükten kurtarılır.</p>
+  </div>
+  <div class="group flex flex-col p-6 rounded-2xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-xl transition-all duration-300">
+    <div class="w-16 h-16 bg-[#729788]/10 rounded-full flex items-center justify-center mb-4 group-hover:-translate-y-2 transition-transform duration-500">
+      <span class="text-[#729788] text-3xl">🔄</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] text-lg mb-2">Meme Dikleştirme</h3>
+    <p class="text-sm text-gray-600 leading-relaxed">Hacmi yeterli olan ancak sarkmış ("ptosis" evresi) göğüslere sadece toparlama yapılır. Eğer hacim de sıfırlanmışsa, "Silikonlu Dikleştirme (Augmentasyon + Mastopeksi)" tekniği birleştirilir.</p>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#729788] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">🏆</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Kas Zarı Altı (Dual Plane) Kusursuzluk Tekniği</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Büyütme ameliyatlarında tercih ettiğimiz en ileri estetik teknik Dual Plane'dir. Klasik yöntemlerde silikon kenarları dışarıdan belli olurken; bu teknikte silikonun üst yarısı kas altına, alt yarısı meme dokusu altına saklanarak mükemmel, yumuşacık ve yapaylıktan tamamen uzak (%100 doğal silüet) bir bitiş elde edilir.</p>
+</div>`,
       process: [
         { step: 1, title: 'Konsültasyon', description: 'Detaylı muayene ve beklenti analizi yapılır.' },
         { step: 2, title: 'Planlama', description: 'Uygun teknik ve varsa implant tipi belirlenir.' },
@@ -381,12 +635,71 @@ At Megaeste clinic, all breast aesthetics operations are performed by our experi
       slug: 'medikal-cilt-bakimi',
       category: 'Medikal Estetik',
       categorySlug: 'medikal-estetik',
-      heroDescription: 'Cilt tipinize özel protokollerle uygulanan medikal cilt bakımı ile sağlıklı ve ışıltılı bir cilde kavuşun.',
-      longDescription: `Medikal cilt bakımı, dermatolojik ve estetik açıdan cildinizi analiz ederek kişiye özel protokollerle uygulanan profesyonel bir bakım sürecidir. Kimyasal peeling, hydrafacial, PRP, karbon peeling gibi ileri teknoloji uygulamalar bu kapsamda değerlendirilir.
+      heroDescription: 'Profesyonel Hydrafacial ve Derin Temizleme protokolleriyle sağlıkla parlayan, bebeksi ve pürüzsüz cilde kavuşun.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#ad6778] rounded-full"></span> Medikal Cilt Bakımı Nedir?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Medikal cilt bakımı, evde uygulanan günlük rutinlerin çok ötesinde, dermokozmetik ürünler ve ileri teknoloji cihazlar kullanılarak cildin en derin katmanlarına kadar inen profesyonel bir tedavi sistemidir. Ciltteki ölü hücrelerin arındırılması, tıkanmış gözeneklerin temizlenmesi, akne ve siyah noktaların tedavisi, nem oranının ve kolajen üretiminin artırılması hedeflenir.</p>
 
-Cilt analiz cihazları ile cildinizin nem oranı, elastikiyeti, gözenek yapısı ve pigmentasyon durumu detaylı olarak incelenir. Sonuçlara göre bireysel bakım planı oluşturulur.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/medikal-cilt-bakimi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Medikal Cilt Bakımı" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Cildinizin Işıltısını Geri Kazanın</span>
+  </div>
+</div>
 
-Megaeste kliniğinde medikal cilt bakımı, uzman dermatologlar ve medikal estetik uzmanları gözetiminde uygulanmaktadır.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#ad6778] rounded-full"></span> Kimler Tercih Etmelidir?
+</h2>
+<p class="mb-6 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Zamanla ciltte biriken toksinler, makyaj kalıntıları, stres ve güneşin zararlı etkileri cildin canlılığını yok eder. Medikal cilt bakımı, bu hasarları onarmak isteyen herkes için uygundur.</p>
+<ul class="space-y-4 mb-10 pl-2">
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#ad6778] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed">Siyah nokta, geniş gözenek, aktif sivilce (akne) ve yağlı cilt problemi yaşayanlar.</span>
+  </li>
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#ad6778] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed">Cildi mat, cansız, nemsiz ve pul pul dökülen (kuru cilt) yapıya sahip kişiler.</span>
+  </li>
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#ad6778] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed">Erken yaşlanma belirtileri, yüzeysel lekeler ve renk eşitsizliği (hiperpigmentasyon) gözlemleyenler.</span>
+  </li>
+</ul>
+
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#ad6778] rounded-full"></span> Medikal Bakım Aşamaları
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#ad6778]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#ad6778] font-bold text-xl">1</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Analiz ve Temizlik</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Bilgisayarlı cilt analizi sonrası cildinize en uygun temizleyicilerle makyaj, yağ ve kir derinlemesine arındırılır.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#ad6778]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#ad6778] font-bold text-xl">2</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Peeling ve Buhar</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Enzimatik peeling ve ozon buharı uygulanarak gözenekler açılır, cilt siyah nokta (komedon) sıkımına hazır hale getirilir.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#ad6778]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#ad6778] font-bold text-xl">3</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Vakum ve Serum</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Ağrısız Hydrafacial vakumu ile gözenekler emilerek temizlenir. Ardından hyalüronik asit ve antioksidan serumlar cilt altına itilir.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+    <div class="w-12 h-12 bg-[#ad6778]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <span class="text-[#ad6778] font-bold text-xl">4</span>
+    </div>
+    <h3 class="font-bold text-[#1e3a5f] mb-2 text-lg">Maske ve Terapi</h3>
+    <p class="text-gray-600 text-sm leading-relaxed">Cilt ihtiyacına özel maske bekleme sürecinden sonra LED Işık Terapisi (Foton) veya Yüksek Frekans cihazıyla cilt yatıştırılır.</p>
+  </div>
+</div>`,
       process: [
         { step: 1, title: 'Cilt Analizi', description: 'Cilt analiz cihazları ile detaylı cilt değerlendirmesi yapılır.' },
         { step: 2, title: 'Protokol Belirleme', description: 'Cilt tipine uygun bakım protokolü oluşturulur.' },
@@ -435,12 +748,58 @@ At Megaeste clinic, medical skin care is applied under the supervision of expert
       slug: 'yuz-mezoterapi',
       category: 'Medikal Estetik',
       categorySlug: 'medikal-estetik',
-      heroDescription: 'Hyalüronik asit, vitamin ve antioksidanlarla cildin derinlemesine beslenmesini sağlayan mezoterapi uygulaması.',
-      longDescription: `Yüz mezoterapisi, cildin alt tabakalarına vitamin, mineral, hyalüronik asit ve amino asit gibi aktif maddelerin mikroenjeksiyonlarla verilmesidir. Bu sayede cilt içeriden beslenirve yenilenir.
+      heroDescription: 'Cilt altı dokulara direkt enjekte edilen zengin vitamin, mineral ve hyalüronik asit kokteylleriyle gençliğinizi geri çağırın.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#ad6778] rounded-full"></span> Yüz Mezoterapisi Ne İşe Yarar?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Kullandığınız en pahalı kremler bile cilt bariyerini aşıp alt tabakalara (dermise) ulaşamaz. Yüz mezoterapisi (Mezolifting), cildin ihtiyaç duyduğu A, C, E vitaminleri, amino asitler, somon DNA, antioksidanlar ve saf hyalüronik asitten oluşan mucizevi kokteyllerin mikro çok ince iğnelerle doğrudan cilt altına enjekte edilmesi işlemidir. Bu sayede dokular derinlemesine uyarılır ve kolajen sentezi patlaması yaşanır.</p>
 
-Yüz mezoterapisi, kırışıklık azaltma, cilt tonunu eşitleme, leke tedavisi, nem dengesinin sağlanması ve genel cilt gençleştirme amacıyla uygulanır.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/yuz-mezoterapi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Yüz Mezoterapisi" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Cildinizdeki Yıllara Meydan Okuyun</span>
+  </div>
+</div>
 
-Megaeste kliniğinde yüz mezoterapisi, FDA onaylı ürünlerle ve deneyimli uzmanlarımız tarafından uygulanmaktadır.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#ad6778] rounded-full"></span> Mezoterapinin Cildinize 4 Muazzam Katkısı
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="group flex p-4 rounded-xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-lg transition-all duration-300">
+    <div class="w-2 h-16 bg-[#ad6778] rounded-full group-hover:h-full transition-all duration-500"></div>
+    <div class="ml-4">
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Anti-Aging ve Sıkılaşma</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Elastin lifleri anında toparlanarak ince kırışıklıklar silinir, sarkan bölgelerde lifting etkisi oluşur.</p>
+    </div>
+  </div>
+  <div class="group flex p-4 rounded-xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-lg transition-all duration-300">
+    <div class="w-2 h-16 bg-[#ad6778] rounded-full group-hover:h-full transition-all duration-500"></div>
+    <div class="ml-4">
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Nem Bombası Etkisi</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">İçerikteki çapraz bağsız hyalüronik asit yüzün su tutma kapasitesini fırlatıp dehidrasyonu anında durdurur.</p>
+    </div>
+  </div>
+  <div class="group flex p-4 rounded-xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-lg transition-all duration-300">
+    <div class="w-2 h-16 bg-[#ad6778] rounded-full group-hover:h-full transition-all duration-500"></div>
+    <div class="ml-4">
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Renk Eşitleme (Aydınlanma)</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Güneş lekeleri, sivilce izleri ve matlaşan cilt dokusu glupatyon ve C vitamini ile aydınlatılıp canlandırılır.</p>
+    </div>
+  </div>
+  <div class="group flex p-4 rounded-xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-lg transition-all duration-300">
+    <div class="w-2 h-16 bg-[#ad6778] rounded-full group-hover:h-full transition-all duration-500"></div>
+    <div class="ml-4">
+      <h3 class="font-bold text-[#1e3a5f] mb-1">Göz Altı Yenilemesi</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Göz çevresindeki morluk, torbalanma ve yorgunluk izleri özel 'ışık dolgusu' karışımlarıyla silinir.</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#ad6778] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">💉</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Minimal Acı, Maksimum Gençlik</p>
+  <p class="text-gray-600 leading-relaxed font-medium">İşlemden 20 dakika önce lokal anestezik kremler (uyuşturucu) sürülerek cildiniz hissizleştirilir. Fransız mezoterapi iğnesi (en ince uçlu iğne tipi) ile yapıldığı için ağrı minimumdur. Ortalama 15 dakika sürer ve sosyal hayatınıza o gün içerisinde direkt dönebilirsiniz.</p>
+</div>`,
       process: [
         { step: 1, title: 'Cilt Değerlendirmesi', description: 'Cildin ihtiyaçları ve tedavi hedefleri belirlenir.' },
         { step: 2, title: 'Kokteyl Seçimi', description: 'Cilt tipine uygun mezoterapi kokteyli hazırlanır.' },
@@ -489,12 +848,48 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
       slug: 'lazer-epilasyon',
       category: 'Epilasyon',
       categorySlug: 'epilasyon',
-      heroDescription: 'Son teknoloji lazer cihazlarıyla güvenli, etkili ve kalıcı tüy azaltma uygulaması.',
-      longDescription: `Lazer epilasyon, yoğun ışık enerjisinin kıl kökündeki melanin pigmentini hedef alarak kıl foliküllerini etkisiz hale getirmesiyle gerçekleşen bir tüy azaltma yöntemidir.
+      heroDescription: 'Alexandrite ve Buz Lazer gibi son teknoloji cihazlarla, acısız, güvenli ve pürüzsüz kalıcı tüy azaltma uygulaması.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> Lazer Epilasyon Nedir?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Lazer epilasyon, istenmeyen tüylerden kalıcı olarak kurtulmayı sağlayan, FDA onaylı en güvenilir medikal estetik prosedürlerinden biridir. Yoğunlaştırılmış ışık demetleri (lazer), kıl köklerindeki melanin (renk veren madde) tarafından emilir. Emilen bu ışık enerjisi ısı enerjisine dönüşerek kıl folikülünü (kökünü) yapısal olarak tahrip eder ve o kökten bir daha tüy çıkmasını engeller.</p>
 
-Modern lazer cihazları, farklı cilt tiplerine ve bölgelere uygun ayarlarla çalışarak güvenli bir uygulama sunar. Her seansta aktif tüy köklerinin önemli bir kısmı etkisiz hale getirilir.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/lazer-epilasyon.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Lazer Epilasyon Nedir" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Pürüzsüz Bir Cilde Adım Atın</span>
+  </div>
+</div>
 
-Megaeste kliniğinde lazer epilasyon, FDA onaylı son nesil cihazlarla tekniker ve uzman gözetiminde uygulanmaktadır.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> Kimler Lazer Epilasyon Yaptırmalıdır?
+</h2>
+<p class="mb-6 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Lazer epilasyon genel olarak ergenlik dönemini tamamlamış, tüy yapısı ve cilt rengi işleme uygun olan tüm kadın ve erkeklere uygulanabilir. Ağda, tıraş bıçağı, epilatör gibi geleneksel yöntemlerden kaynaklanan kıl dönmesi, batık, cilt kararması (özellikle koltuk altı ve genital bölgelerde) ve tahriş gibi sorunlar yaşayan kişiler için kesin tıbbi çözümdür.</p>
+<ul class="space-y-4 mb-10 pl-2">
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#9f8eab] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed">İleri düzey hormonal bir rahatsızlığı bulunmayan veya aktif tedavisi tamamlanmış kişiler.</span>
+  </li>
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#9f8eab] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed">Jilet ve ağda batıklarına, çilek bacak görünümüne kesin son vermek isteyenler.</span>
+  </li>
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#9f8eab] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed">Hayat boyu tüy kalabalığından kurtulup pürüzsüz kalmak isteyen hem kadın hem erkek danışanlar.</span>
+  </li>
+</ul>
+
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> Lazer Epilasyon Süreci Nasıl İlerler?
+</h2>
+<p class="mb-6 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Megaeste Kliniklerinde lazer epilasyon süreci, sıradan güzellik merkezlerinin aksine tamamen klinik testlerden geçerek başlar. Öncelikle vücut bölgeniz, cilt fototipiniz (açık ten, buğday ten veya esmer ten) ve kıl kalınlığınız ücretsiz bilgisayarlı kıl analiz cihazlarımızla taranır.</p>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#9f8eab] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">💎</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Megaeste Buz Lazer Farkı</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Kliniğimizde kullanılan son nesil <strong>Safir Uçlu Buz Lazer</strong> teknolojisi sayesinde, lazer atışları esnasında hedeflenen bölge anında -3 dereceye kadar soğutulur. Bu olağanüstü soğutma mekanizması, cilt üzerindeki acı ve yanma hissini %100'e yakın bloke ederek işlemin tamamen ağrısız ve yanık risksiz olmasını garantiler.</p>
+</div>`,
       process: [
         { step: 1, title: 'Cilt ve Tüy Analizi', description: 'Cilt tipi ve tüy yapısı değerlendirilerek uygun lazer parametreleri belirlenir.' },
         { step: 2, title: 'Test Atışı', description: 'Küçük bir bölgede test uygulaması yapılır.' },
@@ -515,12 +910,29 @@ Megaeste kliniğinde lazer epilasyon, FDA onaylı son nesil cihazlarla tekniker 
       slug: 'laser-hair-removal',
       category: 'Epilation',
       categorySlug: 'epilation',
-      heroDescription: 'Safe, effective and permanent hair reduction with latest technology laser devices.',
-      longDescription: `Laser hair removal is a hair reduction method that works by targeting the melanin pigment in the hair root with intense light energy to disable hair follicles.
+      heroDescription: 'Safe, effective, and permanent hair reduction with painless Ice Laser technology and Alexandrite devices.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> What is Laser Hair Removal?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Laser hair removal is one of the most reliable FDA-approved medical aesthetic procedures for getting rid of unwanted hair permanently. Concentrated light beams (lasers) are absorbed by melanin (the pigment) in the hair roots. The absorbed light energy turns to heat, structurally destroying the hair follicle and preventing future hair growth from that root.</p>
 
-Modern laser devices offer a safe application by working with settings suitable for different skin types and areas. A significant portion of active hair roots are disabled in each session.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/lazer-epilasyon.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Laser Hair Removal" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Step Into Smooth Skin</span>
+  </div>
+</div>
 
-At Megaeste clinic, laser hair removal is applied with FDA-approved latest generation devices under technician and specialist supervision.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> Who is Suitable for Laser Hair Removal?
+</h2>
+<p class="mb-6 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Laser hair removal can generally be applied to all men and women who have completed puberty and have suitable hair and skin types. It is the definitive medical solution for individuals experiencing ingrown hairs, strawberry legs, skin darkening, and irritation caused by traditional methods like waxing and shaving.</p>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#9f8eab] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">💎</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">The Megaeste Ice Laser Difference</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Thanks to the latest generation <strong>Sapphire Tip Ice Laser</strong> technology used in our clinic, the targeted area is instantly cooled down to -3 degrees during laser shots. This extraordinary cooling mechanism blocks the sensation of pain and burning on the skin by nearly 100%, guaranteeing a completely painless, burn-free procedure.</p>
+</div>`,
       process: [
         { step: 1, title: 'Skin & Hair Analysis', description: 'Skin type and hair structure are evaluated and appropriate laser parameters are determined.' },
         { step: 2, title: 'Test Shot', description: 'Test application is performed on a small area.' },
@@ -539,18 +951,49 @@ At Megaeste clinic, laser hair removal is applied with FDA-approved latest gener
   },
   {
     id: 'igneli-lazer-epilasyonu',
-    image: '/images/services/igneli-lazer-epilasyonu.png',
+    image: '/images/services/igneli-lazer-epilasyon.png',
     tr: {
       title: 'İğneli Lazer Epilasyonu',
       slug: 'igneli-lazer-epilasyonu',
       category: 'Epilasyon',
       categorySlug: 'epilasyon',
-      heroDescription: 'Hassas bölgeler ve dirençli tüyler için etkili çözüm sunan iğneli lazer epilasyon uygulaması.',
-      longDescription: `İğneli lazer epilasyonu (Needle Epilation), konvansiyonel lazer epilasyona dirençli olan veya hassas bölgelerdeki tüylerin giderilmesi için uygulanan özel bir yöntemdir.
+      heroDescription: 'İnce telli, açık renkli (sarı, beyaz) veya dirençli tüyler için kesin kalıcılık sunan tıbbi epilasyon yöntemi.',
+      longDescription: `<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> İğneli Lazer Epilasyon Nedir?
+</h2>
+<p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">İğneli epilasyon, 100 yılı aşkın süredir uygulanan ve Amerikan Gıda ve İlaç Dairesi (FDA) tarafından "%100 Kalıcı Tüy Yok Etme" sertifikasına sahip tek epilasyon yöntemidir. İşlemde saç teli kadar ince, tek kullanımlık steril altın yalıtkanlı iğnelerle kıl köküne girilir ve köke hafif bir elektrik/radyofrekans akımı verilerek kıl hücresi tamamen tahrip edilir.</p>
 
-İnce bir iğne aracılığıyla doğrudan kıl folikülüne enerji iletilerek kıl kökü etkisiz hale getirilir. Bu yöntem, özellikle açık renkli tüylerde ve küçük alanlarda tercih edilir.
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
+  <img src="/images/services/igneli-lazer-epilasyonu.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="İğneli Lazer Epilasyon" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+    <span class="text-white font-bold text-lg tracking-wide uppercase">Beyaz ve Sarı Tüylere Kesin Çözüm</span>
+  </div>
+</div>
 
-Megaeste kliniğinde iğneli epilasyon, deneyimli uzmanlarımız tarafından steril koşullarda uygulanmaktadır.`,
+<h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
+  <span class="w-8 h-1 bg-[#9f8eab] rounded-full"></span> İğneli Epilasyon Hangi Durumlarda Tercih Edilir?
+</h2>
+<p class="mb-6 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Buz Lazer veya Alexandrite gibi optik cihazlar genellikle içindeki melanin (renk) yüksek olan koyu tüyleri görürler. Ancak tüy yapınız açık renkliyse lazer cihazları işe yaramayacaktır. İşte bu noktada iğneli epilasyon hayat kurtarıcıdır.</p>
+<ul class="space-y-4 mb-10 pl-2">
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#9f8eab] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed"><strong>Sarı, Kumral, Kızıl ve Beyaz Tüyler:</strong> Lazerin göremediği pigmentsiz ince tüyler için tek çözümdür.</span>
+  </li>
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#9f8eab] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed"><strong>Yüz ve Kaş Orantılaması:</strong> Yanak üstündeki ayva tüyleri veya kaş ortası gibi alanlardaki ince detaylarda en güvenilir müdahaledir. Yüz bölgesinde lazerin tetikleyebileceği "kıl çoğalması" riskini sıfıra indirir.</span>
+  </li>
+  <li class="flex items-start gap-4 group">
+    <div class="mt-2 w-2 h-2 rounded-full bg-[#9f8eab] group-hover:scale-[2] transition-transform duration-300"></div>
+    <span class="text-gray-700 font-medium leading-relaxed"><strong>Lazer Epilasyonu Bitirenler:</strong> Lazer epilasyon paketi bittikten sonra vücutta tek tük kalan o son inatçı tüyleri sıfırlamak için rutinin son adımında iğneliye başvurulur.</span>
+  </li>
+</ul>
+
+<div class="bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] p-6 lg:p-8 rounded-2xl border-l-[6px] border-[#9f8eab] shadow-sm hover:shadow-xl transition-shadow duration-500 my-8 overflow-hidden relative">
+  <div class="absolute -right-10 -top-10 text-[150px] opacity-5">⚡</div>
+  <p class="font-black text-[#1e3a5f] text-xl mb-3 flex items-center gap-2">Megaeste Altın İğne Epilasyon Süreci</p>
+  <p class="text-gray-600 leading-relaxed font-medium">Uzman Megaeste estetisyenlerimiz tarafından hijyenin tam sağlandığı odalarda tek kullanımlık altın kaplama yalıtımlı iğneler kullanılır. Akım sadece kök ucuna verilir, böylece üst cilt yüzeyindeki tahriş minimuma iner. Uygulama öncesinde bölgeye anestezik krem sürülerek işlemin yüksek konforla geçmesi sağlanır.</p>
+</div>`,
       process: [
         { step: 1, title: 'Değerlendirme', description: 'Tüy yapısı ve uygulama bölgesi incelenir.' },
         { step: 2, title: 'Uygulama', description: 'İğne ile kıl folikülüne enerji iletilir.' },

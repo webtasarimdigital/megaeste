@@ -42,57 +42,56 @@ export default function ServiceDetailContent({ service, content, relatedServices
 
   return (
     <>
-      {/* Split Hero Banner Reference Aesthetic */}
-      <section className="relative w-full min-h-[500px] lg:min-h-[550px] flex flex-col lg:flex-row overflow-hidden bg-gray-50">
+      {/* Smooth Gradient Hero Section */}
+      <section className="relative w-full min-h-[500px] lg:min-h-[600px] flex flex-col justify-center overflow-hidden bg-gray-50">
         
-        {/* Left Solid Color Area */}
-        <div className={`w-full lg:w-[45%] ${theme.bg} pt-24 pb-48 lg:py-32 px-6 lg:px-12 xl:px-24 flex flex-col justify-start relative z-10 transition-colors duration-500`}>
-          {/* Breadcrumb offset to the top left */}
-          <nav className="flex items-center text-xs md:text-sm text-white/80 mb-2 font-medium tracking-wide">
-            <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
-              {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
-            </Link>
-            <FaChevronRight className="mx-2 text-[10px]" />
-            <span className="text-white/90">{content.category}</span>
-            <FaChevronRight className="mx-2 text-[10px]" />
-            <span className="text-white font-bold">{content.title}</span>
-          </nav>
-          
-          {/* Subtle Decorative Backdrop Pattern */}
-          <div className="absolute top-1/4 right-0 lg:-right-32 opacity-15 pointer-events-none opacity-20 overflow-hidden mix-blend-overlay">
-            <svg width="400" height="400" viewBox="0 0 100 100" fill="none" className="transform rotate-45 scale-150">
-              <path d="M 50 10 C 20 10 10 40 10 50 C 10 60 20 90 50 90 C 80 90 90 60 90 50 C 90 40 80 10 50 10 Z" stroke="white" strokeWidth="0.5"/>
-              <path d="M 50 20 C 30 20 20 40 20 50 C 20 60 30 80 50 80 C 70 80 80 60 80 50 C 80 40 70 20 50 20 Z" stroke="white" strokeWidth="0.5"/>
-            </svg>
-          </div>
-        </div>
-
-        {/* Right Feature Image */}
-        <div className="w-full lg:w-[55%] h-[400px] lg:h-auto relative">
+        {/* Full-Width Background Image */}
+        <div className="absolute inset-0 z-0">
           <Image
             src={service.image}
             alt={content.title}
             fill
-            className="object-cover object-center"
+            className="object-cover object-center lg:object-right"
             priority
           />
-          {/* Subtle Gradient for Overlapping Text Box Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent mix-blend-multiply" />
         </div>
 
-        {/* Floating Text Overlay Box - Bridging Left and Right */}
-        <div className="absolute top-1/2 left-0 w-full transform -translate-y-[20%] lg:-translate-y-1/2 mt-10 md:mt-20 z-20 px-6 lg:px-12 xl:px-24 pointer-events-none">
+        {/* Smooth Gradient Overlay (Left to Right) */}
+        {/* We use inline styles here to dynamically apply the category color as a gradient */}
+        <div 
+          className="absolute inset-0 z-10 opacity-95"
+          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 35%, transparent 100%)` }}
+        ></div>
+        {/* Mobile Gradient (Bottom to Top) */}
+        <div 
+          className="absolute inset-0 z-10 opacity-95 lg:hidden"
+          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 50%, transparent 100%)` }}
+        ></div>
+
+        {/* Absolute Top Left Breadcrumb */}
+        <nav className="absolute top-24 lg:top-32 left-6 lg:left-12 xl:left-24 z-30 flex items-center text-xs md:text-sm text-white/90 drop-shadow-md font-medium tracking-wide">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
+            {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
+          </Link>
+          <FaChevronRight className="mx-2 text-[10px]" />
+          <span className="text-white/90">{content.category}</span>
+          <FaChevronRight className="mx-2 text-[10px]" />
+          <span className="text-white font-bold">{content.title}</span>
+        </nav>
+
+        {/* Content Container (Floating Box) */}
+        <div className="relative z-20 w-full lg:w-1/2 px-6 lg:px-12 xl:px-24 mt-40 lg:mt-10 pointer-events-none">
           <div 
-            className="bg-[#f2f6f5] p-8 md:p-12 w-full max-w-[600px] rounded-bl-3xl rounded-tr-3xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] pointer-events-auto border-l-[6px] transition-colors duration-500" 
+            className="bg-[#f9fbff]/95 backdrop-blur-sm p-8 md:p-12 w-full max-w-[600px] rounded-bl-3xl rounded-tr-3xl shadow-2xl pointer-events-auto border-l-[6px] transition-colors duration-500" 
             style={{ borderColor: theme.colorHex }}
           >
-            <span className={`text-[11px] font-bold tracking-[0.3em] uppercase mb-4 block opacity-80 transition-colors ${theme.text}`}>
+            <span className={`text-[11px] font-bold tracking-[0.3em] uppercase mb-4 block opacity-80 ${theme.text}`}>
               {content.category}
             </span>
-            <h1 className="text-3xl md:text-5xl font-black mb-5 uppercase tracking-wide text-[#1e3a5f] leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-[54px] font-black mb-6 uppercase tracking-wide text-[#1e3a5f] leading-tight">
               {content.title}
             </h1>
-            <p className="text-gray-700 text-[15px] md:text-[16px] leading-relaxed font-medium line-clamp-4">
+            <p className="text-gray-600 text-[15px] md:text-lg leading-relaxed font-medium">
               {content.heroDescription}
             </p>
           </div>

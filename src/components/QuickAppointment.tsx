@@ -26,8 +26,8 @@ export default function QuickAppointment({ lang = 'tr' }: { lang?: string }) {
                 
                 {/* Standardized Megaeste typography from hero approach */}
                 <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-8 tracking-tight">
-                  {isEn ? 'BOOK A FREE CONSULTATION ' : 'ŞİMDİ ÜCRETSİZ MUAYENE İÇİN '}
-                  <span className="font-light">{isEn ? 'NOW' : 'RANDEVU ALIN'}</span>
+                  {isEn ? 'BOOK A FREE CONSULTATION ' : 'HEMEN ÜCRETSİZ '}
+                  <span className="font-light">{isEn ? 'NOW' : 'RANDEVU AL'}</span>
                 </h2>
                 
                 <p className="text-gray-300 text-[15px] md:text-[17px] font-light leading-relaxed mb-10 max-w-xl">

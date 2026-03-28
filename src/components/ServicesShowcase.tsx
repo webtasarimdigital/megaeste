@@ -55,7 +55,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
   const activeServices = services.filter((s: any) => s[lang].categorySlug === activeCategorySlug);
 
   return (
-    <section className="w-full bg-white text-[#3a4f66] py-20 md:py-32 relative overflow-hidden" id="services">
+    <section className="w-full bg-white text-[#3a4f66] py-16 md:py-24 relative overflow-hidden" id="services">
       {/* Decorative background accent */}
       <motion.div 
         className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[100px] opacity-10 pointer-events-none"
@@ -67,16 +67,20 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
         
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-[11px] md:text-sm font-semibold tracking-[0.2em] text-[#cca66b] mb-4 uppercase">
-            {dict?.services?.subtitle || 'SİZE ÖZEL GELİŞMİŞ TEDAVİ YÖNTEMLERİ'}
-          </h2>
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide text-[#3a4f66]">
+          <div className="flex items-center justify-center space-x-3 mb-6">
+            <div className="w-8 md:w-16 h-[2px] bg-[#cca66b]/80 rounded-full"></div>
+            <h2 className="text-[10px] md:text-sm font-black tracking-[0.3em] text-[#cca66b] uppercase drop-shadow-md">
+              {dict?.services?.subtitle || 'SİZE ÖZEL GELİŞMİŞ TEDAVİ YÖNTEMLERİ'}
+            </h2>
+            <div className="w-8 md:w-16 h-[2px] bg-[#cca66b]/80 rounded-full"></div>
+          </div>
+          <h3 className="text-4xl md:text-5xl lg:text-[64px] font-black text-[#1e3a5f] tracking-tight leading-none drop-shadow-sm">
             {dict?.services?.title || 'HİZMETLERİMİZ'}
           </h3>
         </motion.div>
@@ -89,7 +93,11 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <div className="inline-flex flex-nowrap overflow-x-auto no-scrollbar bg-gray-50/80 backdrop-blur-xl p-2.5 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-full">
+          <motion.div 
+            className="inline-flex flex-nowrap overflow-x-auto no-scrollbar backdrop-blur-xl p-2.5 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-full"
+            animate={{ backgroundColor: `${activeCategory.color}15` }}
+            transition={{ duration: 0.5 }}
+          >
             {categories.map((cat) => {
               const isActive = activeTab === cat.id;
               return (
@@ -123,7 +131,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                 </button>
               );
             })}
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Dynamic Active Content Area */}
@@ -261,7 +269,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                   href={lang === 'en' ? '/en/contact' : '/iletisim'}
                   className="inline-flex items-center space-x-3 px-8 py-4 rounded-full border border-gray-300 hover:border-[#cca66b] hover:bg-[#cca66b] text-[#3a4f66] hover:text-white transition-all duration-300 font-bold tracking-wide group shadow-sm hover:shadow-lg"
               >
-                <span>{lang === 'en' ? 'Book a Direct Consultation' : 'Doğrudan Konsültasyon Alın'}</span>
+                <span>{lang === 'en' ? 'Get a Free Appointment' : 'Hemen Ücretsiz Randevu Al'}</span>
                 <PiArrowRightThin className="text-2xl transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>

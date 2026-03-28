@@ -32,7 +32,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
   const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Blog'];
 
   return (
-    <footer className="w-full mt-20 relative z-10 flex flex-col">
+    <footer className="w-full relative z-10 flex flex-col">
       
       {/* Pre-Footer Quick Contact Bar (White) */}
       <div className="w-full bg-white border-y border-gray-100 shadow-sm relative z-20">
@@ -183,7 +183,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
               <li className="flex items-start text-[13.5px] text-white/60 font-medium">
                 <FiClock className="mr-3 text-[#cca66b] text-lg mt-0.5 flex-shrink-0" />
                 <div className="flex flex-col">
-                  <span className="font-bold text-white mb-1">{f.workingHoursTitle || 'Çalışma Saatleri'}</span>
+                  <span className="font-bold text-[#cca66b] mb-1">{f.workingHoursTitle || 'Çalışma Saatleri'}</span>
                   <span>{f.workingHours || 'Pazartesi - Cumartesi: 09:00 - 19:00'}</span>
                 </div>
               </li>

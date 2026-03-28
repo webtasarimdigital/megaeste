@@ -40,7 +40,7 @@ export default function FAQSection({ dict }: { dict?: any }) {
   ];
 
   return (
-    <section className="w-full relative py-20 xl:py-28 px-4 lg:px-10 xl:px-24 bg-[#f4f7fa] overflow-hidden">
+    <section className="w-full relative pt-20 xl:pt-28 pb-10 xl:pb-16 px-4 lg:px-10 xl:px-24 bg-[#f4f7fa] overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-[#427bdf]/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#cca66b]/5 rounded-full blur-3xl"></div>
