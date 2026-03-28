@@ -28,7 +28,7 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
         <div className="relative w-full max-w-[380px] mx-auto">
           
           {/* Scroll to Top Arrow - Exactly midway, flex centered to avoid fractional pixel bugs */}
-          <div className="absolute left-0 right-0 -top-6 flex justify-center z-50 pointer-events-none">
+          <div className="absolute left-0 right-0 -top-3.5 flex justify-center z-50 pointer-events-none">
             <AnimatePresence>
               {showScrollTop && (
                 <motion.div
