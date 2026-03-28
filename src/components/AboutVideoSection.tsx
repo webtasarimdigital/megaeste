@@ -137,10 +137,11 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
             >
               <video
                 ref={(el) => { videoRefs.current[video.id] = el; }}
-                src={video.src}
+                src={`${video.src}#t=0.001`}
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 /* Removed autoPlay attribute to fix "play interrupted by pause" race condition on desktop hover! */
                 onPlay={() => setPlayingState(prev => ({ ...prev, [video.id]: true }))}
                 onPause={() => setPlayingState(prev => ({ ...prev, [video.id]: false }))}
