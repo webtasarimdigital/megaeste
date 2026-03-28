@@ -65,13 +65,6 @@ export default function AboutSection({ dict, lang = 'tr' }: { dict?: any, lang?:
             >
               {content.button}
             </Link>
-            
-            <div className="flex items-center space-x-4">
-              <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100">
-                <span className="text-[#427bdf] font-black text-xl">15+</span>
-              </div>
-              <span className="font-bold text-gray-700 text-sm leading-tight">Yıllık<br/>Tecrübe</span>
-            </div>
           </div>
         </div>
       </div>
