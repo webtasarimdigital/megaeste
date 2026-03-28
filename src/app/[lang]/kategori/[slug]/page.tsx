@@ -111,7 +111,6 @@ export default async function CategoryPage({ params }: Props) {
           bgImage={categoryProps.bgImage}
           servicesList={servicesList}
           lang={lang}
-          dict={dict}
         />
       </main>
       <Footer dict={dict} lang={lang} />

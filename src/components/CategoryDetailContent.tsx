@@ -14,7 +14,6 @@ interface CategoryDetailContentProps {
   bgImage: string;
   servicesList: any[];
   lang: 'tr' | 'en';
-  dict: any;
 }
 
 export default function CategoryDetailContent({
@@ -23,7 +22,6 @@ export default function CategoryDetailContent({
   bgImage,
   servicesList,
   lang,
-  dict,
 }: CategoryDetailContentProps) {
   return (
     <div className="w-full bg-white relative">
