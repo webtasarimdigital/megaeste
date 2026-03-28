@@ -13,28 +13,28 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
       title: dict?.hairTransplant?.title || 'Saç Ekimi', 
       icon: HairIcon,
       color: '#4f6f8f', // Solid Blue
-      href: lang === 'en' ? '/en/hizmetler/hair-transplant' : '/hizmetler/sac-ekimi'
+      href: lang === 'en' ? '/en/treatments/hair-transplant' : '/hizmetler/sac-ekimi'
     },
     { 
       id: 2, 
       title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
       icon: BodyIcon,
       color: '#729788', // Solid Green
-      href: lang === 'en' ? '/en/hizmetler/plastic-surgery' : '/hizmetler/plastik-cerrahi'
+      href: lang === 'en' ? '/en/treatments/plastic-surgery' : '/hizmetler/plastik-cerrahi'
     },
     { 
       id: 3, 
       title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
       icon: FaceIcon,
       color: '#ad6778', // Solid Rose
-      href: lang === 'en' ? '/en/hizmetler/medical-aesthetics' : '/hizmetler/medikal-estetik'
+      href: lang === 'en' ? '/en/treatments/medical-aesthetics' : '/hizmetler/medikal-estetik'
     },
     { 
       id: 4, 
       title: dict?.epilation?.title || 'Epilasyon', 
       icon: EpilationIcon,
       color: '#9f8eab', // Solid Purple
-      href: lang === 'en' ? '/en/hizmetler/epilation' : '/hizmetler/epilasyon'
+      href: lang === 'en' ? '/en/treatments/epilation' : '/hizmetler/epilasyon'
     }
   ];
 

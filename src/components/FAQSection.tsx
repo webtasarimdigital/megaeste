@@ -4,15 +4,16 @@ import React, { useState } from 'react';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function FAQSection({ dict }: { dict?: any }) {
+export default function FAQSection({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const isEn = lang === 'en';
 
   const content = dict?.faq || {
-    title: 'SIKÇA SORULAN SORULAR',
-    subtitle: 'Merak Ettikleriniz'
+    title: isEn ? 'FREQUENTLY ASKED QUESTIONS' : 'SIKÇA SORULAN SORULAR',
+    subtitle: isEn ? 'What You Wonder' : 'Merak Ettikleriniz'
   };
 
-  const faqs = [
+  const trFaqs = [
     {
       q: 'Saç ekimi işlemi ağrılı mıdır?',
       a: 'Lokal anestezi uygulaması sayesinde saç ekimi işlemi sırasında ağrı hissedilmez. İşlem sonrası hafif bir hassasiyet oluşabilir, ancak verilen ilaçlarla kolayca kontrol altına alınır.'
@@ -39,6 +40,35 @@ export default function FAQSection({ dict }: { dict?: any }) {
     },
   ];
 
+  const enFaqs = [
+    {
+      q: 'Is the hair transplant procedure painful?',
+      a: 'Thanks to the application of local anesthesia, no pain is felt during the hair transplant procedure. Slight sensitivity may occur after the procedure, but it is easily controlled with the medication provided.'
+    },
+    {
+      q: 'How long does it take to get results after the procedure?',
+      a: 'Transplanted hair falls out within 2-3 weeks, which is completely normal. New hair starts to grow from the 3rd month and full results are obtained within 8-12 months.'
+    },
+    {
+      q: 'Is hair transplant permanent?',
+      a: 'Yes, because the hair taken from the donor area is genetically resistant to shedding, the transplanted hair is permanent for life.'
+    },
+    {
+      q: 'How many times do I need to come to the clinic for the procedure?',
+      a: 'Hair transplantation is completed in a single session. A pre-procedure consultation and 1-2 post-procedure control appointments are sufficient.'
+    },
+    {
+      q: 'How many sessions does laser epilation take?',
+      a: 'Although it varies according to the region and skin type, desired results are generally achieved between 6-8 sessions. It takes 4-6 weeks between sessions.'
+    },
+    {
+      q: 'What are the payment options?',
+      a: 'We have cash, credit card and installment payment options. For detailed information, you can contact us.'
+    },
+  ];
+
+  const faqs = isEn ? enFaqs : trFaqs;
+
   return (
     <section className="w-full relative pt-20 xl:pt-28 pb-10 xl:pb-16 px-4 lg:px-10 xl:px-24 bg-[#f4f7fa] overflow-hidden">
       {/* Decorative Elements */}
@@ -60,7 +90,9 @@ export default function FAQSection({ dict }: { dict?: any }) {
             {content.subtitle}
           </h2>
           <p className="text-gray-500 text-[14.5px] leading-relaxed mb-8 font-medium">
-            Sık sorulan sorularımıza göz atarak tedavi süreçlerimiz ve işlemlerimiz hakkında detaylı bilgi edinebilirsiniz. İstediğiniz sonuçlara güvenle ulaşın.
+            {isEn 
+              ? 'By browsing our frequently asked questions, you can get detailed information about our treatment processes and procedures. Reach the results you want with confidence.' 
+              : 'Sık sorulan sorularımıza göz atarak tedavi süreçlerimiz ve işlemlerimiz hakkında detaylı bilgi edinebilirsiniz. İstediğiniz sonuçlara güvenle ulaşın.'}
           </p>
           
           <div className="hidden lg:flex flex-col gap-3">
@@ -68,7 +100,7 @@ export default function FAQSection({ dict }: { dict?: any }) {
               <div className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center border border-gray-100">
                 <span className="text-[#1e3a5f] text-2xl font-black">4</span>
               </div>
-              <span className="text-[#1e3a5f] font-bold text-sm">Popüler Soru</span>
+              <span className="text-[#1e3a5f] font-bold text-sm">{isEn ? 'Popular Question' : 'Popüler Soru'}</span>
             </div>
           </div>
         </div>

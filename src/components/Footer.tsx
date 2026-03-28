@@ -11,25 +11,34 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
   const nav = dict?.header?.nav || dict?.nav || dict || {};
   const f = dict?.footer || footerDict || {};
 
-  // Gather ALL service sub-items for 2-column layout
-  const allServices: string[] = [
-    ...(nav.hairTransplant?.items || []),
-    ...(nav.plasticSurgery?.items || []),
-    ...(nav.medicalAesthetics?.items || []),
-    ...(nav.epilation?.items || []),
+  const prefix = lang === 'tr' ? '' : '/en';
+  const treatmentPath = lang === 'tr' ? 'hizmetler' : 'treatments';
+
+  const serviceCategories = [
+    { items: nav.hairTransplant?.items || [], slugs: ['dhi-sac-ekimi', 'safir-sac-ekimi', 'sac-mezoterapisi'], enSlugs: ['dhi-hair-transplant', 'sapphire-hair-transplant', 'hair-mesotherapy'] },
+    { items: nav.plasticSurgery?.items || [], slugs: ['burun-estetigi', 'goz-kapagi-estetigi', 'meme-estetigi'], enSlugs: ['rhinoplasty', 'blepharoplasty', 'breast-aesthetics'] },
+    { items: nav.medicalAesthetics?.items || [], slugs: ['medikal-cilt-bakimi', 'yuz-mezoterapi'], enSlugs: ['medical-skin-care', 'facial-mesotherapy'] },
+    { items: nav.epilation?.items || [], slugs: ['lazer-epilasyon', 'igneli-lazer-epilasyonu'], enSlugs: ['laser-hair-removal', 'needle-laser-epilation'] },
   ];
+
+  const allServices = serviceCategories.flatMap(cat => 
+    cat.items.map((label: string, i: number) => ({
+      label,
+      href: `${prefix}/${treatmentPath}/${lang === 'tr' ? cat.slugs[i] : cat.enSlugs[i]}`
+    }))
+  );
+
   const half = Math.ceil(allServices.length / 2);
   const servicesCol1 = allServices.slice(0, half);
   const servicesCol2 = allServices.slice(half);
 
-  const socialLinks = [
-    { icon: FaInstagram, label: '@mega.estetik', href: 'https://www.instagram.com/mega.estetik' },
-    { icon: FiPhone, label: '0533 481 40 98', href: 'tel:+905334814098' },
-    { icon: FiMapPin, label: 'Konum', href: 'https://maps.app.goo.gl/j5kTpopsUyhxsjqd9' },
-    { icon: FaWhatsapp, label: 'WhatsApp', href: `https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}` },
+  const corporateLinks = [
+    { label: lang === 'en' ? 'Home' : 'Ana Sayfa', href: lang === 'en' ? '/en' : '/' },
+    { label: lang === 'en' ? 'About Us' : 'Hakkımızda', href: lang === 'en' ? '/en/corporate/about-us' : '/kurumsal/hakkimizda' },
+    { label: lang === 'en' ? 'Our Doctors' : 'Hekimlerimiz', href: lang === 'en' ? '/en/doctors' : '/hekimlerimiz' },
+    { label: lang === 'en' ? 'Your Feedback' : 'Görüş ve Önerileriniz', href: lang === 'en' ? '/en/corporate/feedback' : '/kurumsal/gorus-ve-onerileriniz' },
+    { label: lang === 'en' ? 'Blog' : 'Blog', href: lang === 'en' ? '/en/blog' : '/blog' },
   ];
-
-  const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Görüş ve Önerileriniz', 'Blog'];
 
   return (
     <footer className="w-full relative z-10 flex flex-col">
@@ -126,10 +135,10 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
               <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#cca66b] rounded-full"></span>
             </h4>
             <ul className="flex flex-col space-y-3">
-              {corporateLinks.map((link: string, idx: number) => (
+              {corporateLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a href="#" className="text-white/60 text-[13.5px] font-medium hover:text-[#cca66b] hover:pl-1 transition-all duration-200">
-                    {link}
+                  <a href={link.href} className="text-white/60 text-[13.5px] font-medium hover:text-[#cca66b] hover:pl-1 transition-all duration-200">
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -144,19 +153,19 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
             </h4>
             <div className="grid grid-cols-2 gap-x-6 gap-y-3">
               <ul className="flex flex-col space-y-3">
-                {servicesCol1.map((item: string, idx: number) => (
+                {servicesCol1.map((item, idx) => (
                   <li key={idx}>
-                    <a href="#" className="text-white/60 text-[13.5px] font-medium hover:text-[#cca66b] hover:pl-1 transition-all duration-200">
-                      {item}
+                    <a href={item.href} className="text-white/60 text-[13.5px] font-medium hover:text-[#cca66b] hover:pl-1 transition-all duration-200">
+                      {item.label}
                     </a>
                   </li>
                 ))}
               </ul>
               <ul className="flex flex-col space-y-3">
-                {servicesCol2.map((item: string, idx: number) => (
+                {servicesCol2.map((item, idx) => (
                   <li key={idx}>
-                    <a href="#" className="text-white/60 text-[13.5px] font-medium hover:text-[#cca66b] hover:pl-1 transition-all duration-200">
-                      {item}
+                    <a href={item.href} className="text-white/60 text-[13.5px] font-medium hover:text-[#cca66b] hover:pl-1 transition-all duration-200">
+                      {item.label}
                     </a>
                   </li>
                 ))}
@@ -199,7 +208,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
       {/* Bottom Copyright Bar */}
       <div className="w-full bg-transparent py-5 border-t border-white/10">
         <p className="text-center text-white text-[13px] font-medium tracking-wide">
-          {f.copyright || '© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır.'}
+          {f.copyright || (lang === 'en' ? '© 2026 MegaEste Aesthetic and Plastic Surgery. All Rights Reserved.' : '© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır.')}
         </p>
       </div>
       </div>

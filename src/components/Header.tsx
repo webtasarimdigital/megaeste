@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { FiMenu, FiX, FiPhone } from 'react-icons/fi';
-import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaArrowRight, FaChevronDown } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -119,7 +119,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             >
               {dict?.getAppointment || "Randevu Al"}
             </Link>
-            <Link href={`${prefix}/blog`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{lang === 'tr' ? "Görüş ve Önerileriniz" : "Feedback"}</Link>
+            <Link href={`${prefix}/${lang === 'tr' ? 'kurumsal/gorus-ve-onerileriniz' : 'corporate/feedback'}`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{lang === 'tr' ? "Görüş ve Önerileriniz" : "Feedback"}</Link>
             <Link href={`${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
             <Link href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
             

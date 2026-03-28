@@ -30,7 +30,7 @@ const slides = [
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function HeroSlider({ dict }: { dict?: any }) {
+export default function HeroSlider({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 6000 })]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -102,10 +102,10 @@ export default function HeroSlider({ dict }: { dict?: any }) {
 
                 {/* Action Buttons */}
                 <div className={`transition-all duration-700 delay-700 transform ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} flex items-center gap-5 mt-4`}>
-                  <a href="/iletisim" className="bg-[#cca66b] text-[#1e3a5f] px-8 py-3.5 rounded-full font-bold text-sm tracking-widest flex items-center transition-transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                  <a href={lang === 'en' ? '/en/contact' : '/iletisim'} className="bg-[#cca66b] text-[#1e3a5f] px-8 py-3.5 rounded-full font-bold text-sm tracking-widest flex items-center transition-transform hover:scale-105 shadow-xl hover:shadow-2xl">
                     {slide.contactBtn || 'İLETİŞİM'} <span className="ml-3 text-lg leading-none">→</span>
                   </a>
-                  <a href="/kurumsal/hakkimizda" className="bg-transparent border-2 border-white/50 text-white hover:bg-white hover:text-[#1e3a5f] px-8 py-3.5 rounded-full font-bold text-sm tracking-widest flex items-center transition-all shadow-xl hover:shadow-2xl">
+                  <a href={lang === 'en' ? '/en/corporate/about-us' : '/kurumsal/hakkimizda'} className="bg-transparent border-2 border-white/50 text-white hover:bg-white hover:text-[#1e3a5f] px-8 py-3.5 rounded-full font-bold text-sm tracking-widest flex items-center transition-all shadow-xl hover:shadow-2xl">
                     {slide.aboutBtn || 'HAKKIMIZDA'} <span className="ml-3 text-lg leading-none">→</span>
                   </a>
                 </div>
@@ -139,10 +139,10 @@ export default function HeroSlider({ dict }: { dict?: any }) {
 
                 {/* Action Buttons (Mobile) */}
                 <div className={`transition-all duration-700 delay-700 transform ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'} flex items-center gap-3 w-full`}>
-                  <a href="/iletisim" className="flex-1 justify-center bg-[#cca66b] text-[#1e3a5f] px-4 py-3 rounded-full font-bold text-[11px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
+                  <a href={lang === 'en' ? '/en/contact' : '/iletisim'} className="flex-1 justify-center bg-[#cca66b] text-[#1e3a5f] px-4 py-3 rounded-full font-bold text-[11px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
                     {slide.contactBtn || 'İLETİŞİM'}
                   </a>
-                  <a href="/kurumsal/hakkimizda" className="flex-1 justify-center bg-transparent border border-white/40 text-white hover:bg-white/10 px-4 py-3 rounded-full font-bold text-[11px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
+                  <a href={lang === 'en' ? '/en/corporate/about-us' : '/kurumsal/hakkimizda'} className="flex-1 justify-center bg-transparent border border-white/40 text-white hover:bg-white/10 px-4 py-3 rounded-full font-bold text-[11px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
                     {slide.aboutBtn || 'HAKKIMIZDA'}
                   </a>
                 </div>

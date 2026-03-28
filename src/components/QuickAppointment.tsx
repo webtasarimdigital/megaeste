@@ -69,7 +69,7 @@ export default function QuickAppointment({ lang = 'tr' }: { lang?: string }) {
                       rows={4}
                       className="w-full bg-[#1a2533] text-white placeholder-gray-500 border border-transparent focus:border-[#cca66b] focus:bg-[#1a2533]/90 rounded-xl px-5 py-4 outline-none transition-all text-sm font-medium resize-none"
                    ></textarea>
-                   <div className="flex justify-end pt-4">
+                   <div className="flex justify-center lg:justify-end pt-4">
                       <button 
                         type="button" 
                         className="bg-[#cca66b] hover:bg-[#b8955d] text-white font-bold tracking-widest text-[13px] uppercase px-8 py-4 rounded-xl flex items-center transition-all duration-300 group shadow-[0_4px_20px_rgba(204,166,107,0.3)] hover:shadow-[0_4px_25px_rgba(204,166,107,0.5)] transform hover:-translate-y-1"

@@ -88,7 +88,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
           </span>
           
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-[46px] font-black mb-4 uppercase tracking-wide text-white leading-[1.1]">
+          <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-[40px] font-black mb-4 uppercase tracking-wide text-white leading-[1.15]">
             {content.title}
           </h1>
           
@@ -113,11 +113,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
             quality={90}
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          {/* Subtle gradient blend from left on desktop */}
-          <div 
-            className="absolute inset-y-0 left-0 w-24 z-10 hidden lg:block"
-            style={{ background: `linear-gradient(to right, ${theme.colorHex}bb 0%, transparent 100%)` }}
-          ></div>
+          {/* Removed desktop gradient blend for a sharper uniform split */}
           {/* Mobile: subtle top gradient */}
           <div 
             className="absolute inset-x-0 top-0 h-12 z-10 lg:hidden"

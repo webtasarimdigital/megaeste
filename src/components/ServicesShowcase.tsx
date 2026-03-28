@@ -221,7 +221,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                       }}
                     >
                       <Link 
-                        href={`/${lang === 'en' ? 'en/' : ''}hizmetler/${service[lang].slug}`}
+                        href={`${lang === 'en' ? '/en/treatments' : '/hizmetler'}/${service[lang].slug}`}
                         className="group flex flex-col sm:flex-row items-center sm:items-stretch bg-white border border-gray-100 hover:border-gray-200 hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 rounded-3xl overflow-hidden cursor-pointer"
                       >
                         {/* Thumbnail Image */}

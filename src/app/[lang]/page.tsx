@@ -62,7 +62,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       />
 
       <Header dict={dict.header} lang={lang} />
-      <HeroSlider dict={dict.hero} />
+      <HeroSlider dict={dict.hero} lang={lang} />
       
       {/* Top action area wrapper */}
       <div className="relative z-20 flex flex-col">
@@ -71,7 +71,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
 
       {/* Body content */}
       <div className="w-full flex flex-col -mt-4 xl:-mt-10 relative z-30">
-        <AboutSection dict={dict} />
+        <AboutSection dict={dict} lang={lang} />
         <ServicesShowcase dict={dict} lang={lang} />
         <QuickAppointment lang={lang} />
       </div>
@@ -79,10 +79,10 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
       <AboutVideoSection lang={lang} />
       
       <PopularServicesArea lang={lang} />
-      <BlogSection dict={dict} />
-      <FAQSection dict={dict} />
+      <BlogSection dict={dict} lang={lang} />
+      <FAQSection dict={dict} lang={lang} />
 
-      <Footer dict={dict.header.nav} footerDict={dict.footer} />
+      <Footer dict={dict.header.nav} footerDict={dict.footer} lang={lang} />
       <MobileBottomNav dict={dict.mobileNav} />
     </main>
   );
