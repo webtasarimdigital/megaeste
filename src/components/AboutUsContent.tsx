@@ -5,8 +5,6 @@ import React from 'react';
 import Image from 'next/image';
 import { PiCheckCircleThin, PiHeartbeatThin, PiShieldCheckThin, PiStethoscopeThin } from 'react-icons/pi';
 import QuickContact from './QuickContact';
-import Link from 'next/link';
-import { FaChevronRight } from 'react-icons/fa';
 
 export default function AboutUsContent({ dict, lang }: { dict: any, lang: string }) {
   const content = dict?.aboutUs;

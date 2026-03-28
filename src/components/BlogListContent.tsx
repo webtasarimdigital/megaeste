@@ -3,7 +3,7 @@
 import React from 'react';
 import { BlogPost } from '@/data/blog-posts';
 import Link from 'next/link';
-import { FaCalendarAlt, FaArrowRight, FaUserMd, FaChevronRight } from 'react-icons/fa';
+import { FaCalendarAlt, FaArrowRight, FaUserMd } from 'react-icons/fa';
 
 interface Props {
   posts: BlogPost[];
