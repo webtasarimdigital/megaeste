@@ -21,7 +21,7 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
   };
 
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 w-full z-[100] bg-white shadow-[0_-5px_15px_rgba(0,0,0,0.08)] border-t border-gray-100">
+    <div className="lg:hidden fixed bottom-0 left-0 w-full z-[100] bg-white/75 backdrop-blur-md shadow-[0_-5px_15px_rgba(0,0,0,0.05)] border-t border-white/50">
       <div className="p-3 w-full">
         <div className="relative flex w-full rounded-full overflow-visible">
           
@@ -30,11 +30,11 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
             {showScrollTop && (
               <motion.button
                 onClick={scrollToTop}
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                initial={{ opacity: 0, y: 20, scale: 0.8, x: "-50%" }}
+                animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
+                exit={{ opacity: 0, y: 20, scale: 0.8, x: "-50%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="absolute left-1/2 -top-8 -translate-x-1/2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.12)] z-20 border border-gray-50"
+                className="absolute left-1/2 -top-8 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.12)] z-20 border border-gray-50"
               >
                 <div className="w-12 h-12 rounded-full flex items-center justify-center active:bg-gray-50 transition-colors">
                   <FaArrowUp className="text-gray-500 text-xl font-light" />

@@ -95,7 +95,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
         >
           <motion.div 
             className="inline-flex flex-nowrap overflow-x-auto no-scrollbar backdrop-blur-xl p-2.5 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-full"
-            animate={{ backgroundColor: `${activeCategory.color}15` }}
+            animate={{ backgroundColor: `${activeCategory.color}25` }}
             transition={{ duration: 0.5 }}
           >
             {categories.map((cat) => {
@@ -153,7 +153,15 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                   alt={activeCategory.title} 
                   className="w-full h-full object-cover transition-transform duration-[20s] ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244]/90 via-[#0d2244]/20 to-transparent flex flex-col justify-end p-10 md:p-14">
+                
+                {/* Animated Colorful Overlay (Bottom to Top on Hover) */}
+                <div 
+                  className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-75 z-10"
+                  style={{ backgroundColor: activeCategory.color }}
+                />
+
+                {/* Dark Gradient (Fades slightly on hover so the color pops, but keeps text readable) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244]/90 via-[#0d2244]/20 to-transparent flex flex-col justify-end p-10 md:p-14 z-20 transition-opacity duration-700 group-hover:opacity-40">
                   <motion.span 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

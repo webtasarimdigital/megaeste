@@ -11,27 +11,21 @@ const slides = [
     id: 1,
     desktopImg: '/images/slider_desktop_1.png',
     mobileImg: '/images/slider_mobile_1.png',
-    desktopSub: 'DOĞAL ÖN SAÇ TASARIMI',
-    desktopTitle: 'İtalyan Çizgisi Estetiği',
-    desktopHighlight1: 'Saç Ekiminde',
-    desktopHighlight2: 'Yeni Nesil Teknoloji',
-    desktopDesc: 'Daha sık, doğal görünüm ve kalıcı sonuçlarla estetiğinizi yeniden keşfedin.',
-    mobileSub: '1 GÜNDE',
-    mobileTitle: 'Saç & Kaş Estetiği',
-    mobileDesc: 'doğal, sık ve kalıcı sonuçlar'
+    badge: 'SAÇ EKİMİ VE ESTETİK',
+    titleLine1: 'İTALYAN ÇİZGİSİ',
+    titleLine2: 'ESTETİĞİ İLE',
+    titleLine3: 'DOĞAL SAÇLAR',
+    desc: 'Daha sık, doğal görünüm ve kalıcı sonuçlarla estetiğinizi yeniden keşfedin.',
   },
   {
     id: 2,
     desktopImg: '/images/slider_desktop_2.png',
     mobileImg: '/images/slider_mobile_2.png',
-    desktopSub: 'ÖZEL SAÇ EKİM PROTOKOLÜ',
-    desktopTitle: 'megaeste Farkını Yaşayın',
-    desktopHighlight1: 'Uzman Kadro İle',
-    desktopHighlight2: 'Kusursuz Sonuçlar',
-    desktopDesc: 'Kişiye özel planlanan modern saç ekimi uygulamalarıyla kendinizi özel hissedin.',
-    mobileSub: 'MEGAESTE KALİTESİ',
-    mobileTitle: 'Kusursuz Saç Ekimi',
-    mobileDesc: 'kişiye özel ve doğal görünüm'
+    badge: 'MEGAESTE KALİTESİ',
+    titleLine1: 'MODERN TEKNOLOJİ',
+    titleLine2: 'VE UZMAN EKİPLE',
+    titleLine3: 'KUSURSUZ GÜLÜŞ',
+    desc: 'Kişiye özel planlanan modern estetik uygulamalarıyla kendinizi özel hissedin.',
   }
 ];
 
@@ -59,30 +53,60 @@ export default function HeroSlider({ dict }: { dict?: any }) {
               className="block lg:hidden w-full h-[70vh] object-cover object-center" 
             />
             
-            {/* Desktop Overlay Text */}
-            <div className="hidden lg:flex absolute inset-0 flex-col justify-center items-start px-20 xl:px-32 text-white pb-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent">
-              <h2 className="text-xl xl:text-2xl font-semibold tracking-widest text-[#427bdf] mb-4 drop-shadow-md uppercase">{slide.desktopSub}</h2>
-              <h1 className="text-5xl xl:text-7xl font-bold tracking-tight mb-6 drop-shadow-xl leading-tight max-w-3xl">
-                {slide.desktopTitle}
+            {/* Desktop Overlay Text - Premium Nivdis Style */}
+            <div className="hidden lg:flex absolute inset-0 flex-col justify-center items-start px-20 xl:px-32 text-white pb-10 bg-gradient-to-r from-[#0d2244]/85 via-[#0d2244]/40 to-transparent">
+              
+              <div className="bg-[#cca66b] text-[#1e3a5f] px-5 py-2 rounded-full text-[13px] font-black tracking-[0.2em] mb-7 inline-flex items-center shadow-lg">
+                <span className="mr-2 opacity-60">#</span> {slide.badge}
+              </div>
+
+              <h1 className="text-[4rem] xl:text-[5.5rem] font-black tracking-tighter mb-6 leading-[1.05] drop-shadow-2xl">
+                <span className="text-[#cca66b] block">{slide.titleLine1}</span>
+                <span className="text-white block">{slide.titleLine2}</span>
+                <span className="text-[#cca66b] block">{slide.titleLine3}</span>
               </h1>
               
-              <div className="flex items-center">
-                <div>
-                  <h3 className="text-3xl xl:text-[2.75rem] font-light mb-5 leading-tight drop-shadow-lg max-w-2xl">{slide.desktopHighlight1} <span className="font-bold text-[#427bdf]">{slide.desktopHighlight2}</span></h3>
-                  <p className="text-base xl:text-lg font-normal max-w-xl leading-relaxed text-white/90 drop-shadow-md border-l-4 border-[#427bdf] pl-5">
-                    {slide.desktopDesc}
-                  </p>
-                </div>
+              <p className="text-lg xl:text-xl font-medium max-w-xl leading-relaxed text-white drop-shadow-md mb-10 border-l-4 border-[#cca66b] pl-6">
+                {slide.desc}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-5">
+                <a href="/iletisim" className="bg-[#cca66b] text-[#1e3a5f] px-9 py-4 rounded-full font-black text-sm tracking-widest flex items-center transition-transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                  İLETİŞİM <span className="ml-3 text-lg leading-none">→</span>
+                </a>
+                <a href="/kurumsal/hakkimizda" className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-9 py-4 rounded-full font-black text-sm tracking-widest flex items-center transition-all hover:scale-105 hover:bg-white/20 shadow-xl">
+                  HAKKIMIZDA <span className="ml-3 text-lg leading-none">→</span>
+                </a>
               </div>
             </div>
 
-            {/* Mobile Overlay Text */}
-            <div className="flex lg:hidden absolute inset-0 flex-col justify-end items-center pb-20 text-white text-center px-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-               <h2 className="text-sm md:text-base font-bold tracking-widest text-[#427bdf] mb-3 drop-shadow-lg uppercase">{slide.mobileSub}</h2>
-               <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-xl leading-tight tracking-tight">{slide.mobileTitle}</h1>
-               <p className="text-base md:text-lg font-normal opacity-95 drop-shadow-md pb-5 border-b-2 border-[#427bdf]/60 max-w-[85%]">
-                 {slide.mobileDesc}
-               </p>
+            {/* Mobile Overlay Text - Premium Nivdis Style */}
+            <div className="flex lg:hidden absolute inset-0 flex-col justify-end items-start pb-[4.5rem] text-white px-6 xl:px-10 bg-gradient-to-t from-[#0d2244]/95 via-[#0d2244]/50 to-transparent">
+              
+              <div className="bg-[#cca66b] text-[#1e3a5f] px-4 py-2 rounded-full text-[11px] font-black tracking-[0.2em] mb-5 inline-flex items-center shadow-lg">
+                <span className="mr-1.5 opacity-60">#</span> {slide.badge}
+              </div>
+
+              <h1 className="text-[2.6rem] sm:text-5xl font-black tracking-tighter mb-5 leading-[1.05] drop-shadow-2xl">
+                <span className="text-[#cca66b] block">{slide.titleLine1}</span>
+                <span className="text-white block">{slide.titleLine2}</span>
+                <span className="text-[#cca66b] block">{slide.titleLine3}</span>
+              </h1>
+              
+              <p className="text-[15px] sm:text-base font-medium max-w-[95%] leading-relaxed text-white/95 drop-shadow-md pb-6 mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#cca66b] after:rounded-full">
+                {slide.desc}
+              </p>
+
+              {/* Action Buttons (Mobile) */}
+              <div className="flex items-center gap-3 w-full">
+                <a href="/iletisim" className="flex-1 justify-center bg-[#cca66b] text-[#1e3a5f] px-4 py-4 rounded-full font-black text-[12px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
+                  İLETİŞİM <span className="ml-2 text-base leading-none">→</span>
+                </a>
+                <a href="/kurumsal/hakkimizda" className="flex-1 justify-center bg-white/10 backdrop-blur-md border border-white/30 text-white px-4 py-4 rounded-full font-black text-[12px] tracking-widest flex items-center active:scale-95 transition-transform shadow-lg">
+                  HAKKIMIZDA <span className="ml-2 text-base leading-none">→</span>
+                </a>
+              </div>
             </div>
           </div>
         ))}

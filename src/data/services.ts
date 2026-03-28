@@ -33,7 +33,7 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 'dhi-sac-ekimi',
-    image: '/images/services/dhi-sac-ekimi.png',
+    image: '/images/gorselsac.jfif',
     tr: {
       title: 'DHI Saç Ekimi',
       slug: 'dhi-sac-ekimi',
@@ -46,7 +46,7 @@ export const services: Service[] = [
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">DHI (Direct Hair Implantation - Doğrudan Saç Ekimi), günümüzde uygulanabilen en gelişmiş ve en konforlu saç ekimi yöntemidir. Geleneksel yöntemlerde kafa derisinde önce bistüri ile kesiler (kanallar) açılırken, DHI tekniğinde özel medikal kalemler <strong class="text-[#4f6f8f]">"Choi Pen"</strong> kullanılır. Kökler kalemin içine yerleştirilir ve tek bir hamlede hem kanal açılır hem de saç kökü deriye yerleştirilir.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/dhi-sac-ekimi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="DHI Saç Ekimi Choi Pen" />
+  <img src="/images/gorselsac.jfif" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="DHI Saç Ekimi Choi Pen" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Tıraşsız Saç Ektirme Konforu</span>
   </div>
@@ -141,7 +141,7 @@ At Megaeste clinic, DHI hair transplant is performed by our experienced speciali
   },
   {
     id: 'safir-sac-ekimi',
-    image: '/images/services/safir-sac-ekimi.png',
+    image: '/images/gorselsac.jfif',
     tr: {
       title: 'Safir Saç Ekimi',
       slug: 'safir-sac-ekimi',
@@ -246,7 +246,7 @@ At Megaeste clinic, sapphire hair transplant is performed with FDA-approved equi
   },
   {
     id: 'sac-mezoterapisi',
-    image: '/images/services/sac-mezoterapisi.png',
+    image: '/images/megaeste-hero2.jfif',
     tr: {
       title: 'Saç Mezoterapisi',
       slug: 'sac-mezoterapisi',
@@ -348,7 +348,7 @@ The hair mesotherapy protocol applied at Megaeste clinic is carried out with coc
   },
   {
     id: 'burun-estetigi',
-    image: '/images/services/burun-estetigi.png',
+    image: '/images/megaeste-burun-gorsel.jpg',
     tr: {
       title: 'Burun Estetiği',
       slug: 'burun-estetigi',
@@ -436,7 +436,7 @@ At Megaeste clinic, rhinoplasty operations are performed by our experienced plas
   },
   {
     id: 'goz-kapagi-estetigi',
-    image: '/images/services/goz-kapagi-estetigi.png',
+    image: '/images/megaeste-estetik.jpg',
     tr: {
       title: 'Göz Kapağı Estetiği',
       slug: 'goz-kapagi-estetigi',
@@ -536,7 +536,7 @@ The procedure can be performed under local or general anesthesia with a short re
   },
   {
     id: 'meme-estetigi',
-    image: '/images/services/meme-estetigi.png',
+    image: '/images/megaeste-hero2.jfif',
     tr: {
       title: 'Meme Estetiği',
       slug: 'meme-estetigi',
@@ -556,7 +556,7 @@ The procedure can be performed under local or general anesthesia with a short re
 </div>
 
 <h2 class="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6 flex items-center gap-3 transform transition-transform duration-500 hover:translate-x-2">
-  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Farklı Memeler, Farklı Hedefler
+  <span class="w-8 h-1 bg-[#729788] rounded-full"></span> Kişiye Özel Estetik Yaklaşım
 </h2>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8">
   <div class="group flex flex-col p-6 rounded-2xl border border-gray-100 bg-[#f8fafc] hover:bg-white hover:shadow-xl transition-all duration-300">
@@ -629,7 +629,7 @@ At Megaeste clinic, all breast aesthetics operations are performed by our experi
   },
   {
     id: 'medikal-cilt-bakimi',
-    image: '/images/services/medikal-cilt-bakimi.png',
+    image: '/images/megaeste-estetik.jpg',
     tr: {
       title: 'Medikal Cilt Bakımı',
       slug: 'medikal-cilt-bakimi',
@@ -742,7 +742,7 @@ At Megaeste clinic, medical skin care is applied under the supervision of expert
   },
   {
     id: 'yuz-mezoterapi',
-    image: '/images/services/yuz-mezoterapi.png',
+    image: '/images/megaeste-botoks2.jpg',
     tr: {
       title: 'Yüz Mezoterapi',
       slug: 'yuz-mezoterapi',
@@ -842,7 +842,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'lazer-epilasyon',
-    image: '/images/services/lazer-epilasyon.png',
+    image: '/images/megaeste-hero.jfif',
     tr: {
       title: 'Lazer Epilasyon',
       slug: 'lazer-epilasyon',
@@ -951,7 +951,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'igneli-lazer-epilasyonu',
-    image: '/images/services/igneli-lazer-epilasyon.png',
+    image: '/images/megaeste-burun-gorsel.jpg',
     tr: {
       title: 'İğneli Lazer Epilasyonu',
       slug: 'igneli-lazer-epilasyonu',

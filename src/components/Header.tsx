@@ -70,7 +70,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   const navData = dict?.nav ? [
     { title: lang === 'tr' ? 'ANA SAYFA' : 'HOME', href: lang === 'tr' ? '/' : `/${lang}`, items: [] },
     { title: dict.nav.corporate, href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`, items: [
-      { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: '#' },
+      { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: `${prefix}/${lang === 'tr' ? 'kurumsal/hakkimizda' : 'corporate/about-us'}` },
       { label: lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors', href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}` },
       { label: 'Blog', href: `${prefix}/blog` },
     ]},
@@ -94,73 +94,81 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full sticky top-0 lg:top-[-52px] z-50 flex flex-col bg-white">
-      {/* Desktop Top Bar - Full width, scrolls away */}
-      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#427bdf]/20 via-[#427bdf]/5 to-transparent border-b border-gray-100/50 h-[52px]">
-        <div className="w-full max-w-[1280px] mx-auto flex justify-end items-center h-full px-4 lg:px-8 text-[13px] font-medium text-gray-500 divide-x divide-gray-200">
-          <Link 
-            href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
-            className="bg-[#cca66b] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#b58f53] transition-colors h-full"
-          >
-            {dict?.getAppointment || "Randevu Al"}
-          </Link>
-          <Link href={`${prefix}/blog`} className="px-5 flex items-center h-full hover:text-[#427bdf] transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</Link>
-          <Link href={`${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`} className="px-5 flex items-center h-full hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
-          <Link href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`} className="px-5 flex items-center h-full hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
+    <header className="w-full sticky top-0 lg:top-[-90px] z-50 flex flex-col bg-white">
+      {/* Desktop Top Bar - Full width, scrolls away (Height 90px) */}
+      <div className="hidden lg:flex w-full bg-[#fbfbfb] border-b border-gray-100 h-[90px]">
+        <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
-          {/* Language Switcher */}
-          <div className="pl-5 flex items-center h-full justify-center space-x-3 font-bold">
-            <button 
-              onClick={() => switchLanguage('tr')} 
-              className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
-              title="Türkçe"
+          {/* Logo on the left */}
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 hover:opacity-90 transition-opacity">
+            <Image 
+              src="/images/logo.png" 
+              alt="Megaeste Logo" 
+              width={260} 
+              height={80} 
+              priority 
+              className="w-[180px] xl:w-[220px] h-auto object-contain"
+            />
+          </Link>
+
+          {/* Quick links & Actions on the right */}
+          <div className="flex items-center h-full text-[12px] xl:text-[13px] font-medium text-gray-500 divide-x divide-gray-200">
+            <Link 
+              href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
+              className="bg-[#cca66b] text-white px-5 xl:px-6 flex items-center justify-center font-bold text-[13px] hover:bg-[#b58f53] shadow-md hover:shadow-lg transition-all h-[42px] rounded mr-4"
             >
-              <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-full h-full object-cover" />
-            </button>
-            <button 
-              onClick={() => switchLanguage('en')} 
-              className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
-              title="English"
-            >
-              <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-full h-full object-cover" />
-            </button>
+              {dict?.getAppointment || "Randevu Al"}
+            </Link>
+            <Link href={`${prefix}/blog`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{lang === 'tr' ? "Görüş ve Önerileriniz" : "Feedback"}</Link>
+            <Link href={`${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
+            <Link href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`} className="px-3 xl:px-4 hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
+            
+            {/* Desktop Language Switcher (Dropdown) */}
+            <div className="pl-3 xl:pl-4 relative group flex items-center h-full">
+              <button className="flex items-center gap-1.5 font-bold text-[#1e3a5f] hover:text-[#cca66b] transition-colors text-[11px] xl:text-[12px] uppercase">
+                <img src={`https://hatscripts.github.io/circle-flags/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px]" />
+                <span>{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
+                <span className="text-[8px] xl:text-[9px]">▼</span>
+              </button>
+              
+              {/* Desktop Lang Dropdown Menu */}
+              <div className="absolute top-[60px] right-0 mt-0 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-b-lg border-t-2 border-[#cca66b] overflow-hidden flex flex-col w-[140px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
+                 <button onClick={() => switchLanguage('tr')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
+                    <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
+                    <span className={lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}>TÜRKÇE</span>
+                 </button>
+                 <div className="h-[1px] bg-gray-100 w-full" />
+                 <button onClick={() => switchLanguage('en')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
+                    <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
+                    <span className={lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}>ENGLISH</span>
+                 </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Desktop Main Bar - Sticky Portion */}
-      <div className="hidden lg:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b-[3px] border-[#427bdf]/10 w-full h-[90px] transition-shadow duration-300">
-        <div className="w-full max-w-[1280px] mx-auto flex items-stretch justify-between h-full px-4 lg:px-8">
+      {/* Desktop Main Bar - Sticky Navigation Category Bar (Height 56px) */}
+      <div className="hidden lg:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-b border-gray-100 w-full h-[56px] transition-shadow duration-300">
+        <div className="w-full max-w-[1280px] mx-auto flex items-center justify-between h-full px-4 lg:px-8">
           
-          {/* Logo Section */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8">
-            <Image 
-              src="/images/logo.png" 
-              alt="Megaeste Logo" 
-              width={320} 
-              height={100} 
-              priority 
-              className="w-[200px] xl:w-[240px] h-auto object-contain"
-            />
-          </Link>
-
-          {/* Main Navigation */}
-          <nav className={`flex flex-grow items-center justify-end font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30 ${lang === 'en' ? 'text-[10.5px] xl:text-[11.5px]' : 'text-[12px] xl:text-[13.5px]'}`}>
-            <div className={`flex items-center justify-end ${lang === 'en' ? 'space-x-3 xl:space-x-4' : 'space-x-3 xl:space-x-6'}`}>
+          {/* Main Navigation (Aligned Left) */}
+          <nav className={`flex items-center justify-start font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30 ${lang === 'en' ? 'text-[10px] xl:text-[11px]' : 'text-[11.5px] xl:text-[12.5px]'}`}>
+            <div className={`flex items-center ${lang === 'en' ? 'space-x-4 xl:space-x-5' : 'space-x-5 xl:space-x-7'}`}>
               {navData.map((category, index) => (
                 <div key={index} className="relative group flex items-center h-full">
-                  <Link href={category.href || '#'} className="flex items-center h-[90px] hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
+                  <Link href={category.href || '#'} className="flex items-center h-[56px] hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
                     {category.title}
-                    {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
+                    {category.items.length > 0 && <span className="ml-1.5 text-[9px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </Link>
 
                   {/* Dropdown Menu */}
                   {category.items.length > 0 && (
-                    <div className="absolute top-[80px] mt-[2px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#cca66b] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
-                      <ul className="py-2 flex flex-col">
+                    <div className="absolute top-[56px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#cca66b] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
+                      <ul className="py-1 flex flex-col">
                         {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                           <li key={subIdx}>
-                            <Link href={subItem.href} className="block px-6 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-gray-50 capitalize font-medium transition-colors border-b border-gray-50 last:border-none">
+                            <Link href={subItem.href} className="block px-6 py-3 text-[13px] text-[#4f6f8f] hover:text-[#cca66b] hover:bg-gray-50 hover:pl-7 capitalize font-medium transition-all duration-300 border-b border-gray-50 last:border-none">
                               {subItem.label}
                             </Link>
                           </li>
@@ -171,19 +179,20 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 </div>
               ))}
             </div>
-            
-            <div className="flex items-center pl-6 xl:pl-8 border-l border-gray-200 gap-4 xl:gap-5 ml-6 xl:ml-8 relative z-40 h-[40px]">
-              <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-[#E1306C] hover:text-[#cca66b] transition-transform hover:scale-110 flex items-center justify-center">
-                <FaInstagram className="text-[22px] xl:text-[25px]" />
-              </a>
-              <a href="https://wa.me/905000000000" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:text-[#cca66b] transition-transform hover:scale-110 flex items-center justify-center">
-                <FaWhatsapp className="text-[22px] xl:text-[25px]" />
-              </a>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-[#EA4335] hover:text-[#cca66b] transition-transform hover:scale-110 flex items-center justify-center">
-                <FaMapMarkerAlt className="text-[22px] xl:text-[25px]" />
-              </a>
-            </div>
           </nav>
+          
+          {/* Social Icons (Aligned Right, Esteworld style border blocks) */}
+          <div className="flex items-center gap-2 relative z-40">
+            <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#E1306C] hover:border-[#E1306C] transition-colors">
+              <FaInstagram className="text-[16px]" />
+            </a>
+            <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:border-[#25D366] transition-colors">
+              <FaWhatsapp className="text-[16px]" />
+            </a>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#EA4335] hover:border-[#EA4335] transition-colors">
+              <FaMapMarkerAlt className="text-[16px]" />
+            </a>
+          </div>
         </div>
       </div>
 

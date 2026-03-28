@@ -30,7 +30,7 @@ export interface Doctor {
 export const doctors: Doctor[] = [
   {
     id: 'dr-omer-faruk-dursun',
-    image: '/images/doctors/dr-omer-faruk.png',
+    image: '/images/doctors/dr-omer-faruk.jpg',
     tr: {
       name: 'Dr. Ömer Faruk Dursun',
       slug: 'dr-omer-faruk-dursun',
@@ -82,7 +82,7 @@ Dr. Yildiz, who presents at national and international congresses, closely follo
   },
   {
     id: 'dr-ayse-kara',
-    image: '/images/doctors/dr-ayse-kara.png',
+    image: '/images/doctors/dr-omer-faruk.jpg',
     tr: {
       name: 'Dr. Ayşe Kara',
       slug: 'dr-ayse-kara',
@@ -134,7 +134,7 @@ She keeps her knowledge and skills current by regularly participating in nationa
   },
   {
     id: 'dr-ali-demir',
-    image: '/images/doctors/dr-ali-demir.png',
+    image: '/images/doctors/dr-omer-faruk.jpg',
     tr: {
       name: 'Dr. Ali Demir',
       slug: 'dr-ali-demir',

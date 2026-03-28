@@ -24,28 +24,28 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       id: 1,
       title: nav.hairTransplant.title,
       items: nav.hairTransplant.items,
-      image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&q=80&w=800",
+      image: "/images/services/dhi-sac-ekimi.png",
       delay: "300"
     },
     {
       id: 2,
       title: nav.plasticSurgery.title,
       items: nav.plasticSurgery.items,
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+      image: "/images/services/burun-estetigi.png",
       delay: "400"
     },
     {
       id: 3,
       title: nav.medicalAesthetics.title,
       items: nav.medicalAesthetics.items,
-      image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=800",
+      image: "/images/services/medikal-cilt-bakimi.png",
       delay: "500"
     },
     {
       id: 4,
       title: nav.epilation.title,
       items: nav.epilation.items,
-      image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800",
+      image: "/images/services/lazer-epilasyon.png",
       delay: "600"
     }
   ];

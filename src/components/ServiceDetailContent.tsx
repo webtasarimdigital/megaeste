@@ -43,7 +43,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
   return (
     <>
       {/* Smooth Gradient Hero Section */}
-      <section className="relative w-full min-h-[500px] lg:min-h-[600px] flex flex-col justify-center overflow-hidden bg-gray-50">
+      <section className="relative w-full min-h-[400px] lg:min-h-[500px] flex flex-col justify-end pb-8 lg:pb-16 overflow-hidden bg-gray-50">
         
         {/* Full-Width Background Image */}
         <div className="absolute inset-0 z-0">
@@ -53,6 +53,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
             fill
             className="object-cover object-center lg:object-right"
             priority
+            quality={100}
           />
         </div>
 
@@ -64,33 +65,33 @@ export default function ServiceDetailContent({ service, content, relatedServices
         {/* Mobile Gradient (Bottom to Top) */}
         <div 
           className="absolute inset-0 z-10 opacity-95 lg:hidden"
-          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 40%, transparent 80%)` }}
+          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 45%, transparent 80%)` }}
         ></div>
 
         {/* Absolute Top Left Breadcrumb */}
-        <nav className="absolute top-24 lg:top-32 left-6 lg:left-12 xl:left-24 z-30 flex items-center text-xs md:text-sm text-white/90 drop-shadow-md font-medium tracking-wide">
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
+        <nav className="absolute top-20 md:top-28 left-4 lg:left-12 xl:left-24 z-30 flex flex-wrap items-center text-[11px] md:text-sm text-white/90 drop-shadow-md font-medium tracking-wide max-w-[90%] md:max-w-auto">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap mb-1">
             {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
           </Link>
-          <FaChevronRight className="mx-2 text-[10px]" />
-          <span className="text-white/90">{content.category}</span>
-          <FaChevronRight className="mx-2 text-[10px]" />
-          <span className="text-white font-bold">{content.title}</span>
+          <FaChevronRight className="mx-1.5 md:mx-2 text-[8px] md:text-[10px] flex-shrink-0 mb-1" />
+          <span className="text-white/90 whitespace-nowrap mb-1">{content.category}</span>
+          <FaChevronRight className="mx-1.5 md:mx-2 text-[8px] md:text-[10px] flex-shrink-0 mb-1" />
+          <span className="text-white font-bold whitespace-nowrap mb-1">{content.title}</span>
         </nav>
 
         {/* Content Container (Floating Box) */}
-        <div className="relative z-20 w-full lg:w-1/2 px-6 lg:px-12 xl:px-24 mt-40 lg:mt-10 pointer-events-none">
+        <div className="relative z-20 w-full lg:w-1/2 px-4 md:px-6 lg:px-12 xl:px-24 mt-32 lg:mt-8 pointer-events-none">
           <div 
-            className="bg-[#f9fbff]/95 backdrop-blur-sm p-8 md:p-12 w-full max-w-[600px] rounded-bl-3xl rounded-tr-3xl shadow-2xl pointer-events-auto border-l-[6px] transition-colors duration-500" 
+            className="bg-[#f9fbff]/95 backdrop-blur-sm p-6 md:p-8 lg:p-12 w-full max-w-[600px] rounded-bl-3xl rounded-tr-3xl shadow-2xl pointer-events-auto border-l-[6px] transition-colors duration-500" 
             style={{ borderColor: theme.colorHex }}
           >
-            <span className={`text-[11px] font-bold tracking-[0.3em] uppercase mb-4 block opacity-80 ${theme.text}`}>
+            <span className={`text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase mb-2 block opacity-80 ${theme.text}`}>
               {content.category}
             </span>
-            <h1 className="text-3xl md:text-5xl lg:text-[54px] font-black mb-6 uppercase tracking-wide text-[#1e3a5f] leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-[46px] font-black mb-4 uppercase tracking-wide text-[#1e3a5f] leading-tight drop-shadow-sm">
               {content.title}
             </h1>
-            <p className="text-gray-600 text-[15px] md:text-lg leading-relaxed font-medium">
+            <p className="text-gray-600 text-sm md:text-[15px] lg:text-lg leading-relaxed font-medium">
               {content.heroDescription}
             </p>
           </div>
@@ -126,7 +127,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
             {/* Long Description */}
             <div className="mb-14">
               <h2 className="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6">
-                {content.title} {lang === 'tr' ? 'Hakkında' : 'About'}
+                {content.title}
               </h2>
               <div 
                 className="prose prose-lg max-w-none text-gray-600 leading-loose [&>h2]:text-2xl [&>p]:mb-4"
@@ -134,16 +135,6 @@ export default function ServiceDetailContent({ service, content, relatedServices
               />
             </div>
 
-            {/* Feature Image */}
-            <div className="relative w-full h-[280px] md:h-[380px] rounded-2xl overflow-hidden mb-14 shadow-xl">
-              <Image
-                src={service.image}
-                alt={content.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0d2244]/60 to-transparent" />
-            </div>
 
             {/* Process Steps */}
             <div className="mb-14">
@@ -281,18 +272,19 @@ export default function ServiceDetailContent({ service, content, relatedServices
                 </h3>
                 <div className="space-y-2">
                   {[
-                    { label: lang === 'tr' ? 'Saç Ekimi Tedavileri' : 'Hair Transplant', count: 3 },
-                    { label: lang === 'tr' ? 'Plastik Cerrahi' : 'Plastic Surgery', count: 3 },
-                    { label: lang === 'tr' ? 'Medikal Estetik' : 'Medical Aesthetics', count: 2 },
-                    { label: lang === 'tr' ? 'Epilasyon' : 'Epilation', count: 2 },
+                    { label: lang === 'tr' ? 'Saç Ekimi' : 'Hair Transplant', count: 3, href: lang === 'tr' ? '/hizmetler/dhi-sac-ekimi' : '/en/treatments/dhi-hair-transplant' },
+                    { label: lang === 'tr' ? 'Plastik Cerrahi' : 'Plastic Surgery', count: 3, href: lang === 'tr' ? '/hizmetler/burun-estetigi' : '/en/treatments/rhinoplasty' },
+                    { label: lang === 'tr' ? 'Medikal Estetik' : 'Medical Aesthetics', count: 2, href: lang === 'tr' ? '/hizmetler/medikal-cilt-bakimi' : '/en/treatments/medical-skin-care' },
+                    { label: lang === 'tr' ? 'Epilasyon' : 'Epilation', count: 2, href: lang === 'tr' ? '/hizmetler/lazer-epilasyon' : '/en/treatments/laser-hair-removal' },
                   ].map((cat, i) => (
-                    <div
+                    <Link
                       key={i}
-                      className="flex items-center justify-between bg-white/80 rounded-lg px-4 py-3 text-sm cursor-pointer hover:bg-white hover:shadow-sm transition-all"
+                      href={cat.href}
+                      className="flex items-center justify-between bg-white/80 rounded-lg px-4 py-3 text-sm cursor-pointer hover:bg-white hover:shadow-sm transition-all group"
                     >
-                      <span className="font-semibold text-gray-700">{cat.label}</span>
-                      <span className="text-[11px] font-bold bg-[#427bdf]/10 text-[#427bdf] px-2 py-0.5 rounded-full">{cat.count}</span>
-                    </div>
+                      <span className="font-semibold text-gray-700 group-hover:text-[#cca66b] transition-colors">{cat.label}</span>
+                      <span className="text-[11px] font-bold bg-[#427bdf]/10 text-[#427bdf] group-hover:bg-[#cca66b]/10 group-hover:text-[#cca66b] transition-colors px-2 py-0.5 rounded-full">{cat.count}</span>
+                    </Link>
                   ))}
                 </div>
               </div>

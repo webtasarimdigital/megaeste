@@ -7,8 +7,9 @@ import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, footerDict?: any, lang?: string }) {
-  const nav = dict || {};
-  const f = footerDict || {};
+  // Gracefully handle different dictionary structures passed from different layouts
+  const nav = dict?.header?.nav || dict?.nav || dict || {};
+  const f = dict?.footer || footerDict || {};
 
   // Gather ALL service sub-items for 2-column layout
   const allServices: string[] = [
@@ -78,14 +79,16 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-8">
 
           {/* Column 1: Logo + Info + Social */}
-          <div className="lg:col-span-3 flex flex-col">
-            <Image
-              src="/images/logo.png"
-              alt="Megaeste Logo"
-              width={220}
-              height={70}
-              className="w-[180px] md:w-[200px] h-auto object-contain mb-6 drop-shadow-md"
-            />
+          <div className="lg:col-span-3 flex flex-col items-start">
+            <a href={lang === 'tr' ? '/' : '/en'} className="bg-white/95 p-3 px-5 rounded-2xl shadow-lg mb-6 hover:shadow-xl transition-shadow border border-white/20">
+              <Image
+                src="/images/logo.png"
+                alt="Megaeste Logo"
+                width={220}
+                height={70}
+                className="w-[160px] md:w-[180px] h-auto object-contain"
+              />
+            </a>
             <p className="text-white/60 text-[13px] leading-relaxed mb-6 font-medium">
               {f.description || 'Megaeste olarak, uzman kadromuz ve en son teknoloji cihazlarımızla sağlık ve medikal estetik alanlarında profesyonel hizmet sunuyoruz.'}
             </p>

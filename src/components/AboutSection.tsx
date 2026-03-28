@@ -3,9 +3,10 @@
 
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
+import Link from 'next/link';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function AboutSection({ dict }: { dict?: any }) {
+export default function AboutSection({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
   const content = dict?.about || {
     title: 'HAKKIMIZDA',
     subtitle: 'Sağlığınız ve Güzelliğiniz İçin Uzmanı Dokunuşu',
@@ -63,9 +64,12 @@ export default function AboutSection({ dict }: { dict?: any }) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 items-center">
-            <button className="bg-gradient-to-r from-[#1e3a5f] to-[#2c4c7c] text-white px-10 py-4 rounded-xl font-bold tracking-wide hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <Link 
+              href={lang === 'en' ? '/en/corporate/about-us' : '/kurumsal/hakkimizda'}
+              className="bg-gradient-to-r from-[#1e3a5f] to-[#2c4c7c] text-white px-10 py-4 rounded-xl font-bold tracking-wide hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
               {content.button}
-            </button>
+            </Link>
             
             <div className="flex items-center space-x-4">
               <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100">

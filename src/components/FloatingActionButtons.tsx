@@ -25,13 +25,13 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
   const isTr = lang === 'tr';
 
   return (
-    // Hidden on mobile (hidden md:flex), stick to right center
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 flex items-center z-50 hidden md:flex">
+    // Hidden on mobile (hidden md:flex), stick to bottom right
+    <div className="fixed right-6 bottom-8 flex items-end justify-end z-[60] hidden md:flex">
       
-      {/* Animated Popup Form (Left side of the buttons) */}
+      {/* Animated Popup Form (Left side of the buttons, aligned to bottom) */}
       <div 
         ref={formRef}
-        className={`absolute right-[70px] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-gray-100 w-[300px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-right
+        className={`absolute right-[70px] bottom-0 bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-gray-100 w-[300px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-bottom-right
           ${isFormOpen ? 'opacity-100 scale-100 translate-x-0 pointer-events-auto' : 'opacity-0 scale-95 translate-x-8 pointer-events-none'}`}
       >
         <div className="bg-[#1e3a5f] p-4 flex justify-between items-center text-white">

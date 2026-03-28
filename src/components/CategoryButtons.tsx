@@ -12,47 +12,66 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
       id: 1, 
       title: dict?.hairTransplant?.title || 'Saç Ekimi', 
       icon: HairIcon,
-      color: 'rgba(79, 111, 143, 0.65)', // Muted Blue (Translucent)
+      color: '#4f6f8f', // Solid Blue
       href: lang === 'en' ? '/en/hizmetler/hair-transplant' : '/hizmetler/sac-ekimi'
     },
     { 
       id: 2, 
       title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
       icon: BodyIcon,
-      color: 'rgba(114, 151, 136, 0.65)', // Muted Green (Translucent)
+      color: '#729788', // Solid Green
       href: lang === 'en' ? '/en/hizmetler/plastic-surgery' : '/hizmetler/plastik-cerrahi'
     },
     { 
       id: 3, 
       title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
       icon: FaceIcon,
-      color: 'rgba(173, 103, 120, 0.65)', // Muted Rose (Translucent)
+      color: '#ad6778', // Solid Rose
       href: lang === 'en' ? '/en/hizmetler/medical-aesthetics' : '/hizmetler/medikal-estetik'
     },
     { 
       id: 4, 
       title: dict?.epilation?.title || 'Epilasyon', 
       icon: EpilationIcon,
-      color: 'rgba(159, 142, 171, 0.65)', // Muted Purple (Translucent)
+      color: '#9f8eab', // Solid Purple
       href: lang === 'en' ? '/en/hizmetler/epilation' : '/hizmetler/epilasyon'
     }
   ];
 
   return (
     <>
-      {/* Mobile/Tablet Glassmorphism Bar (Esteworld Style - Sits flush atop the content) */}
-      <div className="flex md:hidden w-full h-[64px] -mt-[64px] bg-transparent backdrop-blur-sm relative z-30 shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
-        <div className="w-full flex">
+      {/* Mobile 3-Column Solid Bar (User's desired layout from image 1) */}
+      <div className="flex md:hidden flex-col w-full relative z-30 bg-[#f4f7fa]">
+        
+        {/* The 3 Colored Service Blocks */}
+        <div className="w-full grid grid-cols-3">
           {categories.slice(0, 3).map((cat) => (
             <a 
               key={cat.id}
               href={cat.href}
-              className="flex-1 flex flex-col items-center justify-center border-r border-white/20 last:border-none transition-colors"
-              style={{ backgroundColor: `${cat.color.replace('0.65', '0.85')}` }}
+              className="flex flex-col items-center justify-start pt-6 pb-4 px-1 border-r border-white/15 last:border-r-0 transition-opacity active:opacity-80 h-full"
+              style={{ backgroundColor: cat.color }}
             >
-              <cat.icon className="text-white/90 w-8 h-8 stroke-[0.5]" />
+              <cat.icon className="text-white w-10 h-10 mb-2 font-light stroke-[0.5]" />
+              <span className="text-white font-bold text-[12px] sm:text-[13px] tracking-wide text-center leading-tight drop-shadow-sm mt-auto">
+                {cat.title}
+              </span>
             </a>
           ))}
+        </div>
+
+        {/* The "Ücretsiz Randevu Al" Box (From Image 1) */}
+        <div className="w-full p-4 bg-[#f4f7fa]">
+          <a 
+            href={lang === 'en' ? '/en/contact' : '/iletisim'}
+            className="flex items-center justify-center p-4 bg-white border-2 border-[#cca66b] transition-transform active:scale-95 shadow-sm"
+          >
+            <PiCalendarCheckThin className="text-[#3a4f66] text-[50px] mr-5" />
+            <div className="flex flex-col items-start text-[#3a4f66]">
+              <span className="text-[19px] font-black tracking-wide leading-tight">{lang === 'en' ? 'FREE' : 'Ücretsiz'}</span>
+              <span className="text-[19px] font-black tracking-wide leading-tight">{lang === 'en' ? 'APPOINTMENT' : 'Randevu Al'}</span>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -67,7 +86,7 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
               key={cat.id}
               href={cat.href}
               className="group relative shadow-lg hover:shadow-2xl flex flex-col items-center justify-center p-4 xl:p-6 cursor-pointer transition-all duration-500 hover:-translate-y-2 overflow-hidden aspect-square rounded-xl md:rounded-2xl backdrop-blur-md"
-              style={{ backgroundColor: cat.color }}
+              style={{ backgroundColor: `${cat.color}E6` }} // E6 = 90% opacity
             >
               <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
