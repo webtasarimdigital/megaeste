@@ -27,27 +27,29 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
       <div className="bg-white/85 backdrop-blur-md border-t border-gray-200/50 px-4 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))]">
         <div className="relative w-full max-w-[380px] mx-auto">
           
-          {/* Scroll to Top Arrow - Exactly midway, popping out of top of the pill */}
-          <AnimatePresence>
-            {showScrollTop && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                className="absolute left-1/2 -translate-x-1/2 -top-6 z-50 pointer-events-auto"
-              >
-                <button
-                  onClick={scrollToTop}
-                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.1)] border border-gray-100 active:scale-95 transition-transform"
+          {/* Scroll to Top Arrow - Exactly midway, flex centered to avoid fractional pixel bugs */}
+          <div className="absolute left-0 right-0 -top-6 flex justify-center z-50 pointer-events-none">
+            <AnimatePresence>
+              {showScrollTop && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.5, y: 20 }}
+                  className="pointer-events-auto flex items-center justify-center transform-gpu"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="19" x2="12" y2="5"></line>
-                    <polyline points="5 12 12 5 19 12"></polyline>
-                  </svg>
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <button
+                    onClick={scrollToTop}
+                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.15)] border border-gray-100/50 active:scale-95 transition-transform"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="12" y1="19" x2="12" y2="5"></line>
+                      <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Button Pill Container */}
           <div className="flex w-full rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.1)] overflow-hidden relative z-10 border border-gray-100/50">
