@@ -80,7 +80,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
             </h2>
             <div className="w-8 md:w-16 h-[2px] bg-[#cca66b]/80 rounded-full"></div>
           </div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1e3a5f] tracking-tight leading-none drop-shadow-sm">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-[#1e3a5f] tracking-tight leading-none drop-shadow-sm">
             {dict?.services?.title || 'HİZMETLERİMİZ'}
           </h3>
         </motion.div>

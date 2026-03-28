@@ -69,7 +69,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
   const navData = dict?.nav ? [
     { title: lang === 'tr' ? 'ANA SAYFA' : 'HOME', href: lang === 'tr' ? '/' : `/${lang}`, items: [] },
-    { title: dict.nav.corporate, href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`, items: [
+    { title: dict.nav.corporate, href: '#', items: [
       { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: `${prefix}/${lang === 'tr' ? 'kurumsal/hakkimizda' : 'corporate/about-us'}` },
       { label: lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors', href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}` },
       { label: 'Blog', href: `${prefix}/blog` },
