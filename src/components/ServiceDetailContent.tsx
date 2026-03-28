@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaChevronRight, FaChevronDown, FaChevronUp, FaArrowRight, FaRegClock, FaUserMd, FaShieldAlt, FaCheckCircle, FaClipboardList, FaLaptopMedical } from 'react-icons/fa';
+import { FaChevronRight, FaChevronDown, FaChevronUp, FaArrowRight, FaUserMd, FaShieldAlt, FaClipboardList, FaLaptopMedical } from 'react-icons/fa';
 import { Service, ServiceContent } from '../data/services';
 
 interface Props {

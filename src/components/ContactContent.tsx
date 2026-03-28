@@ -52,18 +52,13 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
 
       </section>
 
-      {/* Reused Quick Contact Block - Needs negative margin to overlap hero */}
-      <div className="relative z-40 -mt-20 sm:-mt-24 xl:-mt-28 px-4 w-full max-w-[1440px] mx-auto">
-        {/* QuickContact already has nice paddings and shadow. We just render it here. */}
-        <QuickContact />
-      </div>
-
-      {/* Contact Info Cards */}
-      <div className="relative z-30 w-full max-w-[1440px] mx-auto px-4 mt-16 md:mt-24">
+      {/* Contact Info Cards (Moved Up to overlap Hero) */}
+      <div className="relative z-40 -mt-20 sm:-mt-24 xl:-mt-28 w-full max-w-[1440px] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 justify-center items-stretch">
           
           {/* Email Card */}
-          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+            <div className="absolute right-0 top-0 w-24 h-24 bg-[#427bdf]/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
             <div className="w-16 h-16 bg-[#0d2244]/5 text-[#427bdf] rounded-full flex items-center justify-center mb-6">
               <FiMail className="text-[28px]" />
             </div>
@@ -75,7 +70,8 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
           </div>
 
           {/* WhatsApp / Phone Card */}
-          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+            <div className="absolute right-0 top-0 w-24 h-24 bg-[#427bdf]/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
             <div className="w-16 h-16 bg-[#0d2244]/5 text-[#427bdf] rounded-full flex items-center justify-center mb-6">
               <FiPhone className="text-[28px]" />
             </div>
@@ -87,7 +83,8 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
           </div>
 
           {/* Location Card */}
-          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+            <div className="absolute right-0 top-0 w-24 h-24 bg-[#427bdf]/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
             <div className="w-16 h-16 bg-[#0d2244]/5 text-[#427bdf] rounded-full flex items-center justify-center mb-6">
               <FiMapPin className="text-[28px]" />
             </div>
@@ -101,6 +98,11 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
           </div>
 
         </div>
+      </div>
+
+      {/* Quick Contact Block (Pushed Down) */}
+      <div className="relative z-30 w-full max-w-[1440px] mx-auto px-4 mt-8 md:mt-16">
+        <QuickContact />
       </div>
 
       {/* Full Width Google Map */}
