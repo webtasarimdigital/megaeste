@@ -16,38 +16,31 @@ const categoriesMap: Record<string, any> = {
   'sac-ekimi': {
     titleKey: 'hairTransplant',
     bgImage: '/images/services/dhi-sac-ekimi.png',
-    themeColor: '#4f6f8f',
   },
   'plastik-cerrahi': {
     titleKey: 'plasticSurgery',
     bgImage: '/images/services/burun-estetigi.png',
-    themeColor: '#729788',
   },
   'medikal-estetik': {
     titleKey: 'medicalAesthetics',
     bgImage: '/images/services/medikal-cilt-bakimi.png',
-    themeColor: '#ad6778',
   },
   'epilasyon': {
     titleKey: 'epilation',
     bgImage: '/images/services/lazer-epilasyon.png',
-    themeColor: '#9f8eab',
   },
   // English slugs mapping
   'hair-transplant': {
     titleKey: 'hairTransplant',
     bgImage: '/images/services/dhi-sac-ekimi.png',
-    themeColor: '#4f6f8f',
   },
   'plastic-surgery': {
     titleKey: 'plasticSurgery',
     bgImage: '/images/services/burun-estetigi.png',
-    themeColor: '#729788',
   },
   'medical-aesthetics': {
     titleKey: 'medicalAesthetics',
     bgImage: '/images/services/medikal-cilt-bakimi.png',
-    themeColor: '#ad6778',
   },
 };
 
@@ -116,7 +109,6 @@ export default async function CategoryPage({ params }: Props) {
           categoryTitle={categoryTitle}
           subTitle={subTitle}
           bgImage={categoryProps.bgImage}
-          themeColor={categoryProps.themeColor}
           servicesList={servicesList}
           lang={lang}
           dict={dict}

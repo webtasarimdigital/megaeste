@@ -12,7 +12,6 @@ interface CategoryDetailContentProps {
   categoryTitle: string;
   subTitle: string;
   bgImage: string;
-  themeColor: string;
   servicesList: any[];
   lang: 'tr' | 'en';
   dict: any;
@@ -22,7 +21,6 @@ export default function CategoryDetailContent({
   categoryTitle,
   subTitle,
   bgImage,
-  themeColor,
   servicesList,
   lang,
   dict,
