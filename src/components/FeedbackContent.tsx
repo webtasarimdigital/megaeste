@@ -2,14 +2,11 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
-import Link from 'next/link';
-import { FaChevronRight } from 'react-icons/fa';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function FeedbackContent({ dict, lang }: { dict?: any, lang: string }) {
   const isTr = lang === 'tr';
   const title = isTr ? 'Görüş ve Önerileriniz' : 'Feedback & Suggestions';
-  const subtitle = isTr ? 'SİZİN İÇİN DEĞİŞİYORUZ' : 'WE EVOLVE FOR YOU';
   const desc = isTr 
     ? 'Hizmet kalitemizi daha da artırmak için düşünceleriniz bizim için çok değerli. Lütfen kliniklerimizle ilgili soru, görüş ve önerilerinizi bizimle paylaşın.'
     : 'Your thoughts are very valuable to us in order to further increase our service quality. Please share your feedback and suggestions about our clinics with us.';

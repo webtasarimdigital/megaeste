@@ -110,7 +110,7 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <>
       <Header dict={dict?.header} lang={lang} />
-      <main className="min-h-screen bg-[#f8fafc] flex flex-col pt-[104px] md:pt-[136px]">
+      <main className="min-h-screen bg-[#f8fafc] flex flex-col">
         <CategoryDetailContent
           categorySlug={slug}
           categoryTitle={categoryTitle}

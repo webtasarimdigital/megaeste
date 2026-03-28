@@ -29,40 +29,43 @@ export default function CategoryDetailContent({
 }: CategoryDetailContentProps) {
   return (
     <div className="w-full bg-white relative">
-      {/* Hero Section */}
-      <div className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        <img
-          src={bgImage}
-          alt={categoryTitle}
-          className="absolute inset-0 w-full h-full object-cover transform scale-105"
-        />
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+      {/* Hero */}
+      <section className="relative w-full h-[350px] lg:h-[40vh] min-h-[350px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 blur-[2px] transform scale-105"
+            style={{ backgroundImage: `url(${bgImage})` }}
+          ></div>
+          <div className="absolute inset-0 bg-[#0d2244]/70 z-10 mix-blend-multiply"></div>
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
+        </div>
+
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-10">
+          <div className="flex items-center space-x-3 mb-3 md:mb-5">
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+            <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
+              MEGAESTE CLINIC
+            </span>
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+          </div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg"
+            className="text-4xl md:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-none mb-4 drop-shadow-xl"
           >
             {categoryTitle}
           </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="w-24 h-1 rounded-full mb-6"
-            style={{ backgroundColor: themeColor }}
-          />
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-white/90 text-lg md:text-xl font-medium max-w-2xl text-center"
+            className="text-gray-300 text-sm md:text-base font-medium max-w-xl leading-relaxed drop-shadow-sm"
           >
             {subTitle}
           </motion.p>
         </div>
-      </div>
+      </section>
 
       {/* Sub-Services Section */}
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 py-16 md:py-24">
@@ -80,7 +83,7 @@ export default function CategoryDetailContent({
         </div>
 
         {servicesList.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {servicesList.map((service, idx) => (
               <motion.div
                 key={service.id}
