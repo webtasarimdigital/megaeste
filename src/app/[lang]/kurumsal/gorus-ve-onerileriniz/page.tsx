@@ -17,7 +17,7 @@ export default async function FeedbackPage({ params }: { params: { lang: string 
 
   return (
     <>
-      <Header dict={dict} lang={currentLang} />
+      <Header dict={dict?.header} lang={currentLang} />
       <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
         <FeedbackContent dict={dict} lang={currentLang} />
       </main>

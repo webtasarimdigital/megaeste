@@ -349,28 +349,28 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                   );
                 })}
                 
-                <div className="mt-10 pt-6 flex w-full">
-                                  <div className="flex flex-row items-center gap-6 sm:gap-8 w-full">
+                <div className="mt-auto pt-6 flex w-full border-t border-white/10 shrink-0">
+                  <div className="flex flex-row items-center w-full justify-between">
                     
-                    {/* Bottom CTA on the Left */}
+                    {/* Bottom CTA on the Left (Wider) */}
                     <Link 
                       href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-5 py-3.5 transition-all shadow-lg whitespace-nowrap"
+                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-8 py-3.5 transition-all shadow-lg whitespace-nowrap"
                     >
                       {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"}
                     </Link>
                     
-                    {/* Icons Closer to Button, with more gap between them */}
-                    <div className="flex items-center gap-6 px-1">
-                      <a href={`https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}`} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FaWhatsapp className="text-[25px]" />
+                    {/* 3 Icons on the Right, Evenly Spaced */}
+                    <div className="flex items-center gap-5 sm:gap-6 flex-shrink-0">
+                      <a href={`https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}`} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
+                        <FaWhatsapp className="text-[24px]" />
                       </a>
-                      <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FaMapMarkerAlt className="text-[23px]" />
+                      <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
+                        <FaMapMarkerAlt className="text-[20px]" />
                       </a>
-                      <a href="tel:+905334814098" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FiPhone className="text-[23px]" />
+                      <a href="tel:+905334814098" className="text-gray-300 hover:text-white transition-colors">
+                        <FiPhone className="text-[20px]" />
                       </a>
                     </div>
                   </div>
