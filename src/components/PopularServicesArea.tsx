@@ -14,6 +14,15 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
     <section className="w-full relative z-10 py-16 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-16 flex flex-col gap-16 lg:gap-24">
         
+        {/* Main Section Title */}
+        <div className="text-center md:mb-[-2rem] lg:mb-[-3rem]">
+          <h2 className="text-4xl lg:text-5xl font-black text-[#1e3a5f] tracking-tight">
+            {isTr ? 'Popüler Hizmetler' : 'Popular Services'}
+          </h2>
+          <div className="w-24 h-1.5 bg-[#cca66b] mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        
         {/* SECTION 1: EPILASYON (Pink Themes) */}
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
@@ -33,14 +42,14 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             <h2 className="text-3xl lg:text-5xl font-black text-[#1e3a5f] mb-6 leading-[1.15]">
               {isTr ? 'Gelişmiş Teknoloji ile ' : 'Advanced Technology '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">
-                {isTr ? 'Ağrısız Epilasyon' : 'Painless Epilation'}
+                {isTr ? 'Konforlu Epilasyon' : 'Comfortable Epilation'}
               </span>
             </h2>
             
             <p className="text-gray-500 text-[15px] lg:text-[17px] leading-relaxed mb-8 font-medium">
               {isTr 
-                ? 'Yeni nesil soğuk hava üflemeli lazer epilasyon cihazlarımızla 4 mevsim boyunca, acı ve ağrı hissetmeden ipeksi bir cilde kavuşun. Farklı cilt tipleri ve kıl yapılarına özel, FDA onaylı protokollerimizle kliniklerimizde konforlu ve kesin sonuçlar elde ediyoruz.' 
-                : 'Achieve silky skin in all 4 seasons without pain using our next-generation cold-air-blown laser equipment. We provide comfortable and certain results with FDA-approved protocols tailored for various skin types.'}
+                ? 'Yeni nesil soğuk hava üflemeli lazer epilasyon cihazlarımızla 4 mevsim boyunca, yüksek konforla ipeksi bir cilde kavuşun. Farklı cilt tipleri ve kıl yapılarına özel, FDA onaylı protokollerimizle kliniklerimizde başarılı sonuçlar elde ediyoruz.' 
+                : 'Achieve silky skin in all 4 seasons with high comfort using our next-generation cold-air-blown laser equipment. We provide successful results with FDA-approved protocols tailored for various skin types.'}
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -49,8 +58,8 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
                   <FaLeaf />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1e3a5f] text-[14px]">{isTr ? 'Ağrısız İşlem' : 'Painless Process'}</h4>
-                  <p className="text-[12px] text-gray-500">{isTr ? 'Soğuk hava başlıklı konfor.' : 'Cold air tip comfort.'}</p>
+                  <h4 className="font-bold text-[#1e3a5f] text-[14px]">{isTr ? 'Konforlu İşlem' : 'Comfortable Process'}</h4>
+                  <p className="text-[12px] text-gray-500">{isTr ? 'Soğuk hava başlıklı teknoloji.' : 'Cold air technology.'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-pink-50/50 p-4 rounded-2xl border border-pink-100 hover:shadow-md transition-shadow">
@@ -58,46 +67,63 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
                   <FaMedal />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1e3a5f] text-[14px]">{isTr ? 'Kesin Sonuç' : 'Guaranteed Result'}</h4>
-                  <p className="text-[12px] text-gray-500">{isTr ? 'Etkili ve kalıcı dökülme.' : 'Effective & permanent.'}</p>
+                  <h4 className="font-bold text-[#1e3a5f] text-[14px]">{isTr ? 'Etkili Sonuç' : 'Effective Result'}</h4>
+                  <p className="text-[12px] text-gray-500">{isTr ? 'Gözle görülür azalma.' : 'Visible reduction.'}</p>
                 </div>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3">
               <Link 
                 href={isTr ? '/hizmetler/lazer-epilasyon' : '/en/hizmetler/laser-epilation'}
-                className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'Detaylı İncele' : 'View Details'} <FaArrowRight className="text-sm" />
+                {isTr ? 'Lazer Epilasyonu İncele' : 'View Laser Epilation'} <FaArrowRight className="text-xs" />
               </Link>
               <Link 
-                href={isTr ? '/iletisim' : '/en/contact'}
-                className="w-full sm:w-auto px-8 py-3.5 bg-white text-pink-500 border-2 border-pink-100 font-bold rounded-xl hover:bg-pink-50 hover:border-pink-200 transition-all flex items-center justify-center gap-2"
+                href={isTr ? '/hizmetler/igneli-lazer-epilasyonu' : '/en/hizmetler/needle-laser-epilation'}
+                className="w-full sm:w-auto px-6 py-3.5 bg-white text-pink-500 border border-pink-100 font-bold rounded-xl shadow-sm hover:bg-pink-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                <FaCalendarAlt /> {isTr ? 'Randevu Al' : 'Book Now'}
+                {isTr ? 'İğneli Lazer İncele' : 'View Needle Epilation'} <FaArrowRight className="text-xs" />
               </Link>
             </div>
           </motion.div>
           
-          {/* Image */}
+          {/* Dual Image Layout for Epilation */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl group"
+            className="w-full lg:w-1/2 relative min-h-[450px] lg:min-h-[550px]"
           >
-            <div className="absolute inset-0 bg-pink-500/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
-            <Image 
-              src="/images/services/lazer-yeni.png" // using existing highly visual image
-              alt="Epilasyon"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            {/* Background Accent Shapes */}
+            <div className="absolute inset-x-8 inset-y-0 bg-pink-500/5 rounded-[3rem] -z-10"></div>
             
-            {/* Floating Info Badge */}
-            <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] z-20 flex items-center gap-4 border border-white/50 animate-bounce-slow">
+            {/* Main Image */}
+            <div className="lg:col-span-3 flex flex-col items-start">
+            <a href={lang === 'tr' ? '/' : '/en'} className="inline-block mb-8 hover:opacity-80 transition-opacity p-2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/5">
+              <Image
+                src="/images/logo.png"
+                alt="Megaeste Logo"
+                width={220}
+                height={70}
+                className="w-[160px] md:w-[190px] h-auto object-contain"
+              />
+            </a></div>
+
+            {/* Sub Image (Overlapping bottom left) */}
+            <div className="absolute bottom-4 left-0 w-[55%] h-[45%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] border-4 border-white group bg-gray-100">
+              <Image 
+                src="/images/services/pop_epi_sub.png" 
+                alt="Epilasyon Lazer"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            
+            {/* Floating Info Badge moved appropriately */}
+            <div className="absolute bottom-12 -right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] z-20 flex items-center gap-4 border border-white/50 animate-bounce-slow">
               <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-500 text-xl font-bold">4</div>
               <div>
                 <span className="block text-[#1e3a5f] font-black text-sm uppercase tracking-wide">{isTr ? 'Mevsim' : 'Seasons'}</span>
@@ -108,34 +134,41 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
         </div>
 
 
-        {/* MIDDLE CTA BANNER */}
+      </div> {/* End top container */}
+
+      {/* MIDDLE CTA BANNER - FULL WIDTH */}
+      <div className="w-full bg-gradient-to-r from-[#1e3a5f] to-[#10223f] py-14 lg:py-20 my-16 lg:my-24 relative overflow-hidden border-y border-[#cca66b]/20">
+        {/* Background Decorative patterns */}
+        <div className="absolute -top-40 -left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 right-10 w-96 h-96 bg-[#cca66b]/10 rounded-full blur-3xl"></div>
+
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="w-full bg-gradient-to-r from-[#1e3a5f] to-[#2c4c7c] p-8 lg:p-12 rounded-[2rem] shadow-2xl text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 relative overflow-hidden"
+          className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-16 flex flex-col md:flex-row items-center justify-between gap-8 z-10 relative"
         >
-          {/* Background Decorative patterns */}
-          <div className="absolute -top-24 -right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 left-10 w-64 h-64 bg-[#cca66b]/10 rounded-full blur-3xl"></div>
-
-          <div className="z-10 flex flex-col gap-2">
-            <h3 className="text-2xl md:text-3xl font-black text-white">{isTr ? "Ertelemeyin, Gençliğinizi Geri Kazanın." : "Don't Delay, Reclaim Your Youth."}</h3>
-            <p className="text-white/70 font-medium">
-              {isTr ? "Uzman hekimlerimizden ücretsiz ön muayene ile tedavinizi hemen planlayın." : "Plan your treatment immediately with a free preliminary exam from our specialists."}
+          <div className="flex flex-col gap-4 text-center md:text-left max-w-2xl">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-snug">
+              {isTr ? "Sağlıklı ve Doğal Bir Görünüm İçin İlk Adımı Atın." : "Take the First Step for a Healthy and Natural Look."}
+            </h3>
+            <p className="text-white/70 font-medium text-[15px] lg:text-[17px]">
+              {isTr ? "Uzman tıbbi kadromuzla ücretsiz ön muayene ile ihtiyaçlarınıza özel tedavinizi planlayalım." : "Let's plan your personalized treatment together with a free preliminary consultation by our expert medical team."}
             </p>
           </div>
           <Link 
             href={isTr ? '/iletisim' : '/en/contact'}
-            className="z-10 group relative flex items-center justify-center w-full md:w-auto"
+            className="group relative flex items-center justify-center shrink-0 mt-4 md:mt-0"
           >
-            <div className="absolute inset-0 bg-[#cca66b] blur-lg opacity-50 group-hover:opacity-100 transition-opacity rounded-full"></div>
-            <div className="relative bg-[#cca66b] hover:bg-[#b08f5c] text-white px-8 py-4 rounded-xl font-black tracking-widest uppercase transition-all shadow-lg flex items-center gap-3">
-              <FaCalendarAlt className="text-xl" /> {isTr ? "HEMEN RANDEVU AL" : "BOOK APPOINTMENT NOW"}
+            <div className="relative bg-[#cca66b] text-white px-8 py-4 lg:px-10 lg:py-5 rounded-xl font-black tracking-widest uppercase transition-transform duration-300 shadow-[0_10px_30px_rgba(204,166,107,0.3)] hover:-translate-y-1 flex items-center gap-3">
+               <FaCalendarAlt className="text-xl" /> {isTr ? "HEMEN RANDEVU AL" : "BOOK APPOINTMENT NOW"}
             </div>
           </Link>
         </motion.div>
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-16 flex flex-col gap-16 lg:gap-24">
 
 
         {/* SECTION 2: SAÇ EKİMİ (Dark Blue / Gold Themes) */}
@@ -164,8 +197,8 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             
             <p className="text-gray-500 text-[15px] lg:text-[17px] leading-relaxed mb-8 font-medium">
               {isTr 
-                ? 'Megaeste Klinik farkıyla, hiçbir iz kalmadan ve tamamen ağrısız bir şekilde saç kaybı sorunlarınıza son verin. Sizi hayalinizdeki sık, yoğun ve doğal görünümlü saçlara kavuşturan yüksek teknoloji Safir ve DHI (Choi Pen) yöntemlerimizle tanışın.' 
-                : 'Put an end to hair loss completely painless and scarless with Megaeste Clinic difference. Meet our high-tech Sapphire and DHI (Choi Pen) methods that bring you the thick, dense and natural-looking hair of your dreams.'}
+                ? 'Megaeste Klinik farkıyla, modern yöntemlerle saç kaybı sorunlarınıza son verin. Sizi hayalinizdeki sık, yoğun ve doğal görünümlü saçlara kavuşturan yüksek teknoloji Safir ve DHI (Choi Pen) yöntemlerimizle tanışın.' 
+                : 'Put an end to hair loss with modern methods by Megaeste Clinic difference. Meet our high-tech Sapphire and DHI (Choi Pen) methods that bring you the thick, dense and natural-looking hair of your dreams.'}
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -185,37 +218,47 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3">
+              <Link 
+                href={isTr ? '/hizmetler/dhi-sac-ekimi' : '/en/hizmetler/dhi-hair-transplant'}
+                className="w-full sm:w-auto px-6 py-3.5 bg-[#1e3a5f] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(30,58,95,0.3)] hover:bg-[#142845] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
+              >
+                {isTr ? 'DHI Saç Ekimi İncele' : 'View DHI Transplant'} <FaArrowRight className="text-xs" />
+              </Link>
               <Link 
                 href={isTr ? '/hizmetler/safir-sac-ekimi' : '/en/hizmetler/sapphire-hair-transplant'}
-                className="w-full sm:w-auto px-8 py-3.5 bg-[#1e3a5f] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(30,58,95,0.3)] hover:bg-[#142845] hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 bg-[#cca66b] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(204,166,107,0.3)] hover:brightness-110 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
               >
-                {isTr ? 'Yöntemleri İncele' : 'View Methods'} <FaArrowRight className="text-sm" />
+                {isTr ? 'Safir FUE İncele' : 'View Sapphire FUE'} <FaArrowRight className="text-xs" />
+              </Link>
+              <Link 
+                href={isTr ? '/hizmetler/sac-mezoterapisi' : '/en/hizmetler/hair-mesotherapy'}
+                className="w-full sm:w-auto px-6 py-3.5 bg-white text-[#1e3a5f] border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
+              >
+                {isTr ? 'Saç Mezoterapisi İncele' : 'View Mesotherapy'} <FaArrowRight className="text-xs" />
               </Link>
             </div>
           </motion.div>
           
-          {/* Image */}
+          {/* Dual Image Layout for Hair Transplant */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 relative h-[450px] lg:h-[550px]"
+            className="w-full lg:w-1/2 relative min-h-[450px] lg:min-h-[550px]"
           >
             {/* Background Accent Shapes */}
-            <div className="absolute top-10 -left-10 w-[80%] h-[80%] bg-[#cca66b] rounded-[3rem] opacity-20 -z-10 animate-pulse"></div>
-            <div className="absolute -bottom-5 -right-5 w-[60%] h-[60%] bg-[#1e3a5f] rounded-[3rem] opacity-10 -z-10"></div>
+            <div className="absolute inset-y-10 inset-x-0 bg-[#cca66b] rounded-[3rem] opacity-10 -z-10 animate-pulse"></div>
             
-            <div className="w-full h-full relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white">
+            {/* Main Image */}
+            <div className="absolute top-0 right-0 w-[85%] h-[80%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white group bg-gray-100">
               <Image 
-                src="/images/gorselsac.jfif" // Using the high-quality DHI hair transplant image
+                src="/images/services/pop_sac_main.png" 
                 alt="Saç Ekimi"
                 fill
-                className="object-cover object-top transition-transform duration-1000 group-hover:scale-[1.05]"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
-              
-              {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/80 via-transparent to-transparent"></div>
               
               <div className="absolute bottom-8 left-8 right-8">
@@ -223,10 +266,20 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
                   <div className="w-1.5 h-10 bg-[#cca66b] rounded-full"></div>
                   <div>
                     <span className="block text-white font-black text-xl tracking-wide">MAX GRAFT</span>
-                    <span className="block text-white/80 font-medium text-sm">{isTr ? 'Tek Seansta Maksimum Yoğunluk' : 'Maximum Density in One Session'}</span>
+                    <span className="block text-white/80 font-medium text-sm">{isTr ? 'Tek Seansta Süper Yoğunluk' : 'Super Density in One Session'}</span>
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Sub Image (Overlapping bottom left) */}
+            <div className="absolute bottom-4 left-0 w-[55%] h-[45%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] border-4 border-white group bg-gray-100">
+              <Image 
+                src="/images/services/pop_sac_sub.png" 
+                alt="Saç Ekimi Uzman Kontrolü"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
           </motion.div>
         </div>

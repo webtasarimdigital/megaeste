@@ -94,9 +94,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full sticky top-0 lg:-top-[90px] z-50 flex flex-col bg-white">
+    <header className="w-full sticky top-0 z-50 flex flex-col bg-white">
       {/* Desktop Top Bar - Full width, scrolls away (Height 90px) */}
-      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#e5f0fa] to-white border-b border-gray-100 h-[90px]">
+      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 h-[90px]">
         <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
           {/* Logo on the left */}
@@ -153,8 +153,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         <div className="w-full flex items-center h-full px-4 lg:px-8 relative">
           
           {/* Main Navigation (Centered) */}
-          <nav className={`absolute left-1/2 -translate-x-1/2 flex items-center justify-center font-bold text-[#2c4c7c] uppercase tracking-wide z-30 ${lang === 'en' ? 'text-[10px] xl:text-[11px]' : 'text-[11.5px] xl:text-[12.5px]'}`}>
-            <div className={`flex items-center ${lang === 'en' ? 'space-x-4 xl:space-x-5' : 'space-x-5 xl:space-x-7'}`}>
+          <nav className={`absolute left-1/2 -translate-x-1/2 flex items-center justify-center font-bold text-[#2c4c7c] uppercase tracking-wide z-30 ${lang === 'en' ? 'text-[11.5px] xl:text-[12.5px]' : 'text-[12.5px] xl:text-[13.5px]'}`}>
+            <div className={`flex items-center ${lang === 'en' ? 'space-x-5 xl:space-x-7' : 'space-x-6 xl:space-x-9'}`}>
               {navData.map((category, index) => (
                 <div key={index} className="relative group flex items-center h-full">
                   <Link href={category.href || '#'} className="flex items-center h-[56px] hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
@@ -181,8 +181,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             </div>
           </nav>
           
-          {/* Social Icons (Aligned Right, Esteworld style border blocks) */}
-          <div className="absolute right-4 lg:right-8 flex items-center gap-2 z-40">
+          {/* Social Icons (Aligned Left, Esteworld style border blocks) */}
+          <div className="absolute left-4 lg:left-8 flex items-center gap-2 z-40">
             <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#E1306C] hover:border-[#E1306C] transition-colors">
               <FaInstagram className="text-[16px]" />
             </a>
@@ -198,21 +198,21 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
       {/* Mobile Header */}
       <div className="lg:hidden w-full flex flex-col bg-white shadow-sm border-b-[3px] border-[#427bdf]/10">
-        <div className="flex justify-between items-center px-4 py-3 border-b border-gray-100">
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px]">
           
           {/* Logo on Left */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="block flex-shrink-0">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0">
             <Image 
               src="/images/logo.png" 
               alt="Megaeste Logo" 
               width={160} 
               height={50} 
               priority 
-              className="w-[140px] sm:w-[150px] h-auto object-contain"
+              className="w-[130px] sm:w-[140px] h-auto object-contain"
             />
           </Link>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* Language Switcher Dropdown (Esteworld style) */}
             <div className="relative">
               <button 
@@ -274,13 +274,13 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             >
               {/* Header inside drawer */}
               <div className="flex justify-between items-center px-6 py-5 border-b border-white/10">
-                <div className="bg-white/95 px-4 py-2 rounded-xl shadow-sm">
+                <div className="py-2">
                   <Image 
-                    src="/images/logo.png" 
+                    src="/images/megaestelogo.png" 
                     alt="Megaeste Logo" 
                     width={140} 
                     height={45} 
-                    className="w-[120px] object-contain" 
+                    className="w-[140px] object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
                   />
                 </div>
                 <button 
@@ -292,7 +292,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               </div>
 
               {/* Scrollable menu */}
-              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col pb-36 no-scrollbar">
+              <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-2 pb-6 flex flex-col no-scrollbar">
                 
                 {navData.map((category, index) => {
                   const hasItems = category.items.length > 0;
@@ -309,11 +309,11 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                             }
                           }
                         }}
-                        className={`flex items-center justify-between py-5 text-[14px] font-black tracking-widest uppercase transition-colors ${openAccordion === index ? 'text-[#cca66b]' : 'text-gray-100 hover:text-white'}`}
+                        className={`flex items-center justify-between py-4 text-[13px] font-black tracking-widest uppercase transition-colors px-1 ${openAccordion === index ? 'text-[#cca66b]' : 'text-gray-100 hover:text-white'}`}
                       >
                         {category.title}
                         {hasItems && (
-                          <FaChevronDown className={`text-sm transition-transform duration-300 ${openAccordion === index ? 'rotate-180 text-[#cca66b]' : 'text-gray-400'}`} />
+                          <FaChevronDown className={`text-xs transition-transform duration-300 ${openAccordion === index ? 'rotate-180 text-[#cca66b]' : 'text-gray-400'}`} />
                         )}
                       </button>
                       
@@ -325,13 +325,13 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                             exit={{ height: 0, opacity: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex flex-col border-l-2 border-white/10 ml-2 mb-4">
+                            <div className="flex flex-col border-l-2 border-white/5 ml-3 mb-2 mt-1">
                               {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                                 <Link 
                                   key={subIdx} 
                                   href={subItem.href}
                                   onClick={() => setIsMobileMenuOpen(false)}
-                                  className="py-3.5 px-5 text-[13px] font-medium tracking-wide text-gray-300 hover:text-white transition-colors uppercase"
+                                  className="py-2.5 px-4 text-[12px] font-semibold tracking-wide text-gray-400 hover:text-white transition-colors uppercase"
                                 >
                                   {subItem.label}
                                 </Link>
@@ -344,28 +344,31 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                   );
                 })}
                 
-                {/* Social media links inside mobile menu */}
-                <div className="flex items-center gap-6 mt-8 mb-6">
-                  <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                    <FaInstagram className="text-2xl" />
-                  </a>
-                  <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                    <FaWhatsapp className="text-2xl" />
-                  </a>
-                  <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                    <FaMapMarkerAlt className="text-2xl" />
-                  </a>
-                </div>
+                <div className="mt-auto pt-6 flex w-full">
+                  {/* Footer of Menu: Socials + CTA */}
+                  <div className="flex items-center justify-between w-full">
+                    {/* Social media links inside mobile menu */}
+                    <div className="flex items-center gap-4 sm:gap-5 px-1">
+                      <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
+                        <FaInstagram className="text-[22px]" />
+                      </a>
+                      <a href="https://wa.me/905334814098" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
+                        <FaWhatsapp className="text-[22px]" />
+                      </a>
+                      <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
+                        <FaMapMarkerAlt className="text-[20px]" />
+                      </a>
+                    </div>
 
-                {/* Bottom CTA Inside Scrollable Area */}
-                <div className="mt-8">
-                  <Link 
-                    href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-full h-14 bg-[#cca66b] hover:bg-[#b8955a] text-white font-black tracking-widest text-[14px] flex items-center justify-center rounded-xl gap-3 transition-all shadow-lg"
-                  >
-                    {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"} <FaArrowRight />
-                  </Link>
+                    {/* Bottom CTA Inside Scrollable Area */}
+                    <Link 
+                      href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-4 sm:px-6 py-3.5 transition-all shadow-lg"
+                    >
+                      {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"} <FaArrowRight className="ml-2 text-sm" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -2,6 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
+import Link from 'next/link';
+import { FaChevronRight } from 'react-icons/fa';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function FeedbackContent({ dict, lang }: { dict?: any, lang: string }) {
@@ -20,51 +22,48 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
   return (
     <div className="w-full bg-[#f8fafc] pb-24">
       
-      {/* Hero Section */}
-      <section className="relative w-full h-[320px] lg:h-[40vh] min-h-[300px] bg-[#0d2244] flex items-center justify-center overflow-hidden">
-        
-        {/* Background Overlay */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#0d2244]/80 z-10 mix-blend-multiply"></div>
-          {/* Gradient to darken the bottom and blend */}
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
+      {/* Hero */}
+      <section className="relative w-full bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat py-12 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[#0d2244]/80 backdrop-blur-[2px]"></div>
+        <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center text-center">
+          <nav className="flex items-center text-xs md:text-sm text-white/50 mb-6 font-medium tracking-wide">
+            <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
+              {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
+            </Link>
+            <FaChevronRight className="mx-3 text-[10px]" />
+            <Link href={lang === 'tr' ? '/kurumsal/hakkimizda' : `/${lang}/corporate/about-us`} className="hover:text-white transition-colors">
+              {lang === 'tr' ? 'Kurumsal' : 'Corporate'}
+            </Link>
+            <FaChevronRight className="mx-3 text-[10px]" />
+            <span className="text-white font-semibold">{title}</span>
+          </nav>
           
-          <img 
-            src="/images/klinik-2.jfif" 
-            alt="Megaeste Görüş ve Öneriler" 
-            className="w-full h-full object-cover object-center opacity-50 blur-[1px] transform scale-105"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 mt-4">
-          <div className="flex items-center space-x-3 mb-3 md:mb-5">
-            <div className="w-6 h-[2px] bg-[#cca66b]"></div>
-            <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
-              {subtitle}
-            </span>
-            <div className="w-6 h-[2px] bg-[#cca66b]"></div>
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-5 rounded-full bg-white/10 border border-white/20 text-[#cca66b] text-xs font-bold tracking-widest uppercase">
+            {subtitle}
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-none mb-4 drop-shadow-xl">
+          <h1 className="text-3xl md:text-5xl font-semibold text-white mb-5 tracking-tight">
             {title}
           </h1>
-          <p className="text-gray-300 text-sm md:text-[15px] font-medium max-w-2xl leading-relaxed drop-shadow-sm">
+          <p className="text-white/60 text-base md:text-lg max-w-xl font-light">
             {desc}
           </p>
         </div>
       </section>
 
       {/* Form Section */}
-      <div className="relative z-40 -mt-20 sm:-mt-24 xl:-mt-28 px-4 w-full max-w-[1440px] mx-auto">
-        <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 md:p-10 lg:p-14 relative z-10 w-full max-w-4xl mx-auto border border-gray-100">
-          <div className="mb-10 text-center">
-            <h2 className="text-[28px] md:text-[34px] font-black text-[#1e3a5f] tracking-tight mb-3">
-              {formTitle}
-            </h2>
-            <p className="text-[#6a7989] text-[15px] font-medium leading-relaxed max-w-2xl mx-auto">
-              {formDesc}
-            </p>
-          </div>
+      <div className="relative z-40 -mt-10 sm:-mt-12 xl:-mt-16 px-4 w-full max-w-[1440px] mx-auto">
+        <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 md:p-10 lg:p-14 relative z-10 w-full mx-auto border border-gray-100 flex flex-col lg:flex-row gap-12 lg:gap-16">
+          
+          {/* Left Column: Form */}
+          <div className="w-full lg:w-1/2">
+            <div className="mb-10 text-center lg:text-left">
+              <h2 className="text-[28px] md:text-[34px] font-black text-[#1e3a5f] tracking-tight mb-3">
+                {formTitle}
+              </h2>
+              <p className="text-[#6a7989] text-[15px] font-medium leading-relaxed">
+                {formDesc}
+              </p>
+            </div>
           
           <form className="flex flex-col space-y-6">
             <div className="flex flex-col md:flex-row gap-6">
@@ -115,7 +114,7 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
               ></textarea>
             </div>
             
-            <div className="pt-4 flex justify-center">
+            <div className="pt-4 flex justify-center lg:justify-start">
               <button 
                 type="button" 
                 className="bg-[#cca66b] text-[#0d2244] font-black py-4 px-14 rounded-[12px] hover:bg-[#b58f53] hover:text-white transition-all duration-300 text-[16px] tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5"
@@ -124,6 +123,22 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
               </button>
             </div>
           </form>
+          </div>
+
+          {/* Right Column: Embedded Map */}
+          <div className="w-full lg:w-1/2 h-full min-h-[350px] lg:min-h-full rounded-[14px] overflow-hidden shadow-sm border-2 border-[#eef2f6] relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1505.5786884610996!2d29.110287114660724!3d41.020524949502906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac9aa1b35b6df%3A0x6b4457223b37807c!2sMegaeste%20Estetik%20%26%20Plastik%20Cerrahi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale hover:grayscale-0 transition-all duration-700"
+            />
+          </div>
+
         </div>
       </div>
     </div>

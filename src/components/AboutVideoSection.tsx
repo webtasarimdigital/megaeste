@@ -3,6 +3,18 @@
 import React from 'react';
 
 export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
+  const videoRefs = React.useRef<{ [key: number]: HTMLVideoElement | null }>({});
+  const [playingState, setPlayingState] = React.useState<{ [key: number]: boolean }>({});
+
+  React.useEffect(() => {
+    // Auto-play on mobile when component mounts
+    if (window.innerWidth < 1024) {
+      Object.values(videoRefs.current).forEach(video => {
+        if (video) video.play().catch(() => {});
+      });
+    }
+  }, []);
+
   const videos = [
     {
       id: 1,
@@ -56,30 +68,66 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
           {videos.map((video) => (
             <div 
               key={video.id}
-              className={`relative rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl transition-shadow duration-500 bg-[#0d2244] w-full
+              onClick={() => {
+                // Tap to play/pause on mobile
+                if (window.innerWidth < 1024) {
+                  const v = videoRefs.current[video.id];
+                  if (v) {
+                    if (v.paused) v.play().catch(() => {});
+                    else v.pause();
+                  }
+                }
+              }}
+              onMouseEnter={() => {
+                // Hover to play on desktop
+                if (window.innerWidth >= 1024) {
+                  videoRefs.current[video.id]?.play().catch(() => {});
+                }
+              }}
+              onMouseLeave={() => {
+                // Leave to pause on desktop
+                if (window.innerWidth >= 1024) {
+                  videoRefs.current[video.id]?.pause();
+                }
+              }}
+              className={`relative rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl transition-shadow duration-500 bg-[#0d2244] w-full cursor-pointer lg:cursor-default
                 ${video.isWide ? 'md:col-span-2 aspect-video lg:aspect-auto h-full' : 'col-span-1 aspect-[9/16] lg:aspect-auto h-[400px] md:h-full lg:h-full'}
               `}
             >
               <video
+                ref={(el) => { videoRefs.current[video.id] = el; }}
                 src={video.src}
-                autoPlay
                 muted
                 loop
                 playsInline
+                onPlay={() => setPlayingState(prev => ({ ...prev, [video.id]: true }))}
+                onPause={() => setPlayingState(prev => ({ ...prev, [video.id]: false }))}
                 className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
               />
               
-              {/* Linear gradient to make text readable, permanently visible instead of hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244]/90 via-[#0d2244]/20 to-transparent pointer-events-none"></div>
+              {/* Linear gradient covering the bottom nicely */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244] via-[#0d2244]/40 to-transparent opacity-80 pointer-events-none"></div>
               
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 flex flex-col justify-end h-full z-10 pointer-events-none">
+              {/* Play Button Overlay */}
+              <div className={`absolute inset-0 flex items-center justify-center pointer-events-none z-20 transition-all duration-500 ${playingState[video.id] ? 'opacity-0 scale-150' : 'opacity-100 scale-100'}`}>
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-[#cca66b] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(204,166,107,0.4)] backdrop-blur-sm">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-white ml-1.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 flex flex-col justify-end h-full z-30 pointer-events-none">
                 <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <p className="text-[#cca66b] text-[10px] md:text-xs font-black tracking-[0.2em] uppercase mb-2 drop-shadow-md">
                     {video.subtitle}
                   </p>
-                  <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-black drop-shadow-lg leading-tight">
-                    {video.title}
-                  </h3>
+                  {/* Fixed height container for perfect horizontal alignment regardless of line breaks */}
+                  <div className="h-10 md:h-12 lg:h-16 flex items-start">
+                    <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-black drop-shadow-lg leading-tight">
+                      {video.title}
+                    </h3>
+                  </div>
                 </div>
               </div>
             </div>

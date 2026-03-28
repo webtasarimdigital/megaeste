@@ -16,24 +16,35 @@ export default function DoctorListContent({ doctors, lang }: Props) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative w-full bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat py-12 md:py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[#0d2244]/80 backdrop-blur-[2px]"></div>
-        <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center text-center">
-          <nav className="flex items-center text-xs md:text-sm text-white/50 mb-6 font-medium tracking-wide">
-            <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
-              {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
-            </Link>
-            <FaChevronRight className="mx-3 text-[10px]" />
-            <span className="text-white font-semibold">{lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}</span>
-          </nav>
-          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-5 rounded-full bg-white/10 border border-white/20 text-[#cca66b] text-xs font-bold tracking-widest uppercase">
-            {lang === 'tr' ? 'Profesyonel Ekibimiz' : 'Our Professional Team'}
+      {/* Adjusted Compact Hero Section */}
+      <section className="relative w-full h-[240px] lg:h-[28vh] min-h-[240px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
+        
+        {/* Background Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#0d2244]/80 z-10 mix-blend-multiply"></div>
+          {/* We use a gradient to make text stand out */}
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
+          
+          <img 
+            src="/images/services/medikal-cilt-bakimi.png" 
+            alt="Megaeste Hekimlerimiz" 
+            className="w-full h-full object-cover object-top opacity-50 blur-[2px] transform scale-105"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-4">
+          <div className="flex items-center space-x-3 mb-3 md:mb-5">
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+            <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
+              {lang === 'tr' ? 'PROFESYONEL EKİBİMİZ' : 'OUR PROFESSIONAL TEAM'}
+            </span>
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
           </div>
-          <h1 className="text-3xl md:text-5xl font-semibold text-white mb-5 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-none mb-4 drop-shadow-xl">
             {lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors'}
           </h1>
-          <p className="text-white/60 text-base md:text-lg max-w-xl font-light">
+          <p className="text-gray-300 text-sm md:text-base font-medium max-w-xl leading-relaxed drop-shadow-sm">
             {lang === 'tr'
               ? 'Alanında uzman ve deneyimli kadromuzla yanınızdayız.'
               : 'We stand by your side with our expert and experienced team.'}
@@ -42,7 +53,7 @@ export default function DoctorListContent({ doctors, lang }: Props) {
       </section>
 
       {/* Doctor Cards */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 py-16 xl:py-24">
+      <section className="relative z-40 -mt-6 sm:-mt-10 w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 pb-16 xl:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {doctors.map((doc) => {
             const c = doc[lang];

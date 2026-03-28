@@ -43,7 +43,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
   return (
     <>
       {/* Smooth Gradient Hero Section */}
-      <section className="relative w-full min-h-[400px] lg:min-h-[500px] flex flex-col justify-end pb-8 lg:pb-16 overflow-hidden bg-gray-50">
+      <section className="relative w-full h-[35vh] min-h-[300px] lg:min-h-[360px] flex flex-col justify-end pb-8 lg:pb-12 overflow-hidden bg-gray-50">
         
         {/* Full-Width Background Image */}
         <div className="absolute inset-0 z-0">
@@ -51,7 +51,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
             src={service.image}
             alt={content.title}
             fill
-            className="object-cover object-center lg:object-right"
+            className="object-cover object-[75%_center] lg:object-right"
             priority
             quality={100}
           />
@@ -59,17 +59,17 @@ export default function ServiceDetailContent({ service, content, relatedServices
 
         {/* Smooth Gradient Overlay (Left to Right) */}
         <div 
-          className="absolute inset-0 z-10 opacity-100"
-          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 40%, transparent 70%)` }}
+          className="absolute inset-0 z-10 opacity-100 hidden lg:block"
+          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 30%, transparent 60%)` }}
         ></div>
         {/* Mobile Gradient (Bottom to Top) */}
         <div 
           className="absolute inset-0 z-10 opacity-100 lg:hidden"
-          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 60%, transparent 100%)` }}
+          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 50%, transparent 90%)` }}
         ></div>
 
         {/* Absolute Top Left Breadcrumb */}
-        <nav className="absolute top-24 md:top-32 left-4 lg:left-12 xl:left-24 z-30 flex flex-wrap items-center text-[11px] md:text-xs text-white/95 drop-shadow-md font-bold tracking-wide max-w-[90%] md:max-w-auto px-4 py-2 md:py-2.5 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
+        <nav className="absolute top-20 md:top-24 left-4 lg:left-12 xl:left-24 z-30 flex flex-wrap items-center text-[11px] md:text-xs text-white/95 drop-shadow-md font-bold tracking-wide max-w-[90%] md:max-w-auto px-4 py-2 md:py-2.5 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap mb-0">
             {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
           </Link>
@@ -80,12 +80,12 @@ export default function ServiceDetailContent({ service, content, relatedServices
         </nav>
 
         {/* Content Container (No Box, Just Text on Colored Background) */}
-        <div className="relative z-20 w-full lg:w-1/2 px-8 md:px-12 lg:px-24 mt-40 lg:mt-32 pointer-events-none flex flex-col justify-center h-full">
+        <div className="relative z-20 w-full lg:w-1/2 px-8 md:px-12 lg:px-24 mt-32 pointer-events-none flex flex-col justify-center h-full">
           <div className="w-full max-w-[600px] pointer-events-auto">
             <span className="text-[10px] md:text-[12px] font-black tracking-[0.3em] uppercase mb-3 block text-white/80 drop-shadow-sm">
               {content.category}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black mb-6 uppercase tracking-wide text-white leading-[1.1] drop-shadow-lg">
+            <h1 className="text-4xl md:text-5xl lg:text-[50px] font-black mb-4 uppercase tracking-wide text-white leading-[1.1] drop-shadow-lg">
               {content.title}
             </h1>
             <p className="text-white/90 text-sm md:text-base lg:text-lg leading-relaxed font-medium drop-shadow-md">

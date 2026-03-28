@@ -5,37 +5,54 @@ import React from 'react';
 import Image from 'next/image';
 import { PiCheckCircleThin, PiHeartbeatThin, PiShieldCheckThin, PiStethoscopeThin } from 'react-icons/pi';
 import QuickContact from './QuickContact';
+import Link from 'next/link';
+import { FaChevronRight } from 'react-icons/fa';
 
 export default function AboutUsContent({ dict, lang }: { dict: any, lang: string }) {
   const content = dict?.aboutUs;
 
   return (
     <div className="w-full bg-white relative">
-      {/* Hero Header */}
-      <section className="relative w-full h-[30vh] min-h-[280px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/megaeste-hero2.jfif"
-            alt={content?.title || "Hakkımızda"}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-[#0d2244]/80 mix-blend-multiply" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-gray-50 to-transparent opacity-90" />
-        </div>
+      {/* Hero */}
+      {/* Adjusted Compact Hero Section */}
+      <section className="relative w-full h-[240px] lg:h-[28vh] min-h-[240px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
         
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-widest uppercase drop-shadow-lg mb-4">
-            {content?.title || "Hakkımızda"}
+        {/* Background Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#0d2244]/80 z-10 mix-blend-multiply"></div>
+          {/* We use a gradient to make text stand out */}
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
+          
+          <img 
+            src="/images/services/medikal-cilt-bakimi.png" 
+            alt="Megaeste Hakkımızda" 
+            className="w-full h-full object-cover object-top opacity-50 blur-[2px] transform scale-105"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-4">
+          <div className="flex items-center space-x-3 mb-3 md:mb-5">
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+            <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
+              MEGAESTE CLINIC
+            </span>
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-none mb-4 drop-shadow-xl">
+            {content?.title || (lang === 'tr' ? 'Hakkımızda' : 'About Us')}
           </h1>
-          <div className="w-24 h-1.5 bg-[#cca66b] mx-auto rounded-full"></div>
+          <p className="text-gray-300 text-sm md:text-base font-medium max-w-xl leading-relaxed drop-shadow-sm">
+            {lang === 'tr'
+              ? 'Teknolojiyi ve estetiği bir araya getiren modern sağlık merkezi.'
+              : 'Modern healthcare center combining technology and aesthetics.'}
+          </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section className="relative z-40 -mt-6 sm:-mt-10 w-full max-w-[1440px] mx-auto px-4 md:px-8 xl:px-12 pb-16 md:pb-24">
+        <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-6 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Text */}
           <div className="space-y-8">
