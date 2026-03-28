@@ -12,7 +12,7 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
           
           {/* İletişim Button - Gray/Dark */}
           <a 
-            href="tel:#" 
+            href="tel:+905334814098" 
             className="flex-1 flex justify-center items-center py-3.5 bg-[#3d4347] text-white rounded-l-full"
           >
             <FaPhoneAlt className="text-lg mr-2" />
@@ -22,7 +22,7 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
           {/* Center Map Button - replacing chatbot, now blue/gold */}
           <div className="absolute left-1/2 -translate-x-1/2 -top-5 z-20">
             <a
-              href="https://maps.google.com/?q=İstanbul,+Türkiye" 
+              href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" 
               target="_blank"
               rel="noopener noreferrer"
               className="relative w-[56px] h-[56px] rounded-full bg-[#1e3a5f] flex items-center justify-center shadow-lg border-4 border-white transition-transform active:scale-95"
@@ -33,7 +33,7 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
 
           {/* WhatsApp Button - Green */}
           <a 
-            href="https://wa.me/#" 
+            href="https://wa.me/905334814098?text=Merhaba,%20bilgi%20almak%20istiyorum" 
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex justify-center items-center py-3.5 bg-[#1eb852] text-white rounded-r-full"

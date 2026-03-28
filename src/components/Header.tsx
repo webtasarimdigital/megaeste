@@ -13,39 +13,72 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   const router = useRouter();
 
   const switchLanguage = (newLang: string) => {
-    // To avoid 404 errors when switching languages on pages with translated slugs
-    // (e.g., /hizmetler/medikal-cilt-bakimi -> /en/hizmetler/medical-skin-care),
-    // we safely redirect the user to the homepage of the selected language.
-    if (newLang === 'tr') {
-      router.push('/');
+    if (typeof window === 'undefined') return;
+
+    // Dictionary of all known translated slugs
+    const trToEnSlugs: Record<string, string> = {
+      'hizmetler': 'treatments',
+      'hekimlerimiz': 'doctors',
+      'iletisim': 'contact',
+      'dhi-sac-ekimi': 'dhi-hair-transplant',
+      'safir-sac-ekimi': 'sapphire-hair-transplant',
+      'sac-mezoterapisi': 'hair-mesotherapy',
+      'burun-estetigi': 'rhinoplasty',
+      'goz-kapagi-estetigi': 'blepharoplasty',
+      'meme-estetigi': 'breast-aesthetics',
+      'medikal-cilt-bakimi': 'medical-skin-care',
+      'yuz-mezoterapi': 'facial-mesotherapy',
+      'lazer-epilasyon': 'laser-hair-removal',
+      'igneli-lazer-epilasyonu': 'needle-laser-epilation'
+    };
+    
+    const enToTrSlugs: Record<string, string> = Object.fromEntries(
+      Object.entries(trToEnSlugs).map(([tr, en]) => [en, tr])
+    );
+
+    let path = window.location.pathname;
+
+    // Remove /en prefix for processing
+    if (path.startsWith('/en/')) {
+      path = path.replace('/en/', '/');
+    } else if (path === '/en') {
+      path = '/';
+    }
+
+    const segments = path.split('/').filter(Boolean);
+
+    if (newLang === 'en') {
+      const translatedSegments = segments.map(seg => trToEnSlugs[seg] || seg);
+      router.push('/en' + (translatedSegments.length > 0 ? '/' + translatedSegments.join('/') : ''));
     } else {
-      router.push(`/${newLang}`);
+      const translatedSegments = segments.map(seg => enToTrSlugs[seg] || seg);
+      router.push('/' + translatedSegments.join('/'));
     }
   };
 
   const prefix = lang === 'tr' ? '' : `/${lang}`;
 
   const navData = dict?.nav ? [
-    { title: dict.nav.corporate, href: `${prefix}/hekimlerimiz`, items: [
+    { title: dict.nav.corporate, href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`, items: [
       { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: '#' },
-      { label: lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors', href: `${prefix}/hekimlerimiz` },
+      { label: lang === 'tr' ? 'Hekimlerimiz' : 'Our Doctors', href: `${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}` },
       { label: 'Blog', href: `${prefix}/blog` },
     ]},
     { title: dict.nav.hairTransplant?.title || '', href: '#', items: (dict.nav.hairTransplant?.items || []).map((item: string, i: number) => ({
       label: item,
-      href: `${prefix}/hizmetler/${lang === 'tr' ? ['dhi-sac-ekimi', 'safir-sac-ekimi', 'sac-mezoterapisi'][i] : ['dhi-hair-transplant', 'sapphire-hair-transplant', 'hair-mesotherapy'][i]}`,
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['dhi-sac-ekimi', 'safir-sac-ekimi', 'sac-mezoterapisi'][i] : ['dhi-hair-transplant', 'sapphire-hair-transplant', 'hair-mesotherapy'][i]}`,
     }))},
     { title: dict.nav.plasticSurgery?.title || '', href: '#', items: (dict.nav.plasticSurgery?.items || []).map((item: string, i: number) => ({
       label: item,
-      href: `${prefix}/hizmetler/${lang === 'tr' ? ['burun-estetigi', 'goz-kapagi-estetigi', 'meme-estetigi'][i] : ['rhinoplasty', 'blepharoplasty', 'breast-aesthetics'][i]}`,
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['burun-estetigi', 'goz-kapagi-estetigi', 'meme-estetigi'][i] : ['rhinoplasty', 'blepharoplasty', 'breast-aesthetics'][i]}`,
     }))},
     { title: dict.nav.medicalAesthetics?.title || '', href: '#', items: (dict.nav.medicalAesthetics?.items || []).map((item: string, i: number) => ({
       label: item,
-      href: `${prefix}/hizmetler/${lang === 'tr' ? ['medikal-cilt-bakimi', 'yuz-mezoterapi'][i] : ['medical-skin-care', 'facial-mesotherapy'][i]}`,
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['medikal-cilt-bakimi', 'yuz-mezoterapi'][i] : ['medical-skin-care', 'facial-mesotherapy'][i]}`,
     }))},
     { title: dict.nav.epilation?.title || '', href: '#', items: (dict.nav.epilation?.items || []).map((item: string, i: number) => ({
       label: item,
-      href: `${prefix}/hizmetler/${lang === 'tr' ? ['lazer-epilasyon', 'igneli-lazer-epilasyonu'][i] : ['laser-hair-removal', 'needle-laser-epilation'][i]}`,
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['lazer-epilasyon', 'igneli-lazer-epilasyonu'][i] : ['laser-hair-removal', 'needle-laser-epilation'][i]}`,
     }))},
     { title: dict.nav.blog?.title || '', href: `${prefix}/blog`, items: [] },
   ] : [];
@@ -76,39 +109,40 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           {/* Top Bar - No gap, touches top edge exactly covering the absolute background */}
           <div className="w-full flex justify-end items-stretch text-[13px] font-medium text-gray-500 divide-x divide-gray-200 h-[46px] border-b border-gray-100/50">
             <Link 
-              href={`${prefix}/iletisim`}
+              href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
               className="bg-[#cca66b] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#b58f53] transition-colors"
             >
               {dict?.getAppointment || "Randevu Al"}
             </Link>
             <Link href={`${prefix}/blog`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.feedbackAndSuggestions || "Görüş ve Önerileriniz"}</Link>
-            <Link href={`${prefix}/hekimlerimiz`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
-            <Link href={`${prefix}/iletisim`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
+            <Link href={`${prefix}/${lang === 'tr' ? 'hekimlerimiz' : 'doctors'}`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.ourDoctors || "Doktorlarımız"}</Link>
+            <Link href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`} className="px-5 flex items-center hover:text-[#427bdf] transition-colors">{dict?.contactUs || "Bize Ulaşın"}</Link>
             
             {/* Language Switcher */}
-            <div className="pl-5 flex items-center justify-center space-x-2 font-bold">
+            <div className="pl-5 flex items-center justify-center space-x-3 font-bold">
               <button 
                 onClick={() => switchLanguage('tr')} 
-                className={`hover:text-gray-900 transition-colors ${lang === 'tr' ? 'text-gray-900' : 'text-gray-400'}`}
+                className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
+                title="Türkçe"
               >
-                TR
+                <img src="https://flagcdn.com/tr.svg" alt="TR" className="w-full h-full object-cover" />
               </button>
-              <span className="text-gray-300">/</span>
               <button 
                 onClick={() => switchLanguage('en')} 
-                className={`hover:text-gray-900 transition-colors ${lang === 'en' ? 'text-gray-900' : 'text-gray-400'}`}
+                className={`relative flex items-center justify-center w-[22px] h-[22px] rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#cca66b] opacity-100' : 'opacity-50 hover:opacity-100 shadow-sm'}`}
+                title="English"
               >
-                EN
+                <img src="https://flagcdn.com/gb.svg" alt="EN" className="w-full h-full object-cover" />
               </button>
             </div>
           </div>
 
           {/* Main Navigation - Fills remaining space vertically via flex-grow */}
-          <nav className="flex flex-grow items-center justify-between text-[12px] xl:text-[13.5px] font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30">
-            <div className="flex items-center flex-grow justify-center space-x-3 xl:space-x-6">
+          <nav className={`flex flex-grow items-center justify-between font-bold text-[#2c4c7c] uppercase tracking-wide relative z-30 ${lang === 'en' ? 'text-[10.5px] xl:text-[11.5px]' : 'text-[12px] xl:text-[13.5px]'}`}>
+            <div className={`flex items-center flex-grow justify-center ${lang === 'en' ? 'space-x-3 xl:space-x-4' : 'space-x-3 xl:space-x-6'}`}>
               {navData.map((category, index) => (
                 <div key={index} className="relative group py-2">
-                  <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer relative z-40">
+                  <Link href={category.href || '#'} className="flex items-center hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
                     {category.title}
                     {category.items.length > 0 && <span className="ml-1.5 text-[10px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </Link>
@@ -132,7 +166,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             </div>
             
             <div className="flex items-center pl-8 border-l border-gray-300 space-x-4 text-xl text-gray-500 ml-4 relative z-40">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
+              <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
                 <FaInstagram />
               </a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#427bdf] transition-colors inline-block">
@@ -164,19 +198,18 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           
           <div className="flex items-center gap-4">
             {/* Language Switcher moved next to menu */}
-            <div className="flex items-center space-x-1.5 text-[12.5px] font-black tracking-wide">
+            <div className="flex items-center space-x-3">
               <button 
                 onClick={() => switchLanguage('tr')} 
-                className={`transition-colors ${lang === 'tr' ? 'text-[#1e3a5f]' : 'text-gray-300'}`}
+                className={`relative flex items-center justify-center w-5 h-5 rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#1e3a5f] opacity-100' : 'opacity-40'}`}
               >
-                TR
+                <img src="https://flagcdn.com/tr.svg" alt="TR" className="w-full h-full object-cover" />
               </button>
-              <span className="text-gray-200">/</span>
               <button 
                 onClick={() => switchLanguage('en')} 
-                className={`transition-colors ${lang === 'en' ? 'text-[#1e3a5f]' : 'text-gray-300'}`}
+                className={`relative flex items-center justify-center w-5 h-5 rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#1e3a5f] opacity-100' : 'opacity-40'}`}
               >
-                EN
+                <img src="https://flagcdn.com/gb.svg" alt="EN" className="w-full h-full object-cover" />
               </button>
             </div>
             

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { FaInstagram, FaYoutube, FaFacebookF, FaTiktok, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaFacebookF, FaTiktok, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
@@ -22,7 +22,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
   const servicesCol2 = allServices.slice(half);
 
   const socialLinks = [
-    { icon: FaInstagram, label: '/megaeste', href: '#' },
+    { icon: FaInstagram, label: '@mega.estetik', href: 'https://www.instagram.com/mega.estetik' },
     { icon: FaYoutube, label: '/megaeste', href: '#' },
     { icon: FaFacebookF, label: '/megaeste', href: '#' },
     { icon: FaLinkedinIn, label: '/megaeste', href: '#' },
@@ -32,9 +32,46 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
   const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Blog'];
 
   return (
-    <footer className="w-full bg-[#0d2244] mt-20 relative z-10">
-      {/* Top Gradient Divider */}
-      <div className="w-full h-[4px]" style={{ background: 'linear-gradient(to right, #0d2244 0%, #1e3a5f 20%, #427bdf 50%, #cca66b 75%, #ffffff 100%)' }}></div>
+    <footer className="w-full mt-20 relative z-10 flex flex-col">
+      
+      {/* Pre-Footer Quick Contact Bar (White) */}
+      <div className="w-full bg-white border-y border-gray-100 shadow-sm relative z-20">
+        <div className="max-w-[1440px] mx-auto flex items-stretch justify-between divide-x divide-gray-100">
+          
+          {/* Item 1: Phone */}
+          <a href="tel:+905334814098" className="flex-1 flex flex-col md:flex-row items-center justify-center py-4 md:py-8 px-2 group hover:bg-gray-50 transition-colors">
+            <FiPhone className="text-[20px] md:text-[28px] text-[#3d4450] mb-1.5 md:mb-0 md:mr-4 group-hover:text-[#cca66b] transition-colors" />
+            <div className="flex flex-col text-center md:text-left">
+              <span className="text-[10.5px] md:text-[15px] font-bold text-[#1e3a5f] tracking-wide">{lang === 'tr' ? 'Bizimle İletişime Geçin' : 'Contact Us'}</span>
+              <span className="text-[9px] md:text-[13px] text-gray-500 font-medium mt-0.5 md:mt-1">0533 481 40 98</span>
+            </div>
+          </a>
+
+          {/* Item 2: WhatsApp */}
+          <a href={`https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}`} target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col md:flex-row items-center justify-center py-4 md:py-8 px-2 group hover:bg-gray-50 transition-colors">
+            <FaWhatsapp className="text-[22px] md:text-[30px] text-[#3d4450] mb-1.5 md:mb-0 md:mr-4 group-hover:text-[#cca66b] transition-colors" />
+            <div className="flex flex-col text-center md:text-left">
+              <span className="text-[10.5px] md:text-[15px] font-bold text-[#1e3a5f] tracking-wide">WhatsApp</span>
+              <span className="text-[9px] md:text-[13px] text-gray-500 font-medium mt-0.5 md:mt-1">{lang === 'tr' ? 'Mesajlaşmak için tıklayın' : 'Click to message'}</span>
+            </div>
+          </a>
+
+          {/* Item 3: Map */}
+          <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col md:flex-row items-center justify-center py-4 md:py-8 px-2 group hover:bg-gray-50 transition-colors">
+            <FiMapPin className="text-[20px] md:text-[28px] text-[#3d4450] mb-1.5 md:mb-0 md:mr-4 group-hover:text-[#cca66b] transition-colors" />
+            <div className="flex flex-col text-center md:text-left">
+              <span className="text-[10.5px] md:text-[15px] font-bold text-[#1e3a5f] tracking-wide">{lang === 'tr' ? 'Bize Ulaşın' : 'Reach Us'}</span>
+              <span className="text-[9px] md:text-[13px] text-gray-500 font-medium mt-0.5 md:mt-1">{lang === 'tr' ? 'Konumumuz için tıklayın' : 'Click for location'}</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      {/* Main Dark Footer Container */}
+      <div className="w-full bg-[#0d2244] relative z-10">
+        {/* Top Gradient Divider */}
+        <div className="w-full h-[4px]" style={{ background: 'linear-gradient(to right, #0d2244 0%, #1e3a5f 20%, #427bdf 50%, #cca66b 75%, #ffffff 100%)' }}></div>
 
       {/* Main Footer Content */}
       <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 py-14 xl:py-16">
@@ -55,13 +92,13 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
 
             {/* Contact Info */}
             <div className="flex flex-col space-y-3 mb-6">
-              <a href={`tel:${f.phone || '08502223789'}`} className="flex items-center text-[13px] text-white/70 hover:text-[#cca66b] transition-colors group">
+              <a href={`tel:+905334814098`} className="flex items-center text-[13px] text-white/70 hover:text-[#cca66b] transition-colors group">
                 <FiPhone className="mr-3 text-[#cca66b] text-lg flex-shrink-0" />
-                <span className="font-semibold">{f.phone || '0850 222 3 789'}</span>
+                <span className="font-semibold">{f.phone || '0533 481 40 98'}</span>
               </a>
-              <a href={`mailto:${f.email || 'info@megaeste.com.tr'}`} className="flex items-center text-[13px] text-white/70 hover:text-[#cca66b] transition-colors group">
+              <a href={`mailto:${f.email || 'info@megaeste.com'}`} className="flex items-center text-[13px] text-white/70 hover:text-[#cca66b] transition-colors group">
                 <FiMail className="mr-3 text-[#cca66b] text-lg flex-shrink-0" />
-                <span>{f.email || 'info@megaeste.com.tr'}</span>
+                <span>{f.email || 'info@megaeste.com'}</span>
               </a>
             </div>
 
@@ -133,15 +170,15 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
             <ul className="flex flex-col space-y-4">
               <li className="flex items-start text-[13.5px] text-white/60 font-medium">
                 <FiMapPin className="mr-3 text-[#cca66b] text-lg mt-0.5 flex-shrink-0" />
-                <span>{f.address || 'İstanbul, Türkiye'}</span>
+                <span>{f.address || 'İstiklal Mah. Gamsız Sk. No:3 Ümraniye/İstanbul'}</span>
               </li>
               <li className="flex items-start text-[13.5px] text-white/60 font-medium">
                 <FiPhone className="mr-3 text-[#cca66b] text-lg mt-0.5 flex-shrink-0" />
-                <span>{f.phone || '0850 222 3 789'}</span>
+                <span>{f.phone || '0533 481 40 98'}</span>
               </li>
               <li className="flex items-start text-[13.5px] text-white/60 font-medium">
                 <FiMail className="mr-3 text-[#cca66b] text-lg mt-0.5 flex-shrink-0" />
-                <span>{f.email || 'info@megaeste.com.tr'}</span>
+                <span>{f.email || 'info@megaeste.com'}</span>
               </li>
               <li className="flex items-start text-[13.5px] text-white/60 font-medium">
                 <FiClock className="mr-3 text-[#cca66b] text-lg mt-0.5 flex-shrink-0" />
@@ -161,6 +198,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
         <p className="text-center text-white/40 text-[13px] font-medium tracking-wide">
           {f.copyright || '© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır.'}
         </p>
+      </div>
       </div>
     </footer>
   );

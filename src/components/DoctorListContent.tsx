@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaChevronRight, FaArrowRight, FaStethoscope } from 'react-icons/fa';
+import { FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import { Doctor } from '../data/doctors';
 
 interface Props {

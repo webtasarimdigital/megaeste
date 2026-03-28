@@ -69,12 +69,12 @@ export default function QuickContact() {
                 <div className="text-4xl opacity-80 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"><FaMapMarkerAlt /></div>
               </div>
               <p className="text-[14px] text-gray-300 mb-10 leading-relaxed font-light drop-shadow-sm pr-4">
-                İstiklal, Gamsız Sk. No:3 Ümraniye/İstanbul
+                İstiklal Mah. Gamsız Sk. No:3 Ümraniye/İstanbul
               </p>
-              <button className="flex items-center justify-center space-x-3 bg-white/10 border border-white/20 hover:bg-white hover:text-[#1e3a5f] transition-all duration-300 py-3 px-8 rounded-lg w-auto mt-auto backdrop-blur-sm group-hover:shadow-lg self-start">
+              <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-3 bg-white/10 border border-white/20 hover:bg-white hover:text-[#1e3a5f] transition-all duration-300 py-3 px-8 rounded-lg w-auto mt-auto backdrop-blur-sm group-hover:shadow-lg self-start">
                 <FaMapMarkerAlt className="text-sm" />
                 <span className="font-bold text-[14px] tracking-wider">Yol Tarifi</span>
-              </button>
+              </a>
             </div>
           </div>
 

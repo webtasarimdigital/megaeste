@@ -9,39 +9,76 @@ export default function NotFoundContent({ dict, lang }: { dict?: any, lang: stri
   const content = dict?.notFound || {
     title: "404",
     subtitle: "Sayfa Bulunamadı",
-    message: "Aradığınız sayfa mevcut değil, adı değişmiş veya geçici olarak hizmet dışı olabilir.",
+    message: "Aradığınız sayfa silinmiş, adı değiştirilmiş veya geçici olarak ulaşılamıyor olabilir.",
     button: "Ana Sayfaya Dön"
   };
 
-  const prefix = lang === 'tr' ? '' : `/${lang}`;
+  const isTr = lang === 'tr';
+  const prefix = isTr ? '' : `/${lang}`;
+
+  const headingText = isTr ? "Görünüşe Göre Yanlış Yere Geldiniz" : "Looks Like You're in the Wrong Place";
+  const descText = isTr 
+    ? "Aradığınız sayfa silinmiş, adı değiştirilmiş veya geçici olarak ulaşılamıyor olabilir. Gülüşünüze kavuşmak için ana sayfamıza dönebilirsiniz."
+    : "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. You can return to our homepage to get your smile back.";
+
+  const btnHome = isTr ? "ANA SAYFAYA DÖN" : "RETURN TO HOME";
+  const btnContact = isTr ? "BİZİMLE İLETİŞİME GEÇİN" : "CONTACT US";
+  const badgeText = isTr ? "SAYFA BULUNAMADI" : "PAGE NOT FOUND";
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[65vh] px-4 py-20 bg-gradient-to-b from-white to-[#f8fafd] text-center">
-      {/* Visual 404 Element */}
-      <div className="relative flex justify-center items-center">
-        <h1 className="text-[120px] md:text-[200px] font-black text-transparent bg-clip-text bg-gradient-to-r from-[#427bdf]/10 to-[#427bdf]/5 select-none leading-none">
-          {content.title}
-        </h1>
-        <div className="absolute inset-0 flex items-center justify-center flex-col mt-4">
-          <div className="w-16 h-1 bg-[#427bdf] rounded-full mb-6"></div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[#1e3a5f] tracking-tight">
-            {content.subtitle}
-          </h2>
-        </div>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-[75vh] px-4 py-20 bg-[#f9fbff] text-center font-sans relative overflow-hidden">
       
-      {/* Message and Action */}
-      <p className="mt-8 text-gray-500 max-w-lg mx-auto text-lg md:text-xl font-medium leading-relaxed">
-        {content.message}
-      </p>
+      {/* Decorative Blur Elements purely for clinical premium feel */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#427bdf]/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#cca66b]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <Link 
-        href={prefix || '/'} 
-        className="mt-12 inline-flex items-center px-10 py-4.5 bg-[#427bdf] text-white rounded-full font-bold text-lg hover:bg-[#2b5ebf] transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_40px_-10px_rgba(66,123,223,0.5)] hover:shadow-[0_15px_50px_-10px_rgba(66,123,223,0.6)]"
-      >
-        <FaHome className="mr-3 text-xl" />
-        {content.button}
-      </Link>
+      <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
+        
+        {/* 404 Typography */}
+        <div className="relative flex justify-center items-center mb-10">
+          <div className="text-[140px] md:text-[220px] font-black leading-none tracking-tighter flex items-center select-none">
+            <span className="text-[#3d4450]">4</span>
+            <span className="text-[#f4b329]">0</span>
+            <span className="text-[#3d4450]">4</span>
+          </div>
+          
+          {/* Overlapping Badge */}
+          <div className="absolute -bottom-6 md:-bottom-8 px-6 md:px-10 py-2.5 md:py-3.5 bg-[#3d4450] rounded-full shadow-xl border-4 border-[#f9fbff] transform transition-transform hover:scale-105">
+            <span className="text-[#f4b329] font-black text-sm md:text-base tracking-[0.2em]">
+              {badgeText}
+            </span>
+          </div>
+        </div>
+        
+        {/* Headings */}
+        <h1 className="mt-8 md:mt-12 text-3xl md:text-[42px] font-extrabold text-[#1a2b49] tracking-tight leading-tight">
+          {headingText}
+        </h1>
+        
+        {/* Body Text */}
+        <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-[18px] font-medium leading-relaxed max-w-lg px-4 drop-shadow-sm">
+          {descText}
+        </p>
+
+        {/* Action Buttons */}
+        <div className="mt-10 md:mt-14 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full px-4">
+          <Link 
+            href={prefix || '/'} 
+            className="w-full md:w-auto flex items-center justify-center px-8 md:px-10 py-4.5 bg-[#f4b329] text-[#1a2b49] rounded-xl font-bold text-[14px] md:text-[15px] tracking-wide hover:bg-[#dfa120] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(244,179,41,0.5)] uppercase"
+          >
+            <FaHome className="mr-3 text-lg mb-0.5" />
+            {btnHome}
+          </Link>
+          
+          <Link
+            href={`${prefix}/iletisim`}
+            className="w-full md:w-auto flex items-center justify-center px-8 md:px-10 py-4.5 bg-white border-2 border-gray-200 text-[#3d4450] rounded-xl font-bold text-[14px] md:text-[15px] tracking-wide hover:border-[#1a2b49] hover:text-[#1a2b49] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 uppercase"
+          >
+            {btnContact}
+          </Link>
+        </div>
+
+      </div>
     </div>
   );
 }
