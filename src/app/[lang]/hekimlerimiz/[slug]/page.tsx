@@ -36,23 +36,27 @@ export default async function DoctorDetailPage({ params }: Props) {
 
   if (!doctor) {
     return (
-      <main className="min-h-screen bg-white flex flex-col">
+      <>
         <Header dict={dict?.header} lang={lang} />
-        <div className="flex-grow">
-          <NotFoundContent dict={dict} lang={lang} />
-        </div>
+        <main className="min-h-screen bg-white flex flex-col">
+          <div className="flex-grow">
+            <NotFoundContent dict={dict} lang={lang} />
+          </div>
+        </main>
         <Footer dict={dict} lang={lang} />
         <MobileBottomNav dict={dict?.mobileNav} />
-      </main>
+      </>
     );
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Header dict={dict?.header} lang={lang} />
-      <DoctorDetailContent doctor={doctor} lang={lang} />
+      <main className="min-h-screen bg-white">
+        <DoctorDetailContent doctor={doctor} lang={lang} />
+      </main>
       <Footer dict={dict} lang={lang} />
       <MobileBottomNav dict={dict?.mobileNav} />
-    </main>
+    </>
   );
 }

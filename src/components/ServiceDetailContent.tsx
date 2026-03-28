@@ -68,7 +68,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
         
         {/* Left Side: Gradient + Text */}
         <div 
-          className="relative w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-24 py-10 lg:py-14 z-20"
+          className="relative w-full lg:w-1/2 flex flex-col justify-start px-6 md:px-12 lg:px-16 xl:px-24 pt-12 lg:pt-24 pb-10 lg:pb-14 z-20"
           style={{ background: `linear-gradient(135deg, ${theme.colorHex} 0%, ${theme.colorHex}dd 60%, ${theme.colorHex}bb 100%)` }}
         >
           {/* Breadcrumb */}
@@ -150,9 +150,7 @@ export default function ServiceDetailContent({ service, content, relatedServices
             
             {/* Long Description */}
             <div className="mb-14">
-              <h2 className="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6">
-                {content.title}
-              </h2>
+
               <div 
                 className="prose prose-lg max-w-none text-gray-600 leading-loose [&>h2]:text-2xl [&>p]:mb-4"
                 dangerouslySetInnerHTML={{ __html: content.longDescription }}

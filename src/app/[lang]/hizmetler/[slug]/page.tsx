@@ -45,14 +45,16 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   if (!service) {
     return (
-      <main className="min-h-screen bg-white flex flex-col">
+      <>
         <Header dict={dict?.header} lang={lang} />
-        <div className="flex-grow">
-          <NotFoundContent dict={dict} lang={lang} />
-        </div>
+        <main className="min-h-screen bg-white flex flex-col">
+          <div className="flex-grow">
+            <NotFoundContent dict={dict} lang={lang} />
+          </div>
+        </main>
         <Footer dict={dict} lang={lang} />
         <MobileBottomNav dict={dict?.mobileNav} />
-      </main>
+      </>
     );
   }
 
@@ -60,16 +62,18 @@ export default async function ServiceDetailPage({ params }: Props) {
   const relatedServices = getRelatedServices(content.relatedSlugs, lang);
 
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Header dict={dict?.header} lang={lang} />
-      <ServiceDetailContent
-        service={service}
-        content={content}
-        relatedServices={relatedServices}
-        lang={lang}
-      />
+      <main className="min-h-screen bg-white">
+        <ServiceDetailContent
+          service={service}
+          content={content}
+          relatedServices={relatedServices}
+          lang={lang}
+        />
+      </main>
       <Footer dict={dict} lang={lang} />
       <MobileBottomNav dict={dict?.mobileNav} />
-    </main>
+    </>
   );
 }

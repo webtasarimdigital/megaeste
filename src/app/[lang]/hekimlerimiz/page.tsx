@@ -23,11 +23,14 @@ export default async function DoctorsPage({ params }: Props) {
   const dict = await getDictionary(lang);
 
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Header dict={dict?.header} lang={lang} />
-      <DoctorListContent doctors={doctors} lang={lang} />
+      <main className="min-h-screen bg-white">
+        <DoctorListContent doctors={doctors} lang={lang} />
+      </main>
       <Footer dict={dict} lang={lang} />
       <MobileBottomNav dict={dict?.mobileNav} />
-    </main>
+    </>
+
   );
 }

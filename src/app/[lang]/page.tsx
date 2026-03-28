@@ -16,74 +16,75 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   const dict = await getDictionary(lang as 'tr' | 'en');
 
   return (
-    <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
-      
-      {/* JSON-LD Structured Data for Home Page */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                "@id": "https://megaeste.com/#organization",
-                "name": "Megaeste Estetik ve Plastik Cerrahi",
-                "url": "https://megaeste.com",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://megaeste.com/images/megaeste-logo-png.png",
-                  "width": 600,
-                  "height": 184
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+90-533-481-4098",
-                  "contactType": "customer service",
-                  "availableLanguage": ["Turkish", "English"]
-                },
-                "sameAs": [
-                  "https://www.instagram.com/mega.estetik"
-                ]
-              },
-              {
-                "@type": "WebSite",
-                "@id": "https://megaeste.com/#website",
-                "url": "https://megaeste.com",
-                "name": "Megaeste",
-                "publisher": {
-                  "@id": "https://megaeste.com/#organization"
-                },
-                "inLanguage": lang === 'tr' ? 'tr-TR' : 'en-US'
-              }
-            ]
-          })
-        }}
-      />
-
+    <>
       <Header dict={dict.header} lang={lang} />
-      <HeroSlider dict={dict.hero} lang={lang} />
-      
-      {/* Top action area wrapper */}
-      <div className="relative z-20 flex flex-col">
-        <CategoryButtons dict={dict.header.nav} lang={lang} />
-      </div>
+      <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
+        
+        {/* JSON-LD Structured Data for Home Page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://megaeste.com/#organization",
+                  "name": "Megaeste Estetik ve Plastik Cerrahi",
+                  "url": "https://megaeste.com",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://megaeste.com/images/megaeste-logo-png.png",
+                    "width": 600,
+                    "height": 184
+                  },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+90-533-481-4098",
+                    "contactType": "customer service",
+                    "availableLanguage": ["Turkish", "English"]
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/mega.estetik"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://megaeste.com/#website",
+                  "url": "https://megaeste.com",
+                  "name": "Megaeste",
+                  "publisher": {
+                    "@id": "https://megaeste.com/#organization"
+                  },
+                  "inLanguage": lang === 'tr' ? 'tr-TR' : 'en-US'
+                }
+              ]
+            })
+          }}
+        />
 
-      {/* Body content */}
-      <div className="w-full flex flex-col -mt-4 xl:-mt-10 relative z-30">
-        <AboutSection dict={dict} lang={lang} />
-        <ServicesShowcase dict={dict} lang={lang} />
-        <QuickAppointment lang={lang} />
-      </div>
+        <HeroSlider dict={dict.hero} lang={lang} />
+        
+        {/* Top action area wrapper */}
+        <div className="relative z-20 flex flex-col">
+          <CategoryButtons dict={dict.header.nav} lang={lang} />
+        </div>
 
-      <AboutVideoSection lang={lang} />
-      
-      <PopularServicesArea lang={lang} />
-      <BlogSection dict={dict} lang={lang} />
-      <FAQSection dict={dict} lang={lang} />
+        {/* Body content */}
+        <div className="w-full flex flex-col -mt-4 xl:-mt-10 relative z-30">
+          <AboutSection dict={dict} lang={lang} />
+          <ServicesShowcase dict={dict} lang={lang} />
+          <QuickAppointment lang={lang} />
+        </div>
 
+        <AboutVideoSection lang={lang} />
+        
+        <PopularServicesArea lang={lang} />
+        <BlogSection dict={dict} lang={lang} />
+        <FAQSection dict={dict} lang={lang} />
+      </main>
       <Footer dict={dict.header.nav} footerDict={dict.footer} lang={lang} />
       <MobileBottomNav dict={dict.mobileNav} />
-    </main>
+    </>
   );
 }

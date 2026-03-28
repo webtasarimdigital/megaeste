@@ -17,7 +17,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
     <div className="w-full bg-[#f8fafc] pb-10">
       
       {/* Adjusted Compact Hero Section */}
-      <section className="relative w-full h-[300px] lg:h-[35vh] min-h-[300px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-12">
+      <section className="relative w-full h-[240px] lg:h-[28vh] min-h-[240px] bg-[#0d2244] flex items-center justify-center overflow-hidden">
         
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
@@ -52,7 +52,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
       </section>
 
       {/* 2-Column Contact Layout (Overlap reduced) */}
-      <div className="relative z-40 -mt-6 sm:-mt-10 w-full max-w-[1280px] mx-auto px-4 lg:px-8">
+      <div className="relative z-40 mt-10 lg:mt-14 w-full max-w-[1280px] mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           
           {/* Left Column: Contact Form (bize yazın) */}

@@ -29,7 +29,7 @@ export default function BlogSection({ dict, lang = 'tr' }: { dict?: any, lang?: 
   const blogBaseUrl = lang === 'en' ? '/en/blog' : '/blog';
 
   return (
-    <section className="w-full relative py-20 xl:py-28 px-4 lg:px-10 xl:px-24 bg-gradient-to-b from-[#f0f5fa] to-white overflow-hidden">
+    <section className="w-full relative py-12 md:py-20 xl:py-28 px-4 lg:px-10 xl:px-24 bg-gradient-to-b from-[#f0f5fa] to-white overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#427bdf]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 

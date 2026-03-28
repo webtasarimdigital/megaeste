@@ -11,7 +11,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
   const isTr = lang === 'tr';
 
   return (
-    <section className="w-full relative z-10 py-16 lg:py-24 bg-white overflow-hidden">
+    <section className="w-full relative z-10 py-10 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-16 flex flex-col gap-16 lg:gap-24">
         
         {/* Main Section Title */}

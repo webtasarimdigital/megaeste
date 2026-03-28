@@ -3,7 +3,6 @@ import { getDictionary } from '../../../get-dictionary';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
-import FloatingActionButtons from '@/components/FloatingActionButtons';
 import ContactContent from '@/components/ContactContent';
 
 type Props = {
@@ -26,12 +25,14 @@ export default async function ContactPage({ params }: Props) {
   const dict = await getDictionary(lang);
 
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Header dict={dict?.header} lang={lang} />
-      <ContactContent dict={dict} lang={lang} />
+      <main className="min-h-screen bg-white">
+        <ContactContent dict={dict} lang={lang} />
+      </main>
       <Footer dict={dict?.footer} lang={lang} />
-      <FloatingActionButtons lang={lang} />
       <MobileBottomNav dict={dict?.mobileNav} />
-    </main>
+    </>
+
   );
 }

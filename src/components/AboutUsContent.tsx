@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { PiCheckCircleThin, PiHeartbeatThin, PiShieldCheckThin, PiStethoscopeThin } from 'react-icons/pi';
 import QuickContact from './QuickContact';
 
+
 export default function AboutUsContent({ dict, lang }: { dict: any, lang: string }) {
   const content = dict?.aboutUs;
 
@@ -125,14 +126,53 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
         </div>
       </section>
 
-      {/* Appointment CTA Section using QuickContact */}
-      <section className="w-full bg-gradient-to-b from-white to-[#f4f7fb] pt-10 pb-16">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12 text-center mb-8">
+      {/* Vision / Mission / Values - Clean Section */}
+      <section className="w-full bg-[#f8fafc] py-16 md:py-24">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: '👁️',
+                title: lang === 'en' ? 'Our Vision' : 'Vizyonumuz',
+                desc: lang === 'en'
+                  ? 'To be a leading center in health tourism by combining the latest aesthetic and medical technologies.'
+                  : 'En son estetik ve medikal teknolojileri hasta odaklı bakım anlayışıyla birleştirerek öncü olmak.',
+              },
+              {
+                icon: '🚀',
+                title: lang === 'en' ? 'Our Mission' : 'Misyonumuz',
+                desc: lang === 'en'
+                  ? 'To provide reliable, transparent and science-based treatment methods in medical aesthetics.'
+                  : 'Sağlık ve medikal estetik alanında güvenilir, şeffaf ve bilimsel tedavi yöntemleri sunmak.',
+              },
+              {
+                icon: '⭐',
+                title: lang === 'en' ? 'Our Values' : 'Değerlerimiz',
+                desc: lang === 'en'
+                  ? 'Transparency, honesty, sterilization and continuous education are our core values.'
+                  : 'Şeffaflık, dürüstlük, sterilizasyon ve sürekli eğitim temel değerlerimizdir.',
+              },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="text-[#1e3a5f] font-bold text-xl mb-3">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Appointment CTA Section using QuickContact - Restored */}
+      <section className="w-full bg-white pt-10 pb-16">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 xl:px-12 text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-black text-[#1e3a5f] mb-4">
-            {content?.bookTitle || "Güzelliğinize Doğru İlk Adımı Atın"}
+            {lang === 'en' ? 'Meet the Megaeste Family' : 'Megaeste Ailesiyle Tanışın'}
           </h2>
-          <p className="text-gray-600 font-medium max-w-2xl mx-auto flex items-center justify-center gap-2">
-            <span>{content?.bookDesc || "Uzman hekimlerimizden ücretsiz ön değerlendirme almak için formu doldurun."}</span>
+          <p className="text-gray-600 font-medium max-w-2xl mx-auto mb-8">
+            {lang === 'en' 
+              ? 'For everything you need for a healthy future, Megaeste is waiting for you.' 
+              : 'Sağlıklı bir gelecek için ihtiyacınız olan her şey Megaeste\'de sizi bekliyor.'}
           </p>
         </div>
         <QuickContact />

@@ -126,7 +126,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             {/* Desktop Language Switcher (Dropdown) */}
             <div className="pl-3 xl:pl-4 relative group flex items-center h-full">
               <button className="flex items-center gap-1.5 font-bold text-[#1e3a5f] hover:text-[#cca66b] transition-colors text-[11px] xl:text-[12px] uppercase">
-                <img src={`https://hatscripts.github.io/circle-flags/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px]" />
+                <img src={`/images/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px]" />
                 <span>{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
                 <span className="text-[8px] xl:text-[9px]">▼</span>
               </button>
@@ -134,12 +134,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               {/* Desktop Lang Dropdown Menu */}
               <div className="absolute top-[60px] right-0 mt-0 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-b-lg border-t-2 border-[#cca66b] overflow-hidden flex flex-col w-[140px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
                  <button onClick={() => switchLanguage('tr')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
-                    <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
+                    <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
                     <span className={lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}>TÜRKÇE</span>
                  </button>
                  <div className="h-[1px] bg-gray-100 w-full" />
                  <button onClick={() => switchLanguage('en')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
-                    <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
+                    <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
                     <span className={lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}>ENGLISH</span>
                  </button>
               </div>
@@ -195,19 +195,19 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         </div>
       </div>
 
-      {/* Mobile Header */}
-      <div className="lg:hidden w-full flex flex-col bg-white shadow-sm border-b-[3px] border-[#427bdf]/10">
+      {/* Mobile Header - Sticky */}
+      <div className="lg:hidden w-full sticky top-0 z-[100] flex flex-col bg-white shadow-md border-b-[3px] border-[#427bdf]/10">
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px]">
           
           {/* Logo on Left */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1">
             <Image 
               src="/images/megaestelogo.png" 
               alt="Megaeste Logo" 
               width={160} 
               height={50} 
               priority 
-              className="w-[130px] sm:w-[140px] h-auto object-contain"
+              className="w-[125px] sm:w-[140px] h-auto object-contain"
             />
           </Link>
           
@@ -216,11 +216,11 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             <div className="relative">
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center space-x-1.5 text-[#1e3a5f] font-bold text-[11px] lg:text-xs"
+                className="flex items-center space-x-1.5 text-[#1e3a5f] font-bold text-[11px] lg:text-xs leading-none h-full"
               >
-                <img src={`https://hatscripts.github.io/circle-flags/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px]" />
+                <img src={`/images/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px] object-contain" />
                 <span className="uppercase">{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
-                <span className="text-[10px]">▼</span>
+                <span className="text-[10px] transform group-hover:rotate-180 transition-transform">▼</span>
               </button>
               
               <AnimatePresence>
@@ -235,7 +235,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                       onClick={() => { switchLanguage('tr'); setIsLangOpen(false); }} 
                       className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}`}
                     >
-                      <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
+                      <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
                       <span>TÜRKÇE</span>
                     </button>
                     <div className="h-[1px] bg-gray-100 w-full" />
@@ -243,7 +243,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                       onClick={() => { switchLanguage('en'); setIsLangOpen(false); }} 
                       className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}`}
                     >
-                      <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
+                      <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
                       <span>ENGLISH</span>
                     </button>
                   </motion.div>
@@ -254,7 +254,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             {/* Menu Icon on Right */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-              className="text-3xl text-[#1e3a5f] hover:text-[#cca66b] transition-colors"
+              className="flex items-center justify-center text-3xl text-[#1e3a5f] hover:text-[#cca66b] transition-colors h-full"
             >
               <FiMenu />
             </button>
@@ -344,28 +344,27 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 })}
                 
                 <div className="mt-10 pt-6 flex w-full">
-                  {/* CTA + Socials */}
-                  <div className="flex flex-row items-center justify-between w-full">
+                                  <div className="flex flex-row items-center gap-6 sm:gap-8 w-full">
                     
                     {/* Bottom CTA on the Left */}
                     <Link 
                       href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-5 py-3.5 transition-all shadow-lg"
+                      className="bg-[#cca66b] hover:bg-[#b8955a] text-[#1e3a5f] font-black tracking-widest text-[11px] sm:text-[12px] flex items-center justify-center rounded-xl px-5 py-3.5 transition-all shadow-lg whitespace-nowrap"
                     >
                       {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"}
                     </Link>
-
-                    {/* Icons on the Right: WP, Konum, Telefon */}
-                    <div className="flex items-center gap-4 px-1 ml-auto">
+                    
+                    {/* Icons Closer to Button, with more gap between them */}
+                    <div className="flex items-center gap-6 px-1">
                       <a href={`https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}`} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FaWhatsapp className="text-[22px]" />
+                        <FaWhatsapp className="text-[25px]" />
                       </a>
                       <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FaMapMarkerAlt className="text-[20px]" />
+                        <FaMapMarkerAlt className="text-[23px]" />
                       </a>
                       <a href="tel:+905334814098" className="text-gray-300 hover:text-[#cca66b] transition-colors">
-                        <FiPhone className="text-[20px]" />
+                        <FiPhone className="text-[23px]" />
                       </a>
                     </div>
                   </div>

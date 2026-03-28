@@ -23,22 +23,25 @@ export default function MobileBottomNav({ dict }: { dict?: any }) {
   return (
     <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[100]">
       
-      {/* Scroll to Top Arrow - Exactly positioned to overlap the top border of the bar slightly */}
+      {/* Scroll to Top Arrow - Positioned above the bar */}
       <AnimatePresence>
         {showScrollTop && (
-          <motion.button
-            onClick={scrollToTop}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="absolute -top-[22px] left-1/2 -translate-x-1/2 w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.12)] z-20 border border-gray-200"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            className="absolute left-1/2 -translate-x-1/2 -top-14 z-50"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4b545c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="12" y1="19" x2="12" y2="5"></line>
-              <polyline points="5 12 12 5 19 12"></polyline>
-            </svg>
-          </motion.button>
+            <button
+              onClick={scrollToTop}
+              className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.15)] border border-gray-100 active:scale-95 transition-transform"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 

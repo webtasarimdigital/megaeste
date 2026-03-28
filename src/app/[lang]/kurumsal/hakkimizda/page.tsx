@@ -17,13 +17,16 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
   const dict = await getDictionary(lang as 'tr' | 'en');
   
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col">
+    <>
       <Header dict={dict?.header} lang={lang} />
-      <div className="flex-grow">
-        <AboutUsContent dict={dict} lang={lang} />
-      </div>
+      <main className="min-h-screen bg-gray-50 flex flex-col">
+        <div className="flex-grow">
+          <AboutUsContent dict={dict} lang={lang} />
+        </div>
+      </main>
       <Footer dict={dict} lang={lang} />
       <MobileBottomNav dict={dict?.mobileNav} />
-    </main>
+    </>
+
   );
 }
