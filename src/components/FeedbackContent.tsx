@@ -21,30 +21,26 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
 
   return (
     <div className="w-full bg-[#f8fafc] pb-24">
-      
-      {/* Hero (Taller for Overlap) */}
-      <section className="relative w-full h-[300px] lg:h-[35vh] min-h-[300px] bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
-        <div className="absolute inset-0 bg-[#0d2244]/80 backdrop-blur-[2px]"></div>
-        <div className="relative z-30 w-full h-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center justify-center text-center pt-20 lg:pt-28">
-          <nav className="flex items-center text-xs md:text-sm text-white/50 mb-6 font-medium tracking-wide">
-            <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
-              {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
-            </Link>
-            <FaChevronRight className="mx-3 text-[10px]" />
-            <Link href={lang === 'tr' ? '/kurumsal/hakkimizda' : `/${lang}/corporate/about-us`} className="hover:text-white transition-colors">
-              {lang === 'tr' ? 'Kurumsal' : 'Corporate'}
-            </Link>
-            <FaChevronRight className="mx-3 text-[10px]" />
-            <span className="text-white font-semibold">{title}</span>
-          </nav>
-          
-          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-5 rounded-full bg-white/10 border border-white/20 text-[#cca66b] text-xs font-bold tracking-widest uppercase">
-            {subtitle}
+      {/* Hero */}
+      <section className="relative w-full h-[350px] lg:h-[40vh] min-h-[350px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat opacity-40 blur-[2px] transform scale-105"></div>
+          <div className="absolute inset-0 bg-[#0d2244]/70 z-10 mix-blend-multiply"></div>
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
+        </div>
+
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-10">
+          <div className="flex items-center space-x-3 mb-3 md:mb-5">
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
+            <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
+              MEGAESTE CLINIC
+            </span>
+            <div className="w-5 h-[2px] bg-[#cca66b]"></div>
           </div>
-          <h1 className="text-3xl md:text-5xl font-semibold text-white mb-5 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-none mb-4 drop-shadow-xl">
             {title}
           </h1>
-          <p className="text-white/60 text-base md:text-lg max-w-xl font-light">
+          <p className="text-gray-300 text-sm md:text-base font-medium max-w-xl leading-relaxed drop-shadow-sm">
             {desc}
           </p>
         </div>
