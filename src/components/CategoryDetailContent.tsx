@@ -38,7 +38,7 @@ export default function CategoryDetailContent({
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
         </div>
 
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-10">
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-16 md:-mt-20">
           <div className="flex items-center space-x-3 mb-3 md:mb-5">
             <div className="w-5 h-[2px] bg-[#cca66b]"></div>
             <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
@@ -65,20 +65,8 @@ export default function CategoryDetailContent({
         </div>
       </section>
 
-      {/* Sub-Services Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 py-16 md:py-24">
-        <div className="text-center mb-12 md:mb-16">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-8 md:w-16 h-[2px] bg-[#cca66b]/80 rounded-full" />
-            <h2 className="text-[10px] md:text-sm font-black tracking-[0.3em] text-[#cca66b] uppercase drop-shadow-md">
-              {dict?.services?.subtitle || 'SİZE ÖZEL YÖNTEMLER'}
-            </h2>
-            <div className="w-8 md:w-16 h-[2px] bg-[#cca66b]/80 rounded-full" />
-          </div>
-          <h3 className="text-2xl md:text-4xl font-extrabold text-[#1e3a5f] tracking-tight">
-            {lang === 'en' ? 'Treatments in this Category' : 'Bu Kategorideki Tedaviler'}
-          </h3>
-        </div>
+      {/* Sub-Services Section (Deep Overlap) */}
+      <div className="relative z-40 -mt-16 md:-mt-20 lg:-mt-24 w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 pb-16 md:pb-24">
 
         {servicesList.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">

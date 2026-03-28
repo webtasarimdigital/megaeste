@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PiFeatherThin, PiScissorsThin, PiDropThin, PiSparkleThin, PiArrowRightThin } from 'react-icons/pi';
 import { services } from '@/data/services';
 import Link from 'next/link';
@@ -10,6 +10,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lang?: string }) {
   const [activeTab, setActiveTab] = useState('sac-ekimi');
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Mobile peek animation to hint scrollability
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      const timer = setTimeout(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollTo({ left: 120, behavior: 'smooth' });
+          setTimeout(() => {
+            if (scrollRef.current) {
+              scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+            }
+          }, 1200);
+        }
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const categories = [
     { 
@@ -87,51 +106,59 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
 
         {/* Dynamic Tab Navigation - Elegant Pill Menu */}
         <motion.div 
-          className="flex justify-center w-full px-2 mb-12 md:mb-20"
+          className="w-full mb-12 md:mb-20 flex flex-col items-center"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <motion.div 
-            className="inline-flex flex-nowrap overflow-x-auto no-scrollbar backdrop-blur-xl p-2.5 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-full"
-            animate={{ backgroundColor: `${activeCategory.color}25` }}
-            transition={{ duration: 0.5 }}
+          <div 
+            ref={scrollRef}
+            className="w-full overflow-x-auto no-scrollbar px-2 relative flex md:justify-center transition-all scroll-smooth"
           >
-            {categories.map((cat) => {
-              const isActive = activeTab === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveTab(cat.id)}
-                  className={`relative flex items-center justify-center px-6 py-4 md:px-10 md:py-5 rounded-xl md:rounded-full transition-colors duration-300 flex-shrink-0 group overflow-hidden ${
-                    isActive ? 'text-white' : 'text-[#3a4f66] hover:bg-white hover:shadow-sm'
-                  }`}
-                >
-                  {/* Active Background Fill with Framer Motion LayoutId */}
-                  {isActive && (
-                    <motion.div 
-                      layoutId="activeTabPill"
-                      className="absolute inset-0 rounded-xl md:rounded-full shadow-lg"
-                      style={{ backgroundColor: cat.color }} 
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  
-                  {/* Content */}
-                  <div className="relative z-10 flex items-center space-x-3 md:space-x-4">
-                    <cat.icon 
-                      className={`text-[2rem] md:text-[2.2rem] transition-transform duration-500 ${isActive ? 'scale-110 drop-shadow-sm' : 'group-hover:scale-110 group-hover:text-[#cca66b]'}`} 
-                      strokeWidth={isActive ? 1.5 : 0.7} 
-                    />
-                    <span className={`text-sm md:text-base tracking-wide whitespace-nowrap transition-all ${isActive ? 'font-bold' : 'font-medium'}`}>
-                      {cat.title}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
-          </motion.div>
+            {/* Gradient scroll indicator mask for mobile */}
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none md:hidden z-20"></div>
+
+            <motion.div 
+              className="inline-flex flex-nowrap backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+              animate={{ backgroundColor: `${activeCategory.color}15` }}
+              transition={{ duration: 0.5 }}
+            >
+              {categories.map((cat) => {
+                const isActive = activeTab === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveTab(cat.id)}
+                    className={`relative flex items-center justify-center px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-full transition-colors duration-300 flex-shrink-0 group overflow-hidden ${
+                      isActive ? 'text-white' : 'text-[#3a4f66] hover:bg-white hover:shadow-sm'
+                    }`}
+                  >
+                    {/* Active Background Fill with Framer Motion LayoutId */}
+                    {isActive && (
+                      <motion.div 
+                        layoutId="activeTabPill"
+                        className="absolute inset-0 rounded-xl md:rounded-full shadow-lg"
+                        style={{ backgroundColor: cat.color }} 
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex items-center space-x-2.5 md:space-x-4">
+                      <cat.icon 
+                        className={`text-[1.8rem] md:text-[2.2rem] transition-transform duration-500 ${isActive ? 'scale-110 drop-shadow-sm' : 'group-hover:scale-110 group-hover:text-[#cca66b]'}`} 
+                        strokeWidth={isActive ? 1.5 : 0.7} 
+                      />
+                      <span className={`text-[13px] md:text-base tracking-wide whitespace-nowrap transition-all ${isActive ? 'font-bold' : 'font-medium'}`}>
+                        {cat.title}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Dynamic Active Content Area */}

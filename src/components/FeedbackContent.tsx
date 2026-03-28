@@ -26,7 +26,7 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
         </div>
 
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-10">
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-16 md:-mt-20">
           <div className="flex items-center space-x-3 mb-3 md:mb-5">
             <div className="w-5 h-[2px] bg-[#cca66b]"></div>
             <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
