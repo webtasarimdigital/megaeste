@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
-import { FaPlay } from 'react-icons/fa';
 import Link from 'next/link';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -42,10 +41,6 @@ export default function AboutSection({ dict, lang = 'tr' }: { dict?: any, lang?:
           {/* Decorative Pattern / Blur */}
           <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#427bdf]/20 rounded-full blur-3xl -z-10"></div>
           
-          {/* Play Button Overlay - optional aesthetic */}
-          <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 bg-white/30 backdrop-blur-md w-20 h-20 rounded-full flex items-center justify-center text-white border border-white/50 hover:scale-110 transition-transform shadow-[0_0_30px_rgba(0,0,0,0.2)]">
-            <FaPlay className="text-2xl ml-1" />
-          </button>
         </div>
 
         {/* Right Side: Text Content */}

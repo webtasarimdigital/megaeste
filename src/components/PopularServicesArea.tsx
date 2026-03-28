@@ -101,16 +101,14 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             <div className="absolute inset-x-8 inset-y-0 bg-pink-500/5 rounded-[3rem] -z-10"></div>
             
             {/* Main Image */}
-            <div className="lg:col-span-3 flex flex-col items-start">
-            <a href={lang === 'tr' ? '/' : '/en'} className="inline-block mb-8 hover:opacity-80 transition-opacity p-2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/5">
-              <Image
-                src="/images/logo.png"
-                alt="Megaeste Logo"
-                width={220}
-                height={70}
-                className="w-[160px] md:w-[190px] h-auto object-contain"
+            <div className="absolute top-4 right-0 w-[65%] h-[55%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.1)] border-4 border-white group bg-gray-100">
+              <Image 
+                src="/images/services/pop_epi_main.png" 
+                alt="Lazer Epilasyon"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            </a></div>
+            </div>
 
             {/* Sub Image (Overlapping bottom left) */}
             <div className="absolute bottom-4 left-0 w-[55%] h-[45%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] border-4 border-white group bg-gray-100">
@@ -184,7 +182,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
           >
             <div className="inline-flex items-center space-x-2 bg-blue-50 text-[#427bdf] rounded-full px-4 py-1.5 w-max mb-6 border border-blue-100 shadow-sm">
               <FaStar className="text-xs" />
-              <span className="text-[11px] font-black tracking-widest uppercase">{isTr ? 'HAYAT DEĞİŞTİREN DOKUNUŞ' : 'LIFE CHANGING TOUCH'}</span>
+              <span className="text-[11px] font-black tracking-widest uppercase">{isTr ? 'SAĞLIK TURİZMİNDE GÜVEN' : 'TRUSTED HEALTH TOURISM'}</span>
             </div>
             
             <h2 className="text-3xl lg:text-5xl font-black text-[#1e3a5f] mb-6 leading-[1.15]">

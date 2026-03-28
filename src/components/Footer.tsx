@@ -79,13 +79,13 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
 
           {/* Column 1: Logo + Info + Social */}
           <div className="lg:col-span-3 flex flex-col items-start">
-            <a href={lang === 'tr' ? '/' : '/en'} className="inline-block mb-6 hover:opacity-80 transition-opacity">
+            <a href={lang === 'tr' ? '/' : '/en'} className="bg-white/95 p-3 px-5 rounded-2xl shadow-lg mb-6 hover:shadow-xl transition-shadow border border-white/20">
               <Image
-                src="/images/megaestelogo.png"
+                src="/images/megaeste-logo-png.png"
                 alt="Megaeste Logo"
                 width={220}
                 height={70}
-                className="w-[160px] md:w-[180px] h-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+                className="w-[160px] md:w-[180px] h-auto object-contain"
               />
             </a>
             <p className="text-white/60 text-[13px] leading-relaxed mb-6 font-medium">

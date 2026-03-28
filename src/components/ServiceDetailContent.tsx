@@ -42,56 +42,87 @@ export default function ServiceDetailContent({ service, content, relatedServices
 
   return (
     <>
-      {/* Smooth Gradient Hero Section */}
-      <section className="relative w-full h-[35vh] min-h-[300px] lg:min-h-[360px] flex flex-col justify-end pb-8 lg:pb-12 overflow-hidden bg-gray-50">
+      {/* JSON-LD Structured Data for FAQPage */}
+      {content.faq && content.faq.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": content.faq.map((f: { q: string, a: string }) => ({
+                "@type": "Question",
+                "name": f.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": f.a
+                }
+              }))
+            })
+          }}
+        />
+      )}
+
+      {/* Split Hero Section: Gradient Left + Image Right */}
+      <section className="relative w-full min-h-[280px] lg:min-h-[360px] flex flex-col lg:flex-row overflow-hidden">
         
-        {/* Full-Width Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Left Side: Gradient + Text */}
+        <div 
+          className="relative w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-24 py-10 lg:py-14 z-20"
+          style={{ background: `linear-gradient(135deg, ${theme.colorHex} 0%, ${theme.colorHex}dd 60%, ${theme.colorHex}bb 100%)` }}
+        >
+          {/* Breadcrumb */}
+          <nav className="flex flex-wrap items-center text-[11px] md:text-xs text-white/80 font-bold tracking-wide mb-6 lg:mb-8">
+            <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap">
+              {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
+            </Link>
+            <FaChevronRight className="mx-2 text-[9px] flex-shrink-0 opacity-70" />
+            <span className="whitespace-nowrap uppercase">{content.category}</span>
+            <FaChevronRight className="mx-2 text-[9px] flex-shrink-0 opacity-70" />
+            <span className="text-white font-black whitespace-nowrap uppercase">{content.title}</span>
+          </nav>
+
+          {/* Category Label */}
+          <span className="text-[10px] md:text-[12px] font-black tracking-[0.3em] uppercase mb-3 block text-white/70">
+            {content.category}
+          </span>
+          
+          {/* Title */}
+          <h1 className="text-3xl md:text-4xl lg:text-[46px] font-black mb-4 uppercase tracking-wide text-white leading-[1.1]">
+            {content.title}
+          </h1>
+          
+          {/* Description */}
+          <p className="text-white/85 text-sm md:text-[15px] leading-relaxed font-medium max-w-[520px]">
+            {content.heroDescription}
+          </p>
+
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl hidden lg:block"></div>
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl hidden lg:block"></div>
+        </div>
+
+        {/* Right Side: Full Quality Image */}
+        <div className="relative w-full lg:w-1/2 min-h-[220px] lg:min-h-full">
           <Image
             src={service.image}
             alt={content.title}
             fill
-            className="object-cover object-[75%_center] lg:object-right"
+            className="object-cover object-center"
             priority
-            quality={100}
+            quality={90}
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-        </div>
-
-        {/* Smooth Gradient Overlay (Left to Right) */}
-        <div 
-          className="absolute inset-0 z-10 opacity-100 hidden lg:block"
-          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 30%, transparent 60%)` }}
-        ></div>
-        {/* Mobile Gradient (Bottom to Top) */}
-        <div 
-          className="absolute inset-0 z-10 opacity-100 lg:hidden"
-          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 50%, transparent 90%)` }}
-        ></div>
-
-        {/* Absolute Top Left Breadcrumb */}
-        <nav className="absolute top-20 md:top-24 left-4 lg:left-12 xl:left-24 z-30 flex flex-wrap items-center text-[11px] md:text-xs text-white/95 drop-shadow-md font-bold tracking-wide max-w-[90%] md:max-w-auto px-4 py-2 md:py-2.5 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap mb-0">
-            {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
-          </Link>
-          <FaChevronRight className="mx-2 md:mx-3 text-[9px] md:text-[10px] flex-shrink-0 mb-0 opacity-80" />
-          <span className="text-white/90 whitespace-nowrap mb-0 uppercase">{content.category}</span>
-          <FaChevronRight className="mx-2 md:mx-3 text-[9px] md:text-[10px] flex-shrink-0 mb-0 opacity-80" />
-          <span className="text-white font-black whitespace-nowrap mb-0 uppercase">{content.title}</span>
-        </nav>
-
-        {/* Content Container (No Box, Just Text on Colored Background) */}
-        <div className="relative z-20 w-full lg:w-1/2 px-8 md:px-12 lg:px-24 mt-32 pointer-events-none flex flex-col justify-center h-full">
-          <div className="w-full max-w-[600px] pointer-events-auto">
-            <span className="text-[10px] md:text-[12px] font-black tracking-[0.3em] uppercase mb-3 block text-white/80 drop-shadow-sm">
-              {content.category}
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[50px] font-black mb-4 uppercase tracking-wide text-white leading-[1.1] drop-shadow-lg">
-              {content.title}
-            </h1>
-            <p className="text-white/90 text-sm md:text-base lg:text-lg leading-relaxed font-medium drop-shadow-md">
-              {content.heroDescription}
-            </p>
-          </div>
+          {/* Subtle gradient blend from left on desktop */}
+          <div 
+            className="absolute inset-y-0 left-0 w-24 z-10 hidden lg:block"
+            style={{ background: `linear-gradient(to right, ${theme.colorHex}bb 0%, transparent 100%)` }}
+          ></div>
+          {/* Mobile: subtle top gradient */}
+          <div 
+            className="absolute inset-x-0 top-0 h-12 z-10 lg:hidden"
+            style={{ background: `linear-gradient(to bottom, ${theme.colorHex} 0%, transparent 100%)` }}
+          ></div>
         </div>
       </section>
 

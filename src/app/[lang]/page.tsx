@@ -17,6 +17,50 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-50 w-full overflow-x-hidden">
+      
+      {/* JSON-LD Structured Data for Home Page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://megaeste.com/#organization",
+                "name": "Megaeste Estetik ve Plastik Cerrahi",
+                "url": "https://megaeste.com",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://megaeste.com/images/megaeste-logo-png.png",
+                  "width": 600,
+                  "height": 184
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+90-533-481-4098",
+                  "contactType": "customer service",
+                  "availableLanguage": ["Turkish", "English"]
+                },
+                "sameAs": [
+                  "https://www.instagram.com/mega.estetik"
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://megaeste.com/#website",
+                "url": "https://megaeste.com",
+                "name": "Megaeste",
+                "publisher": {
+                  "@id": "https://megaeste.com/#organization"
+                },
+                "inLanguage": lang === 'tr' ? 'tr-TR' : 'en-US'
+              }
+            ]
+          })
+        }}
+      />
+
       <Header dict={dict.header} lang={lang} />
       <HeroSlider dict={dict.hero} />
       

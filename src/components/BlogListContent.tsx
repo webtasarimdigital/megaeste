@@ -1,6 +1,7 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import Image from 'next/image';
 import { BlogPost } from '@/data/blog-posts';
 import Link from 'next/link';
 import { FaCalendarAlt, FaArrowRight, FaUserMd } from 'react-icons/fa';
@@ -25,10 +26,12 @@ export default function BlogListContent({ posts, lang }: Props) {
           {/* We use a gradient to make text stand out */}
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
           
-          <img 
+          <Image 
             src="/images/services/medikal-cilt-bakimi.png" 
             alt="Megaeste Blog" 
-            className="w-full h-full object-cover object-top opacity-50 blur-[2px] transform scale-105"
+            fill
+            className="object-cover object-top opacity-50 blur-[2px] transform scale-105"
+            sizes="100vw"
           />
         </div>
 

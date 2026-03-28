@@ -14,7 +14,16 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const switchLanguage = (newLang: string) => {
     if (typeof window === 'undefined') return;
@@ -94,15 +103,15 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full sticky top-0 z-50 flex flex-col bg-white">
-      {/* Desktop Top Bar - Full width, scrolls away (Height 90px) */}
-      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 h-[90px]">
+    <header className="w-full sticky top-0 z-50 flex flex-col bg-white transition-all duration-300">
+      {/* Desktop Top Bar - Hides on scroll */}
+      <div className={`hidden lg:flex w-full bg-gradient-to-l from-[#cca66b]/15 to-white border-b border-gray-100 transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0' : 'h-[90px] opacity-100'}`}>
         <div className="w-full max-w-[1280px] mx-auto flex justify-between items-center h-full px-4 lg:px-8">
           
           {/* Logo on the left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 hover:opacity-90 transition-opacity">
             <Image 
-              src="/images/logo.png" 
+              src="/images/megaeste-logo-png.png" 
               alt="Megaeste Logo" 
               width={260} 
               height={80} 
@@ -181,8 +190,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             </div>
           </nav>
           
-          {/* Social Icons (Aligned Left, Esteworld style border blocks) */}
-          <div className="absolute left-4 lg:left-8 flex items-center gap-2 z-40">
+          {/* Social Icons (Aligned Right) */}
+          <div className="absolute right-4 lg:right-8 flex items-center gap-2 z-40">
             <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="w-[34px] h-[34px] border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:text-[#E1306C] hover:border-[#E1306C] transition-colors">
               <FaInstagram className="text-[16px]" />
             </a>
@@ -203,7 +212,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           {/* Logo on Left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0">
             <Image 
-              src="/images/logo.png" 
+              src="/images/megaeste-logo-png.png" 
               alt="Megaeste Logo" 
               width={160} 
               height={50} 
@@ -273,16 +282,16 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               className="fixed inset-0 bg-[#0d2244] z-[100] flex flex-col pt-2"
             >
               {/* Header inside drawer */}
-              <div className="flex justify-between items-center px-6 py-5 border-b border-white/10">
-                <div className="py-2">
+              <div className="flex justify-between items-center px-4 py-4 border-b border-white/10">
+                <Link href={lang === 'tr' ? '/' : `/${lang}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center">
                   <Image 
-                    src="/images/megaestelogo.png" 
+                    src="/images/megaeste-logo-png.png" 
                     alt="Megaeste Logo" 
                     width={140} 
                     height={45} 
-                    className="w-[140px] object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
+                    className="w-[120px] object-contain drop-shadow-md" 
                   />
-                </div>
+                </Link>
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/20 text-white text-2xl hover:bg-white/10 transition-colors"

@@ -25,10 +25,12 @@ export default function DoctorListContent({ doctors, lang }: Props) {
           {/* We use a gradient to make text stand out */}
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
           
-          <img 
+          <Image 
             src="/images/services/medikal-cilt-bakimi.png" 
             alt="Megaeste Hekimlerimiz" 
-            className="w-full h-full object-cover object-top opacity-50 blur-[2px] transform scale-105"
+            fill
+            className="object-cover object-top opacity-50 blur-[2px] transform scale-105"
+            sizes="100vw"
           />
         </div>
 

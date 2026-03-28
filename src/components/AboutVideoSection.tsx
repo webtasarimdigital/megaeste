@@ -108,10 +108,10 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
               {/* Linear gradient covering the bottom nicely */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d2244] via-[#0d2244]/40 to-transparent opacity-80 pointer-events-none"></div>
               
-              {/* Play Button Overlay */}
-              <div className={`absolute inset-0 flex items-center justify-center pointer-events-none z-20 transition-all duration-500 ${playingState[video.id] ? 'opacity-0 scale-150' : 'opacity-100 scale-100'}`}>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-[#cca66b] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(204,166,107,0.4)] backdrop-blur-sm">
-                  <svg className="w-6 h-6 md:w-8 md:h-8 text-white ml-1.5" fill="currentColor" viewBox="0 0 24 24">
+              {/* Play Button Overlay - Bottom Right */}
+              <div className={`absolute bottom-20 lg:bottom-24 right-6 lg:right-8 pointer-events-none z-20 transition-all duration-500 ${playingState[video.id] ? 'opacity-0 scale-150' : 'opacity-100 scale-100'}`}>
+                <div className="w-11 h-11 md:w-12 md:h-12 bg-[#cca66b] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,166,107,0.4)]">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </div>
