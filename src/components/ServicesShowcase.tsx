@@ -106,21 +106,21 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
 
         {/* Dynamic Tab Navigation - Elegant Pill Menu */}
         <motion.div 
-          className="w-full mb-12 md:mb-20 flex flex-col items-center"
+          className="w-full mb-12 md:mb-20 relative flex flex-col items-center"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
+          {/* Gradient scroll indicator mask for mobile (Outside scroll container so it doesn't move!) */}
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#fafcfd] to-transparent pointer-events-none md:hidden z-20"></div>
+
           <div 
             ref={scrollRef}
-            className="w-full overflow-x-auto no-scrollbar px-2 relative flex md:justify-center transition-all scroll-smooth"
+            className="w-full overflow-x-auto no-scrollbar px-5 flex md:justify-center transition-all scroll-smooth"
           >
-            {/* Gradient scroll indicator mask for mobile */}
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none md:hidden z-20"></div>
-
             <motion.div 
-              className="inline-flex flex-nowrap backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+              className="inline-flex flex-nowrap backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] min-w-max"
               animate={{ backgroundColor: `${activeCategory.color}15` }}
               transition={{ duration: 0.5 }}
             >
@@ -130,7 +130,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
                   <button
                     key={cat.id}
                     onClick={() => setActiveTab(cat.id)}
-                    className={`relative flex items-center justify-center px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-full transition-colors duration-300 flex-shrink-0 group overflow-hidden ${
+                    className={`relative flex items-center justify-center px-5 py-4 md:px-10 md:py-5 rounded-xl md:rounded-full transition-colors duration-300 flex-shrink-0 group overflow-hidden ${
                       isActive ? 'text-white' : 'text-[#3a4f66] hover:bg-white hover:shadow-sm'
                     }`}
                   >

@@ -34,6 +34,10 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       'yuz-mezoterapi': 'facial-mesotherapy',
       'lazer-epilasyon': 'laser-hair-removal',
       'igneli-lazer-epilasyonu': 'needle-laser-epilation',
+      // Corporate Slugs
+      'kurumsal': 'corporate',
+      'hakkimizda': 'about-us',
+      'gorus-ve-onerileriniz': 'feedback',
       // Blog Slugs added to fix 404 language switching
       'sac-ekimi-sonrasi-bakim-rehberi': 'post-hair-transplant-care-guide',
       'dhi-ve-fue-farklari': 'dhi-vs-fue-differences',
