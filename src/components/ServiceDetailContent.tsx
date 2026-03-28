@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaChevronRight, FaChevronDown, FaChevronUp, FaArrowRight, FaRegClock, FaUserMd, FaShieldAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaChevronRight, FaChevronDown, FaChevronUp, FaArrowRight, FaRegClock, FaUserMd, FaShieldAlt, FaCheckCircle, FaClipboardList, FaLaptopMedical } from 'react-icons/fa';
 import { Service, ServiceContent } from '../data/services';
 
 interface Props {
@@ -57,15 +57,14 @@ export default function ServiceDetailContent({ service, content, relatedServices
         </div>
 
         {/* Smooth Gradient Overlay (Left to Right) */}
-        {/* We use inline styles here to dynamically apply the category color as a gradient */}
         <div 
           className="absolute inset-0 z-10 opacity-95"
-          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 35%, transparent 100%)` }}
+          style={{ background: `linear-gradient(to right, ${theme.colorHex} 0%, ${theme.colorHex} 30%, transparent 65%)` }}
         ></div>
         {/* Mobile Gradient (Bottom to Top) */}
         <div 
           className="absolute inset-0 z-10 opacity-95 lg:hidden"
-          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 50%, transparent 100%)` }}
+          style={{ background: `linear-gradient(to top, ${theme.colorHex} 0%, ${theme.colorHex} 40%, transparent 80%)` }}
         ></div>
 
         {/* Absolute Top Left Breadcrumb */}
@@ -104,9 +103,9 @@ export default function ServiceDetailContent({ service, content, relatedServices
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: FaUserMd, text: lang === 'tr' ? 'Uzman Kadro' : 'Expert Team', color: '#427bdf' },
-              { icon: FaShieldAlt, text: lang === 'tr' ? 'Güvenli Ortam' : 'Safe Environment', color: '#1e3a5f' },
-              { icon: FaRegClock, text: lang === 'tr' ? 'Hızlı İyileşme' : 'Fast Recovery', color: '#427bdf' },
-              { icon: FaCheckCircle, text: lang === 'tr' ? 'Doğal Sonuç' : 'Natural Results', color: '#1e3a5f' },
+              { icon: FaShieldAlt, text: lang === 'tr' ? 'Hijyenik Tesis' : 'Hygienic Facility', color: '#1e3a5f' },
+              { icon: FaClipboardList, text: lang === 'tr' ? 'Kişiye Özel Yaklaşım' : 'Personalized Approach', color: '#427bdf' },
+              { icon: FaLaptopMedical, text: lang === 'tr' ? 'Modern Teknoloji' : 'Modern Technology', color: '#1e3a5f' },
             ].map((badge, i) => (
               <div key={i} className="flex items-center gap-3 bg-white/70 backdrop-blur rounded-xl px-4 py-3 shadow-sm">
                 <badge.icon className="text-xl flex-shrink-0" style={{ color: badge.color }} />
@@ -129,11 +128,10 @@ export default function ServiceDetailContent({ service, content, relatedServices
               <h2 className="text-2xl md:text-3xl font-black text-[#1e3a5f] mb-6">
                 {content.title} {lang === 'tr' ? 'Hakkında' : 'About'}
               </h2>
-              <div className="prose prose-lg max-w-none text-gray-600 leading-loose">
-                {content.longDescription.split('\n\n').map((paragraph, i) => (
-                  <p key={i} className="mb-4 text-[15px] md:text-[16px] leading-[1.8]">{paragraph}</p>
-                ))}
-              </div>
+              <div 
+                className="prose prose-lg max-w-none text-gray-600 leading-loose [&>h2]:text-2xl [&>p]:mb-4"
+                dangerouslySetInnerHTML={{ __html: content.longDescription }}
+              />
             </div>
 
             {/* Feature Image */}

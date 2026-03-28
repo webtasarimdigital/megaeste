@@ -1,4 +1,13 @@
 {
+  "aboutUs": {
+    "title": "Hakkımızda",
+    "description": "MEGAESTE, estetik cerrahi, medikal estetik ve saç ekimi alanlarında uluslararası standartlarda sağlık hizmeti sunmak amacıyla kurulmuş, teknolojiyi ve estetiği bir araya getiren modern bir sağlık merkezidir.",
+    "mission": "Kurulduğu günden bu yana, estetik ve güzellikte güvenilir, kaliteli ve ulaşılabilir çözümler sunma vizyonuyla hareket eden MEGAESTE, İstanbul’daki merkeziyle hem yurt içinden hem de yurt dışından gelen hastalarına üstün hizmet vermektedir.",
+    "vision": "Yenilikçi medikal teknolojileri, deneyimli uzman hekim kadrosu ve hasta memnuniyetine odaklı profesyonel ekibiyle MEGAESTE, estetik ve plastik cerrahi alanında çağdaş ve güvenilir bir referans merkezi haline gelmiştir.",
+    "approach": "Her hasta için kişiselleştirilmiş tedavi yaklaşımlarıyla, uluslararası kalite standartlarında sağlık hizmeti sunmaktadır.",
+    "bookTitle": "Güzelliğinize Doğru İlk Adımı Atın",
+    "bookDesc": "Uzman hekimlerimizden ücretsiz ön değerlendirme almak için formu doldurun."
+  },
   "header": {
     "getAppointment": "Randevu Al",
     "feedbackAndSuggestions": "Görüş ve Önerileriniz",
@@ -7,7 +16,7 @@
     "nav": {
       "corporate": "Kurumsal",
       "hairTransplant": {
-        "title": "Saç Ekimi Tedavileri",
+        "title": "Saç Ekimi",
         "items": [
           "DHI Saç Ekimi",
           "Safir Saç Ekimi",

@@ -3,6 +3,7 @@
 
 import React from 'react';
 import QuickContact from './QuickContact';
+import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function ContactContent({ dict, lang }: { dict?: any, lang: string }) {
@@ -55,6 +56,51 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
       <div className="relative z-40 -mt-20 sm:-mt-24 xl:-mt-28 px-4 w-full max-w-[1440px] mx-auto">
         {/* QuickContact already has nice paddings and shadow. We just render it here. */}
         <QuickContact />
+      </div>
+
+      {/* Contact Info Cards */}
+      <div className="relative z-30 w-full max-w-[1440px] mx-auto px-4 mt-16 md:mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 justify-center items-stretch">
+          
+          {/* Email Card */}
+          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="w-16 h-16 bg-[#0d2244]/5 text-[#427bdf] rounded-full flex items-center justify-center mb-6">
+              <FiMail className="text-[28px]" />
+            </div>
+            <h3 className="text-[#1e3a5f] font-bold text-lg mb-2">{isTr ? 'E-Posta' : 'Email'}</h3>
+            <p className="text-gray-500 text-[14px] leading-relaxed mb-6 font-medium">{isTr ? 'Her türlü soru ve görüşünüz için bize e-posta yoluyla ulaşabilirsiniz.' : 'You can reach us via email for any questions or feedback.'}</p>
+            <a href="mailto:info@megaeste.com" className="text-[#cca66b] font-bold text-[15px] hover:text-[#b58f53] transition-colors mt-auto">
+              info@megaeste.com
+            </a>
+          </div>
+
+          {/* WhatsApp / Phone Card */}
+          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="w-16 h-16 bg-[#0d2244]/5 text-[#427bdf] rounded-full flex items-center justify-center mb-6">
+              <FiPhone className="text-[28px]" />
+            </div>
+            <h3 className="text-[#1e3a5f] font-bold text-lg mb-2">{isTr ? 'Telefon & WhatsApp' : 'Phone & WhatsApp'}</h3>
+            <p className="text-gray-500 text-[14px] leading-relaxed mb-6 font-medium">{isTr ? 'Randevu almak veya anında destek almak için bizi arayabilir ya da yazabilirsiniz.' : 'You can call or text us to book an appointment or get instant support.'}</p>
+            <a href="https://wa.me/905334814098?text=Merhaba" target="_blank" rel="noopener noreferrer" className="text-[#cca66b] font-bold text-[15px] hover:text-[#b58f53] transition-colors mt-auto">
+              +90 533 481 40 98
+            </a>
+          </div>
+
+          {/* Location Card */}
+          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="w-16 h-16 bg-[#0d2244]/5 text-[#427bdf] rounded-full flex items-center justify-center mb-6">
+              <FiMapPin className="text-[28px]" />
+            </div>
+            <h3 className="text-[#1e3a5f] font-bold text-lg mb-2">{isTr ? 'Konum' : 'Location'}</h3>
+            <p className="text-gray-500 text-[14px] leading-relaxed mb-6 flex-grow font-medium">
+              İstiklal Mah. Gamsız Sk. No:3<br />Ümraniye / İstanbul
+            </p>
+            <a href="https://maps.app.goo.gl/j5kTpopsUyhxsjqd9" target="_blank" rel="noopener noreferrer" className="text-[#cca66b] font-bold text-[15px] hover:text-[#b58f53] transition-colors mt-auto">
+              {isTr ? 'Yol Tarifi Al' : 'Get Directions'}
+            </a>
+          </div>
+
+        </div>
       </div>
 
       {/* Full Width Google Map */}

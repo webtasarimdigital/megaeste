@@ -1,4 +1,13 @@
 {
+  "aboutUs": {
+    "title": "About Us",
+    "description": "MEGAESTE is a modern healthcare center that brings together technology and aesthetics, established to provide international standard healthcare services in the fields of aesthetic surgery, medical aesthetics, and hair transplantation.",
+    "mission": "Acting with the vision of providing reliable, high-quality, and accessible solutions in aesthetics and beauty since its establishment, MEGAESTE provides superior service to patients coming from both domestic and abroad with its center in Istanbul.",
+    "vision": "With its innovative medical technologies, experienced specialist medical staff, and patient satisfaction-oriented professional team, MEGAESTE has become a contemporary and reliable reference center in the field of aesthetic and plastic surgery.",
+    "approach": "It provides healthcare services at international quality standards with personalized treatment approaches for each patient.",
+    "bookTitle": "Take the First Step Towards Your Beauty",
+    "bookDesc": "Fill out the form to get a free preliminary evaluation from our specialist doctors."
+  },
   "header": {
     "getAppointment": "Get Appointment",
     "feedbackAndSuggestions": "Feedback & Suggestions",
@@ -7,7 +16,7 @@
     "nav": {
       "corporate": "Corporate",
       "hairTransplant": {
-        "title": "Hair Transplant Treatments",
+        "title": "Hair Transplant",
         "items": [
           "DHI Hair Transplant",
           "Sapphire Hair Transplant",

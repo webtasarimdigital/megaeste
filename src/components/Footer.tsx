@@ -29,7 +29,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
     { icon: FaTiktok, label: '/megaeste', href: '#' },
   ];
 
-  const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Blog'];
+  const corporateLinks = f.corporateLinks || ['Ana Sayfa', 'Hakkımızda', 'Hekimlerimiz', 'Görüş ve Önerileriniz', 'Blog'];
 
   return (
     <footer className="w-full relative z-10 flex flex-col">
@@ -84,7 +84,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
               alt="Megaeste Logo"
               width={220}
               height={70}
-              className="w-[180px] h-auto object-contain mb-6 bg-white/5 rounded-xl p-2"
+              className="w-[180px] md:w-[200px] h-auto object-contain mb-6 drop-shadow-md"
             />
             <p className="text-white/60 text-[13px] leading-relaxed mb-6 font-medium">
               {f.description || 'Megaeste olarak, uzman kadromuz ve en son teknoloji cihazlarımızla sağlık ve medikal estetik alanlarında profesyonel hizmet sunuyoruz.'}
@@ -194,8 +194,8 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="w-full bg-[#071326] py-5 border-t border-white/5">
-        <p className="text-center text-white/40 text-[13px] font-medium tracking-wide">
+      <div className="w-full bg-transparent py-5 border-t border-white/10">
+        <p className="text-center text-white text-[13px] font-medium tracking-wide">
           {f.copyright || '© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır.'}
         </p>
       </div>

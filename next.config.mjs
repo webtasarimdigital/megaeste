@@ -13,6 +13,14 @@ const nextConfig = {
       {
         source: '/en/contact',
         destination: '/en/iletisim',
+      },
+      {
+        source: '/en/corporate/about-us',
+        destination: '/en/kurumsal/hakkimizda',
+      },
+      {
+        source: '/en/corporate/feedback',
+        destination: '/en/kurumsal/gorus-ve-onerileriniz',
       }
     ];
   },

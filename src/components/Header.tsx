@@ -2,15 +2,18 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React, { useState } from 'react';
-import { FiMenu } from 'react-icons/fi';
-import { FaInstagram, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: string }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const router = useRouter();
 
   const switchLanguage = (newLang: string) => {
@@ -91,10 +94,10 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
   ] : [];
 
   return (
-    <header className="w-full relative z-50 flex flex-col">
+    <header className="w-full sticky top-0 lg:top-[-52px] z-50 flex flex-col bg-white">
       {/* Desktop Top Bar - Full width, scrolls away */}
-      <div className="hidden lg:flex w-full bg-gradient-to-r from-[#427bdf]/10 via-[#427bdf]/5 to-transparent border-b border-gray-100/50">
-        <div className="w-full max-w-[1280px] mx-auto flex justify-end items-center h-[52px] px-4 lg:px-8 text-[13px] font-medium text-gray-500 divide-x divide-gray-200">
+      <div className="hidden lg:flex w-full bg-gradient-to-l from-[#427bdf]/20 via-[#427bdf]/5 to-transparent border-b border-gray-100/50 h-[52px]">
+        <div className="w-full max-w-[1280px] mx-auto flex justify-end items-center h-full px-4 lg:px-8 text-[13px] font-medium text-gray-500 divide-x divide-gray-200">
           <Link 
             href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
             className="bg-[#cca66b] text-white px-8 flex items-center justify-center font-bold text-[14px] hover:bg-[#b58f53] transition-colors h-full"
@@ -125,9 +128,9 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         </div>
       </div>
 
-      {/* Desktop Main Bar - Sticky */}
-      <div className="hidden lg:flex sticky top-0 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b-[3px] border-[#427bdf]/10 z-50 w-full transition-shadow duration-300">
-        <div className="w-full max-w-[1280px] mx-auto flex items-stretch justify-between h-[90px] px-4 lg:px-8">
+      {/* Desktop Main Bar - Sticky Portion */}
+      <div className="hidden lg:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b-[3px] border-[#427bdf]/10 w-full h-[90px] transition-shadow duration-300">
+        <div className="w-full max-w-[1280px] mx-auto flex items-stretch justify-between h-full px-4 lg:px-8">
           
           {/* Logo Section */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8">
@@ -169,23 +172,23 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               ))}
             </div>
             
-            <div className="flex items-center pl-6 xl:pl-8 border-l border-gray-200 space-x-4 text-[18px] text-[#427bdf]/80 ml-6 xl:ml-8 relative z-40 h-[40px]">
-              <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca66b] transition-transform hover:scale-110 inline-block p-1">
-                <FaInstagram />
+            <div className="flex items-center pl-6 xl:pl-8 border-l border-gray-200 gap-4 xl:gap-5 ml-6 xl:ml-8 relative z-40 h-[40px]">
+              <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-[#E1306C] hover:text-[#cca66b] transition-transform hover:scale-110 flex items-center justify-center">
+                <FaInstagram className="text-[22px] xl:text-[25px]" />
               </a>
-              <a href="https://wa.me/905000000000" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca66b] transition-transform hover:scale-110 inline-block p-1">
-                <FaWhatsapp />
+              <a href="https://wa.me/905000000000" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:text-[#cca66b] transition-transform hover:scale-110 flex items-center justify-center">
+                <FaWhatsapp className="text-[22px] xl:text-[25px]" />
               </a>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca66b] transition-transform hover:scale-110 inline-block p-1">
-                <FaMapMarkerAlt />
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-[#EA4335] hover:text-[#cca66b] transition-transform hover:scale-110 flex items-center justify-center">
+                <FaMapMarkerAlt className="text-[22px] xl:text-[25px]" />
               </a>
             </div>
           </nav>
         </div>
       </div>
 
-      {/* Mobile Header (Sticky to ensure it doesn't break mobile flow) */}
-      <div className="lg:hidden w-full flex flex-col bg-white shadow-sm border-b-[3px] border-[#427bdf]/10 sticky top-0 z-50">
+      {/* Mobile Header */}
+      <div className="lg:hidden w-full flex flex-col bg-white shadow-sm border-b-[3px] border-[#427bdf]/10">
         <div className="flex justify-between items-center px-4 py-3 border-b border-gray-100">
           
           {/* Logo on Left */}
@@ -201,20 +204,43 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           </Link>
           
           <div className="flex items-center gap-4">
-            {/* Language Switcher moved next to menu */}
-            <div className="flex items-center space-x-3">
+            {/* Language Switcher Dropdown (Esteworld style) */}
+            <div className="relative">
               <button 
-                onClick={() => switchLanguage('tr')} 
-                className={`relative flex items-center justify-center w-5 h-5 rounded-full overflow-hidden transition-all ${lang === 'tr' ? 'ring-2 ring-offset-1 ring-[#1e3a5f] opacity-100' : 'opacity-40'}`}
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center space-x-1.5 text-[#1e3a5f] font-bold text-[11px] lg:text-xs"
               >
-                <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-full h-full object-cover" />
+                <img src={`https://hatscripts.github.io/circle-flags/flags/${lang === 'tr' ? 'tr' : 'gb'}.svg`} alt="Lang" className="w-[18px] h-[18px]" />
+                <span className="uppercase">{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
+                <span className="text-[10px]">▼</span>
               </button>
-              <button 
-                onClick={() => switchLanguage('en')} 
-                className={`relative flex items-center justify-center w-5 h-5 rounded-full overflow-hidden transition-all ${lang === 'en' ? 'ring-2 ring-offset-1 ring-[#1e3a5f] opacity-100' : 'opacity-40'}`}
-              >
-                <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-full h-full object-cover" />
-              </button>
+              
+              <AnimatePresence>
+                {isLangOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -5 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    exit={{ opacity: 0, y: -5 }} 
+                    className="absolute top-full right-0 mt-3 bg-white shadow-xl rounded-md border border-gray-100 overflow-hidden flex flex-col w-[130px] z-50"
+                  >
+                    <button 
+                      onClick={() => { switchLanguage('tr'); setIsLangOpen(false); }} 
+                      className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}`}
+                    >
+                      <img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" alt="TR" className="w-[18px] h-[18px]" />
+                      <span>TÜRKÇE</span>
+                    </button>
+                    <div className="h-[1px] bg-gray-100 w-full" />
+                    <button 
+                      onClick={() => { switchLanguage('en'); setIsLangOpen(false); }} 
+                      className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}`}
+                    >
+                      <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="EN" className="w-[18px] h-[18px]" />
+                      <span>ENGLISH</span>
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             
             {/* Menu Icon on Right */}
@@ -227,28 +253,110 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 py-2 flex flex-col z-50 max-h-[70vh] overflow-y-auto">
-             {navData.map((category, index) => (
-               <div key={index} className="flex flex-col border-b border-gray-50">
-                 <a href="#" className="flex items-center justify-between px-5 py-3.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
-                   {category.title}
-                   {category.items.length > 0 && <span className="text-gray-400 text-xs">▼</span>}
-                 </a>
-                 {category.items.length > 0 && (
-                   <div className="flex flex-col bg-gray-50/50">
-                     {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
-                       <Link key={subIdx} href={subItem.href} className="px-8 py-3 text-[13px] text-gray-600 hover:text-[#427bdf] hover:bg-[#427bdf]/5 border-b border-gray-50/20 last:border-none capitalize font-medium transition-colors">
-                         {subItem.label}
-                       </Link>
-                     ))}
-                   </div>
-                 )}
-               </div>
-             ))}
-          </div>
-        )}
+        {/* Mobile Menu Drawer */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3 }}
+              className="fixed inset-0 bg-[#3a4352] z-[100] flex flex-col pt-2"
+            >
+              {/* Header inside drawer */}
+              <div className="flex justify-between items-center px-6 py-5 border-b border-gray-600/50">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="Megaeste Logo" 
+                  width={140} 
+                  height={45} 
+                  className="w-[130px] object-contain brightness-0 invert" 
+                />
+                <button 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-500 text-gray-300 text-2xl hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  <FiX />
+                </button>
+              </div>
+
+              {/* Scrollable menu */}
+              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col no-scrollbar">
+                
+                {navData.map((category, index) => {
+                  const hasItems = category.items.length > 0;
+                  return (
+                    <div key={index} className="flex flex-col border-b border-gray-600/50">
+                      <button 
+                        onClick={() => {
+                          if (hasItems) {
+                            setOpenAccordion(openAccordion === index ? null : index);
+                          } else {
+                            if (category.href) {
+                              router.push(category.href);
+                              setIsMobileMenuOpen(false);
+                            }
+                          }
+                        }}
+                        className={`flex items-center justify-between py-5 text-[14px] font-black tracking-widest uppercase transition-colors ${openAccordion === index ? 'text-[#f8b931]' : 'text-gray-200 hover:text-white'}`}
+                      >
+                        {category.title}
+                      </button>
+                      
+                      <AnimatePresence>
+                        {hasItems && openAccordion === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="flex flex-col border-l-2 border-gray-600 ml-2 mb-4">
+                              {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
+                                <Link 
+                                  key={subIdx} 
+                                  href={subItem.href}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="py-3.5 px-5 text-[13px] font-medium tracking-wide text-gray-400 hover:text-white transition-colors uppercase"
+                                >
+                                  {subItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+                
+                {/* Social media links inside mobile menu */}
+                <div className="flex items-center gap-6 mt-8 mb-4">
+                  <a href="https://www.instagram.com/mega.estetik" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#cca66b] transition-colors">
+                    <FaInstagram className="text-2xl" />
+                  </a>
+                  <a href="https://wa.me/905000000000" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#cca66b] transition-colors">
+                    <FaWhatsapp className="text-2xl" />
+                  </a>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#cca66b] transition-colors">
+                    <FaMapMarkerAlt className="text-2xl" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Bottom CTA */}
+              <div className="p-6 bg-[#2a313d] mt-auto">
+                <Link 
+                  href={`${prefix}/${lang === 'tr' ? 'iletisim' : 'contact'}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full h-14 bg-[#f8b931] hover:bg-[#e0a62c] text-[#333] font-black tracking-widest text-[14px] flex items-center justify-center rounded-xl gap-3 transition-all shadow-lg"
+                >
+                  {dict?.getAppointment?.toUpperCase() || "RANDEVU AL"} <FaArrowRight />
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
