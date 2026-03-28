@@ -40,6 +40,11 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
     { label: lang === 'en' ? 'Blog' : 'Blog', href: lang === 'en' ? '/en/blog' : '/blog' },
   ];
 
+  const socialLinks = [
+    { icon: FaInstagram, href: 'https://www.instagram.com/mega.estetik' },
+    { icon: FaWhatsapp, href: `https://wa.me/905334814098?text=${lang === 'en' ? 'Hello,%20I%20would%20like%20to%20get%20information' : 'Merhaba,%20bilgi%20almak%20istiyorum'}` },
+  ];
+
   return (
     <footer className="w-full relative z-10 flex flex-col">
       
