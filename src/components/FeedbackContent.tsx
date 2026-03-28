@@ -23,9 +23,9 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
     <div className="w-full bg-[#f8fafc] pb-24">
       
       {/* Hero (Taller for Overlap) */}
-      <section className="relative w-full h-[380px] lg:h-[45vh] min-h-[380px] bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
+      <section className="relative w-full h-[300px] lg:h-[35vh] min-h-[300px] bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
         <div className="absolute inset-0 bg-[#0d2244]/80 backdrop-blur-[2px]"></div>
-        <div className="relative z-30 w-full h-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center justify-center text-center -mt-12 md:-mt-16">
+        <div className="relative z-30 w-full h-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 flex flex-col items-center justify-center text-center -mt-16 md:-mt-20">
           <nav className="flex items-center text-xs md:text-sm text-white/50 mb-6 font-medium tracking-wide">
             <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors">
               {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
@@ -51,7 +51,7 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
       </section>
 
       {/* Form Section (Deep Overlap) */}
-      <div className="relative z-40 -mt-24 md:-mt-32 lg:-mt-40 px-4 w-full max-w-[1440px] mx-auto">
+      <div className="relative z-40 -mt-12 md:-mt-16 lg:-mt-20 px-4 w-full max-w-[1440px] mx-auto">
         <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 md:p-10 lg:p-14 relative z-10 w-full mx-auto border border-gray-100 flex flex-col lg:flex-row gap-12 lg:gap-16">
           
           {/* Left Column: Form */}

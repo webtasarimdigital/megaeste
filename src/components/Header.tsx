@@ -197,22 +197,22 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
       {/* Mobile Header - Sticky */}
       <div className="lg:hidden w-full sticky top-0 z-[100] flex flex-col bg-white shadow-md border-b-[3px] border-[#427bdf]/10">
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px] relative overflow-hidden">
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px] relative overflow-visible">
           
           {/* Logo on Left */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10 w-[125px] sm:w-[135px]">
             <Image 
               src="/images/megaeste-mobile-header.png" 
               alt="Megaeste Logo" 
               width={160} 
               height={50} 
               priority 
-              className="w-[125px] sm:w-[135px] h-auto object-contain"
+              className="w-full h-auto object-contain object-left"
             />
           </Link>
           
-          {/* Language Switcher Dropdown (Centered) */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center z-10">
+          {/* Language Switcher Dropdown (Centered exactly between Logo and Menu) */}
+          <div className="flex-1 flex justify-center items-center z-10 px-2 min-w-0">
             <div className="relative">
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)}

@@ -71,8 +71,8 @@ export default function ServiceDetailContent({ service, content, relatedServices
           className="relative w-full lg:w-1/2 flex flex-col justify-start px-6 md:px-12 lg:px-16 xl:px-24 pt-12 lg:pt-24 pb-10 lg:pb-14 z-20"
           style={{ background: `linear-gradient(135deg, ${theme.colorHex} 0%, ${theme.colorHex}dd 60%, ${theme.colorHex}bb 100%)` }}
         >
-          {/* Breadcrumb */}
-          <nav className="flex flex-wrap items-center text-[11px] md:text-xs text-white/80 font-bold tracking-wide mb-6 lg:mb-8">
+          {/* Breadcrumb (Hidden on Mobile) */}
+          <nav className="hidden md:flex flex-wrap items-center text-[11px] md:text-xs text-white/80 font-bold tracking-wide mb-6 lg:mb-8">
             <Link href={lang === 'tr' ? '/' : `/${lang}`} className="hover:text-white transition-colors whitespace-nowrap">
               {lang === 'tr' ? 'Ana Sayfa' : 'Home'}
             </Link>

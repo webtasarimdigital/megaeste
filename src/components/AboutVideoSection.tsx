@@ -91,7 +91,9 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
                 }
               }}
               className={`relative rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl transition-shadow duration-500 bg-[#0d2244] w-full cursor-pointer lg:cursor-default
-                ${video.isWide ? 'md:col-span-2 aspect-video lg:aspect-auto h-full' : 'col-span-1 aspect-[9/16] lg:aspect-auto h-[400px] md:h-full lg:h-full'}
+                ${video.isWide 
+                  ? 'md:col-span-2 aspect-video md:aspect-auto md:h-[400px] lg:h-full' 
+                  : 'col-span-1 aspect-video md:aspect-auto md:h-[400px] lg:h-full'}
               `}
             >
               <video

@@ -17,7 +17,7 @@ export default function DoctorListContent({ doctors, lang }: Props) {
   return (
     <>
       {/* Adjusted Taller Hero Section for Better Overlap */}
-      <section className="relative w-full h-[380px] lg:h-[45vh] min-h-[380px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
+      <section className="relative w-full h-[300px] lg:h-[35vh] min-h-[300px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
         
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
@@ -35,7 +35,7 @@ export default function DoctorListContent({ doctors, lang }: Props) {
         </div>
 
         {/* Content */}
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-12 md:-mt-16">
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-16 md:-mt-20">
           <div className="flex items-center space-x-3 mb-3 md:mb-5">
             <div className="w-5 h-[2px] bg-[#cca66b]"></div>
             <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
@@ -55,7 +55,7 @@ export default function DoctorListContent({ doctors, lang }: Props) {
       </section>
 
       {/* Doctor Cards (Deep Overlap) */}
-      <section className="relative z-40 -mt-24 md:-mt-32 lg:-mt-40 w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 pb-16 xl:pb-24">
+      <section className="relative z-40 -mt-12 md:-mt-16 lg:-mt-20 w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24 pb-16 xl:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {doctors.map((doc) => {
             const c = doc[lang];

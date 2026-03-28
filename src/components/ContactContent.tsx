@@ -17,7 +17,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
     <div className="w-full bg-[#f8fafc] pb-10">
       
       {/* Adjusted Taller Hero Section for Better Overlap */}
-      <section className="relative w-full h-[380px] lg:h-[45vh] min-h-[380px] bg-[#0d2244] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[300px] lg:h-[35vh] min-h-[300px] bg-[#0d2244] flex items-center justify-center overflow-hidden">
         
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
@@ -33,7 +33,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
         </div>
 
         {/* Content */}
-        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-12 md:-mt-16">
+        <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 -mt-16 md:-mt-20">
           <div className="flex items-center space-x-3 mb-3 md:mb-5">
             <div className="w-5 h-[2px] bg-[#cca66b]"></div>
             <span className="text-[#cca66b] text-[11px] md:text-xs font-black tracking-[0.3em] uppercase drop-shadow-md">
@@ -52,7 +52,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
       </section>
 
       {/* 2-Column Contact Layout (Deep Premium Overlap) */}
-      <div className="relative z-40 -mt-24 md:-mt-32 lg:-mt-40 w-full max-w-[1280px] mx-auto px-4 lg:px-8">
+      <div className="relative z-40 -mt-12 md:-mt-16 lg:-mt-20 w-full max-w-[1280px] mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           
           {/* Left Column: Contact Form (bize yazın) */}
