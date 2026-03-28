@@ -13,6 +13,16 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
       Object.values(videoRefs.current).forEach(video => {
         if (video) video.pause();
       });
+    } else {
+      // Force play on mobile: iOS sometimes needs explicit JS trigger even with autoPlay.
+      // Also ensures muted and playsInline are strictly enforced before playing.
+      Object.values(videoRefs.current).forEach(video => {
+        if (video) {
+          video.muted = true;
+          video.playsInline = true;
+          video.play().catch(() => {});
+        }
+      });
     }
   }, []);
 
@@ -41,7 +51,17 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
   ];
 
   return (
-    <section className="w-full bg-[#f8fafc] py-16 xl:py-24">
+    <section className="w-full bg-[#f8fafc] py-16 xl:py-24 relative">
+      {/* Hide iOS native play button globally for this section to prevent double-buttons */}
+      <style dangerouslySetInnerHTML={{__html: `
+        video::-webkit-media-controls-start-playback-button {
+          display: none !important;
+          -webkit-appearance: none;
+        }
+        video::-webkit-media-controls {
+          display: none !important;
+        }
+      `}} />
       <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-24">
         
         {/* Header */}
