@@ -7,23 +7,41 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
   const [playingState, setPlayingState] = React.useState<{ [key: number]: boolean }>({});
 
   React.useEffect(() => {
-    // Native autoPlay attribute is used on <video> tags to bypass iOS/Android strict policies.
-    // For desktop (>= 1024px), we pause them initially to maintain the hover-to-play behavior.
-    if (window.innerWidth >= 1024) {
-      Object.values(videoRefs.current).forEach(video => {
-        if (video) video.pause();
-      });
-    } else {
-      // Force play on mobile: iOS sometimes needs explicit JS trigger even with autoPlay.
-      // Also ensures muted and playsInline are strictly enforced before playing.
-      Object.values(videoRefs.current).forEach(video => {
-        if (video) {
-          video.muted = true;
-          video.playsInline = true;
-          video.play().catch(() => {});
+    const isMobile = window.innerWidth < 1024;
+
+    // Observer to play video only when it's substantially in viewport (saves battery, prevents iOS block errors)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.4 } // Play when 40% visible
+    );
+
+    Object.values(videoRefs.current).forEach((video) => {
+      if (video) {
+        // Enforce basic iOS silent autoplay rules strictly via JS before playing
+        video.muted = true;
+        video.playsInline = true;
+        
+        if (isMobile) {
+          observer.observe(video);
+        } else {
+          // On desktop, ensure they are strictly paused initially for the hover effect
+          video.pause();
         }
-      });
-    }
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const videos = [
@@ -123,7 +141,7 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
                 muted
                 loop
                 playsInline
-                autoPlay
+                /* Removed autoPlay attribute to fix "play interrupted by pause" race condition on desktop hover! */
                 onPlay={() => setPlayingState(prev => ({ ...prev, [video.id]: true }))}
                 onPause={() => setPlayingState(prev => ({ ...prev, [video.id]: false }))}
                 className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
