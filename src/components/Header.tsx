@@ -126,7 +126,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             {/* Desktop Language Switcher (Dropdown) */}
             <div className="pl-3 xl:pl-4 relative group flex items-center h-full">
               <button className="flex items-center gap-1.5 font-black text-[#1e3a5f] hover:text-[#cca66b] transition-colors text-[11px] xl:text-[12px] uppercase">
-                <img src={`/images/flags/${lang === 'tr' ? 'tr.svg' : 'gb.svg'}`} alt="Lang" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
+                <img src={`/images/flags/${lang === 'tr' ? 'tr.svg' : 'gb.svg'}`} alt="Lang" className="w-[22px] h-auto rounded-[3px] shadow-sm" />
                 <span>{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
                 <span className="text-[8px] xl:text-[9px]">▼</span>
               </button>
@@ -134,12 +134,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               {/* Desktop Lang Dropdown Menu */}
               <div className="absolute top-[60px] right-0 mt-0 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-b-lg border-t-2 border-[#cca66b] overflow-hidden flex flex-col w-[140px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
                  <button onClick={() => switchLanguage('tr')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
-                    <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
+                    <img src="/images/flags/tr.svg" alt="TR" className="w-[22px] h-auto rounded-[3px] shadow-sm" />
                     <span className={lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}>TÜRKÇE</span>
                  </button>
                  <div className="h-[1px] bg-gray-100 w-full" />
                  <button onClick={() => switchLanguage('en')} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors">
-                    <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
+                    <img src="/images/flags/gb.svg" alt="EN" className="w-[22px] h-auto rounded-[3px] shadow-sm" />
                     <span className={lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}>ENGLISH</span>
                  </button>
               </div>
@@ -200,12 +200,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px] relative overflow-visible">
           
           {/* Logo on Left */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10 w-[125px] sm:w-[135px]">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10 w-[145px] sm:w-[160px]">
             <Image 
               src="/images/megaeste-mobile-header.png" 
               alt="Megaeste Logo" 
-              width={160} 
-              height={50} 
+              width={180} 
+              height={56} 
               priority 
               className="w-full h-auto object-contain object-left"
             />
@@ -221,7 +221,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 <img 
                   src={`/images/flags/${lang === 'tr' ? 'tr.svg' : 'gb.svg'}`} 
                   alt="Lang" 
-                  className="w-[18px] sm:w-[20px] h-auto shadow-sm rounded-[2px]" 
+                  className="w-[20px] sm:w-[24px] h-auto shadow-sm rounded-[3px]" 
                 />
                 <span className="uppercase tracking-wide">{lang === 'tr' ? 'TÜRKÇE' : 'ENGLISH'}</span>
                 <span className="text-[10px] transform group-hover:translate-y-0.5 transition-transform opacity-60">▼</span>
@@ -239,7 +239,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                       onClick={() => { switchLanguage('tr'); setIsLangOpen(false); }} 
                       className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'tr' ? 'text-[#cca66b]' : 'text-gray-700'}`}
                     >
-                      <img src="/images/flags/tr.svg" alt="TR" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
+                      <img src="/images/flags/tr.svg" alt="TR" className="w-[22px] h-auto rounded-[3px] shadow-sm" />
                       <span>TÜRKÇE</span>
                     </button>
                     <div className="h-[1px] bg-gray-100 w-full" />
@@ -247,7 +247,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                       onClick={() => { switchLanguage('en'); setIsLangOpen(false); }} 
                       className={`flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-xs font-bold w-full text-left transition-colors ${lang === 'en' ? 'text-[#cca66b]' : 'text-gray-700'}`}
                     >
-                      <img src="/images/flags/gb.svg" alt="EN" className="w-[18px] h-auto rounded-[2px] shadow-sm" />
+                      <img src="/images/flags/gb.svg" alt="EN" className="w-[22px] h-auto rounded-[3px] shadow-sm" />
                       <span>ENGLISH</span>
                     </button>
                   </motion.div>
