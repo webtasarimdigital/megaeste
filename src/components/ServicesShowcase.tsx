@@ -13,21 +13,64 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Mobile peek animation to hint scrollability
+    // Continuous slow oscillation for mobile
     const isMobile = window.innerWidth < 768;
-    if (isMobile) {
-      const timer = setTimeout(() => {
-        if (scrollRef.current) {
-          scrollRef.current.scrollTo({ left: 120, behavior: 'smooth' });
-          setTimeout(() => {
-            if (scrollRef.current) {
-              scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-            }
-          }, 1200);
-        }
-      }, 1500);
-      return () => clearTimeout(timer);
+    if (!isMobile) return;
+
+    let animationFrameId: number;
+    let direction = 1; // 1 for right, -1 for left
+    let scrollPos = 0;
+    const speed = 0.5; // pixels per frame
+
+    const animate = () => {
+      if (!scrollRef.current) return;
+      
+      const container = scrollRef.current;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      
+      if (maxScroll <= 0) return; // Not scrollable
+      
+      scrollPos += speed * direction;
+      
+      if (scrollPos >= maxScroll) {
+        scrollPos = maxScroll;
+        direction = -1;
+      } else if (scrollPos <= 0) {
+        scrollPos = 0;
+        direction = 1;
+      }
+      
+      container.scrollLeft = scrollPos;
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    // Wait 1.5s then start slow continuous scrolling
+    const startTimer = setTimeout(() => {
+      if (scrollRef.current) {
+        scrollPos = scrollRef.current.scrollLeft;
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    }, 1500);
+
+    // If user touches the area, permanently kill the auto-scroll
+    const handleTouch = () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+    
+    const container = scrollRef.current;
+    if (container) {
+      container.addEventListener('touchstart', handleTouch, { passive: true });
+      container.addEventListener('mousedown', handleTouch, { passive: true });
     }
+
+    return () => {
+      clearTimeout(startTimer);
+      cancelAnimationFrame(animationFrameId);
+      if (container) {
+        container.removeEventListener('touchstart', handleTouch);
+        container.removeEventListener('mousedown', handleTouch);
+      }
+    };
   }, []);
 
   const categories = [
@@ -117,7 +160,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
 
           <div 
             ref={scrollRef}
-            className="w-full overflow-x-auto no-scrollbar px-5 flex md:justify-center transition-all scroll-smooth"
+            className="w-full overflow-x-auto no-scrollbar px-5 flex md:justify-center transition-all"
           >
             <motion.div 
               className="inline-flex flex-nowrap backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] min-w-max"

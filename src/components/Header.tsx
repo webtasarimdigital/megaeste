@@ -34,6 +34,12 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       'yuz-mezoterapi': 'facial-mesotherapy',
       'lazer-epilasyon': 'laser-hair-removal',
       'igneli-lazer-epilasyonu': 'needle-laser-epilation',
+      // Category Route Slugs
+      'kategori': 'services',
+      'sac-ekimi': 'hair-transplant',
+      'plastik-cerrahi': 'plastic-surgery',
+      'medikal-estetik': 'medical-aesthetics',
+      'epilasyon': 'epilation',
       // Corporate Slugs
       'kurumsal': 'corporate',
       'hakkimizda': 'about-us',

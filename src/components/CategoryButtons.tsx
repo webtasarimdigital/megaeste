@@ -13,28 +13,28 @@ export default function CategoryButtons({ dict, lang = 'tr' }: { dict?: any, lan
       title: dict?.hairTransplant?.title || 'Saç Ekimi', 
       icon: HairIcon,
       color: '#4f6f8f', // Solid Blue
-      href: lang === 'en' ? '/en/kategori/hair-transplant' : '/kategori/sac-ekimi'
+      href: lang === 'en' ? '/en/services/hair-transplant' : '/kategori/sac-ekimi'
     },
     { 
       id: 2, 
       title: dict?.plasticSurgery?.title || 'Plastik Cerrahi', 
       icon: BodyIcon,
       color: '#729788', // Solid Green
-      href: lang === 'en' ? '/en/kategori/plastic-surgery' : '/kategori/plastik-cerrahi'
+      href: lang === 'en' ? '/en/services/plastic-surgery' : '/kategori/plastik-cerrahi'
     },
     { 
       id: 3, 
       title: dict?.medicalAesthetics?.title || 'Medikal Estetik', 
       icon: FaceIcon,
       color: '#ad6778', // Solid Rose
-      href: lang === 'en' ? '/en/kategori/medical-aesthetics' : '/kategori/medikal-estetik'
+      href: lang === 'en' ? '/en/services/medical-aesthetics' : '/kategori/medikal-estetik'
     },
     { 
       id: 4, 
       title: dict?.epilation?.title || 'Epilasyon', 
       icon: EpilationIcon,
       color: '#9f8eab', // Solid Purple
-      href: lang === 'en' ? '/en/kategori/epilation' : '/kategori/epilasyon'
+      href: lang === 'en' ? '/en/services/epilation' : '/kategori/epilasyon'
     }
   ];
 

@@ -3,6 +3,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/en/services/:path*',
+        destination: '/en/kategori/:path*',
+      },
+      {
         source: '/en/treatments/:path*',
         destination: '/en/hizmetler/:path*',
       },
