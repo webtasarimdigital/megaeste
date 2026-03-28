@@ -73,7 +73,8 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3">
+            {/* Desktop Buttons (Hidden on mobile) */}
+            <div className="hidden lg:flex flex-row flex-wrap items-center gap-3">
               <Link 
                 href={isTr ? '/hizmetler/lazer-epilasyon' : '/en/treatments/laser-hair-removal'}
                 className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] md:text-sm"
@@ -129,6 +130,23 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
               </div>
             </div>
           </motion.div>
+
+          {/* Mobile Buttons (Hidden on desktop) */}
+          <div className="flex lg:hidden flex-col sm:flex-row flex-wrap items-stretch justify-center gap-3 w-full -mt-2">
+            <Link 
+              href={isTr ? '/hizmetler/lazer-epilasyon' : '/en/treatments/laser-hair-removal'}
+              className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] sm:text-sm"
+            >
+              {isTr ? 'Lazer Epilasyon Hizmetini İncele' : 'View Laser Epilation'} <FaArrowRight className="text-xs" />
+            </Link>
+            <Link 
+              href={isTr ? '/hizmetler/igneli-lazer-epilasyonu' : '/en/treatments/needle-laser-epilation'}
+              className="w-full sm:w-auto px-6 py-3.5 bg-white text-pink-500 border border-pink-100 font-bold rounded-xl shadow-sm hover:bg-pink-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[13px] sm:text-sm"
+            >
+              {isTr ? 'İğneli Lazer Hizmetini İncele' : 'View Needle Epilation'} <FaArrowRight className="text-xs" />
+            </Link>
+          </div>
+
         </div>
 
 
@@ -216,24 +234,25 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row flex-wrap lg:flex-nowrap items-stretch justify-center lg:justify-start gap-1.5 xl:gap-2 w-full">
+            {/* Desktop Buttons (Hidden on mobile) */}
+            <div className="hidden lg:flex flex-row flex-wrap lg:flex-nowrap items-stretch justify-start gap-1.5 xl:gap-2 w-full">
               <Link 
                 href={isTr ? '/hizmetler/dhi-sac-ekimi' : '/en/treatments/dhi-hair-transplant'}
-                className="w-full md:flex-1 px-1.5 lg:px-2 py-3 bg-[#1e3a5f] text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(30,58,95,0.3)] hover:bg-[#142845] hover:-translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[11px] lg:text-[10.5px] xl:text-[12px] text-center leading-tight min-h-[50px] whitespace-normal"
+                className="flex-1 px-1.5 lg:px-2 py-3 bg-[#1e3a5f] text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(30,58,95,0.3)] hover:bg-[#142845] hover:-translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[10.5px] xl:text-[12px] text-center leading-tight min-h-[50px] whitespace-normal"
               >
                 <span>{isTr ? 'DHI Saç Ekimi Hizmeti' : 'DHI Transplant Service'}</span>
                 <FaArrowRight className="text-[10px] shrink-0" />
               </Link>
               <Link 
                 href={isTr ? '/hizmetler/safir-sac-ekimi' : '/en/treatments/sapphire-hair-transplant'}
-                className="w-full md:flex-1 px-1.5 lg:px-2 py-3 bg-[#cca66b] text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(204,166,107,0.3)] hover:brightness-110 hover:-translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[11px] lg:text-[10.5px] xl:text-[12px] text-center leading-tight min-h-[50px] whitespace-normal"
+                className="flex-1 px-1.5 lg:px-2 py-3 bg-[#cca66b] text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(204,166,107,0.3)] hover:brightness-110 hover:-translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[10.5px] xl:text-[12px] text-center leading-tight min-h-[50px] whitespace-normal"
               >
                 <span>{isTr ? 'Safir FUE Hizmeti' : 'Sapphire FUE Service'}</span>
                 <FaArrowRight className="text-[10px] shrink-0" />
               </Link>
               <Link 
                 href={isTr ? '/hizmetler/sac-mezoterapisi' : '/en/treatments/hair-mesotherapy'}
-                className="w-full md:flex-1 px-1.5 lg:px-2 py-3 bg-white text-[#1e3a5f] border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[11px] lg:text-[10.5px] xl:text-[12px] text-center leading-tight min-h-[50px] whitespace-normal"
+                className="flex-1 px-1.5 lg:px-2 py-3 bg-white text-[#1e3a5f] border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[10.5px] xl:text-[12px] text-center leading-tight min-h-[50px] whitespace-normal"
               >
                 <span>{isTr ? 'Saç Mezoterapisi Hizmeti' : 'Mesotherapy Service'}</span>
                 <FaArrowRight className="text-[10px] shrink-0" />
@@ -283,6 +302,32 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
               />
             </div>
           </motion.div>
+
+          {/* Mobile Buttons (Hidden on desktop) - Shown below the images on mobile */}
+          <div className="flex lg:hidden flex-col sm:flex-row flex-wrap items-stretch justify-center gap-2 w-full mt-2">
+            <Link 
+              href={isTr ? '/hizmetler/dhi-sac-ekimi' : '/en/treatments/dhi-hair-transplant'}
+              className="w-full px-4 py-3.5 bg-[#1e3a5f] text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(30,58,95,0.3)] hover:bg-[#142845] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[12.5px] text-center leading-tight min-h-[50px] whitespace-normal"
+            >
+              <span>{isTr ? 'DHI Saç Ekimi Hizmeti' : 'DHI Transplant Service'}</span>
+              <FaArrowRight className="text-[11px] shrink-0" />
+            </Link>
+            <Link 
+              href={isTr ? '/hizmetler/safir-sac-ekimi' : '/en/treatments/sapphire-hair-transplant'}
+              className="w-full px-4 py-3.5 bg-[#cca66b] text-white font-bold rounded-xl shadow-[0_8px_20px_rgba(204,166,107,0.3)] hover:brightness-110 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[12.5px] text-center leading-tight min-h-[50px] whitespace-normal"
+            >
+              <span>{isTr ? 'Safir FUE Hizmeti' : 'Sapphire FUE Service'}</span>
+              <FaArrowRight className="text-[11px] shrink-0" />
+            </Link>
+            <Link 
+              href={isTr ? '/hizmetler/sac-mezoterapisi' : '/en/treatments/hair-mesotherapy'}
+              className="w-full px-4 py-3.5 bg-white text-[#1e3a5f] border border-gray-200 font-bold rounded-xl shadow-sm hover:bg-gray-50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-[12.5px] text-center leading-tight min-h-[50px] whitespace-normal"
+            >
+              <span>{isTr ? 'Saç Mezoterapisi Hizmeti' : 'Mesotherapy Service'}</span>
+              <FaArrowRight className="text-[11px] shrink-0" />
+            </Link>
+          </div>
+
         </div>
 
       </div>

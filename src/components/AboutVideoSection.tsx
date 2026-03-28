@@ -7,10 +7,11 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
   const [playingState, setPlayingState] = React.useState<{ [key: number]: boolean }>({});
 
   React.useEffect(() => {
-    // Auto-play on mobile when component mounts
-    if (window.innerWidth < 1024) {
+    // Native autoPlay attribute is used on <video> tags to bypass iOS/Android strict policies.
+    // For desktop (>= 1024px), we pause them initially to maintain the hover-to-play behavior.
+    if (window.innerWidth >= 1024) {
       Object.values(videoRefs.current).forEach(video => {
-        if (video) video.play().catch(() => {});
+        if (video) video.pause();
       });
     }
   }, []);
@@ -102,6 +103,7 @@ export default function AboutVideoSection({ lang = 'tr' }: { lang?: string }) {
                 muted
                 loop
                 playsInline
+                autoPlay
                 onPlay={() => setPlayingState(prev => ({ ...prev, [video.id]: true }))}
                 onPause={() => setPlayingState(prev => ({ ...prev, [video.id]: false }))}
                 className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
