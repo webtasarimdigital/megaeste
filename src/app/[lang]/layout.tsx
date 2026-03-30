@@ -51,6 +51,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={params.lang}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MedicalOrganization",
+              "name": "Megaeste",
+              "url": "https://megaeste.com",
+              "logo": "https://megaeste.com/images/megaeste-favicon.png",
+              "description": "Türkiye'nin Lider Estetik Kliniği | Megaeste",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Istanbul",
+                "addressCountry": "TR"
+              }
+            })
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
