@@ -206,18 +206,18 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       </div>
 
       {/* Mobile Header - Sticky */}
-      <div className="lg:hidden w-full sticky top-0 z-[100] flex flex-col bg-white shadow-md border-b-[3px] border-[#427bdf]/10">
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100 min-h-[56px] relative overflow-visible">
+      <div className="lg:hidden w-full sticky top-0 z-[100] flex flex-col bg-[#0d2244] shadow-md border-b-[3px] border-[#cca66b]/20">
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10 min-h-[56px] relative overflow-visible">
           
           {/* Logo on Left */}
-          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10 w-[170px] sm:w-[190px]">
+          <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10 w-[150px] sm:w-[170px]">
             <Image 
-              src="/images/megaeste-mobile-header.png" 
+              src="/images/megaeste-logo-png.png" 
               alt="Megaeste Logo" 
               width={180} 
               height={56} 
               priority 
-              className="w-full h-auto object-contain object-left"
+              className="w-full h-auto object-contain object-left drop-shadow-md"
             />
           </Link>
           
@@ -226,7 +226,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
             <div className="relative">
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center space-x-2 text-[#1e3a5f] font-bold text-[12px] sm:text-[13px] leading-none h-full group py-3"
+                className="flex items-center space-x-2 text-white font-bold text-[12px] sm:text-[13px] leading-none h-full group py-3"
               >
                 <img 
                   src={`/images/flags/${lang === 'tr' ? 'tr.svg' : 'gb.svg'}`} 
@@ -270,7 +270,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           <div className="flex items-center z-10">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-              className="flex items-center justify-center text-[34px] sm:text-4xl text-[#1e3a5f] hover:text-[#cca66b] transition-colors h-full"
+              className="flex items-center justify-center text-[34px] sm:text-4xl text-white hover:text-[#cca66b] transition-colors h-full"
             >
               <FiMenu />
             </button>

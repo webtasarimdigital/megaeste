@@ -211,9 +211,12 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="w-full bg-transparent py-5 border-t border-white/10">
+      <div className="w-full bg-transparent py-5 border-t border-white/10 flex flex-col items-center gap-2">
         <p className="text-center text-white text-[13px] font-medium tracking-wide">
           {f.copyright || (lang === 'en' ? '© 2026 MegaEste Aesthetic and Plastic Surgery. All Rights Reserved.' : '© 2026 MegaEste Estetik ve Plastik Cerrahi. Tüm Hakları Saklıdır.')}
+        </p>
+        <p className="text-center text-white/50 text-[11px] font-medium tracking-wider">
+          {lang === 'en' ? 'Website Last Update Date: 30.03.2026 22:32' : 'Web Site Son Güncelleme Tarihi: 30.03.2026 22:32'}
         </p>
       </div>
       </div>

@@ -21,6 +21,9 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
   return {
     title: dict.seo?.title || "Megaeste Estetik ve Plastik Cerrahi",
     description: dict.seo?.description || "Türkiye'nin Lider Estetik Kliniği | Megaeste",
+    verification: {
+      google: "ncYF4MwgFhI-28Hfoduy5EYDbFk5OJbmeG6wcSZFHlE",
+    },
     icons: {
       icon: '/images/megaeste-favicon.png',
       shortcut: '/images/megaeste-favicon.png',
