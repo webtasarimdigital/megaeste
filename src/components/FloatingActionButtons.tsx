@@ -38,7 +38,8 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
       name: formData.get('name'),
       phone: formData.get('phone'),
       email: formData.get('email') || '',
-      message: 'Yüzen butondan hızlı randevu talebi.',
+      department: formData.get('subject'),
+      message: formData.get('message'),
     };
 
     try {
@@ -132,8 +133,34 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
               type="email" 
               name="email"
               placeholder={isTr ? "E-posta Adresiniz" : "Email Address"}
-              className="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800"
+              className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800"
             />
+          </div>
+
+          <div className="relative">
+            <select 
+              name="subject"
+              required
+              className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800 cursor-pointer"
+              defaultValue=""
+            >
+              <option value="" disabled>{isTr ? "Konu Seçiniz" : "Select Subject"}</option>
+              <option value="Saç Ekimi">{isTr ? "Saç Ekimi" : "Hair Transplant"}</option>
+              <option value="Plastik Cerrahi">{isTr ? "Plastik Cerrahi" : "Plastic Surgery"}</option>
+              <option value="Medikal Estetik">{isTr ? "Medikal Estetik" : "Medical Aesthetics"}</option>
+              <option value="Fiyat Bilgisi">{isTr ? "Fiyat Bilgisi" : "Price Info"}</option>
+              <option value="Diğer">{isTr ? "Diğer" : "Other"}</option>
+            </select>
+          </div>
+
+          <div className="relative">
+            <textarea 
+              name="message"
+              required
+              placeholder={isTr ? "Mesajınız / Notunuz" : "Your Message"}
+              rows={2}
+              className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800 resize-none"
+            ></textarea>
           </div>
           
           <button 
