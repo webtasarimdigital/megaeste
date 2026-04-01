@@ -22,6 +22,50 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
     };
   }, [isFormOpen]);
 
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      formType: 'Yüzen Buton Hızlı Randevu Formu',
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email') || '',
+      message: 'Yüzen butondan hızlı randevu talebi.',
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        setTimeout(() => {
+            setIsFormOpen(false);
+            setSuccess(false);
+        }, 3000);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        const err = await res.json();
+        setError(err.error || 'Bir hata oluştu.');
+      }
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Bir hata oluştu.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const isTr = lang === 'tr';
 
   return (
@@ -47,7 +91,7 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
           </button>
         </div>
         
-        <form className="p-5 flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="p-5 flex flex-col gap-4">
           <p className="text-[13px] text-gray-500 mb-2 leading-relaxed font-medium">
             {isTr 
               ? 'Lütfen bilgilerinizi bırakın, uzman ekibimiz sizi en kısa sürede arasın.' 
@@ -60,6 +104,7 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
             </div>
             <input 
               type="text" 
+              name="name"
               placeholder={isTr ? "Adınız Soyadınız" : "Full Name"}
               className="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800"
               required
@@ -72,6 +117,7 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
             </div>
             <input 
               type="tel" 
+              name="phone"
               placeholder={isTr ? "Telefon Numaranız" : "Phone Number"}
               className="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800"
               required
@@ -84,17 +130,22 @@ export default function FloatingActionButtons({ lang = 'tr' }: { lang?: string }
             </div>
             <input 
               type="email" 
+              name="email"
               placeholder={isTr ? "E-posta Adresiniz" : "Email Address"}
               className="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-[13.5px] outline-none focus:border-[#427bdf] focus:bg-white transition-all shadow-sm text-gray-800"
             />
           </div>
           
           <button 
-            type="button" 
-            className="w-full mt-2 bg-[#cca66b] text-white font-bold py-3 rounded-lg text-[14px] hover:bg-[#b58f53] hover:shadow-lg transition-all active:scale-[0.98]"
+            type="submit" 
+            disabled={loading || success}
+            className="w-full mt-2 bg-[#cca66b] text-white font-bold py-3 rounded-lg text-[14px] hover:bg-[#b58f53] hover:shadow-lg transition-all active:scale-[0.98] disabled:bg-gray-400 disabled:shadow-none disabled:active:scale-100"
           >
-            {isTr ? 'GÖNDER' : 'SEND'}
+            {loading ? (isTr ? 'GÖNDERİLİYOR...' : 'SENDING...') : (success ? (isTr ? 'BAŞARILI' : 'SUCCESS') : (isTr ? 'GÖNDER' : 'SEND'))}
           </button>
+          
+          {success && <p className="text-green-600 font-medium text-xs text-center mt-1">{isTr ? 'Talebiniz alındı, teşekkürler.' : 'Request received, thank you.'}</p>}
+          {error && <p className="text-red-600 font-medium text-xs text-center mt-1">{error}</p>}
         </form>
       </div>
 

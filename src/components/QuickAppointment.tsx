@@ -1,9 +1,47 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function QuickAppointment({ lang = 'tr' }: { lang?: string }) {
   const isEn = lang === 'en';
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      formType: 'Randevu Formu',
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        const err = await res.json();
+        setError(err.error || 'Bir hata oluştu.');
+      }
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Bir hata oluştu.');
+    } finally {
+      setLoading(false);
+    }
+  };
   
   return (
     <section className="w-full bg-[#3a4f66] py-16 md:py-24 relative overflow-hidden" id="quick-appointment">
@@ -50,38 +88,49 @@ export default function QuickAppointment({ lang = 'tr' }: { lang?: string }) {
              </div>
 
              {/* Right Form Card */}
-             <div className="bg-[#243447] rounded-[2rem] p-6 sm:p-8 md:p-12 shadow-2xl relative w-full lg:max-w-[540px] lg:ml-auto border border-white/5">
-                <form className="flex flex-col space-y-5">
+              <div className="bg-[#243447] rounded-[2rem] p-6 sm:p-8 md:p-12 shadow-2xl relative w-full lg:max-w-[540px] lg:ml-auto border border-white/5">
+                <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <input 
                         type="text" 
+                        name="name"
+                        required
                         placeholder={isEn ? "Full Name" : "İsim Soyisim"} 
                         className="w-full bg-[#1a2533] text-white placeholder-gray-500 border border-transparent focus:border-[#cca66b] focus:bg-[#1a2533]/90 rounded-xl px-5 py-4 outline-none transition-all text-sm font-medium"
                       />
                       <input 
                         type="tel" 
+                        name="phone"
+                        required
                         placeholder={isEn ? "Phone Number" : "Telefon Numarası"} 
                         className="w-full bg-[#1a2533] text-white placeholder-gray-500 border border-transparent focus:border-[#cca66b] focus:bg-[#1a2533]/90 rounded-xl px-5 py-4 outline-none transition-all text-sm font-medium"
                       />
                    </div>
                    <textarea 
+                      name="message"
+                      required
                       placeholder={isEn ? "Your Message" : "Mesajınız"} 
                       rows={4}
                       className="w-full bg-[#1a2533] text-white placeholder-gray-500 border border-transparent focus:border-[#cca66b] focus:bg-[#1a2533]/90 rounded-xl px-5 py-4 outline-none transition-all text-sm font-medium resize-none"
                    ></textarea>
                    <div className="flex justify-center lg:justify-end pt-4">
                       <button 
-                        type="button" 
-                        className="bg-[#cca66b] hover:bg-[#b8955d] text-white font-bold tracking-widest text-[13px] uppercase px-8 py-4 rounded-xl flex items-center transition-all duration-300 group shadow-[0_4px_20px_rgba(204,166,107,0.3)] hover:shadow-[0_4px_25px_rgba(204,166,107,0.5)] transform hover:-translate-y-1"
+                        type="submit" 
+                        disabled={loading}
+                        className="bg-[#cca66b] hover:bg-[#b8955d] text-white font-bold tracking-widest text-[13px] uppercase px-8 py-4 rounded-xl flex items-center transition-all duration-300 group shadow-[0_4px_20px_rgba(204,166,107,0.3)] hover:shadow-[0_4px_25px_rgba(204,166,107,0.5)] transform hover:-translate-y-1 disabled:bg-gray-500 disabled:shadow-none disabled:transform-none disabled:cursor-not-allowed"
                       >
-                         <span>{isEn ? 'Create Appointment' : 'Randevu Oluştur'}</span>
-                         <svg className="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                         </svg>
+                         <span>{loading ? (isEn ? 'Sending...' : 'Gönderiliyor...') : (isEn ? 'Create Appointment' : 'Randevu Oluştur')}</span>
+                         {!loading && (
+                           <svg className="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                           </svg>
+                         )}
                       </button>
                    </div>
+                   {success && <p className="text-green-400 font-medium text-sm text-center">{isEn ? 'Message sent successfully!' : 'Mesajınız başarıyla gönderildi!'}</p>}
+                   {error && <p className="text-red-400 font-medium text-sm text-center">{error}</p>}
                 </form>
-             </div>
+              </div>
              
           </div>
        </div>

@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
@@ -12,6 +12,46 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
   const desc = isTr 
     ? 'Uzman hekimlerimizden randevu almak veya aklınıza takılan soruları sormak için aşağıdaki iletişim kanallarından bize rahatlıkla ulaşabilirsiniz.'
     : 'You can easily reach us through the contact channels below to book an appointment with our expert physicians or ask any questions you have.';
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      formType: 'Ana İletişim Formu',
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        const err = await res.json();
+        setError(err.error || 'Bir hata oluştu.');
+      }
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Bir hata oluştu.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-full bg-[#f8fafc] pb-10">
@@ -68,12 +108,14 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
               </p>
             </div>
             
-            <form className="flex flex-col space-y-6">
+            <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="w-full flex flex-col space-y-2">
                   <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider pl-1">{isTr ? 'AD SOYAD' : 'FULL NAME'}</label>
                   <input 
                     type="text" 
+                    name="name"
+                    required
                     placeholder={isTr ? "İsminiz" : "Your Name"}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#427bdf] transition-colors text-[14.5px] text-[#2c4c7c] bg-gray-50 focus:bg-white"
                   />
@@ -82,6 +124,8 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
                   <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider pl-1">{isTr ? 'E-POSTA' : 'EMAIL'}</label>
                   <input 
                     type="email" 
+                    name="email"
+                    required
                     placeholder={isTr ? "E-posta adresiniz" : "Email Address"}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#427bdf] transition-colors text-[14.5px] text-[#2c4c7c] bg-gray-50 focus:bg-white"
                   />
@@ -92,6 +136,8 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
                 <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider pl-1">{isTr ? 'TELEFON' : 'PHONE'}</label>
                 <input 
                   type="tel" 
+                  name="phone"
+                  required
                   placeholder={isTr ? "Telefon numaranız" : "Phone Number"}
                   className="w-full border border-gray-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#427bdf] transition-colors text-[14.5px] text-[#2c4c7c] bg-gray-50 focus:bg-white"
                 />
@@ -100,6 +146,8 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
               <div className="w-full flex flex-col space-y-2">
                 <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider pl-1">{isTr ? 'MESAJINIZ' : 'MESSAGE'}</label>
                 <textarea 
+                  name="message"
+                  required
                   rows={4}
                   placeholder={isTr ? "Size nasıl yardımcı olabiliriz?" : "How can we help you?"}
                   className="w-full border border-gray-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#427bdf] transition-colors text-[14.5px] text-[#2c4c7c] bg-gray-50 focus:bg-white resize-none"
@@ -107,11 +155,15 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
               </div>
 
               <button 
-                type="button" 
-                className="w-full md:w-auto self-start mt-2 bg-[#cca66b] text-white font-bold py-3.5 px-8 md:px-12 rounded-xl text-[14px] hover:bg-[#b58f53] hover:shadow-lg transition-all active:scale-[0.98]"
+                type="submit" 
+                disabled={loading}
+                className="w-full md:w-auto self-start mt-2 bg-[#cca66b] text-white font-bold py-3.5 px-8 md:px-12 rounded-xl text-[14px] hover:bg-[#b58f53] hover:shadow-lg transition-all active:scale-[0.98] disabled:bg-gray-400 disabled:shadow-none disabled:active:scale-100 disabled:cursor-not-allowed"
               >
-                {isTr ? 'GÖNDER' : 'SEND'}
+                {loading ? (isTr ? 'GÖNDERİLİYOR...' : 'SENDING...') : (isTr ? 'GÖNDER' : 'SEND')}
               </button>
+              
+              {success && <p className="text-green-600 font-medium text-sm mt-2">{isTr ? 'Mesajınız başarıyla gönderildi!' : 'Message sent successfully!'}</p>}
+              {error && <p className="text-red-600 font-medium text-sm mt-2">{error}</p>}
             </form>
           </div>
 

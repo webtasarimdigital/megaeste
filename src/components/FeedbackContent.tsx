@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
 
-import React from 'react';
+import React, { useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function FeedbackContent({ dict, lang }: { dict?: any, lang: string }) {
@@ -15,6 +15,47 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
   const formDesc = isTr 
     ? 'Dilek, şikayet, öneri veya teşekkür mesajlarınızı aşağıdaki form aracılığıyla ilgili departmanımıza anında iletebilirsiniz. En kısa sürede dönüş sağlanacaktır.'
     : 'You can instantly forward your wishes, complaints, suggestions or thank you messages to our relevant department via the form below. We will get back to you as soon as possible.';
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      formType: 'Görüş ve Öneriler Formu',
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      department: formData.get('subject'), // Mapping 'subject' to department
+      message: formData.get('message'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        const err = await res.json();
+        setError(err.error || 'Bir hata oluştu.');
+      }
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Bir hata oluştu.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-full bg-[#f8fafc] pb-24">
@@ -58,12 +99,14 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
               </p>
             </div>
           
-          <form className="flex flex-col space-y-6">
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="w-full flex flex-col space-y-2">
                 <label className="text-[11px] font-bold text-[#8fa0b3] uppercase tracking-wider pl-1">{isTr ? 'AD SOYAD' : 'FULL NAME'}</label>
                 <input 
                   type="text" 
+                  name="name"
+                  required
                   placeholder={isTr ? 'İsminiz' : 'Your name'} 
                   className="w-full border-2 border-[#eef2f6] rounded-[14px] px-5 py-4 outline-none focus:border-[#427bdf] transition-colors text-[15px] text-[#2c4c7c] bg-[#f8fafc] focus:bg-white placeholder-[#aab8c5]"
                 />
@@ -72,6 +115,8 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
                 <label className="text-[11px] font-bold text-[#8fa0b3] uppercase tracking-wider pl-1">{isTr ? 'E-POSTA' : 'EMAIL'}</label>
                 <input 
                   type="email" 
+                  name="email"
+                  required
                   placeholder={isTr ? 'E-posta adresiniz' : 'Your email address'} 
                   className="w-full border-2 border-[#eef2f6] rounded-[14px] px-5 py-4 outline-none focus:border-[#427bdf] transition-colors text-[15px] text-[#2c4c7c] bg-[#f8fafc] focus:bg-white placeholder-[#aab8c5]"
                 />
@@ -83,13 +128,15 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
                 <label className="text-[11px] font-bold text-[#8fa0b3] uppercase tracking-wider pl-1">{isTr ? 'TELEFON' : 'PHONE'}</label>
                 <input 
                   type="tel" 
+                  name="phone"
+                  required
                   placeholder={isTr ? 'Telefon numaranız' : 'Your phone number'} 
                   className="w-full border-2 border-[#eef2f6] rounded-[14px] px-5 py-4 outline-none focus:border-[#427bdf] transition-colors text-[15px] text-[#2c4c7c] bg-[#f8fafc] focus:bg-white placeholder-[#aab8c5]"
                 />
               </div>
               <div className="w-full md:w-1/2 flex flex-col space-y-2">
                 <label className="text-[11px] font-bold text-[#8fa0b3] uppercase tracking-wider pl-1">{isTr ? 'KONU' : 'SUBJECT'}</label>
-                <select className="w-full border-2 border-[#eef2f6] rounded-[14px] px-5 py-4 outline-none focus:border-[#427bdf] transition-colors text-[15px] text-[#2c4c7c] bg-[#f8fafc] focus:bg-white appearance-none cursor-pointer">
+                <select name="subject" className="w-full border-2 border-[#eef2f6] rounded-[14px] px-5 py-4 outline-none focus:border-[#427bdf] transition-colors text-[15px] text-[#2c4c7c] bg-[#f8fafc] focus:bg-white appearance-none cursor-pointer">
                   <option value="gorus">{isTr ? 'Görüş & Öneri' : 'Feedback & Suggestion'}</option>
                   <option value="sikayet">{isTr ? 'Şikayet' : 'Complaint'}</option>
                   <option value="tesekkur">{isTr ? 'Teşekkür' : 'Thank You'}</option>
@@ -101,19 +148,24 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
             <div className="w-full flex flex-col space-y-2">
               <label className="text-[11px] font-bold text-[#8fa0b3] uppercase tracking-wider pl-1">{isTr ? 'MESAJINIZ' : 'YOUR MESSAGE'}</label>
               <textarea 
+                name="message"
+                required
                 placeholder={isTr ? 'Lütfen düşüncelerinizi detaylıca belirtin...' : 'Please specify your thoughts in detail...'} 
                 rows={5}
                 className="w-full border-2 border-[#eef2f6] rounded-[14px] px-5 py-4 outline-none focus:border-[#427bdf] transition-colors text-[15px] text-[#2c4c7c] bg-[#f8fafc] focus:bg-white placeholder-[#aab8c5] resize-y"
               ></textarea>
             </div>
             
-            <div className="pt-4 flex justify-center lg:justify-start">
+            <div className="pt-4 flex flex-col items-center lg:items-start">
               <button 
-                type="button" 
-                className="bg-[#cca66b] text-[#0d2244] font-black py-4 px-14 rounded-[12px] hover:bg-[#b58f53] hover:text-white transition-all duration-300 text-[16px] tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                type="submit" 
+                disabled={loading}
+                className="bg-[#cca66b] text-[#0d2244] font-black py-4 px-14 rounded-[12px] hover:bg-[#b58f53] hover:text-white transition-all duration-300 text-[16px] tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:bg-gray-400 disabled:shadow-none disabled:active:scale-100 disabled:cursor-not-allowed"
               >
-                {isTr ? 'GÖNDER' : 'SEND'}
+                {loading ? (isTr ? 'GÖNDERİLİYOR...' : 'SENDING...') : (isTr ? 'GÖNDER' : 'SEND')}
               </button>
+              {success && <p className="text-green-600 font-medium text-sm mt-4 text-center lg:text-left">{isTr ? 'Geri bildiriminiz başarıyla iletildi. Katkılarınız için teşekkür ederiz!' : 'Your feedback was successfully submitted. Thank you!'}</p>}
+              {error && <p className="text-red-600 font-medium text-sm mt-4 text-center lg:text-left">{error}</p>}
             </div>
           </form>
           </div>

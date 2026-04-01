@@ -89,13 +89,31 @@ export default function Chatbot() {
     setIsTyping(true);
 
     // Simulate AI thinking delay based on message length roughly, but fast
-    setTimeout(() => {
+    setTimeout(async () => {
       let botResponse = DEFAULT_RESPONSE;
       
       // Basic smart keyword matching
       for (const responseDef of RESPONSES) {
         if (responseDef.regex.test(currentInput)) {
           botResponse = responseDef.text;
+
+          // If phone number regex matched, send to API
+          if (responseDef.regex.source.includes('0-9')) {
+             try {
+                await fetch('/api/contact', {
+                  method: 'POST',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify({
+                     formType: 'Chatbot İletişim Formu',
+                     name: 'Bilinmiyor (Chatbot üzerinden)',
+                     phone: currentInput.match(/[0-9]{10}|05[0-9]{9}/i)?.[0] || 'Bulunamadı',
+                     message: 'Kullanıcı chatbottan numarasını bıraktı. Tam Mesaj: ' + currentInput
+                  })
+                });
+             } catch (e) {
+                 console.error(e);
+             }
+          }
           break;
         }
       }
