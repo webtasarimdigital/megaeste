@@ -4,8 +4,15 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ServicesSection({ dict }: { dict?: any }) {
+  const params = useParams();
+  const lang = (params?.lang as string) || 'tr';
+  const prefix = lang === 'tr' ? '' : `/${lang}`;
+  
   const content = dict?.services || {
     title: 'HİZMETLERİMİZ',
     subtitle: 'Size Özel Gelişmiş Tedavi Yöntemleri'
@@ -13,7 +20,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
 
   const nav = dict?.nav || {
     hairTransplant: { title: "Saç Ekimi Tedavileri", items: ["DHI Saç Ekimi", "Safir Saç Ekimi"] },
-    plasticSurgery: { title: "Plastik Cerrahi", items: ["Burun Estetiği", "Meme Estetiği"] },
+    plasticSurgery: { title: "Plastik Cerrahi", items: ["Meme Estetiği", "Burun Estetiği", "Yüz Estetiği", "Vücut Estetiği"] },
     medicalAesthetics: { title: "Medikal Estetik", items: ["Cilt Bakımı", "Mezoterapi"] },
     epilation: { title: "Epilasyon", items: ["Lazer Epilasyon", "İğneli Lazer"] }
   };
@@ -25,28 +32,32 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       title: nav.hairTransplant.title,
       items: nav.hairTransplant.items,
       image: "/images/services/dhi-sac-ekimi.png",
-      delay: "300"
+      delay: "300",
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler/dhi-sac-ekimi' : 'treatments/dhi-hair-transplant'}`
     },
     {
       id: 2,
       title: nav.plasticSurgery.title,
       items: nav.plasticSurgery.items,
-      image: "/images/services/burun-estetigi.png",
-      delay: "400"
+      image: "/images/services/kapali-burun-ameliyati.png",
+      delay: "400",
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler/kapali-burun-ameliyati' : 'treatments/closed-rhinoplasty'}`
     },
     {
       id: 3,
       title: nav.medicalAesthetics.title,
       items: nav.medicalAesthetics.items,
       image: "/images/services/medikal-cilt-bakimi.png",
-      delay: "500"
+      delay: "500",
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler/medikal-cilt-bakimi' : 'treatments/medical-skin-care'}`
     },
     {
       id: 4,
       title: nav.epilation.title,
       items: nav.epilation.items,
       image: "/images/services/lazer-epilasyon.png",
-      delay: "600"
+      delay: "600",
+      href: `${prefix}/${lang === 'tr' ? 'hizmetler/lazer-epilasyon' : 'treatments/laser-hair-removal'}`
     }
   ];
 
@@ -67,9 +78,10 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       {/* Cards Grid */}
       <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
         {servicesData.map((service) => (
-          <div 
+          <Link 
             key={service.id} 
-            className="group relative h-[450px] xl:h-[500px] rounded-3xl overflow-hidden shadow-lg cursor-pointer transform transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl"
+            href={service.href}
+            className="group relative h-[450px] xl:h-[500px] rounded-3xl overflow-hidden shadow-lg cursor-pointer transform transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl flex flex-col"
           >
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -116,7 +128,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
                </div>
 
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
