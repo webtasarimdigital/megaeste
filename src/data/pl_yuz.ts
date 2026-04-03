@@ -3,7 +3,7 @@ import { Service } from './services';
 export const yuzServices: Service[] = [
   {
     id: 'kapali-burun-ameliyati',
-    image: '/images/services/burun-estetigi.png',
+    image: '/images/megaeste-burun-gorsel.jpg',
     tr: {
       title: 'Kapalı Burun Estetiği',
       slug: 'kapali-burun-ameliyati',

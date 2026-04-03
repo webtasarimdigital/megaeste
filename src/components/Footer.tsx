@@ -8,29 +8,19 @@ import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, footerDict?: any, lang?: string }) {
   // Gracefully handle different dictionary structures passed from different layouts
-  const nav = dict?.header?.nav || dict?.nav || dict || {};
   const f = dict?.footer || footerDict || {};
 
   const prefix = lang === 'tr' ? '' : '/en';
-  const treatmentPath = lang === 'tr' ? 'hizmetler' : 'treatments';
 
-  const serviceCategories = [
-    { items: nav.hairTransplant?.items || [], slugs: ['dhi-sac-ekimi', 'safir-sac-ekimi', 'sac-mezoterapisi'], enSlugs: ['dhi-hair-transplant', 'sapphire-hair-transplant', 'hair-mesotherapy'] },
-    { items: nav.plasticSurgery?.items || [], slugs: ['burun-estetigi', 'goz-kapagi-estetigi', 'meme-estetigi'], enSlugs: ['rhinoplasty', 'blepharoplasty', 'breast-aesthetics'] },
-    { items: nav.medicalAesthetics?.items || [], slugs: ['medikal-cilt-bakimi', 'yuz-mezoterapi'], enSlugs: ['medical-skin-care', 'facial-mesotherapy'] },
-    { items: nav.epilation?.items || [], slugs: ['lazer-epilasyon', 'igneli-lazer-epilasyonu'], enSlugs: ['laser-hair-removal', 'needle-laser-epilation'] },
+  const servicesCol1 = [
+    { label: lang === 'tr' ? 'Saç Ekimi' : 'Hair Transplant', href: `${prefix}/kategori/sac-ekimi` },
+    { label: lang === 'tr' ? 'Plastik Cerrahi' : 'Plastic Surgery', href: `${prefix}/kategori/plastik-cerrahi` },
   ];
-
-  const allServices = serviceCategories.flatMap(cat => 
-    cat.items.map((label: string, i: number) => ({
-      label,
-      href: `${prefix}/${treatmentPath}/${lang === 'tr' ? cat.slugs[i] : cat.enSlugs[i]}`
-    }))
-  );
-
-  const half = Math.ceil(allServices.length / 2);
-  const servicesCol1 = allServices.slice(0, half);
-  const servicesCol2 = allServices.slice(half);
+  
+  const servicesCol2 = [
+    { label: lang === 'tr' ? 'Medikal Estetik' : 'Medical Aesthetics', href: `${prefix}/kategori/medikal-estetik` },
+    { label: lang === 'tr' ? 'Epilasyon' : 'Epilation', href: `${prefix}/kategori/epilasyon` },
+  ];
 
   const corporateLinks = [
     { label: lang === 'en' ? 'Home' : 'Ana Sayfa', href: lang === 'en' ? '/en' : '/' },

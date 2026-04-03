@@ -97,9 +97,19 @@ export default async function CategoryPage({ params }: Props) {
   // Find all services matching this category slug across both languages
   // This ensures that if a user switches language from /tr/kategori/sac-ekimi to /en/kategori/sac-ekimi,
   // it still correctly maps to the services.
-  const servicesList = services.filter((s: any) => 
-    s.tr.categorySlug === slug || s.en.categorySlug === slug
-  );
+  const servicesList = services.filter((s: any) => {
+    if (slug === 'plastik-cerrahi' || slug === 'plastic-surgery') {
+      const plasticSubCategories = [
+        'meme-estetigi', 'yuz-estetigi', 'vucut-estetigi', 'burun-estetigi', 
+        'nose-aesthetics', 'body-aesthetics', 'breast-aesthetics', 'facial-aesthetics'
+      ];
+      return plasticSubCategories.includes(s.tr.categorySlug) || 
+             plasticSubCategories.includes(s.en.categorySlug) || 
+             s.tr.categorySlug === slug || 
+             s.en.categorySlug === slug;
+    }
+    return s.tr.categorySlug === slug || s.en.categorySlug === slug;
+  });
 
   const categoryTitle = (dict?.header?.nav as any)?.[categoryProps.titleKey]?.title || 'Kategori';
   const subTitle = dict?.services?.subtitle || 'Size Özel Gelişmiş Tedavi Yöntemleri';

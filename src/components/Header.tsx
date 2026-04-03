@@ -40,6 +40,19 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       'plastik-cerrahi': 'plastic-surgery',
       'medikal-estetik': 'medical-aesthetics',
       'epilasyon': 'epilation',
+      // New Plastics Slugs
+      'meme-asimetrisi-duzeltme': 'breast-asymmetry-correction',
+      'meme-onarimi': 'breast-reconstruction',
+      'meme-kucultme': 'breast-reduction',
+      'kapali-burun-ameliyati': 'closed-rhinoplasty',
+      'yuz-germe': 'face-lift',
+      'boyun-germe': 'neck-lift',
+      'kulak-estetigi': 'ear-aesthetics',
+      'alin-germe-kas-kaldirma': 'brow-forehead-lift',
+      'karin-germe': 'tummy-tuck',
+      'kol-bacak-germe': 'arm-leg-lift',
+      'liposuction': 'liposuction',
+      'yag-enjeksiyonu': 'fat-injection',
       // Corporate Slugs
       'kurumsal': 'corporate',
       'hakkimizda': 'about-us',
@@ -77,7 +90,8 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
 
   const prefix = lang === 'tr' ? '' : `/${lang}`;
 
-  const navData = dict?.nav ? [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const navData: any[] = dict?.nav ? [
     { title: lang === 'tr' ? 'ANA SAYFA' : 'HOME', href: lang === 'tr' ? '/' : `/${lang}`, items: [] },
     { title: dict.nav.corporate, href: '#', items: [
       { label: lang === 'tr' ? 'Hakkımızda' : 'About Us', href: `${prefix}/${lang === 'tr' ? 'kurumsal/hakkimizda' : 'corporate/about-us'}` },
@@ -88,10 +102,41 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
       label: item,
       href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['dhi-sac-ekimi', 'safir-sac-ekimi', 'sac-mezoterapisi'][i] : ['dhi-hair-transplant', 'sapphire-hair-transplant', 'hair-mesotherapy'][i]}`,
     }))},
-    { title: dict.nav.plasticSurgery?.title || '', href: '#', items: (dict.nav.plasticSurgery?.items || []).map((item: string, i: number) => ({
-      label: item,
-      href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['burun-estetigi', 'goz-kapagi-estetigi', 'meme-estetigi'][i] : ['rhinoplasty', 'blepharoplasty', 'breast-aesthetics'][i]}`,
-    }))},
+    { title: dict.nav.plasticSurgery?.title || '', href: '#', subcategories: [
+      {
+        title: lang === 'tr' ? 'Meme Estetiği' : 'Breast Aesthetics',
+        items: [
+          { label: lang === 'tr' ? 'Meme Asimetrisi Düzeltme' : 'Breast Asymmetry Correction', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'meme-asimetrisi-duzeltme' : 'breast-asymmetry-correction'}` },
+          { label: lang === 'tr' ? 'Meme Onarımı' : 'Breast Reconstruction', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'meme-onarimi' : 'breast-reconstruction'}` },
+          { label: lang === 'tr' ? 'Meme Küçültme' : 'Breast Reduction', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'meme-kucultme' : 'breast-reduction'}` }
+        ]
+      },
+      {
+        title: lang === 'tr' ? 'Burun Estetiği' : 'Nose Aesthetics',
+        items: [
+          { label: lang === 'tr' ? 'Kapalı Burun Ameliyatı' : 'Closed Rhinoplasty', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'kapali-burun-ameliyati' : 'closed-rhinoplasty'}` }
+        ]
+      },
+      {
+        title: lang === 'tr' ? 'Yüz Estetiği' : 'Facial Aesthetics',
+        items: [
+          { label: lang === 'tr' ? 'Yüz Germe' : 'Face Lift', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'yuz-germe' : 'face-lift'}` },
+          { label: lang === 'tr' ? 'Boyun Germe' : 'Neck Lift', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'boyun-germe' : 'neck-lift'}` },
+          { label: lang === 'tr' ? 'Kulak Estetiği' : 'Ear Aesthetics', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'kulak-estetigi' : 'ear-aesthetics'}` },
+          { label: lang === 'tr' ? 'Göz Kapağı Estetiği' : 'Eyelid Surgery', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'goz-kapagi-estetigi' : 'blepharoplasty'}` },
+          { label: lang === 'tr' ? 'Alın Germe - Kaş Kaldırma' : 'Brow & Forehead Lift', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'alin-germe-kas-kaldirma' : 'brow-forehead-lift'}` }
+        ]
+      },
+      {
+        title: lang === 'tr' ? 'Vücut Estetiği' : 'Body Aesthetics',
+        items: [
+          { label: lang === 'tr' ? 'Karın Germe' : 'Tummy Tuck', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'karin-germe' : 'tummy-tuck'}` },
+          { label: lang === 'tr' ? 'Kol ve Bacak Germe' : 'Arm & Leg Lift', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'kol-bacak-germe' : 'arm-leg-lift'}` },
+          { label: lang === 'tr' ? 'Liposuction' : 'Liposuction', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'liposuction' : 'liposuction'}` },
+          { label: lang === 'tr' ? 'Yağ Enjeksiyonu' : 'Fat Injection', href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? 'yag-enjeksiyonu' : 'fat-injection'}` }
+        ]
+      }
+    ], items: [] },
     { title: dict.nav.medicalAesthetics?.title || '', href: '#', items: (dict.nav.medicalAesthetics?.items || []).map((item: string, i: number) => ({
       label: item,
       href: `${prefix}/${lang === 'tr' ? 'hizmetler' : 'treatments'}/${lang === 'tr' ? ['medikal-cilt-bakimi', 'yuz-mezoterapi'][i] : ['medical-skin-care', 'facial-mesotherapy'][i]}`,
@@ -169,21 +214,49 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                 <div key={index} className="relative group flex items-center h-full">
                   <Link href={category.href || '#'} className="flex items-center h-[56px] hover:text-[#427bdf] transition-colors cursor-pointer relative z-40 whitespace-nowrap">
                     {category.title}
-                    {category.items.length > 0 && <span className="ml-1.5 text-[9px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
+                    {(category.items?.length > 0 || (category.subcategories && category.subcategories.length > 0)) && <span className="ml-1.5 text-[9px] text-gray-400 group-hover:rotate-180 transition-transform">▼</span>}
                   </Link>
 
                   {/* Dropdown Menu */}
-                  {category.items.length > 0 && (
+                  {(category.items?.length > 0 || (category.subcategories && category.subcategories.length > 0)) && (
                     <div className="absolute top-[56px] left-0 bg-white shadow-xl rounded-b-lg border-t-2 border-[#cca66b] min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
-                      <ul className="py-1 flex flex-col">
-                        {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
-                          <li key={subIdx}>
-                            <Link href={subItem.href} className="block px-6 py-3 text-[13px] text-[#4f6f8f] hover:text-[#cca66b] hover:bg-gray-50 hover:pl-7 capitalize font-medium transition-all duration-300 border-b border-gray-50 last:border-none">
-                              {subItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                      {!category.subcategories && (
+                        <ul className="py-1 flex flex-col">
+                          {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
+                            <li key={subIdx}>
+                              <Link href={subItem.href} className="block px-6 py-3 text-[13px] text-[#4f6f8f] hover:text-[#cca66b] hover:bg-gray-50 hover:pl-7 capitalize font-medium transition-all duration-300 border-b border-gray-50 last:border-none">
+                                {subItem.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      
+                      {category.subcategories && (
+                        <ul className="py-1 flex flex-col">
+                          {category.subcategories.map((subcat: { title: string; items: { label: string; href: string }[] }, catIdx: number) => (
+                            <li key={catIdx} className="relative group/sub">
+                              <div className="flex items-center justify-between px-6 py-3 text-[13px] text-[#4f6f8f] hover:text-[#cca66b] hover:bg-gray-50 hover:pl-7 capitalize font-medium transition-all duration-300 border-b border-gray-50 last:border-none cursor-pointer">
+                                {subcat.title}
+                                <span className="text-[9px] -rotate-90">▼</span>
+                              </div>
+                              
+                              {/* 3rd Level Flyout */}
+                              <div className="absolute top-0 left-full ml-0 bg-white shadow-xl rounded-lg border-t-2 border-[#cca66b] min-w-[260px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform translate-x-3 group-hover/sub:translate-x-0 z-[110]">
+                                <ul className="py-1 flex flex-col">
+                                  {subcat.items.map((subItem: { label: string; href: string }, subIdx: number) => (
+                                    <li key={subIdx}>
+                                      <Link href={subItem.href} className="block px-6 py-3 text-[13px] text-[#4f6f8f] hover:text-[#cca66b] hover:bg-gray-50 hover:pl-7 capitalize font-medium transition-all duration-300 border-b border-gray-50 last:border-none">
+                                        {subItem.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   )}
                 </div>
@@ -310,7 +383,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-2 pb-28 flex flex-col no-scrollbar">
                 
                 {navData.map((category, index) => {
-                  const hasItems = category.items.length > 0;
+                  const hasItems = category.items?.length > 0 || (category.subcategories && category.subcategories.length > 0);
                   const isLastItem = index === navData.length - 1;
                   return (
                     <div key={index} className={`flex flex-col ${!isLastItem ? 'border-b border-white/10' : ''}`}>
@@ -342,7 +415,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                             className="overflow-hidden"
                           >
                             <div className="flex flex-col border-l-2 border-white/5 ml-3 mb-2 mt-1">
-                              {category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
+                              {!category.subcategories && category.items.map((subItem: { label: string; href: string }, subIdx: number) => (
                                 <Link 
                                   key={subIdx} 
                                   href={subItem.href}
@@ -351,6 +424,27 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
                                 >
                                   {subItem.label}
                                 </Link>
+                              ))}
+
+                              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                              {category.subcategories && category.subcategories.map((subcat: any, catIdx: number) => (
+                                <div key={catIdx} className="mb-4 last:mb-0 mt-2">
+                                  <div className="py-1.5 px-4 text-[11px] font-bold text-[#cca66b] uppercase tracking-wider opacity-80 border-b border-white/5 mb-1">
+                                    {subcat.title}
+                                  </div>
+                                  <div className="flex flex-col pl-2">
+                                    {subcat.items.map((subItem: { label: string; href: string }, subIdx: number) => (
+                                      <Link 
+                                        key={subIdx} 
+                                        href={subItem.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="py-2 px-4 text-[12px] font-semibold tracking-wide text-gray-400 hover:text-white transition-colors"
+                                      >
+                                        {subItem.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
                               ))}
                             </div>
                           </motion.div>
