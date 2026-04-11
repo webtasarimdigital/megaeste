@@ -3,7 +3,7 @@ import { Service } from './services';
 export const memeServices: Service[] = [
   {
     id: 'meme-asimetrisi-duzeltme',
-    image: '/images/services/meme-asimetrisi.png',
+    image: '/images/services/meme-asimetrisi.webp',
     tr: {
       title: 'Meme Asimetrisi Düzeltme',
       slug: 'meme-asimetrisi-duzeltme',
@@ -59,7 +59,7 @@ export const memeServices: Service[] = [
   },
   {
     id: 'meme-onarimi',
-    image: '/images/services/meme-onarimi.png',
+    image: '/images/services/meme-onarimi.webp',
     tr: {
       title: 'Meme Onarımı (Rekonstrüksiyon)',
       slug: 'meme-onarimi',
@@ -115,7 +115,7 @@ export const memeServices: Service[] = [
   },
   {
     id: 'meme-kucultme',
-    image: '/images/services/meme-kucultme.png',
+    image: '/images/services/meme-kucultme.webp',
     tr: {
       title: 'Meme Küçültme (Redüksiyon)',
       slug: 'meme-kucultme',

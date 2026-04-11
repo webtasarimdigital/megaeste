@@ -31,7 +31,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 'sac-ekimi-sonrasi-bakim',
-    image: '/images/services/dhi-sac-ekimi.png',
+    image: '/images/services/dhi-sac-ekimi.webp',
     date: '2026-03-28',
     tr: {
       title: 'Saç Ekimi Sonrası Bakım Rehberi: İlk 30 Günlük Süreç',
@@ -49,7 +49,7 @@ Saç ekimi işleminin ardından gelen **ilk 72 saat**, ekilen greftlerin dokuya 
 2. **Uyku Pozisyonu:** Ödem (şişlik) oluşumunu minimale indirmek ve ekim bölgesini yastığa sürtmekten korumak için baş 45 derece dik açıda, özel boyun yastıkları ile sırt üstü yatılmalıdır.
 3. **Sıvı Tüketimi ve Dinlenme:** Bol su tüketmek, anestezi ilaçlarının vücuttan daha hızlı atılmasına yardımcı olur. İlk 3 gün efor gerektiren aktivitelerden tamamen kaçınılmalıdır.
 
-![Saç Ekimi](/images/services/safir-sac-ekimi.png)
+![Saç Ekimi](/images/services/safir-sac-ekimi.webp)
 
 ## İlk Yıkama Prosedürü (3. Gün)
 
@@ -97,7 +97,7 @@ The **first 72 hours** following the procedure is the most sensitive and critica
 2. **Sleeping Position:** To minimize edema (swelling) and prevent the transplant area from rubbing against the pillow, you should sleep on your back with your head elevated at a 45-degree angle using special neck pillows.
 3. **Fluid Consumption and Rest:** Drinking plenty of water helps flush the anesthesia drugs out of the body faster. Activities requiring exertion should be strictly avoided for the first 3 days.
 
-![Hair Transplant Operation](/images/services/safir-sac-ekimi.png)
+![Hair Transplant Operation](/images/services/safir-sac-ekimi.webp)
 
 ## First Wash Procedure (Day 3)
 
@@ -132,7 +132,7 @@ High-quality blood circulation is essential for the follicles to be nourished. S
   },
   {
     id: 'dhi-ve-fue-farklari',
-    image: '/images/services/safir-sac-ekimi.png',
+    image: '/images/services/safir-sac-ekimi.webp',
     date: '2026-03-22',
     tr: {
       title: 'FUE ve DHI Saç Ekimi: Hangi Teknik Sizin İçin Daha Uygun?',
@@ -150,7 +150,7 @@ FUE yöntemi, modern saç ekiminin altın standardı kabul edilir. Bu teknikte d
 * **Geniş Alan Kapatma:** Tek bir seansta 4000-5000 üzeri yüksek greft alımı ve ekimi yapılabildiği için, geniş saçsız açıklığı olan hastalarda en ideal seçenektir.
 * **Maliyet Efektifliği:** DHI tekniğine göre operasyon süresi daha kısadır, bu sebeple maliyet açısından genelde daha ulaşılabilirdir.
 
-![FUE ve DHI Farkı](/images/services/sac-mezoterapisi.png)
+![FUE ve DHI Farkı](/images/services/sac-mezoterapisi.webp)
 
 ## DHI Tekniği (Doğrudan Saç Ekimi) Nedir?
 
@@ -189,7 +189,7 @@ The FUE method is considered the gold standard of modern hair transplantation. I
 * **Large Area Coverage:** Because it allows for a high graft extraction and transplantation exceeding 4000-5000 in a single session, it is the most ideal option for patients with large balding areas.
 * **Cost-Effectiveness:** The operation duration is shorter compared to the DHI technique, making it generally more accessible in terms of cost.
 
-![FUE and DHI Magic](/images/services/sac-mezoterapisi.png)
+![FUE and DHI Magic](/images/services/sac-mezoterapisi.webp)
 
 ## What is the DHI Technique (Direct Hair Implantation)?
 
@@ -215,7 +215,7 @@ After a free hair analysis consultation, Megaeste experts will examine your hair
   },
   {
     id: 'sac-dokulmesi-nedenleri',
-    image: '/images/services/sac-mezoterapisi.png',
+    image: '/images/services/sac-mezoterapisi.webp',
     date: '2026-03-10',
     tr: {
       title: 'Saç Dökülmesinin Klinik Nedenleri ve Modern Tıp Çözümleri',

@@ -3,7 +3,7 @@ import { Service } from './services';
 export const vucutServices: Service[] = [
   {
     id: 'karin-germe',
-    image: '/images/services/karin-germe.png',
+    image: '/images/services/karin-germe.webp',
     tr: {
       title: 'Karın Germe (Abdominoplasti)',
       slug: 'karin-germe',
@@ -54,7 +54,7 @@ export const vucutServices: Service[] = [
   },
   {
     id: 'kol-bacak-germe',
-    image: '/images/services/kol-bacak-germe.png',
+    image: '/images/services/kol-bacak-germe.webp',
     tr: {
       title: 'Kol ve Bacak Germe (Lifting)',
       slug: 'kol-bacak-germe',
@@ -105,7 +105,7 @@ export const vucutServices: Service[] = [
   },
   {
     id: 'liposuction',
-    image: '/images/services/liposuction.png',
+    image: '/images/services/liposuction.webp',
     tr: {
       title: 'Liposuction (Yağ Emilimi)',
       slug: 'liposuction',
@@ -156,7 +156,7 @@ export const vucutServices: Service[] = [
   },
   {
     id: 'yag-enjeksiyonu',
-    image: '/images/services/yag-enjeksiyonu.png',
+    image: '/images/services/yag-enjeksiyonu.webp',
     tr: {
       title: 'Yağ Enjeksiyonu (Otojen Transfer)',
       slug: 'yag-enjeksiyonu',

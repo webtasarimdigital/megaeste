@@ -157,7 +157,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           {/* Logo on the left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex-shrink-0 flex items-center pr-8 hover:opacity-90 transition-opacity">
             <Image 
-              src="/images/megaestelogo-web-header.png" 
+              src="/images/megaestelogo-web-header.webp" 
               alt="Megaeste Logo" 
               width={260} 
               height={80} 
@@ -285,7 +285,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
           {/* Logo on Left */}
           <Link href={lang === 'tr' ? '/' : `/${lang}`} className="flex items-center flex-shrink-0 h-full py-1 relative z-10 w-[150px] sm:w-[170px]">
             <Image 
-              src="/images/megaeste-logo-png.png" 
+              src="/images/megaeste-logo-png.webp" 
               alt="Megaeste Logo" 
               width={180} 
               height={56} 
@@ -364,7 +364,7 @@ export default function Header({ dict, lang = 'tr' }: { dict?: any, lang?: strin
               <div className="flex justify-between items-center px-4 py-4 border-b border-white/10">
                 <Link href={lang === 'tr' ? '/' : `/${lang}`} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center">
                   <Image 
-                    src="/images/megaeste-logo-png.png" 
+                    src="/images/megaeste-logo-png.webp" 
                     alt="Megaeste Logo" 
                     width={140} 
                     height={45} 

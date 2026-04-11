@@ -25,9 +25,9 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
       google: "ncYF4MwgFhI-28Hfoduy5EYDbFk5OJbmeG6wcSZFHlE",
     },
     icons: {
-      icon: '/images/megaeste-favicon.png',
-      shortcut: '/images/megaeste-favicon.png',
-      apple: '/images/megaeste-favicon.png',
+      icon: '/images/megaeste-favicon.webp',
+      shortcut: '/images/megaeste-favicon.webp',
+      apple: '/images/megaeste-favicon.webp',
     },
     alternates: {
       languages: {
@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "@type": "MedicalOrganization",
               "name": "Megaeste",
               "url": "https://megaeste.com",
-              "logo": "https://megaeste.com/images/megaeste-favicon.png",
+              "logo": "https://megaeste.com/images/megaeste-favicon.webp",
               "description": "Türkiye'nin Lider Estetik Kliniği | Megaeste",
               "address": {
                 "@type": "PostalAddress",

@@ -85,7 +85,7 @@ export default function Footer({ dict, footerDict, lang = 'tr' }: { dict?: any, 
           <div className="col-span-2 lg:col-span-3 flex flex-col items-start order-1 lg:order-1">
             <a href={lang === 'tr' ? '/' : '/en'} className="mb-6 inline-block hover:opacity-80 transition-opacity">
               <Image
-                src="/images/megaeste-logo-png.png"
+                src="/images/megaeste-logo-png.webp"
                 alt="Megaeste Logo"
                 width={220}
                 height={70}

@@ -22,7 +22,7 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
           
           <Image 
-            src="/images/services/medikal-cilt-bakimi.png" 
+            src="/images/services/medikal-cilt-bakimi.webp" 
             alt="Megaeste Hakkımızda" 
             fill
             className="object-cover object-top opacity-50 blur-[2px] transform scale-105"
@@ -94,18 +94,18 @@ export default function AboutUsContent({ dict, lang }: { dict: any, lang: string
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="space-y-4 pt-12">
                 <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg border border-white">
-                  <Image src="/images/services/burun-estetigi.png" alt="Plastik Cerrahi" fill className="object-cover" />
+                  <Image src="/images/services/burun-estetigi.webp" alt="Plastik Cerrahi" fill className="object-cover" />
                 </div>
                 <div className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg border border-white">
-                  <Image src="/images/services/lazer-epilasyon.png" alt="Lazer Epilasyon" fill className="object-cover" />
+                  <Image src="/images/services/lazer-epilasyon.webp" alt="Lazer Epilasyon" fill className="object-cover" />
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg border border-white">
-                  <Image src="/images/services/medikal-cilt-bakimi.png" alt="Medikal Estetik" fill className="object-cover" />
+                  <Image src="/images/services/medikal-cilt-bakimi.webp" alt="Medikal Estetik" fill className="object-cover" />
                 </div>
                 <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg border border-white">
-                  <Image src="/images/services/dhi-sac-ekimi.png" alt="Saç Ekimi" fill className="object-cover object-top" />
+                  <Image src="/images/services/dhi-sac-ekimi.webp" alt="Saç Ekimi" fill className="object-cover object-top" />
                 </div>
               </div>
             </div>

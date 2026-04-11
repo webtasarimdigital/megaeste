@@ -31,7 +31,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       id: 1,
       title: nav.hairTransplant.title,
       items: nav.hairTransplant.items,
-      image: "/images/services/dhi-sac-ekimi.png",
+      image: "/images/services/dhi-sac-ekimi.webp",
       delay: "300",
       href: `${prefix}/${lang === 'tr' ? 'hizmetler/dhi-sac-ekimi' : 'treatments/dhi-hair-transplant'}`
     },
@@ -39,7 +39,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       id: 2,
       title: nav.plasticSurgery.title,
       items: nav.plasticSurgery.items,
-      image: "/images/services/kapali-burun-ameliyati.png",
+      image: "/images/services/kapali-burun-ameliyati.webp",
       delay: "400",
       href: `${prefix}/${lang === 'tr' ? 'hizmetler/kapali-burun-ameliyati' : 'treatments/closed-rhinoplasty'}`
     },
@@ -47,7 +47,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       id: 3,
       title: nav.medicalAesthetics.title,
       items: nav.medicalAesthetics.items,
-      image: "/images/services/medikal-cilt-bakimi.png",
+      image: "/images/services/medikal-cilt-bakimi.webp",
       delay: "500",
       href: `${prefix}/${lang === 'tr' ? 'hizmetler/medikal-cilt-bakimi' : 'treatments/medical-skin-care'}`
     },
@@ -55,7 +55,7 @@ export default function ServicesSection({ dict }: { dict?: any }) {
       id: 4,
       title: nav.epilation.title,
       items: nav.epilation.items,
-      image: "/images/services/lazer-epilasyon.png",
+      image: "/images/services/lazer-epilasyon.webp",
       delay: "600",
       href: `${prefix}/${lang === 'tr' ? 'hizmetler/lazer-epilasyon' : 'treatments/laser-hair-removal'}`
     }

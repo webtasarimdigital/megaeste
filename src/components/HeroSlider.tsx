@@ -9,8 +9,8 @@ import Autoplay from 'embla-carousel-autoplay';
 const slides = [
   {
     id: 1,
-    desktopImg: '/images/slider_desktop_1.png',
-    mobileImg: '/images/slider_mobile_1.png',
+    desktopImg: '/images/slider_desktop_1.webp',
+    mobileImg: '/images/slider_mobile_1.webp',
     badge: 'SAÇ EKİMİ VE ESTETİK',
     titleLine1: 'İTALYAN ÇİZGİSİ',
     titleLine2: 'ESTETİĞİ İLE',
@@ -19,8 +19,8 @@ const slides = [
   },
   {
     id: 2,
-    desktopImg: '/images/slider_desktop_2.png',
-    mobileImg: '/images/slider_mobile_2.png',
+    desktopImg: '/images/slider_desktop_2.webp',
+    mobileImg: '/images/slider_mobile_2.webp',
     badge: 'MEGAESTE KALİTESİ',
     titleLine1: 'MODERN TEKNOLOJİ',
     titleLine2: 'VE UZMAN EKİPLE',

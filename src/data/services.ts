@@ -37,7 +37,7 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 'dhi-sac-ekimi',
-    image: '/images/services/dhi-sac-klinik.png',
+    image: '/images/services/dhi-sac-klinik.webp',
     tr: {
       title: 'DHI Saç Ekimi',
       slug: 'dhi-sac-ekimi',
@@ -50,7 +50,7 @@ export const services: Service[] = [
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">DHI (Direct Hair Implantation - Doğrudan Saç Ekimi), günümüzde uygulanabilen en gelişmiş ve en konforlu saç ekimi yöntemidir. Geleneksel yöntemlerde kafa derisinde önce bistüri ile kesiler (kanallar) açılırken, DHI tekniğinde özel medikal kalemler <strong class="text-[#4f6f8f]">"Choi Pen"</strong> kullanılır. Kökler kalemin içine yerleştirilir ve tek bir hamlede hem kanal açılır hem de saç kökü deriye yerleştirilir.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/gorselsac.jfif" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="DHI Saç Ekimi Choi Pen" />
+  <img src="/images/gorselsac.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="DHI Saç Ekimi Choi Pen" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Tıraşsız Saç Ektirme Konforu</span>
   </div>
@@ -147,7 +147,7 @@ At Megaeste clinic, DHI hair transplant is performed by our experienced speciali
   },
   {
     id: 'safir-sac-ekimi',
-    image: '/images/services/safir-sac-klinik.png',
+    image: '/images/services/safir-sac-klinik.webp',
     tr: {
       title: 'Safir Saç Ekimi',
       slug: 'safir-sac-ekimi',
@@ -160,7 +160,7 @@ At Megaeste clinic, DHI hair transplant is performed by our experienced speciali
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Safir FUE saç ekimi, dünyaca kabul görmüş FUE tekniğinin inovasyonla buluşmuş en teknolojik halidir. Klasik FUE yönteminde saç köklerinin yerleştirileceği delikler (kanallar) çelik 'slayt' bistürilerle açılırken; Safir FUE'de bu işlem değerli bir maden olan <strong class="text-[#4f6f8f]">Safir Taşından</strong> elde edilen, pürüzsüz ve antibakteriyel uçlarla yapılır.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/safir-sac-ekimi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Safir Uçlu Saç Ekimi" />
+  <img src="/images/services/safir-sac-ekimi.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Safir Uçlu Saç Ekimi" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Dokulara Saygılı Teknoloji</span>
   </div>
@@ -256,7 +256,7 @@ At Megaeste clinic, sapphire hair transplant is performed with FDA-approved equi
   },
   {
     id: 'sac-mezoterapisi',
-    image: '/images/services/sac-mezoterapisi-klinik.png',
+    image: '/images/services/sac-mezoterapisi-klinik.webp',
     tr: {
       title: 'Saç Mezoterapisi',
       slug: 'sac-mezoterapisi',
@@ -269,7 +269,7 @@ At Megaeste clinic, sapphire hair transplant is performed with FDA-approved equi
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Saç dökülmesinin en büyük sebebi kafa derisinin altındaki kan dolaşımının yavaşlaması ve köklerin vitaminsiz kalıp "uyku evresine" geçmesidir. Saç mezoterapisi, tamamen FDA onaylı; Biotin, Çinko, B vitamini kompleksi, Kalsiyum, Magnezyum, Büyüme Faktörleri (Growth Factor) ve amino asitlerden oluşan sihirli bir kokteylin mikro iğnelerle doğrudan saç folikülünün kalbine enjekte edilmesidir.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/sac-mezoterapisi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Saç Mezoterapisi Uygulaması" />
+  <img src="/images/services/sac-mezoterapisi.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Saç Mezoterapisi Uygulaması" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Cansız Saçlarınız Yeniden Dirilecek</span>
   </div>
@@ -365,7 +365,7 @@ The hair mesotherapy protocol applied at Megaeste clinic is carried out with coc
   ...vucutServices,
   {
     id: 'medikal-cilt-bakimi',
-    image: '/images/services/medikal-cilt-bakimi-klinik.png',
+    image: '/images/services/medikal-cilt-bakimi-klinik.webp',
     tr: {
       title: 'Medikal Cilt Bakımı',
       slug: 'medikal-cilt-bakimi',
@@ -378,7 +378,7 @@ The hair mesotherapy protocol applied at Megaeste clinic is carried out with coc
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Medikal cilt bakımı, evde uygulanan günlük rutinlerin çok ötesinde, dermokozmetik ürünler ve ileri teknoloji cihazlar kullanılarak cildin en derin katmanlarına kadar inen profesyonel bir tedavi sistemidir. Ciltteki ölü hücrelerin arındırılması, tıkanmış gözeneklerin temizlenmesi, akne ve siyah noktaların tedavisi, nem oranının ve kolajen üretiminin artırılması hedeflenir.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/medikal-cilt-bakimi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Medikal Cilt Bakımı" />
+  <img src="/images/services/medikal-cilt-bakimi.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Medikal Cilt Bakımı" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Cildinizin Işıltısını Geri Kazanın</span>
   </div>
@@ -484,7 +484,7 @@ At Megaeste clinic, medical skin care is applied under the supervision of expert
   },
   {
     id: 'yuz-mezoterapi',
-    image: '/images/services/yuz-mezoterapi-klinik.png',
+    image: '/images/services/yuz-mezoterapi-klinik.webp',
     tr: {
       title: 'Yüz Mezoterapi',
       slug: 'yuz-mezoterapi',
@@ -497,7 +497,7 @@ At Megaeste clinic, medical skin care is applied under the supervision of expert
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Kullandığınız en pahalı kremler bile cilt bariyerini aşıp alt tabakalara (dermise) ulaşamaz. Yüz mezoterapisi (Mezolifting), cildin ihtiyaç duyduğu A, C, E vitaminleri, amino asitler, somon DNA, antioksidanlar ve saf hyalüronik asitten oluşan mucizevi kokteyllerin mikro çok ince iğnelerle doğrudan cilt altına enjekte edilmesi işlemidir. Bu sayede dokular derinlemesine uyarılır ve kolajen sentezi patlaması yaşanır.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/yuz-mezoterapi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Yüz Mezoterapisi" />
+  <img src="/images/services/yuz-mezoterapi.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Yüz Mezoterapisi" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Cildinizdeki Yıllara Meydan Okuyun</span>
   </div>
@@ -590,7 +590,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'lazer-epilasyon',
-    image: '/images/services/lazer-epilasyon-klinik.png',
+    image: '/images/services/lazer-epilasyon-klinik.webp',
     tr: {
       title: 'Lazer Epilasyon',
       slug: 'lazer-epilasyon',
@@ -603,7 +603,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Lazer epilasyon, istenmeyen tüylerden kalıcı olarak kurtulmayı sağlayan, FDA onaylı en güvenilir medikal estetik prosedürlerinden biridir. Yoğunlaştırılmış ışık demetleri (lazer), kıl köklerindeki melanin (renk veren madde) tarafından emilir. Emilen bu ışık enerjisi ısı enerjisine dönüşerek kıl folikülünü (kökünü) yapısal olarak tahrip eder ve o kökten bir daha tüy çıkmasını engeller.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/lazer-epilasyon.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Lazer Epilasyon Nedir" />
+  <img src="/images/services/lazer-epilasyon.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Lazer Epilasyon Nedir" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Pürüzsüz Bir Cilde Adım Atın</span>
   </div>
@@ -667,7 +667,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">Laser hair removal is one of the most reliable FDA-approved medical aesthetic procedures for getting rid of unwanted hair permanently. Concentrated light beams (lasers) are absorbed by melanin (the pigment) in the hair roots. The absorbed light energy turns to heat, structurally destroying the hair follicle and preventing future hair growth from that root.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/lazer-epilasyon.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Laser Hair Removal" />
+  <img src="/images/services/lazer-epilasyon.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="Laser Hair Removal" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Step Into Smooth Skin</span>
   </div>
@@ -703,7 +703,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
   },
   {
     id: 'igneli-lazer-epilasyonu',
-    image: '/images/services/igneli-lazer-klinik.png',
+    image: '/images/services/igneli-lazer-klinik.webp',
     tr: {
       title: 'İğneli Lazer Epilasyonu',
       slug: 'igneli-lazer-epilasyonu',
@@ -716,7 +716,7 @@ At Megaeste clinic, facial mesotherapy is applied with FDA-approved products by 
 <p class="mb-8 opacity-90 leading-relaxed text-gray-700 text-[15px] md:text-base">İğneli epilasyon, 100 yılı aşkın süredir uygulanan ve Amerikan Gıda ve İlaç Dairesi (FDA) tarafından "%100 Kalıcı Tüy Yok Etme" sertifikasına sahip tek epilasyon yöntemidir. İşlemde saç teli kadar ince, tek kullanımlık steril altın yalıtkanlı iğnelerle kıl köküne girilir ve köke hafif bir elektrik/radyofrekans akımı verilerek kıl hücresi tamamen tahrip edilir.</p>
 
 <div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden my-10 shadow-xl group">
-  <img src="/images/services/igneli-lazer-epilasyon.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="İğneli Lazer Epilasyon" />
+  <img src="/images/services/igneli-lazer-epilasyon.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms]" alt="İğneli Lazer Epilasyon" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
     <span class="text-white font-bold text-lg tracking-wide uppercase">Beyaz ve Sarı Tüylere Kesin Çözüm</span>
   </div>

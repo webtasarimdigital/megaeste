@@ -32,7 +32,7 @@ export default function AboutSection({ dict, lang = 'tr' }: { dict?: any, lang?:
           {/* Floating Aesthetic Element */}
           <div className="absolute bottom-10 right-0 w-48 h-48 xl:w-64 xl:h-64 rounded-full border-[12px] border-white shadow-xl overflow-hidden z-20 translate-x-4 translate-y-8">
             <img 
-              src="/images/services/medikal-cilt-bakimi.png"
+              src="/images/services/medikal-cilt-bakimi.webp"
               alt="Megaeste Cilt ve Medikal"
               className="w-full h-full object-cover"
             />

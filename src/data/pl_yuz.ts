@@ -3,7 +3,7 @@ import { Service } from './services';
 export const yuzServices: Service[] = [
   {
     id: 'kapali-burun-ameliyati',
-    image: '/images/megaeste-burun-gorsel.jpg',
+    image: '/images/megaeste-burun-gorsel.webp',
     tr: {
       title: 'Kapalı Burun Estetiği',
       slug: 'kapali-burun-ameliyati',
@@ -59,7 +59,7 @@ export const yuzServices: Service[] = [
   },
   {
     id: 'yuz-germe',
-    image: '/images/services/yuz-germe.png',
+    image: '/images/services/yuz-germe.webp',
     tr: {
       title: 'Yüz Germe (Face Lift)',
       slug: 'yuz-germe',
@@ -115,7 +115,7 @@ export const yuzServices: Service[] = [
   },
   {
     id: 'boyun-germe',
-    image: '/images/services/boyun-germe.png',
+    image: '/images/services/boyun-germe.webp',
     tr: {
       title: 'Boyun Germe',
       slug: 'boyun-germe',
@@ -166,7 +166,7 @@ export const yuzServices: Service[] = [
   },
   {
     id: 'kulak-estetigi',
-    image: '/images/services/kulak-estetigi.png',
+    image: '/images/services/kulak-estetigi.webp',
     tr: {
       title: 'Kulak Estetiği (Otoplasti)',
       slug: 'kulak-estetigi',
@@ -217,7 +217,7 @@ export const yuzServices: Service[] = [
   },
   {
     id: 'goz-kapagi-estetigi',
-    image: '/images/services/goz-kapagi-klinik.png',
+    image: '/images/services/goz-kapagi-klinik.webp',
     tr: {
       title: 'Göz Kapağı Estetiği (Blefaroplasti)',
       slug: 'goz-kapagi-estetigi',
@@ -268,7 +268,7 @@ export const yuzServices: Service[] = [
   },
   {
     id: 'alin-germe-kas-kaldirma',
-    image: '/images/services/alin-germe-kas-kaldirma.png',
+    image: '/images/services/alin-germe-kas-kaldirma.webp',
     tr: {
       title: 'Alın Germe - Kaş Kaldırma',
       slug: 'alin-germe-kas-kaldirma',

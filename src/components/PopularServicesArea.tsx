@@ -104,7 +104,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             {/* Main Image */}
             <div className="absolute top-4 right-0 w-[65%] h-[55%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.1)] border-4 border-white group bg-gray-100">
               <Image 
-                src="/images/services/pop_epi_main.png" 
+                src="/images/services/pop_epi_main.webp" 
                 alt="Lazer Epilasyon"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -114,7 +114,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             {/* Sub Image (Overlapping bottom left) */}
             <div className="absolute bottom-4 left-0 w-[55%] h-[45%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] border-4 border-white group bg-gray-100">
               <Image 
-                src="/images/services/pop_epi_sub.png" 
+                src="/images/services/pop_epi_sub.webp" 
                 alt="Epilasyon Lazer"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -274,7 +274,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             {/* Main Image */}
             <div className="absolute top-0 right-0 w-[85%] h-[80%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white group bg-gray-100">
               <Image 
-                src="/images/services/pop_sac_main.png" 
+                src="/images/services/pop_sac_main.webp" 
                 alt="Saç Ekimi"
                 fill
                 className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -295,7 +295,7 @@ export default function PopularServicesArea({ lang = 'tr' }: { lang?: string }) 
             {/* Sub Image (Overlapping bottom left) */}
             <div className="absolute bottom-4 left-0 w-[55%] h-[45%] rounded-[2rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] border-4 border-white group bg-gray-100">
               <Image 
-                src="/images/services/pop_sac_sub.png" 
+                src="/images/services/pop_sac_sub.webp" 
                 alt="Saç Ekimi Uzman Kontrolü"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

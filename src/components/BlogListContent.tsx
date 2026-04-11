@@ -27,7 +27,7 @@ export default function BlogListContent({ posts, lang }: Props) {
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
           
           <Image 
-            src="/images/services/medikal-cilt-bakimi.png" 
+            src="/images/services/medikal-cilt-bakimi.webp" 
             alt="Megaeste Blog" 
             fill
             className="object-cover object-top opacity-50 blur-[2px] transform scale-105"

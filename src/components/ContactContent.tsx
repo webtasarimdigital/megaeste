@@ -66,7 +66,7 @@ export default function ContactContent({ dict, lang }: { dict?: any, lang: strin
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
           
           <img 
-            src="/images/megaeste-hero.jfif" 
+            src="/images/megaeste-hero.webp" 
             alt="Megaeste İletişim" 
             className="w-full h-full object-cover object-top opacity-50 blur-[2px] transform scale-105"
           />

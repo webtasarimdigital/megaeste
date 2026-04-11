@@ -34,7 +34,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                   "url": "https://megaeste.com",
                   "logo": {
                     "@type": "ImageObject",
-                    "url": "https://megaeste.com/images/megaeste-logo-png.png",
+                    "url": "https://megaeste.com/images/megaeste-logo-png.webp",
                     "width": 600,
                     "height": 184
                   },

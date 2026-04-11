@@ -62,7 +62,7 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
       {/* Hero */}
       <section className="relative w-full h-[350px] lg:h-[40vh] min-h-[350px] bg-[#0d2244] flex items-center justify-center overflow-hidden pb-8">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[url('/images/services/medikal-cilt-bakimi.png')] bg-cover bg-center bg-no-repeat opacity-40 blur-[2px] transform scale-105"></div>
+          <div className="absolute inset-0 bg-[url('/images/services/medikal-cilt-bakimi.webp')] bg-cover bg-center bg-no-repeat opacity-40 blur-[2px] transform scale-105"></div>
           <div className="absolute inset-0 bg-[#0d2244]/70 z-10 mix-blend-multiply"></div>
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0d2244] to-transparent z-20"></div>
         </div>
@@ -178,18 +178,18 @@ export default function FeedbackContent({ dict, lang }: { dict?: any, lang: stri
             <div className="relative z-10 grid grid-cols-2 gap-4 w-full px-2 md:px-6">
               <div className="space-y-4 pt-12 flex flex-col justify-end">
                 <div className="relative h-48 md:h-60 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
-                  <img src="/images/services/burun-estetigi.png" alt="Plastik Cerrahi" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                  <img src="/images/services/burun-estetigi.webp" alt="Plastik Cerrahi" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <div className="relative h-32 md:h-44 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
-                  <img src="/images/services/lazer-epilasyon.png" alt="Lazer Epilasyon" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                  <img src="/images/services/lazer-epilasyon.webp" alt="Lazer Epilasyon" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                 </div>
               </div>
               <div className="space-y-4 flex flex-col justify-start">
                 <div className="relative h-32 md:h-44 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
-                  <img src="/images/services/medikal-cilt-bakimi.png" alt="Medikal Estetik" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                  <img src="/images/services/medikal-cilt-bakimi.webp" alt="Medikal Estetik" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <div className="relative h-48 md:h-60 rounded-2xl overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.08)] border-[3px] border-white group">
-                  <img src="/images/services/dhi-sac-ekimi.png" alt="Saç Ekimi" className="absolute inset-0 w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700" />
+                  <img src="/images/services/dhi-sac-ekimi.webp" alt="Saç Ekimi" className="absolute inset-0 w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700" />
                 </div>
               </div>
             </div>

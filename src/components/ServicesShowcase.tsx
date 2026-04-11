@@ -81,7 +81,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Natural Hair Restoration' : 'Doğal Saç Restorasyonu',
       icon: PiSparkleThin,
       color: '#4f6f8f', 
-      bgImage: '/images/services/dhi-sac-ekimi.png'
+      bgImage: '/images/services/dhi-sac-ekimi.webp'
     },
     { 
       id: 'plastik-cerrahi',
@@ -90,7 +90,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Aesthetic Transformation' : 'Estetik Dönüşüm',
       icon: PiScissorsThin,
       color: '#729788', 
-      bgImage: '/images/services/burun-estetigi.png'
+      bgImage: '/images/services/burun-estetigi.webp'
     },
     { 
       id: 'medikal-estetik',
@@ -99,7 +99,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Non-Surgical Touch' : 'Ameliyatsız Dokunuş',
       icon: PiDropThin,
       color: '#ad6778', 
-      bgImage: '/images/services/medikal-cilt-bakimi.png'
+      bgImage: '/images/services/medikal-cilt-bakimi.webp'
     },
     { 
       id: 'epilasyon',
@@ -108,7 +108,7 @@ export default function ServicesShowcase({ dict, lang = 'tr' }: { dict: any; lan
       seoTitle: lang === 'en' ? 'Smooth Permanence' : 'Kalıcı Pürüzsüzlük',
       icon: PiFeatherThin,
       color: '#9f8eab', 
-      bgImage: '/images/services/lazer-epilasyon.png'
+      bgImage: '/images/services/lazer-epilasyon.webp'
     }
   ];
 

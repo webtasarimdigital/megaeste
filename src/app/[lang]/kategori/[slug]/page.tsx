@@ -15,32 +15,32 @@ type Props = {
 const categoriesMap: Record<string, any> = {
   'sac-ekimi': {
     titleKey: 'hairTransplant',
-    bgImage: '/images/services/dhi-sac-ekimi.png',
+    bgImage: '/images/services/dhi-sac-ekimi.webp',
   },
   'plastik-cerrahi': {
     titleKey: 'plasticSurgery',
-    bgImage: '/images/services/burun-estetigi.png',
+    bgImage: '/images/services/burun-estetigi.webp',
   },
   'medikal-estetik': {
     titleKey: 'medicalAesthetics',
-    bgImage: '/images/services/medikal-cilt-bakimi.png',
+    bgImage: '/images/services/medikal-cilt-bakimi.webp',
   },
   'epilasyon': {
     titleKey: 'epilation',
-    bgImage: '/images/services/lazer-epilasyon.png',
+    bgImage: '/images/services/lazer-epilasyon.webp',
   },
   // English slugs mapping
   'hair-transplant': {
     titleKey: 'hairTransplant',
-    bgImage: '/images/services/dhi-sac-ekimi.png',
+    bgImage: '/images/services/dhi-sac-ekimi.webp',
   },
   'plastic-surgery': {
     titleKey: 'plasticSurgery',
-    bgImage: '/images/services/burun-estetigi.png',
+    bgImage: '/images/services/burun-estetigi.webp',
   },
   'medical-aesthetics': {
     titleKey: 'medicalAesthetics',
-    bgImage: '/images/services/medikal-cilt-bakimi.png',
+    bgImage: '/images/services/medikal-cilt-bakimi.webp',
   },
 };
 
