@@ -72,8 +72,8 @@
   "hero": [
     {
       "id": 1,
-      "desktopImg": "/images/megaeste-hero.jfif",
-      "mobileImg": "/images/megaeste-hero.jfif",
+      "desktopImg": "/images/megaeste-hero.webp",
+      "mobileImg": "/images/megaeste-hero.webp",
       "badge": "MEGAESTE CLINIC",
       "titleLine1": "YOUR HEALTH",
       "titleLine2": "AND BEAUTY",
@@ -87,8 +87,8 @@
     },
     {
       "id": 2,
-      "desktopImg": "/images/megaeste-hero2.jfif",
-      "mobileImg": "/images/megaeste-hero2.jfif",
+      "desktopImg": "/images/megaeste-hero2.webp",
+      "mobileImg": "/images/megaeste-hero2.webp",
       "badge": "AESTHETICS AND SURGERY",
       "titleLine1": "MEET WITH",
       "titleLine2": "RELIABLE",
